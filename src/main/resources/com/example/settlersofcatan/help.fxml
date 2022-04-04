@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="718.0" maxWidth="1058.0" minHeight="600.0" minWidth="878.0" prefHeight="718.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="740.0" prefWidth="1075.0" stylesheets="@../../../styles.css">
+         <children>
+            <TabPane prefHeight="717.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Page1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1055.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-02.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="719.0" fitWidth="529.0" layoutX="528.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-03.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Page 2">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="566.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-04.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="698.0" fitWidth="529.0" layoutX="528.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-05.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Page 3">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="553.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-06.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="717.0" fitWidth="529.0" layoutX="528.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-07.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Page 4">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="529.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-08.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="708.0" fitWidth="530.0" layoutX="528.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-09.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Page 5">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-10.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="710.0" fitWidth="529.0" layoutX="529.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-11.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Page 6">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="688.0" fitWidth="546.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-12.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="738.0" fitWidth="531.0" layoutX="528.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-13.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Page 7">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="690.0" fitWidth="536.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-14.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="697.0" fitWidth="528.0" layoutX="530.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/rules/catan_base_rules_2020_200707%20(1)-15.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
