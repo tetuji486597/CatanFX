@@ -1,5 +1,17 @@
 package com.example.settlersofcatan;
 
+import java.util.ArrayList;
+
 public class Player {
-//hello
+
+    public int getCardCount(){
+
+    }
+    public ArrayList<Vertex> getBuildableVertices(){
+
+    }
+    public ArrayList<Edge> getBuildableEdges(){
+
+    }
+
 }
