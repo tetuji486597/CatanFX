@@ -3,7 +3,8 @@ package com.example.settlersofcatan;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Player {
+public class Player extends GameState{
+    int victoryPoints;
 
     Stack<ResourceCard> resourceDeck = new Stack<ResourceCard>();
     Stack<DevCard> devDeck = new Stack<DevCard>();
@@ -37,4 +38,11 @@ public class Player {
 
 
 
+    public int getVictoryPoints(){
+        return victoryPoints;
+    }
+    public int setVictoryPoints(int points){
+        victoryPoints = points;
+        return points;
+    }
 }
