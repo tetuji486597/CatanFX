@@ -24,7 +24,8 @@ public class Initialize {
                 Map.entry("Forest", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/Forest.png"))),
                 Map.entry("Hills", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/Hills.png"))),
                 Map.entry("Mountain", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/Mountain.png"))),
-                Map.entry("Pasture", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/Pasture.png")))
+                Map.entry("Pasture", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/Pasture.png"))),
+                Map.entry("Desert", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/tiles/desert.png")))
         );
 
         resourceCards = Map.ofEntries(
