@@ -16,6 +16,7 @@ public class Initialize {
     public static Map.Entry robber;
 
     public static void init() {
+        //look into relative path
         robber = Map.entry("Robber", new Image(Initialize.class.getClassLoader().getResourceAsStream("images/other/robber.png")));
 
         tiles = Map.ofEntries(
