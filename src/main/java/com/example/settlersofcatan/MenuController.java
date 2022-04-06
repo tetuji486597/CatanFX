@@ -16,13 +16,7 @@ public class MenuController {
     private Parent root;
 
     public void showHelp(ActionEvent event) throws IOException {
-        stage = new Stage();
-        root = FXMLLoader.load(getClass().getResource("help.fxml"));
-        stage.setScene(new Scene(root));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
-        stage.setResizable(false);
-        stage.show();
+        ParentPanel.helpPanel.show();
     }
 
     public void startGame(ActionEvent event) throws IOException {

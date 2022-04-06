@@ -23,7 +23,7 @@
                   <Image url="@../../../images/settlers-of-catan-logo.png" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="480.0" layoutY="272.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="121.0" stylesheets="@../../../styles.css" text="New Game">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="480.0" layoutY="272.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="121.0" stylesheets="@../../../css/styles.css" text="New Game">
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="335.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="97.0" stylesheets="@../../../styles.css" text="How To Play">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="335.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="97.0" stylesheets="@../../../css/styles.css" text="How To Play">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                      <image>

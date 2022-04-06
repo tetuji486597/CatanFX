@@ -10,7 +10,7 @@
 
 <VBox maxHeight="718.0" maxWidth="1058.0" minHeight="600.0" minWidth="878.0" prefHeight="718.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="740.0" prefWidth="1075.0" stylesheets="@../../../styles.css">
+      <AnchorPane prefHeight="740.0" prefWidth="1075.0" stylesheets="@../../../css/styles.css">
          <children>
             <TabPane prefHeight="717.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
