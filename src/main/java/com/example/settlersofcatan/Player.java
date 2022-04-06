@@ -2,7 +2,8 @@ package com.example.settlersofcatan;
 
 import java.util.ArrayList;
 
-public class Player {
+public class Player extends GameState{
+    int victoryPoints;
 
     public int getCardCount(){
         return 0;
@@ -14,4 +15,11 @@ public class Player {
         return new ArrayList<>();
     }
 
+    public int getVictoryPoints(){
+        return victoryPoints;
+    }
+    public int setVictoryPoints(int points){
+        victoryPoints = points;
+        return points;
+    }
 }
