@@ -1,6 +1,6 @@
 .button {
     -fx-font-family: "Bodoni MT", sans-serif;
-    -fx-background-color: #CE6825;
+    -fx-background-color: transparent;
 }
 .button:hover {
     -fx-font-weight: bolder;

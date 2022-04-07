@@ -1,32 +1,40 @@
 package com.example.settlersofcatan;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MenuController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
+    @FXML
+    private ComboBox<String> dropdown;
 
     public void showHelp(ActionEvent event) throws IOException {
         ParentPanel.helpPanel.show();
     }
 
     public void startGame(ActionEvent event) throws IOException {
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        String numPlayers = dropdown.getValue();
+        if(numPlayers.isEmpty()) throw new NumberFormatException();
+        System.out.println(numPlayers);
+        ParentPanel.menuPanel.hide();
+        Stage game = new Stage();
         FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("game-board.fxml"));
-        stage.setTitle("Settlers of Catan");
+        game.setTitle("Settlers of Catan");
         Scene gameScene = new Scene(gameLoader.load());
-        stage.setResizable(false);
-        stage.setScene(gameScene);
-        stage.show();
+        game.setResizable(false);
+        game.setScene(gameScene);
+        ParentPanel.setGamePanel(game);
+        ParentPanel.gamePanel.show();
+        GameState gameState = new GameState(Integer.parseInt(numPlayers));
     }
 
 }

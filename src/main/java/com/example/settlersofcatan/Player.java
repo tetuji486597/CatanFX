@@ -3,14 +3,14 @@ package com.example.settlersofcatan;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Player extends GameState{
+public class Player{
     int victoryPoints;
 
     Stack<ResourceCard> resourceDeck = new Stack<ResourceCard>();
     Stack<DevCard> devDeck = new Stack<DevCard>();
     ArrayList<Settlement> settlements = new ArrayList<Settlement>();
     ArrayList<City> cities = new ArrayList<City>();
-    int cardCount, victoryPoints;
+    int cardCount;
 
     public int getCardCount(){
         return 0;
@@ -27,7 +27,6 @@ public class Player extends GameState{
     public void stealCard(boolean Player) {
 
     }
-    public boolean
     
 
 
