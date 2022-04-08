@@ -5,12 +5,11 @@ import java.util.Stack;
 
 public class Player extends GameState{
     int victoryPoints;
-
+    int cardCount;
     Stack<ResourceCard> resourceDeck = new Stack<ResourceCard>();
     Stack<DevCard> devDeck = new Stack<DevCard>();
     ArrayList<Settlement> settlements = new ArrayList<Settlement>();
     ArrayList<City> cities = new ArrayList<City>();
-    int cardCount, victoryPoints;
 
     public int getCardCount(){
         return 0;
@@ -27,16 +26,38 @@ public class Player extends GameState{
     public void stealCard(boolean Player) {
 
     }
-    public boolean
-    
+    public boolean buyBuilding(Building) {
+        if (/*player has resources*/) {
+            /*remove resources*/
+            return true;
+            if (/*building is city*/) {
+                victoryPoints += 2;
+            }
+            if (/*building is settlement*/) {
+                victoryPoints++;
+            }
+        } else
+            return false;
+    }
 
+    public boolean buyRoad() {
 
+    }
+    public boolean buyDevCard() {
+        //add dev cards to player deck
+        // remove appropriate resources,
+        return true;
+        else
+            return false;
+    }
 
+        public boolean hasPort() {
 
+        }
 
+        public boolean isMyTurn() {
 
-
-
+        }
 
     public int getVictoryPoints(){
         return victoryPoints;
