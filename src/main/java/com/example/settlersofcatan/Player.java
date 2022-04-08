@@ -27,15 +27,6 @@ public class Player{
     public void stealCard(boolean Player) {
 
     }
-    
-
-
-
-
-
-
-
-
 
     public int getVictoryPoints(){
         return victoryPoints;
