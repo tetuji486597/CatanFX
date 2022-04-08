@@ -12,32 +12,38 @@ public class Tile {
     private boolean hasRobber;
 
     public ArrayList<Tile> getAdjacentTiles() {
+        return new ArrayList<>();
     }
 
     public ArrayList<Vertex> getAdjacentVertices() {
+        return new ArrayList<>();
     }
 
     public ArrayList<Edge> getAdjacentEdges() {
+        return new ArrayList<>();
     }
 
     public ArrayList<Player> getPlayers() {
+        return new ArrayList<>();
     }
 
     public NumberToken getToken() {
+        return numberToken;
     }
 
     public boolean hasRobber() {
+        return false;
     }
 
     public int getXCoord() { return xCoord;}
 
-    public int setXCoord(int xCoord) {this.xCoord = xCoord;}
+    public void setXCoord(int xCoord) {this.xCoord = xCoord;}
 
     public int getYCoord() { return yCoord;}
 
-    public int setYCoord(int yCoord) {this.yCoord = yCoord;}
+    public void setYCoord(int yCoord) {this.yCoord = yCoord;}
 
     public int getZCoord() { return zCoord;}
 
-    public int setZCoord(int zCoord) {this.zCoord = zCoord;}
+    public void setZCoord(int zCoord) {this.zCoord = zCoord;}
 }
