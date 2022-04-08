@@ -9,6 +9,10 @@ public class GameState{
     Random rand = new Random();
     ArrayList<Player> playerList = new ArrayList<>();
     Player currentPlayer;
+    Robber robber;
+    int robberXCoord;
+    int robberYCoord;
+    int robberZCoord;
 
     public GameState(int numPlayers) {
         this.numPlayers = numPlayers;
@@ -39,4 +43,23 @@ public class GameState{
     public Player nextPlayer(){
         return currentPlayer;
     }
+
+//    public Tile getRobberLocation(){
+//        return robber.robberLocation(Tile.getXCoord(), Tile.getYCoord(), Tile.getZCoord());
+//    }
+    public void moveRobber(){}
+
+    public ArrayList<Player>getRobberAdjacentPlayers(){
+        return new ArrayList<>();
+    }
+
+    public ArrayList<Player> checkGreaterThan7(){
+        return new ArrayList();
+    }
+
+//    public int findLongestRoad(Player){}
+//    public boolean secondRoadViolated(){}
+//    public boolean enoughCardsRequired(){}
+//    public boolean onePlayerOnShortage(){}
+//    public boolean maintainsDistanceRule(){}
 }
