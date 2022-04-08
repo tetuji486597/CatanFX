@@ -3,7 +3,7 @@ package com.example.settlersofcatan;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Player extends GameState{
+public class Player {
     int victoryPoints;
     int cardCount;
     Stack<ResourceCard> resourceDeck = new Stack<ResourceCard>();
@@ -26,37 +26,37 @@ public class Player extends GameState{
     public void stealCard(boolean Player) {
 
     }
-    public boolean buyBuilding(Building) {
-        if (/*player has resources*/) {
-            /*remove resources*/
-            return true;
-            if (/*building is city*/) {
-                victoryPoints += 2;
-            }
-            if (/*building is settlement*/) {
-                victoryPoints++;
-            }
-        } else
+    public boolean buyBuilding(ArrayList Building) {
+//        /*if (/*player has resources*/) {
+//            /*remove resources*/
+//            return true;
+//            if (/*building is city*/) {
+//                victoryPoints += 2;
+//            }
+//            if (/*building is settlement*/) {
+//                victoryPoints++;
+//            }
+//        } else
             return false;
     }
 
     public boolean buyRoad() {
-
+        return true;
     }
     public boolean buyDevCard() {
         //add dev cards to player deck
         // remove appropriate resources,
         return true;
-        else
-            return false;
+        //else
+            //return false;
     }
 
         public boolean hasPort() {
-
+            return true;
         }
 
         public boolean isMyTurn() {
-
+            return true;
         }
 
     public int getVictoryPoints(){
