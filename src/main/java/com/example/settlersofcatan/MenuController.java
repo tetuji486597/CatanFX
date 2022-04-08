@@ -7,6 +7,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TabPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -16,6 +20,9 @@ public class MenuController {
 
     @FXML
     private ComboBox<String> dropdown;
+
+    @FXML
+    private TabPane tabPane;
 
     public void showHelp(ActionEvent event) throws IOException {
         ParentPanel.helpPanel.show();
@@ -36,5 +43,4 @@ public class MenuController {
         ParentPanel.gamePanel.show();
         GameState gameState = new GameState(Integer.parseInt(numPlayers));
     }
-
 }
