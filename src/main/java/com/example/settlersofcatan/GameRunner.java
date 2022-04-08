@@ -27,7 +27,7 @@ public class GameRunner extends Application {
         help.setScene(helpScene);
         ParentPanel.setHelpPanel(help);
         help.setResizable(false);
-        Initialize.init();
+//        Initialize.init();
     }
 
     public static void main(String[] args) {
