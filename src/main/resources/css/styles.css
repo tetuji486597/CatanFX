@@ -1,0 +1,10 @@
+.button {
+    -fx-font-family: "Bodoni MT", sans-serif;
+    -fx-background-color: transparent;
+}
+.button:hover {
+    -fx-font-weight: bolder;
+}
+.tab-header-background {
+    -fx-background-color: #F2EA84;
+}
