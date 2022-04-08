@@ -14,8 +14,10 @@ public class GameRunner extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Menu");
+        stage.setResizable(false);
         stage.setScene(scene);
+        ParentPanel.setMenuPanel(stage);
         stage.show();
 
         Stage help = new Stage();

@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameState{
+
+    public static int numPlayers;
     Random rand = new Random();
     ArrayList<Player> playerList = new ArrayList<>();
+    Player currentPlayer;
 
-    public ArrayList shuffle(ArrayList<Tile>){
+    public GameState(int numPlayers) {
+        this.numPlayers = numPlayers;
+    }
+
+    public void shuffle(ArrayList<Tile> tiles){
 
     }
     public int rollDice(){
@@ -30,6 +37,6 @@ public class GameState{
 
     }
     public Player nextPlayer(){
-
+        return currentPlayer;
     }
 }
