@@ -14,6 +14,7 @@ public class Initialize {
     public static Map<String, Image> numberTokens = new HashMap<>();
     public static Map<String, Image> ports = new HashMap<>();
     public static Map<String, Image> icons = new HashMap<>();
+    public static Map<String, Image> players = new HashMap<>();
     public static Map.Entry robber;
 
     public static void init() throws IOException {
@@ -34,7 +35,9 @@ public class Initialize {
                 Map.entry("Grain", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/grain.png"))),
                 Map.entry("Ore", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/ore.png"))),
                 Map.entry("Wood", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/wood.png"))),
-                Map.entry("Wool", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/wool.png")))
+                Map.entry("Wool", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/wool.png"))),
+                Map.entry("Back", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/back.png"))),
+                Map.entry("BuildManual", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/buildmanual.png")))
         );
 
         buildings = Map.ofEntries(
@@ -87,6 +90,13 @@ public class Initialize {
                 Map.entry("helpicon", new Image(Initialize.class.getResourceAsStream("/images/other/helpicon.png"))),
                 Map.entry("robicon", new Image(Initialize.class.getResourceAsStream("/images/other/robicon.png"))),
                 Map.entry("tradeicon", new Image(Initialize.class.getResourceAsStream("/images/other/tradeicon.png")))
+        );
+
+        players = Map.ofEntries(
+                Map.entry("white", new Image(Initialize.class.getResourceAsStream("/images/players/white.png"))),
+                Map.entry("blue", new Image(Initialize.class.getResourceAsStream("/images/players/blue.png"))),
+                Map.entry("green", new Image(Initialize.class.getResourceAsStream("/images/players/green.png"))),
+                Map.entry("yellow", new Image(Initialize.class.getResourceAsStream("/images/players/yellow.png")))
         );
     }
 }
