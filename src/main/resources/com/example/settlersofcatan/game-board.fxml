@@ -19,7 +19,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1389.0" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -39,7 +39,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="175.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="BlueIcon" fitHeight="175.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/blue.png" />
                      </image>
@@ -47,9 +47,9 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
-                  <ImageView fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                  <Rectangle fx:id="BlueResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="BlueDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
+                  <ImageView fx:id="BlueColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                      <image>
                         <Image url="@../../../images/other/BlueText.png" />
                      </image>
@@ -57,8 +57,20 @@
                         <Insets bottom="50.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label fx:id="Player1Label" text="Player 1" textFill="#9a9a9a" GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="190.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
+            <Separator prefWidth="200.0" />
             <GridPane prefHeight="227.0" prefWidth="361.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -75,7 +87,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="151.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="GreenIcon" fitHeight="143.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/green.png" />
                      </image>
@@ -83,9 +95,9 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
-                  <ImageView fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                  <Rectangle fx:id="GreenResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="GreenDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
+                  <ImageView fx:id="GreenColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                      <image>
                         <Image url="@../../../images/other/GreenText.png" />
                      </image>
@@ -93,8 +105,20 @@
                         <Insets bottom="50.0" left="30.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label fx:id="Player2Label" text="Player 2" textFill="#9a9a9a" GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="190.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
+            <Separator prefWidth="200.0" />
             <GridPane prefHeight="227.0" prefWidth="361.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,7 +135,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="175.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="WhiteIcon" fitHeight="175.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/white.png" />
                      </image>
@@ -119,9 +143,9 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
-                  <ImageView fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <Rectangle fx:id="WhiteResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="WhiteDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
+                  <ImageView fx:id="WhiteColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/WhiteText.png" />
                      </image>
@@ -129,8 +153,20 @@
                         <Insets bottom="140.0" left="13.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label fx:id="Player3Label" text="Player 3" textFill="#9a9a9a" GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="190.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
+            <Separator prefWidth="200.0" />
             <GridPane prefHeight="227.0" prefWidth="361.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -147,24 +183,35 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="YellowIcon" fitHeight="163.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/players/yellow.png" />
+                        <Image url="@../../../images/players/red.png" />
                      </image>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3da4c" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3da4c" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
-                  <ImageView fitHeight="36.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                  <Rectangle fx:id="YellowResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="YellowDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
+                  <ImageView fx:id="YellowColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                      <image>
-                        <Image url="@../../../images/other/YellowText.png" />
+                        <Image url="@../../../images/other/RedText.png" />
                      </image>
                      <GridPane.margin>
                         <Insets bottom="160.0" left="12.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label fx:id="Player4Label" text="Player 4" textFill="#9a9a9a" GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="190.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
          </children>
@@ -199,192 +246,192 @@
                </children></Pane>
             <AnchorPane prefHeight="713.0" prefWidth="725.0" style="-fx-background-color: #4893D0;">
                <children>
-                  <ImageView fitHeight="620.0" fitWidth="725.0" layoutX="3.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="boardBase" fitHeight="620.0" fitWidth="725.0" layoutX="3.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/Board.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="305.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r2c2" fitHeight="130.0" fitWidth="200.0" layoutX="305.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/desert.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="463.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
+                  <ImageView fx:id="r1c3" fitHeight="130.0" fitWidth="200.0" layoutX="463.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
                      <image>
                         <Image url="@../../../images/tiles/Pasture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="139.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r3c0" fitHeight="130.0" fitWidth="200.0" layoutX="139.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="521.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r2c4" fitHeight="130.0" fitWidth="200.0" layoutX="521.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Forest.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="467.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r3c3" fitHeight="130.0" fitWidth="200.0" layoutX="467.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="197.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
+                  <ImageView fx:id="r2c1" fitHeight="130.0" fitWidth="200.0" layoutX="197.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
                      <image>
                         <Image url="@../../../images/tiles/Mountain.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="419.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
+                  <ImageView fx:id="r2c3" fitHeight="130.0" fitWidth="200.0" layoutX="419.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
                      <image>
                         <Image url="@../../../images/tiles/Hills.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="304.0" layoutY="491.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
+                  <ImageView fx:id="r4c1" fitHeight="130.0" fitWidth="200.0" layoutX="304.0" layoutY="491.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
                      <image>
                         <Image url="@../../../images/tiles/Mountain.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="199.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
+                  <ImageView fx:id="r4c0" fitHeight="130.0" fitWidth="200.0" layoutX="199.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
                      <image>
                         <Image url="@../../../images/tiles/Hills.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="412.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r4c2" fitHeight="130.0" fitWidth="200.0" layoutX="412.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Forest.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="88.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
+                  <ImageView fx:id="r2c0" fitHeight="130.0" fitWidth="200.0" layoutX="88.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
                      <image>
                         <Image url="@../../../images/tiles/Pasture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="250.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r1c1" fitHeight="130.0" fitWidth="200.0" layoutX="250.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Forest.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="358.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
+                  <ImageView fx:id="r3c2" fitHeight="130.0" fitWidth="200.0" layoutX="358.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
                      <image>
                         <Image url="@../../../images/tiles/Pasture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="357.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r1c2" fitHeight="130.0" fitWidth="200.0" layoutX="357.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="248.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
+                  <ImageView fx:id="r3c1" fitHeight="130.0" fitWidth="200.0" layoutX="248.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
                      <image>
                         <Image url="@../../../images/tiles/Forest.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="197.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="r0c0" fitHeight="130.0" fitWidth="200.0" layoutX="197.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
+                  <ImageView fx:id="r1c0" fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
                      <image>
                         <Image url="@../../../images/tiles/Hills.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="304.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
+                  <ImageView fx:id="r0c1" fitHeight="130.0" fitWidth="200.0" layoutX="304.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" rotate="0.5">
                      <image>
                         <Image url="@../../../images/tiles/Pasture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="411.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
+                  <ImageView fx:id="r0c2" fitHeight="130.0" fitWidth="200.0" layoutX="411.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" rotate="-1.0">
                      <image>
                         <Image url="@../../../images/tiles/Mountain.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="230.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenA" fitHeight="50.0" fitWidth="50.0" layoutX="230.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/A5.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="337.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenL" fitHeight="50.0" fitWidth="50.0" layoutX="337.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/L10.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="440.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenK" fitHeight="50.0" fitWidth="50.0" layoutX="440.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/K8.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="173.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenB" fitHeight="50.0" fitWidth="50.0" layoutX="173.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/B2.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenM" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/M9.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="390.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenR" fitHeight="50.0" fitWidth="50.0" layoutX="390.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/R11.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenJ" fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/J4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="119.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenC" fitHeight="50.0" fitWidth="50.0" layoutX="119.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/C6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenN" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/N4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="447.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenQ" fitHeight="50.0" fitWidth="50.0" layoutX="447.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/Q3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="557.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenI" fitHeight="50.0" fitWidth="50.0" layoutX="557.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/I11.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenD" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/D3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenO" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/O5.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="393.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenP" fitHeight="50.0" fitWidth="50.0" layoutX="393.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/P6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenH" fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/H12.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenE" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/E8.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenF" fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/F10.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="442.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenG" fitHeight="50.0" fitWidth="50.0" layoutX="442.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/G9.png" />
                      </image>
@@ -404,22 +451,22 @@
                         <Image url="@../../../images/ports/BrickPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="536.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
+                  <ImageView fx:id="p4" fitHeight="70.0" fitWidth="70.0" layoutX="536.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
                      <image>
                         <Image url="@../../../images/ports/WoolPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="371.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
+                  <ImageView fx:id="p2" fitHeight="70.0" fitWidth="70.0" layoutX="371.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="175.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" rotate="150.0">
+                  <ImageView fx:id="p1" fitHeight="70.0" fitWidth="70.0" layoutX="175.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" rotate="150.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="76.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fx:id="p3" fitHeight="70.0" fitWidth="70.0" layoutX="76.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
@@ -434,58 +481,58 @@
                         <Image url="@../../../images/ports/OrePort.png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="353.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="453.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="191.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="299.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="510.0" layoutY="206.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="350.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="462.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="563.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="419.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="189.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="298.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="143.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="507.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="133.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="244.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="352.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="186.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="402.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="513.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="620.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="389.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="390.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="293.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="407.0" layoutY="394.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="387.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="622.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="237.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="347.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="454.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="571.0" layoutY="422.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="130.0" layoutY="487.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="239.0" layoutY="483.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="346.0" layoutY="484.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="459.0" layoutY="485.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="567.0" layoutY="482.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="516.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="403.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="511.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="190.0" layoutY="577.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="292.0" layoutY="578.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="397.0" layoutY="580.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="516.0" layoutY="576.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="236.0" layoutY="611.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="348.0" layoutY="607.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="465.0" layoutY="609.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="353.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="453.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="191.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="299.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="510.0" layoutY="206.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="350.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="462.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="563.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="419.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="189.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="298.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="143.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="507.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="133.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="244.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="352.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="186.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="402.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="513.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="620.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="389.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="390.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="293.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="407.0" layoutY="394.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="387.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="622.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="237.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="347.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="454.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="571.0" layoutY="422.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="130.0" layoutY="487.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="239.0" layoutY="483.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="346.0" layoutY="484.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="459.0" layoutY="485.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="567.0" layoutY="482.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="516.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="403.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="511.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="190.0" layoutY="577.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="292.0" layoutY="578.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker49" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="397.0" layoutY="580.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="516.0" layoutY="576.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="236.0" layoutY="611.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="348.0" layoutY="607.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="465.0" layoutY="609.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="221.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="435.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="122.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
@@ -533,7 +580,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="601.0" layoutY="392.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="115.0" layoutY="395.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="218.0" layoutY="582.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="460.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle fx:id="VertexMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="460.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="194.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="408.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="305.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
@@ -558,6 +605,8 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="569.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="520.0" layoutY="532.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                </children>
             </AnchorPane>
          </children>
@@ -571,7 +620,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <GridPane gridLinesVisible="true" prefHeight="355.0" prefWidth="274.0">
+                  <GridPane gridLinesVisible="true" prefHeight="351.0" prefWidth="301.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

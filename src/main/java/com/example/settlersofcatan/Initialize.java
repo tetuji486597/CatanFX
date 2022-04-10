@@ -45,8 +45,8 @@ public class Initialize {
                 Map.entry("BlueSettlement", new Image(Initialize.class.getResourceAsStream("/images/buildings/blue-settlement.png"))),
                 Map.entry("GreenCity", new Image(Initialize.class.getResourceAsStream("/images/buildings/green-city.png"))),
                 Map.entry("GreenSettlement", new Image(Initialize.class.getResourceAsStream("/images/buildings/green-settlement.png"))),
-                Map.entry("OrangeCity", new Image(Initialize.class.getResourceAsStream("/images/buildings/orange-city.png"))),
-                Map.entry("OrangeSettlement", new Image(Initialize.class.getResourceAsStream("/images/buildings/orange-settlement.png"))),
+                Map.entry("RedCity", new Image(Initialize.class.getResourceAsStream("/images/buildings/red-city.png"))),
+                Map.entry("RedSettlement", new Image(Initialize.class.getResourceAsStream("/images/buildings/red-settlement.png"))),
                 Map.entry("WhiteCity", new Image(Initialize.class.getResourceAsStream("/images/buildings/white-city.png"))),
                 Map.entry("WhiteSettlement", new Image(Initialize.class.getResourceAsStream("/images/buildings/white-settlement.png")))
         );
@@ -96,7 +96,7 @@ public class Initialize {
                 Map.entry("white", new Image(Initialize.class.getResourceAsStream("/images/players/white.png"))),
                 Map.entry("blue", new Image(Initialize.class.getResourceAsStream("/images/players/blue.png"))),
                 Map.entry("green", new Image(Initialize.class.getResourceAsStream("/images/players/green.png"))),
-                Map.entry("yellow", new Image(Initialize.class.getResourceAsStream("/images/players/yellow.png")))
+                Map.entry("red", new Image(Initialize.class.getResourceAsStream("/images/players/red.png")))
         );
     }
 }
