@@ -1,16 +1,49 @@
 package com.example.settlersofcatan;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class Player {
-    int victoryPoints;
-    int cardCount;
-    Stack<ResourceCard> resourceDeck = new Stack<ResourceCard>();
-    Stack<DevCard> devDeck = new Stack<DevCard>();
-    ArrayList<Settlement> settlements = new ArrayList<Settlement>();
-    ArrayList<City> cities = new ArrayList<City>();
+    private int victoryPoints;
+    private int cardCount;
+    private String color;
+    private boolean hasMoreThan7;
+    private Image mySettlement;
+    private Image myCity;
+    private int index;
+    private ArrayList<ResourceCard> resourceDeck;
+    private ArrayList<DevCard> devDeck;
+    private ArrayList<Settlement> settlements;
+    private ArrayList<City> cities;
 
+    public Player(String color, int index) {
+        this.color = color;
+        switch(color) {
+            case "Blue":
+                mySettlement = Initialize.buildings.get("BlueSettlement");
+                myCity = Initialize.buildings.get("BlueCity");
+                break;
+            case "Green":
+                mySettlement = Initialize.buildings.get("GreenSettlement");
+                myCity = Initialize.buildings.get("GreenCity");
+                break;
+            case "Red":
+                mySettlement = Initialize.buildings.get("RedSettlement");
+                myCity = Initialize.buildings.get("RedCity");
+                break;
+            case "White":
+                mySettlement = Initialize.buildings.get("WhiteSettlement");
+                myCity = Initialize.buildings.get("WhiteCity");
+                break;
+        }
+        this.index = index;
+        resourceDeck = new ArrayList<>();
+        devDeck = new ArrayList<>();
+        settlements = new ArrayList<>();
+        cities = new ArrayList<>();
+    }
     public int getCardCount(){
         return 0;
     }

@@ -19,7 +19,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -533,80 +533,80 @@
                   <Rectangle id="vertexMarker" fx:id="VertexMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="236.0" layoutY="611.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle id="vertexMarker" fx:id="VertexMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="348.0" layoutY="607.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle id="vertexMarker" fx:id="VertexMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="465.0" layoutY="609.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="221.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="435.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="122.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="219.0" layoutY="486.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="436.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="167.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="381.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="278.0" layoutY="218.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="114.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="328.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="225.0" layoutY="306.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="398.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="438.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="209.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="540.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="274.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="488.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="385.0" layoutY="117.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="223.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="437.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="334.0" layoutY="216.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="304.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="216.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="439.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="398.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="272.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="383.0" layoutY="485.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="492.0" layoutY="299.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="210.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="598.0" layoutY="301.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="550.0" layoutY="394.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="490.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="382.0" layoutY="586.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="273.0" layoutY="581.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="440.0" layoutY="581.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="493.0" layoutY="582.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="583.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="488.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="601.0" layoutY="392.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="115.0" layoutY="395.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="218.0" layoutY="582.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="221.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="435.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="122.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker55" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="219.0" layoutY="486.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker59" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="436.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker57" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="167.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="381.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="278.0" layoutY="218.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="114.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="328.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="225.0" layoutY="306.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="398.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="438.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="209.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="540.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="274.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="488.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="385.0" layoutY="117.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="223.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="437.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="334.0" layoutY="216.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="304.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="216.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="439.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="398.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker56" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="272.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker60" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker58" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="383.0" layoutY="485.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="492.0" layoutY="299.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="210.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="598.0" layoutY="301.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="550.0" layoutY="394.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="490.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker69" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="382.0" layoutY="586.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker67" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="273.0" layoutY="581.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker70" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="440.0" layoutY="581.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker71" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="493.0" layoutY="582.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker68" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="583.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker54" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="488.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="601.0" layoutY="392.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="115.0" layoutY="395.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker66" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="218.0" layoutY="582.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="VertexMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="460.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="194.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="408.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="305.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="88.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="199.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="443.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="191.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="405.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="536.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="410.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="624.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="521.0" layoutY="349.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="578.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="569.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="520.0" layoutY="532.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="194.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="408.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="305.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="88.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="199.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker49" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="443.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker62" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="191.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker64" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="405.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker63" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="536.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="410.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="624.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="521.0" layoutY="349.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="578.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="569.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker65" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="520.0" layoutY="532.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                </children>
             </AnchorPane>
          </children>
@@ -631,7 +631,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="BrickCard" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/resourceCards/brick.png" />
                            </image>
@@ -639,12 +639,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label style="-fx-background-color: #BB6F1F;" text="19">
+                        <Label fx:id="BrickLabel" style="-fx-background-color: #BB6F1F;" text="19">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                        <ImageView fx:id="GrainCard" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                            <image>
                               <Image url="@../../../images/resourceCards/grain.png" />
                            </image>
@@ -652,12 +652,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label style="-fx-background-color: #B99700;" text="19" GridPane.columnIndex="1">
+                        <Label fx:id="GrainLabel" style="-fx-background-color: #B99700;" text="19" GridPane.columnIndex="1">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="120.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                        <ImageView fx:id="OreCard" fitHeight="120.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../../../images/resourceCards/ore.png" />
                            </image>
@@ -665,12 +665,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label style="-fx-background-color: #B5B2A8;" text="19" GridPane.rowIndex="1">
+                        <Label fx:id="OreLabel" style="-fx-background-color: #B5B2A8;" text="19" GridPane.rowIndex="1">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <ImageView fx:id="WoodCard" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../../../images/resourceCards/wood.png" />
                            </image>
@@ -678,12 +678,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label style="-fx-background-color: #709A00;" text="19" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="WoodLabel" style="-fx-background-color: #709A00;" text="19" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                        <ImageView fx:id="WoolCard" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                            <image>
                               <Image url="@../../../images/resourceCards/wool.png" />
                            </image>
@@ -691,12 +691,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label style="-fx-background-color: #7E9800;" text="19" GridPane.rowIndex="2">
+                        <Label fx:id="WoolLabel" style="-fx-background-color: #7E9800;" text="19" GridPane.rowIndex="2">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="120.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <ImageView fx:id="DevCard" fitHeight="120.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <image>
                               <Image url="@../../../images/resourceCards/back.png" />
                            </image>
@@ -704,7 +704,7 @@
                               <Insets left="40.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Label text="25" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="DevLabel" text="25" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="SansSerif Regular" size="32.0" />
                            </font>
@@ -728,13 +728,13 @@
             </Separator>
             <Pane prefHeight="273.0" prefWidth="274.0">
                <children>
-                  <Button layoutX="37.0" layoutY="26.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="89.0" style="-fx-background-color: #E5EFC1;" text="Confirm" />
-                  <Button layoutX="137.0" layoutY="26.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="101.0" style="-fx-background-color: #E5EFC1;" text="Cancel" />
-                  <Button layoutX="95.0" layoutY="143.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
-                  <Button layoutX="54.0" layoutY="193.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Help" />
-                  <Button layoutX="43.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
-                  <Button layoutX="143.0" layoutY="193.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />
-                  <Button layoutX="146.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />
+                  <Button fx:id="ConfirmButton" layoutX="37.0" layoutY="26.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="89.0" style="-fx-background-color: #E5EFC1;" text="Confirm" />
+                  <Button fx:id="CancelButton" layoutX="137.0" layoutY="26.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="101.0" style="-fx-background-color: #E5EFC1;" text="Cancel" />
+                  <Button fx:id="StealButton" layoutX="95.0" layoutY="143.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
+                  <Button fx:id="HelpButton" layoutX="54.0" layoutY="193.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Help" />
+                  <Button fx:id="BuildButton" layoutX="43.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
+                  <Button fx:id="EndTurnButton" layoutX="143.0" layoutY="193.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />
+                  <Button fx:id="TradeButton" layoutX="146.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />
                </children>
             </Pane>
          </children>

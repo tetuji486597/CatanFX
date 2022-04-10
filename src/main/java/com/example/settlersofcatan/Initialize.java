@@ -15,6 +15,7 @@ public class Initialize {
     public static Map<String, Image> ports = new HashMap<>();
     public static Map<String, Image> icons = new HashMap<>();
     public static Map<String, Image> players = new HashMap<>();
+    public static Map<String, Image> devCards = new HashMap<>();
     public static Map.Entry robber;
 
     public static void init() throws IOException {
@@ -38,6 +39,18 @@ public class Initialize {
                 Map.entry("Wool", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/wool.png"))),
                 Map.entry("Back", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/back.png"))),
                 Map.entry("BuildManual", new Image(Initialize.class.getResourceAsStream("/images/resourceCards/buildmanual.png")))
+        );
+
+        devCards = Map.ofEntries(
+                Map.entry("Chapel", new Image(Initialize.class.getResourceAsStream("/images/devCards/Chapel.jpg"))),
+                Map.entry("GreatHall", new Image(Initialize.class.getResourceAsStream("/images/devCards/GreatHall.jpg"))),
+                Map.entry("Knight", new Image(Initialize.class.getResourceAsStream("/images/devCards/Knight.jpg"))),
+                Map.entry("Library", new Image(Initialize.class.getResourceAsStream("/images/devCards/Library.jpg"))),
+                Map.entry("Market", new Image(Initialize.class.getResourceAsStream("/images/devCards/Market.jpg"))),
+                Map.entry("Monopoly", new Image(Initialize.class.getResourceAsStream("/images/devCards/Monopoly.jpg"))),
+                Map.entry("RoadBuilding", new Image(Initialize.class.getResourceAsStream("/images/devCards/RoadBuilding.jpg"))),
+                Map.entry("University", new Image(Initialize.class.getResourceAsStream("/images/devCards/University.jpg"))),
+                Map.entry("YearOfPlenty", new Image(Initialize.class.getResourceAsStream("/images/devCards/YearOfPlenty.jpg")))
         );
 
         buildings = Map.ofEntries(

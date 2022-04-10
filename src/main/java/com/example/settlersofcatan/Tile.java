@@ -1,16 +1,27 @@
 package com.example.settlersofcatan;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 public class Tile {
     private ArrayList<Tile> adjacentTiles;
     private ArrayList<Vertex> adjacentVertices;
     private ArrayList<Edge> adjacentEdges;
+    private javafx.scene.image.Image tile;
     private String name;
-    private int xCoord, yCoord, zCoord;
-    private NumberToken numberToken;
+    private int[] coords;
+    private int numberToken;
     private boolean hasRobber;
+    private boolean isDesert;
 
+    public Tile(String str, Image img, int[] coords, int token) {
+        name = str;
+        tile = img;
+        this.coords = coords;
+        hasRobber = false;
+        numberToken = token;
+    }
     public ArrayList<Tile> getAdjacentTiles() {
         return new ArrayList<>();
     }
@@ -27,7 +38,7 @@ public class Tile {
         return new ArrayList<>();
     }
 
-    public NumberToken getToken() {
+    public int getToken() {
         return numberToken;
     }
 
@@ -35,15 +46,7 @@ public class Tile {
         return false;
     }
 
-    public int getXCoord() { return xCoord;}
-
-    public void setXCoord(int xCoord) {this.xCoord = xCoord;}
-
-    public int getYCoord() { return yCoord;}
-
-    public void setYCoord(int yCoord) {this.yCoord = yCoord;}
-
-    public int getZCoord() { return zCoord;}
-
-    public void setZCoord(int zCoord) {this.zCoord = zCoord;}
+    public int[] getCoords() {
+        return coords;
+    }
 }
