@@ -118,9 +118,10 @@ public class GameState{
     public void giveResources(){
 
     }
-    public void incrementVictory(Player Player){
-        Player.setVictoryPoints(Player.getVictoryPoints() + 1);
+    public void incrementVictory(Player player){
+        player.setVictoryPoints(player.getVictoryPoints() + 1);
     }
+
     public void setUp(){
 
     }
