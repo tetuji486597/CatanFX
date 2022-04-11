@@ -130,9 +130,10 @@ public class GameState{
     public void giveResources(){
 
     }
-    public void incrementVictory(Player Player){
-        Player.setVictoryPoints(Player.getVictoryPoints() + 1);
+    public void incrementVictory(Player player){
+        player.setVictoryPoints(player.getVictoryPoints() + 1);
     }
+
     public void setUp(){
 
     }
@@ -140,10 +141,16 @@ public class GameState{
         return currentPlayer;
     }
 
-//    public Tile getRobberLocation(){
-//        return robber.robberLocation(Tile.getXCoord(), Tile.getYCoord(), Tile.getZCoord());
-//    }
-    public void moveRobber(){}
+    public ArrayList<Integer> getRobberLocation(){
+        return setRobberLocation(robber.getXCoord(), robber.getYCoord());
+    }
+
+    public ArrayList<Integer> setRobberLocation(int x, int y){
+        return robber.robberLocation(x,y);
+    }
+    public void moveRobber(int x, int y){
+        setRobberLocation(x,y);
+    }
 
     public ArrayList<Player>getRobberAdjacentPlayers(){
         return new ArrayList<>();
@@ -153,9 +160,13 @@ public class GameState{
         return new ArrayList();
     }
 
-//    public int findLongestRoad(Player){}
+//    public int findLongestRoad(Player player){}
+//
 //    public boolean secondRoadViolated(){}
+//
 //    public boolean enoughCardsRequired(){}
+//
 //    public boolean onePlayerOnShortage(){}
+//
 //    public boolean maintainsDistanceRule(){}
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.MenuController">
+<VBox maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.MenuController">
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="1000.0">
          <children>
@@ -24,7 +24,7 @@
                   <Image url="@../../../images/settlers-of-catan-logo.png" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="273.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="152.0" stylesheets="@../../../css/styles.css" text="New Game">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="273.0" mnemonicParsing="false" onAction="#startGame" prefHeight="49.0" prefWidth="152.0" style="-fx-cursor: hand;" stylesheets="@../../../css/styles.css" text="New Game">
                <graphic>
                   <ImageView fitHeight="149.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +36,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="344.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="97.0" stylesheets="@../../../css/styles.css" text="How To Play">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="344.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="38.0" prefWidth="97.0" style="-fx-cursor: hand;" stylesheets="@../../../css/styles.css" text="How To Play">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox fx:id="dropdown" layoutX="401.0" layoutY="233.0" prefHeight="35.0" prefWidth="200.0" promptText="Select Number of Players" style="-fx-background-color: rgb(255,191,61); -fx-background-color: white; -fx-border-color: grey;">
+            <ComboBox fx:id="dropdown" layoutX="401.0" layoutY="233.0" prefHeight="35.0" prefWidth="200.0" promptText="Select Number of Players" style="-fx-background-color: rgb(255,191,61); -fx-background-color: white; -fx-border-color: grey; -fx-cursor: hand;">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="2" />
