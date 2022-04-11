@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox fx:id="dropdown" layoutX="401.0" layoutY="233.0" prefHeight="35.0" prefWidth="200.0" promptText="Select Number of Players" style="-fx-background-color: rgb(255,191,61); -fx-background-color: white; -fx-border-color: grey;">
+            <ComboBox fx:id="dropdown" layoutX="401.0" layoutY="233.0" prefHeight="35.0" prefWidth="200.0" promptText="Select Number of Players" style="-fx-background-color: rgb(255,191,61); -fx-background-color: white; -fx-border-color: grey; -fx-cursor: hand;">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="2" />
