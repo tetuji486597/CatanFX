@@ -87,7 +87,7 @@ public class Player {
         public boolean hasPort() {
             return true;
         }
-//skadgf
+
         public boolean isMyTurn() {
             return true;
         }
