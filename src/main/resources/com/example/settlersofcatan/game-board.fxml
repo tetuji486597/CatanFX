@@ -436,27 +436,27 @@
                         <Image url="@../../../images/numberTokens/G9.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="381.0" layoutY="607.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
+                  <ImageView fx:id="p5" fitHeight="70.0" fitWidth="70.0" layoutX="381.0" layoutY="607.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="547.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
+                  <ImageView fx:id="p6" fitHeight="70.0" fitWidth="70.0" layoutX="547.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
                      <image>
                         <Image url="@../../../images/ports/WoodPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="643.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                  <ImageView fx:id="p7" fitHeight="70.0" fitWidth="70.0" layoutX="643.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
                      <image>
                         <Image url="@../../../images/ports/BrickPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="p4" fitHeight="70.0" fitWidth="70.0" layoutX="536.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
+                  <ImageView fx:id="p8" fitHeight="70.0" fitWidth="70.0" layoutX="536.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
                      <image>
                         <Image url="@../../../images/ports/WoolPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="p2" fitHeight="70.0" fitWidth="70.0" layoutX="371.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
+                  <ImageView fx:id="p9" fitHeight="70.0" fitWidth="70.0" layoutX="371.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="-150.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
@@ -466,17 +466,17 @@
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="p3" fitHeight="70.0" fitWidth="70.0" layoutX="76.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fx:id="p2" fitHeight="70.0" fitWidth="70.0" layoutX="76.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="75.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fx:id="p3" fitHeight="70.0" fitWidth="70.0" layoutX="75.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/ports/GrainPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="174.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
+                  <ImageView fx:id="p4" fitHeight="70.0" fitWidth="70.0" layoutX="174.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
                      <image>
                         <Image url="@../../../images/ports/OrePort.png" />
                      </image>

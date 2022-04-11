@@ -9,6 +9,7 @@ public class Tile {
     private ArrayList<Vertex> adjacentVertices;
     private ArrayList<Edge> adjacentEdges;
     private javafx.scene.image.Image tile;
+    private ArrayList<Port> connectedPorts;
     private String name;
     private int[] coords;
     private int numberToken;
@@ -21,6 +22,10 @@ public class Tile {
         this.coords = coords;
         hasRobber = false;
         numberToken = token;
+    }
+
+    public Image getImage() {
+        return tile;
     }
     public ArrayList<Tile> getAdjacentTiles() {
         return new ArrayList<>();
