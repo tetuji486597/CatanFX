@@ -14,6 +14,7 @@ public class Player {
     private Image myCity;
     private int index;
     private ArrayList<ResourceCard> resourceDeck;
+    public ArrayList<String> resDeck;
     private ArrayList<DevCard> devDeck;
     private ArrayList<Settlement> settlements;
     private ArrayList<City> cities;
