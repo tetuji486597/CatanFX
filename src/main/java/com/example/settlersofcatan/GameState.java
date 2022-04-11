@@ -129,14 +129,14 @@ public class GameState{
     }
 
     public ArrayList<Integer> getRobberLocation(){
-        return setRobberLocation(robber.getXCoord(), robber.getYCoord(), robber.getZCoord());
+        return setRobberLocation(robber.getXCoord(), robber.getYCoord());
     }
 
-    public ArrayList<Integer> setRobberLocation(int x, int y, int z){
-        return robber.robberLocation(x,y,z);
+    public ArrayList<Integer> setRobberLocation(int x, int y){
+        return robber.robberLocation(x,y);
     }
-    public void moveRobber(int x, int y, int z){
-        setRobberLocation(x,y,z);
+    public void moveRobber(int x, int y){
+        setRobberLocation(x,y);
     }
 
     public ArrayList<Player>getRobberAdjacentPlayers(){
