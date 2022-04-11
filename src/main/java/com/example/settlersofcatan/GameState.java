@@ -137,7 +137,6 @@ public class GameState{
     }
     public void moveRobber(int x, int y){
         setRobberLocation(x,y);
-        //hello;
     }
 
     public ArrayList<Player>getRobberAdjacentPlayers(){
