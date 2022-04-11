@@ -95,7 +95,7 @@
                         <Image url="@../../../images/players/green.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets left="15.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Rectangle fx:id="GreenResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
@@ -141,12 +141,12 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="WhiteIcon" fitHeight="146.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="WhiteIcon" fitHeight="128.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/white.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="-30.0" left="15.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Rectangle fx:id="WhiteResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
@@ -154,12 +154,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="WhiteColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fx:id="WhiteColorLabel" fitHeight="40.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/WhiteText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" left="13.0" />
+                        <Insets bottom="140.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player3Label" text="Player 3" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -197,7 +197,7 @@
                         <Image url="@../../../images/players/red.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="-20.0" left="15.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Rectangle fx:id="YellowResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
@@ -205,12 +205,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="YellowColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                  <ImageView fx:id="YellowColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/RedText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="160.0" left="12.0" />
+                        <Insets bottom="135.0" left="10.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player4Label" text="Player 4" textFill="#9a9a9a" GridPane.columnIndex="1">
