@@ -1,4 +1,5 @@
 .button:hover {
     -fx-font-weight: bolder;
+    -fx-cursor: hand;
 }
 
