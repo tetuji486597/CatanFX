@@ -8,10 +8,12 @@ import java.util.Stack;
 public class Player {
     private int victoryPoints;
     private int cardCount;
-    private String color;
+    //Anjie: I changed color to public bc I need to access it
+    //in Settlement & City classes (according to UML)
+    public String color;
     private boolean hasMoreThan7;
-    private Image mySettlement;
-    private Image myCity;
+    public Image mySettlement;
+    public Image myCity;
     private int index;
     private ArrayList<ResourceCard> resourceDeck;
     public ArrayList<String> resDeck;
