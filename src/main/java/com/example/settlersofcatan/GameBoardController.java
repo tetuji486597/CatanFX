@@ -3,12 +3,33 @@ package com.example.settlersofcatan;
 import javafx.fxml.FXML;
 
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 public class GameBoardController {
+
+    public static Label[] playerNumLabels;
+    public static ImageView[] playerLabels;
+    public static ImageView[] playerImages;
+    public static Rectangle[] devDecks;
+    public static Rectangle[] resDecks;
+    public static Rectangle[] EdgeMarkers;
+    public static Rectangle[] VertexMarkers;
+    public static HashMap<int[], ImageView> tilesMap;
+    public static HashMap<String, ImageView> color2label;
+    public static HashMap<ImageView, ImageView> label2icon;
+    public static HashMap<ImageView, Rectangle> label2resdeck;
+    public static HashMap<ImageView, Rectangle> label2devdeck;
+    public static ImageView[] tileViews;
+    public static ImageView[] portViews;
+    public static ImageView[] tokenViews;
+
 
     @FXML
     private ImageView BlueColorLabel;
@@ -494,16 +515,16 @@ public class GameBoardController {
     private Label WoolLabel;
 
     @FXML
-    private ImageView YellowColorLabel;
+    private ImageView RedColorLabel;
 
     @FXML
-    private Rectangle YellowDevDeck;
+    private Rectangle RedDevDeck;
 
     @FXML
-    private ImageView YellowIcon;
+    private ImageView RedIcon;
 
     @FXML
-    private Rectangle YellowResourceDeck;
+    private Rectangle RedResourceDeck;
 
     @FXML
     private ImageView boardBase;
@@ -593,6 +614,9 @@ public class GameBoardController {
     private ImageView r4c2;
 
     @FXML
+    private Button startButton;
+
+    @FXML
     private ImageView tokenA;
 
     @FXML
@@ -647,18 +671,119 @@ public class GameBoardController {
     private ImageView tokenR;
 
     @FXML
-    public void initialize() {
-        System.out.println(GameState.tiles);
-        ImageView[] tileViews = new ImageView[]{r0c0,r0c1,r0c2,r1c0,r1c1,r1c2,r1c3,r2c0,r2c1,r2c2,r2c3,r2c4,r3c0,r3c1,r3c2,r3c3,r4c0,r4c1,r4c2};
+    public void initialize() throws FileNotFoundException{
+        GameState.controller = this;
+
+        color2label = new HashMap<>();
+        label2icon = new HashMap<>();
+        label2resdeck = new HashMap<>();
+        label2devdeck = new HashMap<>();
+
+        color2label.put("Blue", BlueColorLabel);
+        color2label.put("Green", GreenColorLabel);
+        color2label.put("White", WhiteColorLabel);
+        color2label.put("Red", RedColorLabel);
+
+        label2icon.put(BlueColorLabel, BlueIcon);
+        label2icon.put(GreenColorLabel, GreenIcon);
+        label2icon.put(WhiteColorLabel, WhiteIcon);
+        label2icon.put(RedColorLabel, RedIcon);
+
+        label2resdeck.put(BlueColorLabel, BlueResourceDeck);
+        label2resdeck.put(GreenColorLabel, GreenResourceDeck);
+        label2resdeck.put(WhiteColorLabel, WhiteResourceDeck);
+        label2resdeck.put(RedColorLabel, RedResourceDeck);
+
+        label2devdeck.put(BlueColorLabel, BlueDevDeck);
+        label2devdeck.put(GreenColorLabel, GreenDevDeck);
+        label2devdeck.put(WhiteColorLabel, WhiteDevDeck);
+        label2devdeck.put(RedColorLabel, RedDevDeck);
+
+        playerNumLabels = new Label[] {Player1Label, Player2Label, Player3Label, Player4Label};
+        resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
+        devDecks = new Rectangle[]{BlueDevDeck, GreenDevDeck, WhiteDevDeck, RedDevDeck};
+        playerLabels = new ImageView[] {GreenColorLabel, WhiteColorLabel, RedColorLabel, BlueColorLabel};
+        playerImages = new ImageView[] {GreenIcon, WhiteIcon, BlueIcon, RedIcon};
+        tileViews = new ImageView[] {r0c0,r0c1,r0c2,r1c0,r1c1,r1c2,r1c3,r2c0,r2c1,r2c2,r2c3,r2c4,r3c0,r3c1,r3c2,r3c3,r4c0,r4c1,r4c2};
+        portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
+        EdgeMarkers = new Rectangle[] {EdgeMarker0,EdgeMarker1,EdgeMarker2,EdgeMarker3,EdgeMarker4,EdgeMarker5,EdgeMarker6,EdgeMarker7,EdgeMarker8,EdgeMarker9,EdgeMarker10,EdgeMarker11,EdgeMarker12,EdgeMarker13,EdgeMarker14,EdgeMarker15,EdgeMarker16,EdgeMarker17,EdgeMarker18,EdgeMarker19,EdgeMarker20,EdgeMarker21,EdgeMarker22,EdgeMarker23,EdgeMarker24,EdgeMarker25,EdgeMarker26,EdgeMarker27,EdgeMarker28,EdgeMarker29,EdgeMarker30,EdgeMarker31,EdgeMarker32,EdgeMarker33,EdgeMarker34,EdgeMarker35,EdgeMarker36,EdgeMarker37,EdgeMarker38,EdgeMarker39,EdgeMarker40,EdgeMarker41,EdgeMarker42,EdgeMarker43,EdgeMarker44,EdgeMarker45,EdgeMarker46,EdgeMarker47,EdgeMarker48,EdgeMarker49,EdgeMarker50,EdgeMarker51,EdgeMarker52,EdgeMarker53,EdgeMarker54,EdgeMarker55,EdgeMarker56,EdgeMarker57,EdgeMarker58,EdgeMarker59,EdgeMarker60,EdgeMarker61,EdgeMarker62,EdgeMarker63,EdgeMarker64,EdgeMarker65,EdgeMarker66,EdgeMarker67,EdgeMarker68,EdgeMarker69,EdgeMarker70,EdgeMarker71};
+        VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
+        tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR};
+
+        for(Label label: playerNumLabels) {
+            label.setVisible(false);
+        }
+        for(ImageView image: tokenViews) {
+            image.setVisible(false);
+        }
+        for(ImageView image: playerLabels) {
+            image.setVisible(false);
+        }
+        for(ImageView image: playerImages) {
+            image.setVisible(false);
+        }
+        for(ImageView image: tileViews) {
+            image.setVisible(false);
+        }
+        for(ImageView image: portViews) {
+            image.setVisible(false);
+        }
+        for(Rectangle rect: EdgeMarkers) {
+            rect.setVisible(false);
+        }
+        for(Rectangle rect: VertexMarkers) {
+            rect.setVisible(false);
+        }
+        for(Rectangle rect: resDecks) {
+            rect.setVisible(false);
+        }
+        for(Rectangle rect: devDecks) {
+            rect.setVisible(false);
+        }
+        ConfirmButton.setTooltip(new Tooltip("Confirm a trade with another player"));
+        CancelButton.setTooltip(new Tooltip("Cancel a trade with another player"));
+        BuildButton.setTooltip(new Tooltip("Open the build panel and start building!"));
+        TradeButton.setTooltip(new Tooltip("Open the trade panel and trade your resources!"));
+        StealButton.setTooltip(new Tooltip("Steal from another player"));
+        EndTurnButton.setTooltip(new Tooltip("End this turn"));
+        HelpButton.setTooltip(new Tooltip("Open help menu"));
+
+
+    }
+    @FXML
+    public void startGame() {
+        startButton.setVisible(false);
         Tile[] tiles = GameState.tiles;
         for(int i = 0; i < tileViews.length; i++) {
             tileViews[i].setImage(tiles[i].getImage());
         }
-        ImageView[] portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
+        for(ImageView image: tileViews) {
+            image.setVisible(true);
+        }
         Port[] ports = GameState.ports;
         for(int i = 0; i < portViews.length; i++) {
             portViews[i].setImage(ports[i].getImage());
         }
+        for(ImageView image: portViews) {
+            image.setVisible(true);
+        }
+        for(ImageView image: tokenViews) {
+            image.setVisible(true);
+        }
+        int numPlayers = GameState.numPlayers;
+        String[] colors = GameState.allColors;
+        for(int i = 0; i < numPlayers; i++) {
+            ImageView label = color2label.get(colors[i]);
+            playerNumLabels[i].setVisible(true);
+            label.setVisible(true);
+            label2icon.get(label).setVisible(true);
+            label2resdeck.get(label).setVisible(true);
+            label2devdeck.get(label).setVisible(true);
+        }
     }
 
+    @FXML
+    public void showHelp() {
+        ParentPanel.helpPanel.show();
+    }
 }

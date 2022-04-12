@@ -19,7 +19,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -39,7 +39,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="BlueIcon" fitHeight="150.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="BlueIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/blue.png" />
                      </image>
@@ -52,12 +52,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="BlueColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fx:id="BlueColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/other/BlueText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="70.0" left="35.0" />
+                        <Insets bottom="140.0" left="50.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player1Label" text="Player 1" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -90,7 +90,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="GreenIcon" fitHeight="123.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="GreenIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/green.png" />
                      </image>
@@ -108,7 +108,7 @@
                         <Image url="@../../../images/other/GreenText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="150.0" left="30.0" />
+                        <Insets bottom="140.0" left="50.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player2Label" text="Player 2" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -141,7 +141,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="WhiteIcon" fitHeight="128.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="WhiteIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/white.png" />
                      </image>
@@ -154,12 +154,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="WhiteColorLabel" fitHeight="40.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fx:id="WhiteColorLabel" fitHeight="40.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/other/WhiteText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" />
+                        <Insets bottom="140.0" left="50.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player3Label" text="Player 3" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -192,7 +192,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="YellowIcon" fitHeight="140.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="RedIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/red.png" />
                      </image>
@@ -200,17 +200,17 @@
                         <Insets bottom="-20.0" left="15.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle fx:id="YellowResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
-                  <Rectangle fx:id="YellowDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
+                  <Rectangle fx:id="RedResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="RedDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="YellowColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fx:id="RedColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/other/RedText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="135.0" left="10.0" />
+                        <Insets bottom="140.0" left="50.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player4Label" text="Player 4" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -619,6 +619,7 @@
                   <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Button fx:id="startButton" layoutX="310.0" layoutY="260.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
                </children>
             </AnchorPane>
          </children>
@@ -743,7 +744,7 @@
                   <Button fx:id="ConfirmButton" layoutX="47.0" layoutY="24.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Confirm" />
                   <Button fx:id="CancelButton" layoutX="149.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Cancel" />
                   <Button fx:id="StealButton" layoutX="179.0" layoutY="85.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
-                  <Button fx:id="HelpButton" layoutX="149.0" layoutY="133.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="87.0" style="-fx-background-color: #E5EFC1;" text="Help" />
+                  <Button fx:id="HelpButton" layoutX="149.0" layoutY="133.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="49.0" prefWidth="87.0" style="-fx-background-color: #E5EFC1;" text="Help" />
                   <Button fx:id="BuildButton" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
                   <Button fx:id="EndTurnButton" layoutX="52.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />
                   <Button fx:id="TradeButton" layoutX="101.0" layoutY="85.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />

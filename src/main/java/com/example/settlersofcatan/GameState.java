@@ -22,13 +22,15 @@ public class GameState{
     public static HashMap<String, Integer> resourceBank;
     public static Stack<DevCard> devBank;
     public static ArrayList<String> allDevCards;
-    public String[] allColors;
+    public static String[] allColors;
+    public static GameBoardController controller;
+
 
     public GameState(int numPlayers) {
 
         this.numPlayers = numPlayers;
 
-        allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest"};
+        allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
         allTokens  = new String[] {"A5", "L10", "K8", "B2", "M9", "R11", "J4", "C6", "N4", "Q3", "I11", "D3", "O5", "P6", "H12", "E8", "F10", "G9"};
         tokenMap = new HashMap<>();
         int[] numbers = new int[] {5,10,8,2,9,11,4,6,4,3,11,3,5,6,12,8,10,9};
@@ -40,6 +42,7 @@ public class GameState{
         allPorts = new String[] {"UnknownPort", "UnknownPort", "UnknownPort", "UnknownPort", "BrickPort", "GrainPort", "WoodPort", "WoolPort", "OrePort"};
         List<String> portShuffle = Arrays.asList(allPorts);
         Collections.shuffle(portShuffle);
+        ports = new Port[9];
         allPorts = portShuffle.toArray(new String[portShuffle.size()]);
         for(int i = 0; i < 9; i++) {
             Port port = new Port(allPorts[i], Initialize.ports.get(allPorts[i]));
@@ -61,24 +64,26 @@ public class GameState{
         resourceBank = new HashMap<>();
         devBank = new Stack<>();
 
+        boolean hasFoundDesert = false;
         for(int i = 0; i < 19; i++) {
-            if(i == 9) {
-                Tile desertTile = new Tile("Desert", Initialize.tiles.get("Desert"), new int[]{2,2}, 0);
-                tiles[18] = desertTile;
+            if(allTiles[i].equals("Desert")) {
+                Tile desertTile = new Tile("Desert", Initialize.tiles.get("Desert"), pos[i], 0);
+                tiles[i] = desertTile;
                 tilesMap.put("Desert", desertTile);
-                posMap.put("[2, 2]", desertTile);
+                posMap.put(Arrays.toString(pos[i]), desertTile);
+                hasFoundDesert = true;
                 continue;
             }
-            Tile tile = new Tile(allTiles[i], Initialize.tiles.get(allTiles[i]),  pos[i], numbers[i]);
-            System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + numbers[i]);
+            int num = hasFoundDesert ? numbers[i-1] : numbers[i];
+            Tile tile = new Tile(allTiles[i], Initialize.tiles.get(allTiles[i]),  pos[i], num);
             tiles[i] = tile;
             tilesMap.put(allTiles[i], tile);
             posMap.put(Arrays.toString(pos[i]), tiles[i]);
         }
+        for(int i = 0; i < 19; i++) {
+            System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + tiles[i].getToken());
+        }
         allColors = new String[] {"Blue", "Green", "White", "Red"};
-        List<String> colorShuffle = Arrays.asList(allColors);
-        Collections.shuffle(colorShuffle);
-        allColors = colorShuffle.toArray(new String[colorShuffle.size()]);
 
         resourceBank.put("Grain", 19);
         resourceBank.put("Wood", 19);
@@ -110,6 +115,9 @@ public class GameState{
                     thisCard.equals("GreatHall"))
                 isVictory = true;
             devBank.push(new DevCard(thisCard, isVictory));
+        }
+        for(int i = 0; i < allTiles.length; i++) {
+
         }
     }
 
