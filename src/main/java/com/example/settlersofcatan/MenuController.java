@@ -31,7 +31,7 @@ public class MenuController {
     public void startGame(ActionEvent event) throws IOException {
         String numPlayers = dropdown.getValue();
         if(numPlayers.isEmpty()) throw new NumberFormatException();
-        System.out.println(numPlayers);
+        System.out.println("number of players: " + numPlayers);
         ParentPanel.menuPanel.hide();
         Stage game = new Stage();
         FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("game-board.fxml"));
