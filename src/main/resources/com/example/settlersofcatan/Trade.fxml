@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.settlersofcatan.Trade"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.Trade">
+   <children>
+      <Text layoutX="107.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to you want to trade?">
+         <font>
+            <Font name="Bell MT Bold" size="33.0" />
+         </font>
+      </Text>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="130.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: transparant;" text="Bank (4:1)">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Microsoft Uighur" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="187.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: transparant;" text="With Others">
+         <font>
+            <Font name="Microsoft Uighur" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="241.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: transparant;" text="Ports (3:1 or 2:1)">
+         <font>
+            <Font name="Microsoft Uighur" size="19.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="293.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: transparant;" text="Cancel">
+         <font>
+            <Font name="Microsoft Uighur" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
 </AnchorPane>

@@ -125,7 +125,9 @@ public class GameState{
         return diceRoll;
     }
     public void sevenRolled(){
-
+        if (rollDice() == 7){
+            //do stuff
+        }
     }
     public void giveResources(){
 
@@ -160,13 +162,23 @@ public class GameState{
         return new ArrayList();
     }
 
-//    public int findLongestRoad(Player player){}
-//
-//    public boolean secondRoadViolated(){}
-//
-//    public boolean enoughCardsRequired(){}
-//
-//    public boolean onePlayerOnShortage(){}
-//
-//    public boolean maintainsDistanceRule(){}
+    public int findLongestRoad(Player player){
+        return 0;
+    }
+
+    public boolean secondRoadViolated(){
+        return false;
+    }
+
+    public boolean enoughCardsRequired(){
+        return false;
+    }
+
+    public boolean onePlayerOnShortage(){
+        return false;
+    }
+
+    public boolean maintainsDistanceRule(){
+        return false;
+    }
 }
