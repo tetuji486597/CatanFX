@@ -125,7 +125,9 @@ public class GameState{
         return diceRoll;
     }
     public void sevenRolled(){
-
+        if (rollDice() == 7){
+            //do stuff
+        }
     }
     public void giveResources(){
 
