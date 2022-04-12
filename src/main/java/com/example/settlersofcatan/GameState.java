@@ -17,6 +17,7 @@ public class GameState{
     public static HashMap<String, Tile> posMap;
     public static String[] allTokens;
     public static String[] allPorts;
+    public static Port[] ports;
     public static HashMap<String, Integer> tokenMap;
     public static HashMap<String, Integer> resourceBank;
     public static Stack<DevCard> devBank;
@@ -36,11 +37,18 @@ public class GameState{
         }
         devBank = new Stack<>();
 
-        allPorts = new String[] {"UnknownPort", "UnknownPort", "UnknownPort", "UnknownPort", "UnknownPort", "BrickPort", "GrainPort", "WoodPort", "WoolPort", "OrePort"};
+        allPorts = new String[] {"UnknownPort", "UnknownPort", "UnknownPort", "UnknownPort", "BrickPort", "GrainPort", "WoodPort", "WoolPort", "OrePort"};
+        List<String> portShuffle = Arrays.asList(allPorts);
+        Collections.shuffle(portShuffle);
+        allPorts = portShuffle.toArray(new String[portShuffle.size()]);
+        for(int i = 0; i < 9; i++) {
+            Port port = new Port(allPorts[i], Initialize.ports.get(allPorts[i]));
+            ports[i] = port;
+        }
         pos = new int[][] {
                 {0,0},{0,1},{0,2},
               {1,0},{1,1},{1,2},{1,3},
-            {2,0},{2,1},{2,3},{2,4},
+            {2,0},{2,1},{2,2},{2,3},{2,4},
               {3,0},{3,1},{3,2},{3,3},
                 {4,0},{4,1},{4,2},
         };
@@ -53,16 +61,20 @@ public class GameState{
         resourceBank = new HashMap<>();
         devBank = new Stack<>();
 
-        for(int i = 0; i < 18; i++) {
+        for(int i = 0; i < 19; i++) {
+            if(i == 9) {
+                Tile desertTile = new Tile("Desert", Initialize.tiles.get("Desert"), new int[]{2,2}, 0);
+                tiles[18] = desertTile;
+                tilesMap.put("Desert", desertTile);
+                posMap.put("[2, 2]", desertTile);
+                continue;
+            }
             Tile tile = new Tile(allTiles[i], Initialize.tiles.get(allTiles[i]),  pos[i], numbers[i]);
+            System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + numbers[i]);
             tiles[i] = tile;
             tilesMap.put(allTiles[i], tile);
             posMap.put(Arrays.toString(pos[i]), tiles[i]);
         }
-        Tile desertTile = new Tile("Desert", Initialize.tiles.get("Desert"), new int[]{2,2}, 0);
-        tiles[18] = desertTile;
-        tilesMap.put("Desert", desertTile);
-        posMap.put("[2, 2]", desertTile);
         allColors = new String[] {"Blue", "Green", "White", "Red"};
         List<String> colorShuffle = Arrays.asList(allColors);
         Collections.shuffle(colorShuffle);
@@ -113,7 +125,9 @@ public class GameState{
         return diceRoll;
     }
     public void sevenRolled(){
-
+        if (rollDice() == 7){
+            //do stuff
+        }
     }
     public void giveResources(){
 
@@ -148,13 +162,23 @@ public class GameState{
         return new ArrayList();
     }
 
-//    public int findLongestRoad(Player player){}
-//
-//    public boolean secondRoadViolated(){}
-//
-//    public boolean enoughCardsRequired(){}
-//
-//    public boolean onePlayerOnShortage(){}
-//
-//    public boolean maintainsDistanceRule(){}
+    public int findLongestRoad(Player player){
+        return 0;
+    }
+
+    public boolean secondRoadViolated(){
+        return false;
+    }
+
+    public boolean enoughCardsRequired(){
+        return false;
+    }
+
+    public boolean onePlayerOnShortage(){
+        return false;
+    }
+
+    public boolean maintainsDistanceRule(){
+        return false;
+    }
 }

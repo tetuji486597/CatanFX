@@ -521,6 +521,21 @@ public class GameBoardController {
     private ImageView p4;
 
     @FXML
+    private ImageView p5;
+
+    @FXML
+    private ImageView p6;
+
+    @FXML
+    private ImageView p7;
+
+    @FXML
+    private ImageView p8;
+
+    @FXML
+    private ImageView p9;
+
+    @FXML
     private ImageView r0c0;
 
     @FXML
@@ -633,7 +648,17 @@ public class GameBoardController {
 
     @FXML
     public void initialize() {
-
+        System.out.println(GameState.tiles);
+        ImageView[] tileViews = new ImageView[]{r0c0,r0c1,r0c2,r1c0,r1c1,r1c2,r1c3,r2c0,r2c1,r2c2,r2c3,r2c4,r3c0,r3c1,r3c2,r3c3,r4c0,r4c1,r4c2};
+        Tile[] tiles = GameState.tiles;
+        for(int i = 0; i < tileViews.length; i++) {
+            tileViews[i].setImage(tiles[i].getImage());
+        }
+        ImageView[] portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
+        Port[] ports = GameState.ports;
+        for(int i = 0; i < portViews.length; i++) {
+            portViews[i].setImage(ports[i].getImage());
+        }
     }
 
 }
