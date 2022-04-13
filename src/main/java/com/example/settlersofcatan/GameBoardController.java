@@ -3,14 +3,18 @@ package com.example.settlersofcatan;
 import javafx.fxml.FXML;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class GameBoardController {
 
@@ -795,4 +799,19 @@ public class GameBoardController {
     public void showHelp() {
         ParentPanel.helpPanel.show();
     }
+
+    @FXML
+    public void showTrade() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Trade.fxml"));
+        Scene tradeScene = new Scene(fxmlLoader.load());
+        stage.setTitle("Trade");
+        stage.setResizable(false);
+        stage.setScene(tradeScene);
+        ParentPanel.setTradePanel(stage);
+        stage.show();
+    }
+
+
+
 }

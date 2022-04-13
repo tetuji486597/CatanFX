@@ -10,7 +10,7 @@ public class ResourceCard {
         resCards = new String[] {"Lumber","Brick","Grain","Ore","Wool"};
     }
 
-    private void getResource(Player player, String x){
+    public void getResource(Player player, String x){
         getResCards.add(x);
         player.resDeck.add(x);
     }
