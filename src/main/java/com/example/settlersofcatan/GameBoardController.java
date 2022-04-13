@@ -1,15 +1,19 @@
 package com.example.settlersofcatan;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class GameBoardController {
@@ -64,8 +68,8 @@ public class GameBoardController {
     @FXML
     private Label DevLabel;
 
-    @FXML
-    private ImageView EdgeMarker;
+    //@FXML
+    //private ImageView EdgeMarker;
 
     @FXML
     private Rectangle EdgeMarker0;
@@ -795,4 +799,16 @@ public class GameBoardController {
     public void showHelp() {
         ParentPanel.helpPanel.show();
     }
+    /*
+    @FXML
+
+    public void switchImage(){
+        //EdgeMarker.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+        //    System.out.println("Tile pressed ");
+         //   event.consume();
+       // });
+        //EdgeMarker.setOnMouseClicked(event -> System.out.println("clicked"));
+        EdgeMarker.setImage(new Image(Initialize.class.getResourceAsStream("/images/other/buildicon.png")));
+    }
+     */
 }

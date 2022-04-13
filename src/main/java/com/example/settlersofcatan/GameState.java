@@ -1,5 +1,9 @@
 package com.example.settlersofcatan;
 
+import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
+
+import java.io.IOException;
 import java.util.*;
 
 public class GameState{
@@ -200,4 +204,6 @@ public class GameState{
     public boolean maintainsDistanceRule(){
         return false;
     }
+
+
 }

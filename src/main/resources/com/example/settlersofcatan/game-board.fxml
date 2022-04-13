@@ -19,7 +19,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -403,7 +403,7 @@
                         <Image url="@../../../images/numberTokens/C6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenN" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenN" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 3;">
                      <image>
                         <Image url="@../../../images/numberTokens/N4.png" />
                      </image>
@@ -418,7 +418,7 @@
                         <Image url="@../../../images/numberTokens/I11.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenD" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenD" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 7;">
                      <image>
                         <Image url="@../../../images/numberTokens/D3.png" />
                      </image>
@@ -433,17 +433,17 @@
                         <Image url="@../../../images/numberTokens/P6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenH" fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenH" fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 9;">
                      <image>
                         <Image url="@../../../images/numberTokens/H12.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenE" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenE" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 7;">
                      <image>
                         <Image url="@../../../images/numberTokens/E8.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenF" fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenF" fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 3;">
                      <image>
                         <Image url="@../../../images/numberTokens/F10.png" />
                      </image>
@@ -624,7 +624,12 @@
                   <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Button fx:id="startButton" layoutX="310.0" layoutY="260.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
+                  <Button fx:id="startButton" layoutX="299.0" layoutY="339.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="128.0" text="Start Game" />
+                  <ImageView fx:id="EdgeMarker" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#switchImage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/other/diceicon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
