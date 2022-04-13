@@ -127,24 +127,24 @@ public class GameState{
             devBank.push(new DevCard(thisCard, isVictory));
         }
         tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
-        tiles[0].setVertices(new Vertex[] {allVertices[0],allVertices[3],allVertices[4],allVertices[7],allVertices[8],allVertices[12]});
+        tiles[1].setVertices(new Vertex[] {allVertices[1],allVertices[4],allVertices[5],allVertices[8],allVertices[9],allVertices[13]});
+        tiles[2].setVertices(new Vertex[] {allVertices[2],allVertices[5],allVertices[6],allVertices[9],allVertices[10],allVertices[14]});
+        tiles[3].setVertices(new Vertex[] {allVertices[7],allVertices[11],allVertices[12],allVertices[16],allVertices[17],allVertices[22]});
+        tiles[4].setVertices(new Vertex[] {allVertices[8],allVertices[12],allVertices[13],allVertices[17],allVertices[18],allVertices[23]});
+        tiles[5].setVertices(new Vertex[] {allVertices[9],allVertices[13],allVertices[14],allVertices[18],allVertices[19],allVertices[24]});
+        tiles[6].setVertices(new Vertex[] {allVertices[10],allVertices[14],allVertices[15],allVertices[19],allVertices[20],allVertices[25]});
+        tiles[7].setVertices(new Vertex[] {allVertices[16],allVertices[21],allVertices[22],allVertices[27],allVertices[28],allVertices[33]});
+        tiles[8].setVertices(new Vertex[] {allVertices[17],allVertices[22],allVertices[23],allVertices[28],allVertices[29],allVertices[34]});
+        tiles[9].setVertices(new Vertex[] {allVertices[18],allVertices[23],allVertices[24],allVertices[29],allVertices[30],allVertices[35]});
+        tiles[10].setVertices(new Vertex[] {allVertices[19],allVertices[24],allVertices[25],allVertices[30],allVertices[31],allVertices[36]});
+        tiles[11].setVertices(new Vertex[] {allVertices[20],allVertices[25],allVertices[26],allVertices[31],allVertices[32],allVertices[37]});
+        tiles[12].setVertices(new Vertex[] {allVertices[28],allVertices[33],allVertices[34],allVertices[38],allVertices[39],allVertices[43]});
+        tiles[13].setVertices(new Vertex[] {allVertices[29],allVertices[34],allVertices[35],allVertices[39],allVertices[40],allVertices[44]});
+        tiles[14].setVertices(new Vertex[] {allVertices[30],allVertices[35],allVertices[36],allVertices[40],allVertices[41],allVertices[45]});
+        tiles[15].setVertices(new Vertex[] {allVertices[31],allVertices[36],allVertices[37],allVertices[41],allVertices[42],allVertices[46]});
+        tiles[16].setVertices(new Vertex[] {allVertices[39],allVertices[43],allVertices[44],allVertices[47],allVertices[48],allVertices[51]});
+        tiles[17].setVertices(new Vertex[] {allVertices[40],allVertices[44],allVertices[45],allVertices[48],allVertices[49],allVertices[52]});
+        tiles[18].setVertices(new Vertex[] {allVertices[41],allVertices[45],allVertices[46],allVertices[49],allVertices[50],allVertices[53]});
     }
 
     public void shuffle(ArrayList<Tile> tiles){
