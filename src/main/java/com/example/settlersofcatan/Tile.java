@@ -14,6 +14,7 @@ public class Tile {
     private int[] coords;
     private int numberToken;
     private Vertex[] myVertices;
+    public Edge[] myEdges;
     private boolean hasRobber;
     private boolean isDesert;
 
@@ -31,6 +32,9 @@ public class Tile {
     }
     public void setVertices(Vertex[] vertices) {
         myVertices = vertices;
+    }
+    public void setEdges(Edge[] edges) {
+        myEdges = edges;
     }
     public ArrayList<Tile> getAdjacentTiles() {
         return new ArrayList<>();

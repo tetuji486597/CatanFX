@@ -147,9 +147,6 @@ public class GameState{
         tiles[18].setVertices(new Vertex[] {allVertices[41],allVertices[45],allVertices[46],allVertices[49],allVertices[50],allVertices[53]});
     }
 
-    public void shuffle(ArrayList<Tile> tiles){
-
-    }
     public int rollDice(){
         //sum of 2 independent dice
         Random rand = new Random();

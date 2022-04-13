@@ -6,16 +6,19 @@ public class Vertex {
     private int vertexIndex;
     private boolean hasBridgeToPort;
     private int boardIndex;
+    private Tile[] myTiles;
 
     public Vertex(int index) {
         boardIndex = index;
     }
-    private ArrayList<Tile> getSurroundingTiles(){
+    public ArrayList<Tile> getSurroundingTiles(){
         return new ArrayList<>();
     }
 //    private Player getPlayer(){}
-
-    private boolean hasPlayer(){
+    public void setMyTiles(Tile[] tiles) {
+        myTiles = tiles;
+    }
+    public boolean hasPlayer(){
         return false;
 
     }
