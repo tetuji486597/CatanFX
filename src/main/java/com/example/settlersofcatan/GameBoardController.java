@@ -671,6 +671,9 @@ public class GameBoardController {
     private ImageView tokenR;
 
     @FXML
+    private Button RollDiceButton;
+
+    @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
 
@@ -740,13 +743,6 @@ public class GameBoardController {
         for(Rectangle rect: devDecks) {
             rect.setVisible(false);
         }
-        ConfirmButton.setTooltip(new Tooltip("Confirm a trade with another player"));
-        CancelButton.setTooltip(new Tooltip("Cancel a trade with another player"));
-        BuildButton.setTooltip(new Tooltip("Open the build panel and start building!"));
-        TradeButton.setTooltip(new Tooltip("Open the trade panel and trade your resources!"));
-        StealButton.setTooltip(new Tooltip("Steal from another player"));
-        EndTurnButton.setTooltip(new Tooltip("End this turn"));
-        HelpButton.setTooltip(new Tooltip("Open help menu"));
 
 
     }
@@ -780,6 +776,16 @@ public class GameBoardController {
             label2resdeck.get(label).setVisible(true);
             label2devdeck.get(label).setVisible(true);
         }
+        ConfirmButton.setTooltip(new Tooltip("Confirm a trade with another player"));
+        CancelButton.setTooltip(new Tooltip("Cancel a trade with another player"));
+        BuildButton.setTooltip(new Tooltip("Open the build panel and start building!"));
+        TradeButton.setTooltip(new Tooltip("Open the trade panel and trade your resources!"));
+        StealButton.setTooltip(new Tooltip("Steal from another player"));
+        EndTurnButton.setTooltip(new Tooltip("End this turn"));
+        HelpButton.setTooltip(new Tooltip("Open help menu"));
+        Tooltip diceButtonTip = new Tooltip("Roll Dice!");
+        diceButtonTip.setStyle("-fx-font-size: 15");
+        RollDiceButton.setTooltip(diceButtonTip);
     }
 
     @FXML

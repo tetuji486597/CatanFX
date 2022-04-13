@@ -245,7 +245,7 @@
                               <Insets left="55.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="82.0" prefWidth="199.0" style="-fx-background-color: #B2222C;" text="ROLL DICE" textFill="WHITE">
+                        <Button fx:id="RollDiceButton" mnemonicParsing="false" prefHeight="82.0" prefWidth="199.0" style="-fx-background-color: #B2222C;" text="ROLL DICE" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
