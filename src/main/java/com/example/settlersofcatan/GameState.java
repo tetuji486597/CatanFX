@@ -145,6 +145,26 @@ public class GameState{
         tiles[16].setVertices(new Vertex[] {allVertices[39],allVertices[43],allVertices[44],allVertices[47],allVertices[48],allVertices[51]});
         tiles[17].setVertices(new Vertex[] {allVertices[40],allVertices[44],allVertices[45],allVertices[48],allVertices[49],allVertices[52]});
         tiles[18].setVertices(new Vertex[] {allVertices[41],allVertices[45],allVertices[46],allVertices[49],allVertices[50],allVertices[53]});
+
+        tiles[0].setEdges(new Edge[] {allEdges[0],allEdges[1],allEdges[6],allEdges[7],allEdges[11],allEdges[12]});
+        tiles[1].setEdges(new Edge[] {allEdges[2],allEdges[3],allEdges[7],allEdges[8],allEdges[13],allEdges[14]});
+        tiles[2].setEdges(new Edge[] {allEdges[4],allEdges[5],allEdges[8],allEdges[9],allEdges[15],allEdges[16]});
+        tiles[3].setEdges(new Edge[] {allEdges[10],allEdges[11],allEdges[18],allEdges[19],allEdges[24],allEdges[25]});
+        tiles[4].setEdges(new Edge[] {allEdges[12],allEdges[13],allEdges[19],allEdges[20],allEdges[26],allEdges[27]});
+        tiles[5].setEdges(new Edge[] {allEdges[14],allEdges[15],allEdges[20],allEdges[21],allEdges[28],allEdges[29]});
+        tiles[6].setEdges(new Edge[] {allEdges[16],allEdges[17],allEdges[21],allEdges[22],allEdges[30],allEdges[31]});
+        tiles[7].setEdges(new Edge[] {allEdges[23],allEdges[24],allEdges[33],allEdges[34],allEdges[39],allEdges[40]});
+        tiles[8].setEdges(new Edge[] {allEdges[25],allEdges[26],allEdges[34],allEdges[35],allEdges[41],allEdges[42]});
+        tiles[9].setEdges(new Edge[] {allEdges[27],allEdges[28],allEdges[35],allEdges[36],allEdges[43],allEdges[44]});
+        tiles[10].setEdges(new Edge[] {allEdges[29],allEdges[30],allEdges[36],allEdges[37],allEdges[45],allEdges[46]});
+        tiles[11].setEdges(new Edge[] {allEdges[31],allEdges[32],allEdges[37],allEdges[38],allEdges[47],allEdges[48]});
+        tiles[12].setEdges(new Edge[] {allEdges[40],allEdges[41],allEdges[49],allEdges[50],allEdges[54],allEdges[55]});
+        tiles[13].setEdges(new Edge[] {allEdges[42],allEdges[43],allEdges[50],allEdges[51],allEdges[56],allEdges[57]});
+        tiles[14].setEdges(new Edge[] {allEdges[44],allEdges[45],allEdges[51],allEdges[52],allEdges[58],allEdges[59]});
+        tiles[15].setEdges(new Edge[] {allEdges[46],allEdges[47],allEdges[52],allEdges[53],allEdges[60],allEdges[61]});
+//        tiles[16].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
+//        tiles[17].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
+//        tiles[18].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
     }
 
     public int rollDice(){
