@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Port {
     private javafx.scene.image.Image port;
-    private ArrayList<Tile> connectedTiles;
+    private ArrayList<Vertex> connectedVertices;
     private String name;
     public Port(String name, Image image) {
         this.name = name;
@@ -14,5 +14,8 @@ public class Port {
     }
     public Image getImage() {
         return port;
+    }
+    public void setConnectedVertices() {
+
     }
 }

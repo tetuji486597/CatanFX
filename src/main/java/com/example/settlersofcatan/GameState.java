@@ -17,6 +17,8 @@ public class GameState{
     public static HashMap<String, Tile> posMap;
     public static String[] allTokens;
     public static String[] allPorts;
+    public static Vertex[] allVertices;
+    public static Edge[] allEdges;
     public static Port[] ports;
     public static HashMap<String, Integer> tokenMap;
     public static HashMap<String, Integer> resourceBank;
@@ -30,6 +32,15 @@ public class GameState{
 
         this.numPlayers = numPlayers;
 
+
+        allVertices = new Vertex[54];
+        for(int i = 0; i < 54; i++) {
+            allVertices[i] = new Vertex(i);
+        }
+        allEdges = new Edge[72];
+        for(int i = 0; i < 72; i++) {
+            allEdges[i] = new Edge(i);
+        }
         allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
         allTokens  = new String[] {"A5", "L10", "K8", "B2", "M9", "R11", "J4", "C6", "N4", "Q3", "I11", "D3", "O5", "P6", "H12", "E8", "F10", "G9"};
         tokenMap = new HashMap<>();

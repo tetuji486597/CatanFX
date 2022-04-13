@@ -13,10 +13,12 @@ public class Tile {
     private String name;
     private int[] coords;
     private int numberToken;
+    private Vertex[] myVertices;
     private boolean hasRobber;
     private boolean isDesert;
 
     public Tile(String str, Image img, int[] coords, int token) {
+        myVertices = new Vertex[6];
         name = str;
         tile = img;
         this.coords = coords;

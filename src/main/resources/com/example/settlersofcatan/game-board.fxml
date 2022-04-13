@@ -39,7 +39,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="BlueIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="BlueIcon" fitHeight="150.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/blue.png" />
                      </image>
@@ -52,12 +52,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="BlueColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="BlueColorLabel" fitHeight="61.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/BlueText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" left="50.0" />
+                        <Insets bottom="70.0" left="35.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player1Label" text="Player 1" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -90,7 +90,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="GreenIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="GreenIcon" fitHeight="123.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/green.png" />
                      </image>
@@ -108,7 +108,7 @@
                         <Image url="@../../../images/other/GreenText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" left="50.0" />
+                        <Insets bottom="150.0" left="30.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player2Label" text="Player 2" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -141,7 +141,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="WhiteIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="WhiteIcon" fitHeight="128.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/white.png" />
                      </image>
@@ -154,12 +154,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="WhiteColorLabel" fitHeight="40.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="WhiteColorLabel" fitHeight="40.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/WhiteText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" left="50.0" />
+                        <Insets bottom="140.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player3Label" text="Player 3" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -192,7 +192,7 @@
                   <RowConstraints />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="RedIcon" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="RedIcon" fitHeight="140.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/players/red.png" />
                      </image>
@@ -205,12 +205,12 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
-                  <ImageView fx:id="RedColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="RedColorLabel" fitHeight="26.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../images/other/RedText.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets bottom="140.0" left="50.0" />
+                        <Insets bottom="135.0" left="10.0" />
                      </GridPane.margin>
                   </ImageView>
                   <Label fx:id="Player4Label" text="Player 4" textFill="#9a9a9a" GridPane.columnIndex="1">
@@ -261,6 +261,11 @@
                   <ImageView fx:id="boardBase" fitHeight="620.0" fitWidth="725.0" layoutX="3.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/Board.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="480.0" fitWidth="519.0" layoutX="103.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" scaleX="1.05" scaleY="1.02">
+                     <image>
+                        <Image url="@../../../images/bgtemplate.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="r2c2" fitHeight="130.0" fitWidth="200.0" layoutX="305.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
