@@ -29,6 +29,9 @@ public class Tile {
     public Image getImage() {
         return tile;
     }
+    public void setVertices(Vertex[] vertices) {
+        myVertices = vertices;
+    }
     public ArrayList<Tile> getAdjacentTiles() {
         return new ArrayList<>();
     }
