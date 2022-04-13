@@ -65,6 +65,9 @@ public class GameBoardController {
     private Label DevLabel;
 
     @FXML
+    private ImageView EdgeMarker;
+
+    @FXML
     private Rectangle EdgeMarker0;
 
     @FXML
