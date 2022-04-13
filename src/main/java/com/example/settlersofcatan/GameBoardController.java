@@ -812,6 +812,15 @@ public class GameBoardController {
         stage.show();
     }
 
+    @FXML
+    public void showResourceView() {
 
+    }
 
+    @FXML
+    public void showDevView() {
+
+    }
+
+    //edge marker clcieked adn vertex marker clicked
 }
