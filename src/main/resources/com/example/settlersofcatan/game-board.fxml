@@ -47,8 +47,8 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle fx:id="BlueResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
-                  <Rectangle fx:id="BlueDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" stroke="BLACK" strokeType="INSIDE" width="101.0" GridPane.columnIndex="6">
+                  <Rectangle fx:id="BlueResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" onMouseClicked="#showResourceView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="BlueDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7492ae" height="168.0" onMouseClicked="#showDevView" stroke="BLACK" strokeType="INSIDE" width="101.0" GridPane.columnIndex="6">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
@@ -98,8 +98,8 @@
                         <Insets left="15.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle fx:id="GreenResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
-                  <Rectangle fx:id="GreenDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" stroke="BLACK" strokeType="INSIDE" width="101.0" GridPane.columnIndex="6">
+                  <Rectangle fx:id="GreenResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" onMouseClicked="#showResourceView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="GreenDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#7ead74" height="168.0" onMouseClicked="#showDevView" stroke="BLACK" strokeType="INSIDE" width="101.0" GridPane.columnIndex="6">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
@@ -149,8 +149,8 @@
                         <Insets bottom="-30.0" left="15.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle fx:id="WhiteResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
-                  <Rectangle fx:id="WhiteDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
+                  <Rectangle fx:id="WhiteResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" onMouseClicked="#showResourceView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="WhiteDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="168.0" onMouseClicked="#showDevView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
@@ -200,8 +200,8 @@
                         <Insets bottom="-20.0" left="15.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Rectangle fx:id="RedResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
-                  <Rectangle fx:id="RedDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
+                  <Rectangle fx:id="RedResourceDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" onMouseClicked="#showResourceView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="4" />
+                  <Rectangle fx:id="RedDevDeck" arcHeight="5.0" arcWidth="5.0" fill="#dd8080" height="168.0" onMouseClicked="#showDevView" stroke="BLACK" strokeType="INSIDE" width="100.0" GridPane.columnIndex="6">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Rectangle>
@@ -752,7 +752,7 @@
                   <Button fx:id="HelpButton" layoutX="149.0" layoutY="133.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="49.0" prefWidth="87.0" style="-fx-background-color: #E5EFC1;" text="Help" />
                   <Button fx:id="BuildButton" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
                   <Button fx:id="EndTurnButton" layoutX="52.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />
-                  <Button fx:id="TradeButton" layoutX="101.0" layoutY="85.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />
+                  <Button fx:id="TradeButton" layoutX="101.0" layoutY="85.0" mnemonicParsing="false" onAction="#showTrade" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />
                </children>
             </Pane>
          </children>
