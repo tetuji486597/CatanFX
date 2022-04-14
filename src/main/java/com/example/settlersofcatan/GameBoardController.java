@@ -3,14 +3,20 @@ package com.example.settlersofcatan;
 import javafx.fxml.FXML;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class GameBoardController {
 
@@ -677,6 +683,8 @@ public class GameBoardController {
     private Button RollDiceButton;
 
     @FXML
+    private TextArea ActivityLog;
+    @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
 
@@ -746,8 +754,14 @@ public class GameBoardController {
         for(Rectangle rect: devDecks) {
             rect.setVisible(false);
         }
-
-
+        RollDiceButton.setDisable(true);
+        ConfirmButton.setDisable(true);
+        CancelButton.setDisable(true);
+        BuildButton.setDisable(true);
+        TradeButton.setDisable(true);
+        StealButton.setDisable(true);
+        EndTurnButton.setDisable(true);
+        HelpButton.setDisable(true);
     }
     @FXML
     public void startGame() {
@@ -789,10 +803,50 @@ public class GameBoardController {
         Tooltip diceButtonTip = new Tooltip("Roll Dice!");
         diceButtonTip.setStyle("-fx-font-size: 15");
         RollDiceButton.setTooltip(diceButtonTip);
+        RollDiceButton.setDisable(false);
+        ConfirmButton.setDisable(false);
+        CancelButton.setDisable(false);
+        BuildButton.setDisable(false);
+        TradeButton.setDisable(false);
+        StealButton.setDisable(false);
+        EndTurnButton.setDisable(false);
+        HelpButton.setDisable(false);
     }
 
     @FXML
     public void showHelp() {
         ParentPanel.helpPanel.show();
+    }
+
+    @FXML
+    public void showTrade() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Trade.fxml"));
+        Scene tradeScene = new Scene(fxmlLoader.load());
+        stage.setTitle("Trade");
+        stage.setResizable(false);
+        stage.setScene(tradeScene);
+        ParentPanel.setTradePanel(stage);
+        stage.show();
+    }
+
+    @FXML
+    public void showResourceView() {
+        
+    }
+
+    public void showDevView() {
+
+    }
+
+    @FXML
+    public void rollDice() {
+        Random rand = new Random();
+        int die1 = rand.nextInt(6);
+        int die2 = rand.nextInt(6);
+        int diceRoll = die1+die2;
+        Player player = GameState.currentPlayer;
+        int index = player.getIndex();
+        ActivityLog.appendText("Player " + index + " rolled " + diceRoll +"\n");
     }
 }

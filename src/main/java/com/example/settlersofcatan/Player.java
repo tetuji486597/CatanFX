@@ -102,4 +102,8 @@ public class Player {
         victoryPoints = points;
         return points;
     }
+
+    public int getIndex() {
+        return index;
+    }
 }

@@ -233,7 +233,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <TextArea layoutX="6.0" layoutY="6.0" prefHeight="189.0" prefWidth="511.0" promptText="&lt;action log&gt;" />
+                  <TextArea fx:id="ActivityLog" layoutX="6.0" layoutY="6.0" prefHeight="189.0" prefWidth="511.0" promptText="&lt;action log&gt;" />
                   <Separator layoutX="520.0" layoutY="1.0" orientation="VERTICAL" prefHeight="200.0" />
                   <VBox layoutX="526.0" layoutY="11.0" prefHeight="189.0" prefWidth="200.0">
                      <children>
@@ -245,7 +245,7 @@
                               <Insets left="55.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Button fx:id="RollDiceButton" mnemonicParsing="false" prefHeight="82.0" prefWidth="199.0" style="-fx-background-color: #B2222C;" text="ROLL DICE" textFill="WHITE">
+                        <Button fx:id="RollDiceButton" mnemonicParsing="false" onAction="#rollDice" prefHeight="82.0" prefWidth="199.0" style="-fx-background-color: #B2222C;" text="ROLL DICE" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
