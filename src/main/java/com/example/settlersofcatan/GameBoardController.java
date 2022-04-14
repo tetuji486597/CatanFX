@@ -789,6 +789,7 @@ public class GameBoardController {
         Tooltip diceButtonTip = new Tooltip("Roll Dice!");
         diceButtonTip.setStyle("-fx-font-size: 15");
         RollDiceButton.setTooltip(diceButtonTip);
+        RollDiceButton.setTooltip(new Tooltip("Roll two dices"));
     }
 
     @FXML
