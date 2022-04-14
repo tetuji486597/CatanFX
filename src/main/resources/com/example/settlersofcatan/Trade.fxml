@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.Trade">
    <children>
       <Text layoutX="107.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to you want to trade?">
@@ -20,7 +19,7 @@
          <graphic>
             <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+                  <Image url="@../../../images/golden%20button.png" />
                </image>
             </ImageView>
          </graphic>
@@ -41,7 +40,7 @@
          <graphic>
             <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+                  <Image url="@../../../images/golden%20button.png" />
                </image>
             </ImageView>
          </graphic>
@@ -56,7 +55,7 @@
          <graphic>
             <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+                  <Image url="@../../../images/golden%20button.png" />
                </image>
             </ImageView>
          </graphic>
@@ -71,7 +70,7 @@
          <graphic>
             <ImageView fitHeight="56.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/kisspng-button-gold-clip-art-vector-golden-5b15e647e8ee04.5784785715281618639541.png" />
+                  <Image url="@../../../images/golden%20button.png" />
                </image>
             </ImageView>
          </graphic>

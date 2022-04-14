@@ -1,9 +1,7 @@
 package com.example.settlersofcatan;
 
-import javafx.event.ActionEvent;
-import javafx.scene.image.Image;
+import javafx.beans.binding.NumberBinding;
 
-import java.io.IOException;
 import java.util.*;
 
 public class GameState{
@@ -20,6 +18,7 @@ public class GameState{
     public static HashMap<String, Tile> tilesMap;
     public static HashMap<String, Tile> posMap;
     public static String[] allTokens;
+    public static NumberToken[] tokens;
     public static String[] allPorts;
     public static Vertex[] allVertices;
     public static Edge[] allEdges;
@@ -46,10 +45,16 @@ public class GameState{
         }
         allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
         allTokens  = new String[] {"A5", "L10", "K8", "B2", "M9", "R11", "J4", "C6", "N4", "Q3", "I11", "D3", "O5", "P6", "H12", "E8", "F10", "G9"};
+
         tokenMap = new HashMap<>();
         int[] numbers = new int[] {5,10,8,2,9,11,4,6,4,3,11,3,5,6,12,8,10,9};
         for(int i = 0; i < numbers.length; i++) {
             tokenMap.put(allTokens[i], numbers[i]);
+        }
+
+        tokens = new NumberToken[allTokens.length];
+        for(int i  = 0; i < allTokens.length; i++) {
+            tokens[i] = new NumberToken(tokenMap.get(allTokens[i]), Initialize.numberTokens.get(allTokens[i]));
         }
         devBank = new Stack<>();
 
@@ -166,9 +171,9 @@ public class GameState{
         tiles[13].setEdges(new Edge[] {allEdges[42],allEdges[43],allEdges[50],allEdges[51],allEdges[56],allEdges[57]});
         tiles[14].setEdges(new Edge[] {allEdges[44],allEdges[45],allEdges[51],allEdges[52],allEdges[58],allEdges[59]});
         tiles[15].setEdges(new Edge[] {allEdges[46],allEdges[47],allEdges[52],allEdges[53],allEdges[60],allEdges[61]});
-//        tiles[16].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
-//        tiles[17].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
-//        tiles[18].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
+        tiles[16].setEdges(new Edge[] {allEdges[55],allEdges[56],allEdges[62],allEdges[63],allEdges[66],allEdges[67]});
+        tiles[17].setEdges(new Edge[] {allEdges[57],allEdges[58],allEdges[63],allEdges[64],allEdges[68],allEdges[69]});
+        tiles[18].setEdges(new Edge[] {allEdges[59],allEdges[60],allEdges[64],allEdges[65],allEdges[70],allEdges[71]});
     }
 
     public int rollDice(){
@@ -236,6 +241,4 @@ public class GameState{
     public boolean maintainsDistanceRule(){
         return false;
     }
-
-
 }
