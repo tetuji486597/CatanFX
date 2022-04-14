@@ -37,7 +37,7 @@ public class MenuController {
         ParentPanel.menuPanel.hide();
         Stage game = new Stage();
         FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("game-board.fxml"));
-        game.setTitle("Settlers of Catan");
+        game.setTitle("Settlers of Catan");//
         Scene gameScene = new Scene(gameLoader.load());
         game.setResizable(false);
         game.setScene(gameScene);
