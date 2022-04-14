@@ -5,11 +5,16 @@ public class Edge {
     private Vertex endVertex1;
     private Vertex endVertex2;
     private int boardIndex;
+    private Tile[] myTiles;
     public Edge(int index) {
         boardIndex = index;
     }
 
-    private ArrayList<Tile> getSurroundingTiles(){
+    public void setMyTiles(Tile[] tiles) {
+        this.myTiles = tiles;
+    }
+
+    public ArrayList<Tile> getSurroundingTiles(){
         return new ArrayList<>();
     }
 
