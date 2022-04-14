@@ -162,9 +162,9 @@ public class GameState{
         tiles[13].setEdges(new Edge[] {allEdges[42],allEdges[43],allEdges[50],allEdges[51],allEdges[56],allEdges[57]});
         tiles[14].setEdges(new Edge[] {allEdges[44],allEdges[45],allEdges[51],allEdges[52],allEdges[58],allEdges[59]});
         tiles[15].setEdges(new Edge[] {allEdges[46],allEdges[47],allEdges[52],allEdges[53],allEdges[60],allEdges[61]});
-//        tiles[16].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
-//        tiles[17].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
-//        tiles[18].setEdges(new Edge[] {allEdges[0],allEdges[3],allEdges[4],allEdges[7],allEdges[8],allEdges[12]});
+        tiles[16].setEdges(new Edge[] {allEdges[55],allEdges[56],allEdges[62],allEdges[63],allEdges[66],allEdges[67]});
+        tiles[17].setEdges(new Edge[] {allEdges[57],allEdges[58],allEdges[63],allEdges[64],allEdges[68],allEdges[69]});
+        tiles[18].setEdges(new Edge[] {allEdges[59],allEdges[60],allEdges[64],allEdges[65],allEdges[70],allEdges[71]});
     }
 
     public int rollDice(){
