@@ -103,8 +103,7 @@ public class Player {
         return points;
     }
 
-    public int getIndex()
-    {
+    public int getIndex() {
         return index;
     }
 }
