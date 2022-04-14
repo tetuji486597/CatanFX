@@ -9,5 +9,5 @@ public class NumberToken {
     public NumberToken (int token, Image myImage){
         this.token = token;
         tokenImage = myImage;
-    }
+    }//hola
 }
