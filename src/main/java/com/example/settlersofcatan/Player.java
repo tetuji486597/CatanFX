@@ -10,10 +10,10 @@ public class Player {
     private int cardCount;
     //Anjie: I changed color to public bc I need to access it
     //in Settlement & City classes (according to UML)
-    public String color;
+    private String color;
     private boolean hasMoreThan7;
-    public Image mySettlement;
-    public Image myCity;
+    private Image mySettlement;
+    private Image myCity;
     private int index;
     private ArrayList<ResourceCard> resourceDeck;
     public ArrayList<String> resDeck;
@@ -46,6 +46,9 @@ public class Player {
         devDeck = new ArrayList<>();
         settlements = new ArrayList<>();
         cities = new ArrayList<>();
+    }
+    public String getColor() {
+        return color;
     }
     public int getCardCount(){
         return 0;

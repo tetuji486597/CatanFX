@@ -7,6 +7,6 @@ public class City {
     public City(Player owner)
     {
         this.owner = owner;
-        this.color = owner.color;
+        this.color = owner.getColor();
     }
 }

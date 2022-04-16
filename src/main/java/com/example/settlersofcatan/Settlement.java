@@ -11,7 +11,7 @@ public class Settlement {
     {
         this.player = player;
         //this.color = owner.color;
-        this.mySettlement = player.mySettlement;
+//        this.mySettlement = player.getSettlement;
 
     }
 }
