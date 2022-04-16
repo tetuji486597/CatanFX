@@ -9,14 +9,17 @@ public class GameState{
     public static int numPlayers;
     public static ArrayList<Player> allPlayers;
     public static Player currentPlayer;
+    public static int currentPlayerIndex;
     public static Robber robber;
     public int robberXCoord;
     public int robberYCoord;
     public static String[] allTiles;
     public static Tile[] tiles;
     public static int[][] pos;
+    public static int[][] tokenPos;
     public static HashMap<String, Tile> tilesMap;
     public static HashMap<String, Tile> posMap;
+    public static HashMap<Integer, Player> playerMap;
     public static String[] allTokens;
     public static NumberToken[] tokens;
     public static String[] allPorts;
@@ -29,11 +32,14 @@ public class GameState{
     public static ArrayList<String> allDevCards;
     public static String[] allColors;
     public static GameBoardController controller;
-
+    public static int[] setUpDice;
+    public static boolean gameStarted = false;
 
     public GameState(int numPlayers) {
 
         this.numPlayers = numPlayers;
+
+        setUpDice = new int[numPlayers];
 
         allVertices = new Vertex[54];
         for(int i = 0; i < 54; i++) {
@@ -44,10 +50,10 @@ public class GameState{
             allEdges[i] = new Edge(i);
         }
         allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
-        allTokens  = new String[] {"A5", "L10", "K8", "B2", "M9", "R11", "J4", "C6", "N4", "Q3", "I11", "D3", "O5", "P6", "H12", "E8", "F10", "G9"};
+        allTokens  = new String[] {"A5", "B2", "C6", "D3", "E8", "F10", "G9", "H12", "I11", "J4", "K8", "L10", "M9", "N4", "O5", "P6", "Q3", "R11"};
 
         tokenMap = new HashMap<>();
-        int[] numbers = new int[] {5,10,8,2,9,11,4,6,4,3,11,3,5,6,12,8,10,9};
+        int[] numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
         for(int i = 0; i < numbers.length; i++) {
             tokenMap.put(allTokens[i], numbers[i]);
         }
@@ -67,12 +73,19 @@ public class GameState{
             Port port = new Port(allPorts[i], Initialize.ports.get(allPorts[i]));
             ports[i] = port;
         }
+        tokenPos = new int[][] {
+                {0,0},{1,0},{2,0},
+            {3,0},{4,0},{4,1},{4,2},
+          {3,3},{2,4},{1,3},{0,2},{0,1},
+            {1,1},{2,1},{3,1},{3,2},
+                {2,3},{1,2},{2,2}
+        };
         pos = new int[][] {
                 {0,0},{0,1},{0,2},
               {1,0},{1,1},{1,2},{1,3},
             {2,0},{2,1},{2,2},{2,3},{2,4},
               {3,0},{3,1},{3,2},{3,3},
-                {4,0},{4,1},{4,2},
+                {4,0},{4,1},{4,2}
         };
         List<String> tileShuffle = Arrays.asList(allTiles);
         Collections.shuffle(tileShuffle);
@@ -110,10 +123,15 @@ public class GameState{
         resourceBank.put("Ore", 19);
         resourceBank.put("Brick", 19);
         allPlayers = new ArrayList<>();
-        for(int i = 0; i < numPlayers; i++) {
-            currentPlayer = new Player(allColors[i], i);
+
+        playerMap = new HashMap<>();
+        for(int i = 1; i <= numPlayers; i++) {
+            currentPlayer = new Player(allColors[i-1], i);
             allPlayers.add(currentPlayer);
+            playerMap.put(i, currentPlayer);
         }
+        currentPlayer = playerMap.get(1);
+        currentPlayerIndex = 1;
         allDevCards = new ArrayList<>();
         for(int i = 0; i < 13; i++) allDevCards.add("Knight");
         allDevCards.add("University");
@@ -184,6 +202,7 @@ public class GameState{
         int diceRoll = die1+die2;
         return diceRoll;
     }
+
     public void sevenRolled(){
         if (rollDice() == 7){
             //do stuff

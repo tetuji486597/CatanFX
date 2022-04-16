@@ -1,11 +1,11 @@
 package com.example.settlersofcatan;
 
+import javafx.animation.*;
 import javafx.fxml.FXML;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +16,9 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GameBoardController {
 
@@ -27,7 +29,8 @@ public class GameBoardController {
     public static Rectangle[] resDecks;
     public static Rectangle[] EdgeMarkers;
     public static Rectangle[] VertexMarkers;
-    public static HashMap<int[], ImageView> tilesMap;
+    public static ImageView[] numberTokens;
+    public static HashMap<int[], ImageView> tokenMap;
     public static HashMap<String, ImageView> color2label;
     public static HashMap<ImageView, ImageView> label2icon;
     public static HashMap<ImageView, Rectangle> label2resdeck;
@@ -680,10 +683,17 @@ public class GameBoardController {
     private ImageView tokenR;
 
     @FXML
+    private ImageView tokenNull;
+
+    @FXML
     private Button RollDiceButton;
 
     @FXML
     private TextArea ActivityLog;
+
+    @FXML
+    private Label MainLabel;
+
     @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
@@ -692,6 +702,7 @@ public class GameBoardController {
         label2icon = new HashMap<>();
         label2resdeck = new HashMap<>();
         label2devdeck = new HashMap<>();
+        tokenMap = new HashMap<>();
 
         color2label.put("Blue", BlueColorLabel);
         color2label.put("Green", GreenColorLabel);
@@ -722,7 +733,7 @@ public class GameBoardController {
         portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
         EdgeMarkers = new Rectangle[] {EdgeMarker0,EdgeMarker1,EdgeMarker2,EdgeMarker3,EdgeMarker4,EdgeMarker5,EdgeMarker6,EdgeMarker7,EdgeMarker8,EdgeMarker9,EdgeMarker10,EdgeMarker11,EdgeMarker12,EdgeMarker13,EdgeMarker14,EdgeMarker15,EdgeMarker16,EdgeMarker17,EdgeMarker18,EdgeMarker19,EdgeMarker20,EdgeMarker21,EdgeMarker22,EdgeMarker23,EdgeMarker24,EdgeMarker25,EdgeMarker26,EdgeMarker27,EdgeMarker28,EdgeMarker29,EdgeMarker30,EdgeMarker31,EdgeMarker32,EdgeMarker33,EdgeMarker34,EdgeMarker35,EdgeMarker36,EdgeMarker37,EdgeMarker38,EdgeMarker39,EdgeMarker40,EdgeMarker41,EdgeMarker42,EdgeMarker43,EdgeMarker44,EdgeMarker45,EdgeMarker46,EdgeMarker47,EdgeMarker48,EdgeMarker49,EdgeMarker50,EdgeMarker51,EdgeMarker52,EdgeMarker53,EdgeMarker54,EdgeMarker55,EdgeMarker56,EdgeMarker57,EdgeMarker58,EdgeMarker59,EdgeMarker60,EdgeMarker61,EdgeMarker62,EdgeMarker63,EdgeMarker64,EdgeMarker65,EdgeMarker66,EdgeMarker67,EdgeMarker68,EdgeMarker69,EdgeMarker70,EdgeMarker71};
         VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
-        tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR};
+        tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
 
         for(Label label: playerNumLabels) {
             label.setVisible(false);
@@ -766,6 +777,29 @@ public class GameBoardController {
     @FXML
     public void startGame() {
         startButton.setVisible(false);
+        int[][] tokenPos = GameState.tokenPos;
+        for(int i = 0; i < tokenPos.length; i++) {
+            tokenMap.put(tokenPos[i], tokenViews[i]);
+        }
+        for(int[] i : tokenMap.keySet()) {
+            System.out.println(Arrays.toString(i) + " ");
+        }
+        NumberToken[] tokens = GameState.tokens;
+        int[] desertPos = GameState.tilesMap.get("Desert").getCoords();
+        int desx = desertPos[0];
+        int desy = desertPos[1];
+        boolean desertFound = false;
+        for(int i = 0; i < tokenPos.length; i++) {
+            int x = tokenPos[i][0];
+            int y = tokenPos[i][1];
+            if(x == desx && y == desy) {
+                tokenViews[i].setImage(null);
+                desertFound = true;
+                continue;
+            }
+            int posForImage = desertFound ? i-1 : i;
+            tokenMap.get(tokenPos[i]).setImage(tokens[posForImage].getImage());
+        }
         Tile[] tiles = GameState.tiles;
         for(int i = 0; i < tileViews.length; i++) {
             tileViews[i].setImage(tiles[i].getImage());
@@ -803,7 +837,6 @@ public class GameBoardController {
         Tooltip diceButtonTip = new Tooltip("Roll Dice!");
         diceButtonTip.setStyle("-fx-font-size: 15");
         RollDiceButton.setTooltip(diceButtonTip);
-        RollDiceButton.setDisable(false);
         ConfirmButton.setDisable(false);
         CancelButton.setDisable(false);
         BuildButton.setDisable(false);
@@ -811,8 +844,32 @@ public class GameBoardController {
         StealButton.setDisable(false);
         EndTurnButton.setDisable(false);
         HelpButton.setDisable(false);
+        GameState.currentPlayer = GameState.playerMap.get(1);
+        ActivityLog.setEditable(false);
+        ActivityLog.appendText("Determine which player goes first: \n" );
+        appendBoth("Player " + 1 + ", roll the die");
+        RollDiceButton.setDisable(false);
     }
 
+    public void setUp() throws InterruptedException {
+        int[] results = GameState.setUpDice;
+        int max = results[0];
+        int index = 0;
+        for(int i = 1; i < results.length; i++) {
+            if(results[i] > max) {
+                max = results[i];
+                index = i;
+            }
+        }
+        index+=1;
+        appendBoth("Player " + index + " goes first!");
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+        int finalIndex = index;
+        pauseTransition.setOnFinished(e -> MainLabel.setText("Player " + finalIndex + ", choose the location of your first settlement"));
+        pauseTransition.play();
+        GameState.currentPlayerIndex = index;
+        GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
+    }
     @FXML
     public void showHelp() {
         ParentPanel.helpPanel.show();
@@ -840,13 +897,410 @@ public class GameBoardController {
     }
 
     @FXML
-    public void rollDice() {
+    public void rollDice() throws InterruptedException {
+        RollDiceButton.setDisable(true);
         Random rand = new Random();
-        int die1 = rand.nextInt(6);
-        int die2 = rand.nextInt(6);
-        int diceRoll = die1+die2;
-        Player player = GameState.currentPlayer;
-        int index = player.getIndex();
-        ActivityLog.appendText("Player " + index + " rolled " + diceRoll +"\n");
+        int die1 = rand.nextInt(6) + 1;
+        if(GameState.gameStarted) {
+            int die2 = rand.nextInt(6) + 1;
+            int diceRoll = die1+die2;
+            Player player = GameState.currentPlayer;
+            int index = player.getIndex();
+            ActivityLog.appendText("Player " + index + " rolled " + diceRoll +"\n");
+        }
+        else {
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + die1 + "\n\n");
+            GameState.setUpDice[GameState.currentPlayerIndex-1] = die1;
+            if(GameState.currentPlayerIndex != GameState.numPlayers) {
+                GameState.currentPlayerIndex = GameState.currentPlayerIndex + 1;
+                GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
+                appendBoth("Player " + GameState.currentPlayerIndex + ", roll the die");
+                RollDiceButton.setDisable(false);
+            }
+            else {
+                setUp();
+            }
+        }
     }
+    public void appendBoth(String str) {
+        ActivityLog.appendText(str+"\n");
+        MainLabel.setText(str);
+    }
+    @FXML
+    public void Marker0Pressed() {}
+
+    @FXML
+    public void Marker1Pressed() {}
+
+    @FXML
+    public void Marker2Pressed() {}
+
+    @FXML
+    public void Marker3Pressed() {}
+
+    @FXML
+    public void Marker4Pressed() {}
+
+    @FXML
+    public void Marker5Pressed() {}
+
+    @FXML
+    public void Marker6Pressed() {}
+
+    @FXML
+    public void Marker7Pressed() {}
+
+    @FXML
+    public void Marker8Pressed() {}
+
+    @FXML
+    public void Marker9Pressed() {}
+
+    @FXML
+    public void Marker10Pressed() {}
+
+    @FXML
+    public void Marker11Pressed() {}
+
+    @FXML
+    public void Marker12Pressed() {}
+
+    @FXML
+    public void Marker13Pressed() {}
+
+    @FXML
+    public void Marker14Pressed() {}
+
+    @FXML
+    public void Marker15Pressed() {}
+
+    @FXML
+    public void Marker16Pressed() {}
+
+    @FXML
+    public void Marker17Pressed() {}
+
+    @FXML
+    public void Marker18Pressed() {}
+
+    @FXML
+    public void Marker19Pressed() {}
+
+    @FXML
+    public void Marker20Pressed() {}
+
+    @FXML
+    public void Marker21Pressed() {}
+
+    @FXML
+    public void Marker22Pressed() {}
+
+    @FXML
+    public void Marker23Pressed() {}
+
+    @FXML
+    public void Marker24Pressed() {}
+
+    @FXML
+    public void Marker25Pressed() {}
+
+    @FXML
+    public void Marker26Pressed() {}
+
+    @FXML
+    public void Marker27Pressed() {}
+
+    @FXML
+    public void Marker28Pressed() {}
+
+    @FXML
+    public void Marker29Pressed() {}
+
+    @FXML
+    public void Marker30Pressed() {}
+
+    @FXML
+    public void Marker31Pressed() {}
+
+    @FXML
+    public void Marker32Pressed() {}
+
+    @FXML
+    public void Marker33Pressed() {}
+
+    @FXML
+    public void Marker34Pressed() {}
+
+    @FXML
+    public void Marker35Pressed() {}
+
+    @FXML
+    public void Marker36Pressed() {}
+
+    @FXML
+    public void Marker37Pressed() {}
+
+    @FXML
+    public void Marker38Pressed() {}
+
+    @FXML
+    public void Marker39Pressed() {}
+
+    @FXML
+    public void Marker40Pressed() {}
+
+    @FXML
+    public void Marker41Pressed() {}
+
+    @FXML
+    public void Marker42Pressed() {}
+
+    @FXML
+    public void Marker43Pressed() {}
+
+    @FXML
+    public void Marker44Pressed() {}
+
+    @FXML
+    public void Marker45Pressed() {}
+
+    @FXML
+    public void Marker46Pressed() {}
+
+    @FXML
+    public void Marker47Pressed() {}
+
+    @FXML
+    public void Marker48Pressed() {}
+
+    @FXML
+    public void Marker49Pressed() {}
+
+    @FXML
+    public void Marker50Pressed() {}
+
+    @FXML
+    public void Marker51Pressed() {}
+
+    @FXML
+    public void Marker52Pressed() {}
+
+    @FXML
+    public void Marker53Pressed() {}
+
+    @FXML
+    public void Edge0Pressed() {}
+
+    @FXML
+    public void Edge1Pressed() {}
+
+    @FXML
+    public void Edge2Pressed() {}
+
+    @FXML
+    public void Edge3Pressed() {}
+
+    @FXML
+    public void Edge4Pressed() {}
+
+    @FXML
+    public void Edge5Pressed() {}
+
+    @FXML
+    public void Edge6Pressed() {}
+
+    @FXML
+    public void Edge7Pressed() {}
+
+    @FXML
+    public void Edge8Pressed() {}
+
+    @FXML
+    public void Edge9Pressed() {}
+
+    @FXML
+    public void Edge10Pressed() {}
+
+    @FXML
+    public void Edge11Pressed() {}
+
+    @FXML
+    public void Edge12Pressed() {}
+
+    @FXML
+    public void Edge13Pressed() {}
+
+    @FXML
+    public void Edge14Pressed() {}
+
+    @FXML
+    public void Edge15Pressed() {}
+
+    @FXML
+    public void Edge16Pressed() {}
+
+    @FXML
+    public void Edge17Pressed() {}
+
+    @FXML
+    public void Edge18Pressed() {}
+
+    @FXML
+    public void Edge19Pressed() {}
+
+    @FXML
+    public void Edge20Pressed() {}
+
+    @FXML
+    public void Edge21Pressed() {}
+
+    @FXML
+    public void Edge22Pressed() {}
+
+    @FXML
+    public void Edge23Pressed() {}
+
+    @FXML
+    public void Edge24Pressed() {}
+
+    @FXML
+    public void Edge25Pressed() {}
+
+    @FXML
+    public void Edge26Pressed() {}
+
+    @FXML
+    public void Edge27Pressed() {}
+
+    @FXML
+    public void Edge28Pressed() {}
+
+    @FXML
+    public void Edge29Pressed() {}
+
+    @FXML
+    public void Edge30Pressed() {}
+
+    @FXML
+    public void Edge31Pressed() {}
+
+    @FXML
+    public void Edge32Pressed() {}
+
+    @FXML
+    public void Edge33Pressed() {}
+
+    @FXML
+    public void Edge34Pressed() {}
+
+    @FXML
+    public void Edge35Pressed() {}
+
+    @FXML
+    public void Edge36Pressed() {}
+
+    @FXML
+    public void Edge37Pressed() {}
+
+    @FXML
+    public void Edge38Pressed() {}
+
+    @FXML
+    public void Edge39Pressed() {}
+
+    @FXML
+    public void Edge40Pressed() {}
+
+    @FXML
+    public void Edge41Pressed() {}
+
+    @FXML
+    public void Edge42Pressed() {}
+
+    @FXML
+    public void Edge43Pressed() {}
+
+    @FXML
+    public void Edge44Pressed() {}
+
+    @FXML
+    public void Edge45Pressed() {}
+
+    @FXML
+    public void Edge46Pressed() {}
+
+    @FXML
+    public void Edge47Pressed() {}
+
+    @FXML
+    public void Edge48Pressed() {}
+
+    @FXML
+    public void Edge49Pressed() {}
+
+    @FXML
+    public void Edge50Pressed() {}
+
+    @FXML
+    public void Edge51Pressed() {}
+
+    @FXML
+    public void Edge52Pressed() {}
+
+    @FXML
+    public void Edge53Pressed() {}
+
+    @FXML
+    public void Edge54Pressed() {}
+
+    @FXML
+    public void Edge55Pressed() {}
+
+    @FXML
+    public void Edge56Pressed() {}
+
+    @FXML
+    public void Edge57Pressed() {}
+
+    @FXML
+    public void Edge58Pressed() {}
+
+    @FXML
+    public void Edge59Pressed() {}
+
+    @FXML
+    public void Edge60Pressed() {}
+
+    @FXML
+    public void Edge61Pressed() {}
+
+    @FXML
+    public void Edge62Pressed() {}
+
+    @FXML
+    public void Edge63Pressed() {}
+
+    @FXML
+    public void Edge64Pressed() {}
+
+    @FXML
+    public void Edge65Pressed() {}
+
+    @FXML
+    public void Edge66Pressed() {}
+
+    @FXML
+    public void Edge67Pressed() {}
+
+    @FXML
+    public void Edge68Pressed() {}
+
+    @FXML
+    public void Edge69Pressed() {}
+
+    @FXML
+    public void Edge70Pressed() {}
+
+    @FXML
+    public void Edge71Pressed() {}
 }
