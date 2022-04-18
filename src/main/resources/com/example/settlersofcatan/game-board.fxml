@@ -627,11 +627,11 @@
                   <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" onMouseClicked="#Edge9Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" onMouseClicked="#Marker15Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" onMouseClicked="#Edge61Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Button fx:id="startButton" layoutX="571.0" layoutY="18.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
+                  <Button fx:id="startButton" layoutX="279.0" layoutY="247.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
                   <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="18.0" prefHeight="42.0" prefWidth="717.0" textFill="#ebff39">
+                  <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="61.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
                      <font>
-                        <Font name="Poor Richard" size="36.0" />
+                        <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
                </children>

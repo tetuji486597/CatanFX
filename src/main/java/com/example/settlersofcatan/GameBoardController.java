@@ -698,6 +698,7 @@ public class GameBoardController {
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
 
+        System.out.println(Font.getFontNames());
         color2label = new HashMap<>();
         label2icon = new HashMap<>();
         label2resdeck = new HashMap<>();
@@ -764,6 +765,12 @@ public class GameBoardController {
         }
         for(Rectangle rect: devDecks) {
             rect.setVisible(false);
+        }
+        for(Rectangle rect: VertexMarkers) {
+            rect.setDisable(true);
+        }
+        for(Rectangle rect: EdgeMarkers) {
+            rect.setDisable(true);
         }
         RollDiceButton.setDisable(true);
         ConfirmButton.setDisable(true);
@@ -862,14 +869,40 @@ public class GameBoardController {
             }
         }
         index+=1;
+
+        GameState.firstPlayerIndex = index;
         appendBoth("Player " + index + " goes first!");
-        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+
+
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1.5));
         int finalIndex = index;
         pauseTransition.setOnFinished(e -> MainLabel.setText("Player " + finalIndex + ", choose the location of your first settlement"));
         pauseTransition.play();
         GameState.currentPlayerIndex = index;
         GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
+        placeSettlement();
     }
+
+    public void placeSettlement() {
+        Vertex[] vertices = GameState.allVertices;
+        for(int i = 0; i < vertices.length; i++) {
+            if(GameState.maintainsDistance(vertices[i])) {
+                VertexMarkers[i].setVisible(true);
+                VertexMarkers[i].setDisable(false);
+            }
+        }
+    }
+
+    public void placeEdge() {
+        Edge[] edges = GameState.allEdges;
+        for(int i = 0; i < edges.length; i++) {
+            if(!GameState.allEdges[i].getHasPlayer()) {
+                EdgeMarkers[i].setVisible(true);
+                EdgeMarkers[i].setDisable(false);
+            }
+        }
+    }
+
     @FXML
     public void showHelp() {
         ParentPanel.helpPanel.show();
@@ -926,381 +959,676 @@ public class GameBoardController {
         ActivityLog.appendText(str+"\n");
         MainLabel.setText(str);
     }
+
+    public void MarkerPressed(int index) {
+        VertexMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
+        GameState.allVertices[index].setHasPlayer(true);
+        for(int i = 0; i < VertexMarkers.length; i++) {
+            VertexMarkers[i].setDisable(true);
+            if(!GameState.allVertices[i].getHasPlayer()) VertexMarkers[i].setVisible(false);
+        }
+        VertexMarkers[index].setVisible(true);
+        GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
+        if(!GameState.gameStarted) {
+            MainLabel.setText("Now select your first Road location");
+            placeEdge();
+        }
+    }
+
+    public void EdgePressed(int index) {
+        EdgeMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
+        GameState.allEdges[index].setHasPlayer(true);
+        for(int i = 0; i < EdgeMarkers.length; i++) {
+            EdgeMarkers[i].setDisable(true);
+            if(!GameState.allEdges[i].getHasPlayer()) EdgeMarkers[i].setVisible(false);
+        }
+        nextTurn();
+        EdgeMarkers[index].setVisible(true);
+        GameState.currentPlayer.addRoad(GameState.allEdges[index]);
+        if(!GameState.gameStarted) {
+            MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your first settlement");
+            placeSettlement();
+        }
+    }
+
+    public void nextTurn() {
+        int nextTurn = (GameState.currentPlayerIndex % GameState.numPlayers) + 1;
+        if(nextTurn == GameState.firstPlayerIndex) {
+            GameState.gameStarted = true;
+        }
+        GameState.currentPlayerIndex = nextTurn;
+        GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
+    }
+
+
     @FXML
-    public void Marker0Pressed() {}
+    public void Marker0Pressed() {
+        MarkerPressed(0);
+    }
 
     @FXML
-    public void Marker1Pressed() {}
+    public void Marker1Pressed() {
+        MarkerPressed(1);
+    }
 
     @FXML
-    public void Marker2Pressed() {}
+    public void Marker2Pressed() {
+        MarkerPressed(2);
+    }
 
     @FXML
-    public void Marker3Pressed() {}
+    public void Marker3Pressed() {
+        MarkerPressed(3);
+    }
 
     @FXML
-    public void Marker4Pressed() {}
+    public void Marker4Pressed() {
+        MarkerPressed(4);
+    }
 
     @FXML
-    public void Marker5Pressed() {}
+    public void Marker5Pressed() {
+        MarkerPressed(5);
+    }
 
     @FXML
-    public void Marker6Pressed() {}
+    public void Marker6Pressed() {
+        MarkerPressed(6);
+    }
 
     @FXML
-    public void Marker7Pressed() {}
+    public void Marker7Pressed() {
+        MarkerPressed(7);
+    }
 
     @FXML
-    public void Marker8Pressed() {}
+    public void Marker8Pressed() {
+        MarkerPressed(8);
+    }
 
     @FXML
-    public void Marker9Pressed() {}
+    public void Marker9Pressed() {
+        MarkerPressed(9);
+    }
 
     @FXML
-    public void Marker10Pressed() {}
+    public void Marker10Pressed() {
+        MarkerPressed(10);
+    }
 
     @FXML
-    public void Marker11Pressed() {}
+    public void Marker11Pressed() {
+        MarkerPressed(11);
+    }
 
     @FXML
-    public void Marker12Pressed() {}
+    public void Marker12Pressed() {
+        MarkerPressed(12);
+    }
 
     @FXML
-    public void Marker13Pressed() {}
+    public void Marker13Pressed() {
+        MarkerPressed(13);
+    }
 
     @FXML
-    public void Marker14Pressed() {}
+    public void Marker14Pressed() {
+        MarkerPressed(14);
+    }
 
     @FXML
-    public void Marker15Pressed() {}
+    public void Marker15Pressed() {
+        MarkerPressed(15);
+    }
 
     @FXML
-    public void Marker16Pressed() {}
+    public void Marker16Pressed() {
+        MarkerPressed(16);
+    }
 
     @FXML
-    public void Marker17Pressed() {}
+    public void Marker17Pressed() {
+        MarkerPressed(17);
+    }
 
     @FXML
-    public void Marker18Pressed() {}
+    public void Marker18Pressed() {
+        MarkerPressed(18);
+    }
 
     @FXML
-    public void Marker19Pressed() {}
+    public void Marker19Pressed() {
+        MarkerPressed(19);
+    }
 
     @FXML
-    public void Marker20Pressed() {}
+    public void Marker20Pressed() {
+        MarkerPressed(20);
+    }
 
     @FXML
-    public void Marker21Pressed() {}
+    public void Marker21Pressed() {
+        MarkerPressed(21);
+    }
 
     @FXML
-    public void Marker22Pressed() {}
+    public void Marker22Pressed() {
+        MarkerPressed(22);
+    }
 
     @FXML
-    public void Marker23Pressed() {}
+    public void Marker23Pressed() {
+        MarkerPressed(23);
+    }
 
     @FXML
-    public void Marker24Pressed() {}
+    public void Marker24Pressed() {
+        MarkerPressed(24);
+    }
 
     @FXML
-    public void Marker25Pressed() {}
+    public void Marker25Pressed() {
+        MarkerPressed(25);
+    }
 
     @FXML
-    public void Marker26Pressed() {}
+    public void Marker26Pressed() {
+        MarkerPressed(26);
+    }
 
     @FXML
-    public void Marker27Pressed() {}
+    public void Marker27Pressed() {
+        MarkerPressed(27);
+    }
 
     @FXML
-    public void Marker28Pressed() {}
+    public void Marker28Pressed() {
+        MarkerPressed(28);
+    }
 
     @FXML
-    public void Marker29Pressed() {}
+    public void Marker29Pressed() {
+        MarkerPressed(29);
+    }
 
     @FXML
-    public void Marker30Pressed() {}
+    public void Marker30Pressed() {
+        MarkerPressed(30);
+    }
 
     @FXML
-    public void Marker31Pressed() {}
+    public void Marker31Pressed() {
+        MarkerPressed(31);
+    }
 
     @FXML
-    public void Marker32Pressed() {}
+    public void Marker32Pressed() {
+        MarkerPressed(32);
+    }
 
     @FXML
-    public void Marker33Pressed() {}
+    public void Marker33Pressed() {
+        MarkerPressed(33);
+    }
 
     @FXML
-    public void Marker34Pressed() {}
+    public void Marker34Pressed() {
+        MarkerPressed(34);
+    }
 
     @FXML
-    public void Marker35Pressed() {}
+    public void Marker35Pressed() {
+        MarkerPressed(35);
+    }
 
     @FXML
-    public void Marker36Pressed() {}
+    public void Marker36Pressed() {
+        MarkerPressed(36);
+    }
 
     @FXML
-    public void Marker37Pressed() {}
+    public void Marker37Pressed() {
+        MarkerPressed(37);
+    }
 
     @FXML
-    public void Marker38Pressed() {}
+    public void Marker38Pressed() {
+        MarkerPressed(38);
+    }
 
     @FXML
-    public void Marker39Pressed() {}
+    public void Marker39Pressed() {
+        MarkerPressed(39);
+    }
 
     @FXML
-    public void Marker40Pressed() {}
+    public void Marker40Pressed() {
+        MarkerPressed(40);
+    }
 
     @FXML
-    public void Marker41Pressed() {}
+    public void Marker41Pressed() {
+        MarkerPressed(41);
+    }
 
     @FXML
-    public void Marker42Pressed() {}
+    public void Marker42Pressed() {
+        MarkerPressed(42);
+    }
 
     @FXML
-    public void Marker43Pressed() {}
+    public void Marker43Pressed() {
+        MarkerPressed(43);
+    }
 
     @FXML
-    public void Marker44Pressed() {}
+    public void Marker44Pressed() {
+        MarkerPressed(44);
+    }
 
     @FXML
-    public void Marker45Pressed() {}
+    public void Marker45Pressed() {
+        MarkerPressed(45);
+    }
 
     @FXML
-    public void Marker46Pressed() {}
+    public void Marker46Pressed() {
+        MarkerPressed(46);
+    }
 
     @FXML
-    public void Marker47Pressed() {}
+    public void Marker47Pressed() {
+        MarkerPressed(47);
+    }
 
     @FXML
-    public void Marker48Pressed() {}
+    public void Marker48Pressed() {
+        MarkerPressed(48);
+    }
 
     @FXML
-    public void Marker49Pressed() {}
+    public void Marker49Pressed() {
+        MarkerPressed(49);
+    }
 
     @FXML
-    public void Marker50Pressed() {}
+    public void Marker50Pressed() {
+        MarkerPressed(50);
+    }
 
     @FXML
-    public void Marker51Pressed() {}
+    public void Marker51Pressed() {
+        MarkerPressed(51);
+    }
 
     @FXML
-    public void Marker52Pressed() {}
+    public void Marker52Pressed() {
+        MarkerPressed(52);
+    }
 
     @FXML
-    public void Marker53Pressed() {}
+    public void Marker53Pressed() {
+        MarkerPressed(53);
+    }
 
     @FXML
-    public void Edge0Pressed() {}
+    public void Edge0Pressed() {
+        EdgePressed(0);
+    }
 
     @FXML
-    public void Edge1Pressed() {}
+    public void Edge1Pressed() {
+        EdgePressed(1);
+    }
 
     @FXML
-    public void Edge2Pressed() {}
+    public void Edge2Pressed() {
+        EdgePressed(2);
+    }
 
     @FXML
-    public void Edge3Pressed() {}
+    public void Edge3Pressed() {
+        EdgePressed(3);
+    }
 
     @FXML
-    public void Edge4Pressed() {}
+    public void Edge4Pressed() {
+        EdgePressed(4);
+    }
 
     @FXML
-    public void Edge5Pressed() {}
+    public void Edge5Pressed() {
+        EdgePressed(5);
+    }
 
     @FXML
-    public void Edge6Pressed() {}
+    public void Edge6Pressed() {
+        EdgePressed(6);
+    }
 
     @FXML
-    public void Edge7Pressed() {}
+    public void Edge7Pressed() {
+        EdgePressed(7);
+    }
 
     @FXML
-    public void Edge8Pressed() {}
+    public void Edge8Pressed() {
+        EdgePressed(8);
+    }
 
     @FXML
-    public void Edge9Pressed() {}
+    public void Edge9Pressed() {
+        EdgePressed(9);
+    }
 
     @FXML
-    public void Edge10Pressed() {}
+    public void Edge10Pressed() {
+        EdgePressed(10);
+    }
 
     @FXML
-    public void Edge11Pressed() {}
+    public void Edge11Pressed() {
+        EdgePressed(11);
+    }
 
     @FXML
-    public void Edge12Pressed() {}
+    public void Edge12Pressed() {
+        EdgePressed(12);
+    }
 
     @FXML
-    public void Edge13Pressed() {}
+    public void Edge13Pressed() {
+        EdgePressed(13);
+    }
 
     @FXML
-    public void Edge14Pressed() {}
+    public void Edge14Pressed() {
+        EdgePressed(14);
+    }
 
     @FXML
-    public void Edge15Pressed() {}
+    public void Edge15Pressed() {
+        EdgePressed(15);
+    }
 
     @FXML
-    public void Edge16Pressed() {}
+    public void Edge16Pressed() {
+        EdgePressed(16);
+    }
 
     @FXML
-    public void Edge17Pressed() {}
+    public void Edge17Pressed() {
+        EdgePressed(17);
+    }
 
     @FXML
-    public void Edge18Pressed() {}
+    public void Edge18Pressed() {
+        EdgePressed(18);
+    }
 
     @FXML
-    public void Edge19Pressed() {}
+    public void Edge19Pressed() {
+        EdgePressed(19);
+    }
 
     @FXML
-    public void Edge20Pressed() {}
+    public void Edge20Pressed() {
+        EdgePressed(20);
+    }
 
     @FXML
-    public void Edge21Pressed() {}
+    public void Edge21Pressed() {
+        EdgePressed(21);
+    }
 
     @FXML
-    public void Edge22Pressed() {}
+    public void Edge22Pressed() {
+        EdgePressed(22);
+    }
 
     @FXML
-    public void Edge23Pressed() {}
+    public void Edge23Pressed() {
+        EdgePressed(23);
+    }
 
     @FXML
-    public void Edge24Pressed() {}
+    public void Edge24Pressed() {
+        EdgePressed(24);
+    }
 
     @FXML
-    public void Edge25Pressed() {}
+    public void Edge25Pressed() {
+        EdgePressed(25);
+    }
 
     @FXML
-    public void Edge26Pressed() {}
+    public void Edge26Pressed() {
+        EdgePressed(26);
+    }
 
     @FXML
-    public void Edge27Pressed() {}
+    public void Edge27Pressed() {
+        EdgePressed(27);
+    }
 
     @FXML
-    public void Edge28Pressed() {}
+    public void Edge28Pressed() {
+        EdgePressed(28);
+    }
 
     @FXML
-    public void Edge29Pressed() {}
+    public void Edge29Pressed() {
+        EdgePressed(29);
+    }
 
     @FXML
-    public void Edge30Pressed() {}
+    public void Edge30Pressed() {
+        EdgePressed(30);
+    }
 
     @FXML
-    public void Edge31Pressed() {}
+    public void Edge31Pressed() {
+        EdgePressed(31);
+    }
 
     @FXML
-    public void Edge32Pressed() {}
+    public void Edge32Pressed() {
+        EdgePressed(32);
+    }
 
     @FXML
-    public void Edge33Pressed() {}
+    public void Edge33Pressed() {
+        EdgePressed(33);
+    }
 
     @FXML
-    public void Edge34Pressed() {}
+    public void Edge34Pressed() {
+        EdgePressed(34);
+    }
 
     @FXML
-    public void Edge35Pressed() {}
+    public void Edge35Pressed() {
+        EdgePressed(35);
+    }
 
     @FXML
-    public void Edge36Pressed() {}
+    public void Edge36Pressed() {
+        EdgePressed(36);
+    }
 
     @FXML
-    public void Edge37Pressed() {}
+    public void Edge37Pressed() {
+        EdgePressed(37);
+    }
 
     @FXML
-    public void Edge38Pressed() {}
+    public void Edge38Pressed() {
+        EdgePressed(38);
+    }
 
     @FXML
-    public void Edge39Pressed() {}
+    public void Edge39Pressed() {
+        EdgePressed(39);
+    }
 
     @FXML
-    public void Edge40Pressed() {}
+    public void Edge40Pressed() {
+        EdgePressed(40);
+    }
 
     @FXML
-    public void Edge41Pressed() {}
+    public void Edge41Pressed() {
+        EdgePressed(41);
+    }
 
     @FXML
-    public void Edge42Pressed() {}
+    public void Edge42Pressed() {
+        EdgePressed(42);
+    }
 
     @FXML
-    public void Edge43Pressed() {}
+    public void Edge43Pressed() {
+        EdgePressed(43);
+    }
 
     @FXML
-    public void Edge44Pressed() {}
+    public void Edge44Pressed() {
+        EdgePressed(44);
+    }
 
     @FXML
-    public void Edge45Pressed() {}
+    public void Edge45Pressed() {
+        EdgePressed(45);
+    }
 
     @FXML
-    public void Edge46Pressed() {}
+    public void Edge46Pressed() {
+        EdgePressed(46);
+    }
 
     @FXML
-    public void Edge47Pressed() {}
+    public void Edge47Pressed() {
+        EdgePressed(47);
+    }
 
     @FXML
-    public void Edge48Pressed() {}
+    public void Edge48Pressed() {
+        EdgePressed(48);
+    }
 
     @FXML
-    public void Edge49Pressed() {}
+    public void Edge49Pressed() {
+        EdgePressed(49);
+    }
 
     @FXML
-    public void Edge50Pressed() {}
+    public void Edge50Pressed() {
+        EdgePressed(50);
+    }
 
     @FXML
-    public void Edge51Pressed() {}
+    public void Edge51Pressed() {
+        EdgePressed(51);
+    }
 
     @FXML
-    public void Edge52Pressed() {}
+    public void Edge52Pressed() {
+        EdgePressed(52);
+    }
 
     @FXML
-    public void Edge53Pressed() {}
+    public void Edge53Pressed() {
+        EdgePressed(53);
+    }
 
     @FXML
-    public void Edge54Pressed() {}
+    public void Edge54Pressed() {
+        EdgePressed(54);
+    }
 
     @FXML
-    public void Edge55Pressed() {}
+    public void Edge55Pressed() {
+        EdgePressed(55);
+    }
 
     @FXML
-    public void Edge56Pressed() {}
+    public void Edge56Pressed() {
+        EdgePressed(56);
+    }
 
     @FXML
-    public void Edge57Pressed() {}
+    public void Edge57Pressed() {
+        EdgePressed(57);
+    }
 
     @FXML
-    public void Edge58Pressed() {}
+    public void Edge58Pressed() {
+        EdgePressed(58);
+    }
 
     @FXML
-    public void Edge59Pressed() {}
+    public void Edge59Pressed() {
+        EdgePressed(59);
+    }
 
     @FXML
-    public void Edge60Pressed() {}
+    public void Edge60Pressed() {
+        EdgePressed(60);
+    }
 
     @FXML
-    public void Edge61Pressed() {}
+    public void Edge61Pressed() {
+        EdgePressed(61);
+    }
 
     @FXML
-    public void Edge62Pressed() {}
+    public void Edge62Pressed() {
+        EdgePressed(62);
+    }
 
     @FXML
-    public void Edge63Pressed() {}
+    public void Edge63Pressed() {
+        EdgePressed(63);
+    }
 
     @FXML
-    public void Edge64Pressed() {}
+    public void Edge64Pressed() {
+        EdgePressed(64);
+    }
 
     @FXML
-    public void Edge65Pressed() {}
+    public void Edge65Pressed() {
+        EdgePressed(65);
+    }
 
     @FXML
-    public void Edge66Pressed() {}
+    public void Edge66Pressed() {
+        EdgePressed(66);
+    }
 
     @FXML
-    public void Edge67Pressed() {}
+    public void Edge67Pressed() {
+        EdgePressed(67);
+    }
 
     @FXML
-    public void Edge68Pressed() {}
+    public void Edge68Pressed() {
+        EdgePressed(68);
+    }
 
     @FXML
-    public void Edge69Pressed() {}
+    public void Edge69Pressed() {
+        EdgePressed(69);
+    }
 
     @FXML
-    public void Edge70Pressed() {}
+    public void Edge70Pressed() {
+        EdgePressed(70);
+    }
 
     @FXML
-    public void Edge71Pressed() {}
+    public void Edge71Pressed() {
+        EdgePressed(71);
+    }
+
 }

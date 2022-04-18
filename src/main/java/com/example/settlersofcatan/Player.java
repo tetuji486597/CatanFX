@@ -18,8 +18,9 @@ public class Player {
     private ArrayList<ResourceCard> resourceDeck;
     public ArrayList<String> resDeck;
     private ArrayList<DevCard> devDeck;
-    private ArrayList<Settlement> settlements;
-    private ArrayList<City> cities;
+    private ArrayList<Edge> roads;
+    private ArrayList<Vertex> settlements;
+    private ArrayList<Vertex> cities;
 
     public Player(String color, int index) {
         this.color = color;
@@ -42,10 +43,18 @@ public class Player {
                 break;
         }
         this.index = index;
+        roads = new ArrayList<>();
         resourceDeck = new ArrayList<>();
         devDeck = new ArrayList<>();
         settlements = new ArrayList<>();
         cities = new ArrayList<>();
+    }
+
+    public void addRoad(Edge edge) {
+        roads.add(edge);
+    }
+    public void addSettlement(Vertex vertex) {
+        settlements.add(vertex);
     }
     public String getColor() {
         return color;

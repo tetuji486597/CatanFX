@@ -1,6 +1,7 @@
 package com.example.settlersofcatan;
 
 import javafx.beans.binding.NumberBinding;
+import javafx.scene.paint.Color;
 
 import java.util.*;
 
@@ -26,18 +27,21 @@ public class GameState{
     public static Vertex[] allVertices;
     public static Edge[] allEdges;
     public static Port[] ports;
+    public static HashMap<String, javafx.scene.paint.Color> nameToColor;
     public static HashMap<String, Integer> tokenMap;
     public static HashMap<String, Integer> resourceBank;
     public static Stack<DevCard> devBank;
     public static ArrayList<String> allDevCards;
     public static String[] allColors;
     public static GameBoardController controller;
+    public static int firstPlayerIndex;
     public static int[] setUpDice;
     public static boolean gameStarted = false;
 
     public GameState(int numPlayers) {
 
         this.numPlayers = numPlayers;
+        firstPlayerIndex = -1;
 
         setUpDice = new int[numPlayers];
 
@@ -116,6 +120,12 @@ public class GameState{
             System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + tiles[i].getToken());
         }
         allColors = new String[] {"Blue", "Green", "White", "Red"};
+        nameToColor = new HashMap<>();
+        nameToColor.put("Blue", Color.LIGHTBLUE);
+        nameToColor.put("Green", Color.LIGHTGREEN);
+        nameToColor.put("White", Color.WHITE);
+        nameToColor.put("Red", Color.INDIANRED);
+
 
         resourceBank.put("Grain", 19);
         resourceBank.put("Wood", 19);
@@ -194,6 +204,11 @@ public class GameState{
         tiles[18].setEdges(new Edge[] {allEdges[59],allEdges[60],allEdges[64],allEdges[65],allEdges[70],allEdges[71]});
     }
 
+    //also checks if taken by another player
+    public static boolean maintainsDistance(Vertex vertex) {
+        if(vertex.getHasPlayer()) return false;
+        return true;
+    }
     public int rollDice(){
         //sum of 2 independent dice
         Random rand = new Random();
