@@ -38,7 +38,7 @@ public class GameBoardController {
     public static ImageView[] tileViews;
     public static ImageView[] portViews;
     public static ImageView[] tokenViews;
-
+//
 
     @FXML
     private ImageView BlueColorLabel;
@@ -884,11 +884,27 @@ public class GameBoardController {
     }
 
     public void placeSettlement() {
+        /*
+    if the vertex has a player on it,
+    that vertex set visible false
+    the surrounding vertex set visible false
+     */
         Vertex[] vertices = GameState.allVertices;
         for(int i = 0; i < vertices.length; i++) {
+            VertexMarkers[i].setVisible(true);
+            VertexMarkers[i].setDisable(false);
+        }
+        for(int i = 0; i < vertices.length; i++) {
             if(GameState.maintainsDistance(vertices[i])) {
-                VertexMarkers[i].setVisible(true);
-                VertexMarkers[i].setDisable(false);
+                Vertex[] surroundingVertices = vertices[i].getSurroundingVertex();
+                for(int j = 0; j < surroundingVertices.length; j++)
+                {
+                    int surroundingIndex = surroundingVertices[j].getBoardIndex();
+                    VertexMarkers[surroundingIndex].setVisible(false);
+                    VertexMarkers[surroundingIndex].setDisable(true);
+                }
+                VertexMarkers[i].setVisible(false);
+                VertexMarkers[i].setDisable(true);
             }
         }
     }
