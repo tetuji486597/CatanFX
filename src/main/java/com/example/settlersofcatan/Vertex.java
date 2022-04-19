@@ -25,6 +25,8 @@ public class Vertex {
     public void setHasPlayer(boolean hasPlayer){
         this.hasPlayer = hasPlayer;
     }
+
+    //instead of hasPlayer, use player index and -1 if its index doesnt exist
     public boolean getHasPlayer() {
         return hasPlayer;
     }

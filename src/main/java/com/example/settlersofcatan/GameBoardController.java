@@ -975,6 +975,7 @@ public class GameBoardController {
         }
     }
 
+
     public void EdgePressed(int index) {
         EdgeMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
         GameState.allEdges[index].setHasPlayer(true);
@@ -995,6 +996,10 @@ public class GameBoardController {
         int nextTurn = (GameState.currentPlayerIndex % GameState.numPlayers) + 1;
         if(nextTurn == GameState.firstPlayerIndex) {
             GameState.gameStarted = true;
+            GameState.currentPlayerIndex = nextTurn;
+            GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
+            MainLabel.setText("Game Started! Player " + GameState.currentPlayerIndex + " roll the die!");
+            RollDiceButton.setDisable(false);
         }
         GameState.currentPlayerIndex = nextTurn;
         GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);

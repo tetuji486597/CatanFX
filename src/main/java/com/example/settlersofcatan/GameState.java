@@ -202,7 +202,19 @@ public class GameState{
         tiles[16].setEdges(new Edge[] {allEdges[55],allEdges[56],allEdges[62],allEdges[63],allEdges[66],allEdges[67]});
         tiles[17].setEdges(new Edge[] {allEdges[57],allEdges[58],allEdges[63],allEdges[64],allEdges[68],allEdges[69]});
         tiles[18].setEdges(new Edge[] {allEdges[59],allEdges[60],allEdges[64],allEdges[65],allEdges[70],allEdges[71]});
+
+
     }
+
+//    public void distributeResources() {
+//        for(Tile tile: allTiles) {
+//            for(Vertex vertex: tile.getAdjacentVertices()) {
+//                if(vertex.getHasPlayer()) {
+//                    vertex.g
+//                }
+//            }
+//        }
+//    }
 
     //also checks if taken by another player
     public static boolean maintainsDistance(Vertex vertex) {
