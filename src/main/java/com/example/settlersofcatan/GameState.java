@@ -202,6 +202,38 @@ public class GameState{
         tiles[16].setEdges(new Edge[] {allEdges[55],allEdges[56],allEdges[62],allEdges[63],allEdges[66],allEdges[67]});
         tiles[17].setEdges(new Edge[] {allEdges[57],allEdges[58],allEdges[63],allEdges[64],allEdges[68],allEdges[69]});
         tiles[18].setEdges(new Edge[] {allEdges[59],allEdges[60],allEdges[64],allEdges[65],allEdges[70],allEdges[71]});
+
+        allVertices[0].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[3],allVertices[4])));
+        allVertices[1].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[4],allVertices[5])));
+        allVertices[2].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[5],allVertices[6])));
+        allVertices[3].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[0],allVertices[7])));
+        allVertices[4].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[0],allVertices[8],allVertices[1])));
+        allVertices[5].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[1],allVertices[2],allVertices[9])));
+        allVertices[6].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[2],allVertices[10])));
+        allVertices[7].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[3],allVertices[11],allVertices[12])));
+        allVertices[8].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[4],allVertices[12],allVertices[13])));
+        allVertices[9].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[5],allVertices[13],allVertices[14])));
+        allVertices[10].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[6],allVertices[14],allVertices[15])));
+        allVertices[11].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[7],allVertices[16])));
+        allVertices[12].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[7],allVertices[8],allVertices[17])));
+        allVertices[13].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[8],allVertices[9],allVertices[18])));
+        allVertices[14].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[9],allVertices[10],allVertices[19])));
+        allVertices[15].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[10],allVertices[20])));
+        allVertices[16].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[11],allVertices[21],allVertices[22])));
+        allVertices[17].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[12],allVertices[22],allVertices[23])));
+        allVertices[18].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[13],allVertices[23],allVertices[24])));
+        allVertices[19].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[14],allVertices[24],allVertices[25])));
+        allVertices[20].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[15],allVertices[25],allVertices[26])));
+        allVertices[21].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[16],allVertices[27])));
+        allVertices[22].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[16],allVertices[17],allVertices[28])));
+        allVertices[23].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[17],allVertices[18],allVertices[29])));
+        allVertices[24].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[18],allVertices[19],allVertices[30])));
+        allVertices[25].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[19],allVertices[20],allVertices[31])));
+        allVertices[26].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[20],allVertices[32])));
+        allVertices[27].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[21],allVertices[33])));
+        allVertices[28].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[22],allVertices[33],allVertices[34])));
+
+
     }
 
     //also checks if taken by another player
