@@ -6,6 +6,8 @@ public class Edge {
     private Vertex endVertex2;
     private int boardIndex;
     private Tile[] myTiles;
+    private boolean hasPlayer;
+
     public Edge(int index) {
         boardIndex = index;
     }
@@ -16,6 +18,13 @@ public class Edge {
 
     public ArrayList<Tile> getSurroundingTiles(){
         return new ArrayList<>();
+    }
+
+    public void setHasPlayer(boolean hasPlayer) {
+        this.hasPlayer = hasPlayer;
+    }
+    public boolean getHasPlayer() {
+        return hasPlayer;
     }
 
 }

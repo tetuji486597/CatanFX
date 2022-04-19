@@ -233,7 +233,10 @@
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <TextArea fx:id="ActivityLog" layoutX="6.0" layoutY="6.0" prefHeight="189.0" prefWidth="511.0" promptText="&lt;action log&gt;" />
+                  <TextArea fx:id="ActivityLog" layoutX="6.0" layoutY="6.0" prefHeight="189.0" prefWidth="511.0" promptText="&lt;action log&gt;">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font></TextArea>
                   <Separator layoutX="520.0" layoutY="1.0" orientation="VERTICAL" prefHeight="200.0" />
                   <VBox layoutX="526.0" layoutY="11.0" prefHeight="189.0" prefWidth="200.0">
                      <children>
@@ -250,7 +253,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Gill Sans MT" size="24.0" />
                            </font>
                         </Button>
                      </children>
@@ -348,7 +351,7 @@
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="r1c0" fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
+                  <ImageView fx:id="r1c0" fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" onMouseClicked="#Edge11Pressed" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
                      <image>
                         <Image url="@../../../images/tiles/Hills.png" />
                      </image>
@@ -488,7 +491,7 @@
                         <Image url="@../../../images/ports/UnknownPort.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="p3" fitHeight="70.0" fitWidth="70.0" layoutX="75.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fx:id="p3" fitHeight="70.0" fitWidth="70.0" layoutX="75.0" layoutY="426.0" onMouseClicked="#Edge49Pressed" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/ports/GrainPort.png" />
                      </image>
@@ -498,133 +501,139 @@
                         <Image url="@../../../images/ports/OrePort.png" />
                      </image>
                   </ImageView>
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="353.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="453.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="191.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="299.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="510.0" layoutY="206.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="350.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="462.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="563.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="419.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="189.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="298.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="143.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="507.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="133.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="244.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="352.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="186.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="402.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="513.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="620.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="389.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="390.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="293.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="407.0" layoutY="394.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="387.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="622.0" layoutY="388.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="237.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="347.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="454.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="571.0" layoutY="422.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="130.0" layoutY="487.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="239.0" layoutY="483.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="346.0" layoutY="484.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="459.0" layoutY="485.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="567.0" layoutY="482.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="516.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="403.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="511.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="190.0" layoutY="577.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="292.0" layoutY="578.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker49" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="397.0" layoutY="580.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="516.0" layoutY="576.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="236.0" layoutY="611.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="348.0" layoutY="607.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle id="vertexMarker" fx:id="VertexMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="465.0" layoutY="609.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle fx:id="EdgeMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="221.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="435.0" layoutY="120.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="122.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker55" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="219.0" layoutY="486.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker59" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="436.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker57" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="484.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="167.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="381.0" layoutY="216.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="278.0" layoutY="218.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="114.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="328.0" layoutY="304.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="225.0" layoutY="306.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="398.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="438.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="209.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="540.0" layoutY="301.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="274.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="488.0" layoutY="115.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="385.0" layoutY="117.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="115.0" onMouseClicked="#Marker0Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="353.0" layoutY="114.0" onMouseClicked="#Marker1Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="453.0" layoutY="116.0" onMouseClicked="#Marker2Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="191.0" layoutY="209.0" onMouseClicked="#Marker7Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="299.0" layoutY="208.0" onMouseClicked="#Marker8Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="207.0" onMouseClicked="#Marker9Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="510.0" layoutY="206.0" onMouseClicked="#Marker10Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="299.0" onMouseClicked="#Marker16Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="243.0" layoutY="296.0" onMouseClicked="#Marker17Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="350.0" layoutY="299.0" onMouseClicked="#Marker18Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="462.0" layoutY="295.0" onMouseClicked="#Marker19Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="563.0" layoutY="296.0" onMouseClicked="#Marker20Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="132.0" layoutY="419.0" onMouseClicked="#Marker33Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="189.0" layoutY="149.0" onMouseClicked="#Marker3Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="298.0" layoutY="147.0" onMouseClicked="#Marker4Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="404.0" layoutY="143.0" onMouseClicked="#Marker5Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="507.0" layoutY="144.0" onMouseClicked="#Marker6Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="133.0" layoutY="239.0" onMouseClicked="#Marker11Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="244.0" layoutY="240.0" onMouseClicked="#Marker12Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="352.0" layoutY="239.0" onMouseClicked="#Marker13Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="328.0" onMouseClicked="#Marker21Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="186.0" layoutY="333.0" onMouseClicked="#Marker22Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="326.0" onMouseClicked="#Marker23Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="402.0" layoutY="326.0" onMouseClicked="#Marker24Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="513.0" layoutY="326.0" onMouseClicked="#Marker25Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="620.0" layoutY="327.0" onMouseClicked="#Marker26Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="83.0" layoutY="389.0" onMouseClicked="#Marker27Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="390.0" onMouseClicked="#Marker28Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="293.0" layoutY="392.0" onMouseClicked="#Marker29Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="407.0" layoutY="394.0" onMouseClicked="#Marker30Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="387.0" onMouseClicked="#Marker31Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="622.0" layoutY="388.0" onMouseClicked="#Marker32Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="237.0" layoutY="424.0" onMouseClicked="#Marker34Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="347.0" layoutY="424.0" onMouseClicked="#Marker35Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="454.0" layoutY="420.0" onMouseClicked="#Marker36Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="571.0" layoutY="422.0" onMouseClicked="#Marker37Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="130.0" layoutY="487.0" onMouseClicked="#Marker38Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="239.0" layoutY="483.0" onMouseClicked="#Marker39Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="346.0" layoutY="484.0" onMouseClicked="#Marker40Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="459.0" layoutY="485.0" onMouseClicked="#Marker41Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="567.0" layoutY="482.0" onMouseClicked="#Marker42Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="184.0" layoutY="512.0" onMouseClicked="#Marker43Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="294.0" layoutY="516.0" onMouseClicked="#Marker44Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="403.0" layoutY="514.0" onMouseClicked="#Marker45Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="508.0" layoutY="511.0" onMouseClicked="#Marker46Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="190.0" layoutY="577.0" onMouseClicked="#Marker47Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="292.0" layoutY="578.0" onMouseClicked="#Marker48Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker49" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="397.0" layoutY="580.0" onMouseClicked="#Marker49Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="516.0" layoutY="576.0" onMouseClicked="#Marker50Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="236.0" layoutY="611.0" onMouseClicked="#Marker51Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="348.0" layoutY="607.0" onMouseClicked="#Marker52Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle id="vertexMarker" fx:id="VertexMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="465.0" layoutY="609.0" onMouseClicked="#Marker53Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle fx:id="EdgeMarker0" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="221.0" layoutY="120.0" onMouseClicked="#Edge0Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker4" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="435.0" layoutY="120.0" onMouseClicked="#Edge4Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker2" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="122.0" onMouseClicked="#Edge2Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker55" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="219.0" layoutY="486.0" onMouseClicked="#Edge55Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker59" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="436.0" layoutY="484.0" onMouseClicked="#Edge59Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker57" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="484.0" onMouseClicked="#Edge57Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker10" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="167.0" layoutY="216.0" onMouseClicked="#Edge10Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="381.0" layoutY="216.0" onMouseClicked="#Edge14Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker12" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="278.0" layoutY="218.0" onMouseClicked="#Edge12Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker23" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="114.0" layoutY="304.0" onMouseClicked="#Edge23Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker27" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="328.0" layoutY="304.0" onMouseClicked="#Edge27Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker25" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="225.0" layoutY="306.0" onMouseClicked="#Edge25Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker40" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="396.0" onMouseClicked="#Edge40Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker44" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="396.0" onMouseClicked="#Edge44Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker42" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="398.0" onMouseClicked="#Edge42Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker29" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="438.0" layoutY="301.0" onMouseClicked="#Edge29Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker16" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="209.0" onMouseClicked="#Edge16Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker31" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="540.0" layoutY="301.0" onMouseClicked="#Edge31Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="274.0" layoutY="115.0" onMouseClicked="#Edge1Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="488.0" layoutY="115.0" onMouseClicked="#Edge5Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="385.0" layoutY="117.0" onMouseClicked="#Edge3Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="223.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="437.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="334.0" layoutY="216.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="302.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="304.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="216.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="439.0" layoutY="396.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="398.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker56" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="272.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker60" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="483.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker58" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="383.0" layoutY="485.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="492.0" layoutY="299.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="210.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="598.0" layoutY="301.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="550.0" layoutY="394.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="490.0" layoutY="396.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker69" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="382.0" layoutY="586.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker67" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="273.0" layoutY="581.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker70" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="440.0" layoutY="581.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker71" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="493.0" layoutY="582.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker68" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="583.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker54" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="488.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="601.0" layoutY="392.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="115.0" layoutY="395.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker66" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="218.0" layoutY="582.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="VertexMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="460.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle fx:id="EdgeMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="194.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="408.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="305.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="88.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="348.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="199.0" layoutY="350.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="437.0" layoutY="214.0" onMouseClicked="#Edge15Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="334.0" layoutY="216.0" onMouseClicked="#Edge13Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="302.0" onMouseClicked="#Edge24Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker28" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="380.0" layoutY="302.0" onMouseClicked="#Edge28Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker26" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="277.0" layoutY="304.0" onMouseClicked="#Edge26Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker41" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="216.0" layoutY="396.0" onMouseClicked="#Edge41Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker45" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="439.0" layoutY="396.0" onMouseClicked="#Edge45Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker43" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="327.0" layoutY="398.0" onMouseClicked="#Edge43Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker56" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="272.0" layoutY="483.0" onMouseClicked="#Edge56Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker60" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="486.0" layoutY="483.0" onMouseClicked="#Edge60Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker58" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="383.0" layoutY="485.0" onMouseClicked="#Edge58Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker30" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="492.0" layoutY="299.0" onMouseClicked="#Edge30Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker17" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="210.0" onMouseClicked="#Edge17Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker32" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="598.0" layoutY="301.0" onMouseClicked="#Edge32Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker47" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="550.0" layoutY="394.0" onMouseClicked="#Edge47Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker46" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="490.0" layoutY="396.0" onMouseClicked="#Edge46Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker69" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="382.0" layoutY="586.0" onMouseClicked="#Edge69Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker67" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="273.0" layoutY="581.0" onMouseClicked="#Edge67Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker70" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="440.0" layoutY="581.0" onMouseClicked="#Edge70Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker71" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="493.0" layoutY="582.0" onMouseClicked="#Edge71Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker68" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="332.0" layoutY="583.0" onMouseClicked="#Edge68Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker54" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="488.0" onMouseClicked="#Edge54Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker48" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="601.0" layoutY="392.0" onMouseClicked="#Edge48Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker39" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="115.0" layoutY="395.0" onMouseClicked="#Edge39Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker66" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="218.0" layoutY="582.0" onMouseClicked="#Edge66Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="VertexMarker14" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="460.0" layoutY="234.0" onMouseClicked="#Marker14Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle fx:id="EdgeMarker6" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="194.0" layoutY="165.0" onMouseClicked="#Edge6Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker8" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="408.0" layoutY="165.0" onMouseClicked="#Edge8Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker7" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="305.0" layoutY="167.0" onMouseClicked="#Edge7Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker18" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="258.0" onMouseClicked="#Edge18Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker20" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="258.0" onMouseClicked="#Edge20Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker19" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="260.0" onMouseClicked="#Edge19Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker33" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="88.0" layoutY="348.0" onMouseClicked="#Edge33Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker35" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="348.0" onMouseClicked="#Edge35Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker34" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="199.0" layoutY="350.0" onMouseClicked="#Edge34Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker49" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="138.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="443.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker62" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="191.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker64" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="405.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker63" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="536.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="410.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="624.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="521.0" layoutY="349.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="578.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="569.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker65" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="520.0" layoutY="532.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" width="23.0" />
-                  <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Button fx:id="startButton" layoutX="310.0" layoutY="260.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
+                  <Rectangle fx:id="EdgeMarker51" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="352.0" layoutY="441.0" onMouseClicked="#Edge51Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker50" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="249.0" layoutY="443.0" onMouseClicked="#Edge50Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker62" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="191.0" layoutY="534.0" onMouseClicked="#Edge62Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker64" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="405.0" layoutY="534.0" onMouseClicked="#Edge64Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker63" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="302.0" layoutY="536.0" onMouseClicked="#Edge63Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker36" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="410.0" layoutY="347.0" onMouseClicked="#Edge36Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker38" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="624.0" layoutY="347.0" onMouseClicked="#Edge38Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker37" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="521.0" layoutY="349.0" onMouseClicked="#Edge37Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker52" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="440.0" onMouseClicked="#Edge52Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker53" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="578.0" layoutY="442.0" onMouseClicked="#Edge53Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker21" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="467.0" layoutY="252.0" onMouseClicked="#Edge21Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker22" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="569.0" layoutY="250.0" onMouseClicked="#Edge22Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker65" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="520.0" layoutY="532.0" onMouseClicked="#Edge65Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker9" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="516.0" layoutY="160.0" onMouseClicked="#Edge9Pressed" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" onMouseClicked="#Marker15Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
+                  <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" onMouseClicked="#Edge61Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Button fx:id="startButton" layoutX="279.0" layoutY="247.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
+                  <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="61.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
+                     <font>
+                        <Font name="Poor Richard" size="30.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

@@ -10,16 +10,17 @@ public class Player {
     private int cardCount;
     //Anjie: I changed color to public bc I need to access it
     //in Settlement & City classes (according to UML)
-    public String color;
+    private String color;
     private boolean hasMoreThan7;
-    public Image mySettlement;
-    public Image myCity;
+    private Image mySettlement;
+    private Image myCity;
     private int index;
     private ArrayList<ResourceCard> resourceDeck;
     public ArrayList<String> resDeck;
     private ArrayList<DevCard> devDeck;
-    private ArrayList<Settlement> settlements;
-    private ArrayList<City> cities;
+    private ArrayList<Edge> roads;
+    private ArrayList<Vertex> settlements;
+    private ArrayList<Vertex> cities;
 
     public Player(String color, int index) {
         this.color = color;
@@ -42,10 +43,21 @@ public class Player {
                 break;
         }
         this.index = index;
+        roads = new ArrayList<>();
         resourceDeck = new ArrayList<>();
         devDeck = new ArrayList<>();
         settlements = new ArrayList<>();
         cities = new ArrayList<>();
+    }
+
+    public void addRoad(Edge edge) {
+        roads.add(edge);
+    }
+    public void addSettlement(Vertex vertex) {
+        settlements.add(vertex);
+    }
+    public String getColor() {
+        return color;
     }
     public int getCardCount(){
         return 0;

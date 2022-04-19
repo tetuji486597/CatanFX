@@ -10,4 +10,8 @@ public class NumberToken {
         this.token = token;
         tokenImage = myImage;
     }
+
+    public Image getImage() {
+        return tokenImage;
+    }
 }

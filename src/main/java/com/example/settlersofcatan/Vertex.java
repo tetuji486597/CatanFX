@@ -1,4 +1,5 @@
 package com.example.settlersofcatan;
+
 import java.util.ArrayList;
 
 public class Vertex {
@@ -7,8 +8,11 @@ public class Vertex {
     private boolean hasBridgeToPort;
     private int boardIndex;
     private Tile[] myTiles;
+    private javafx.scene.shape.Rectangle myRect;
+    private boolean hasPlayer;
 
     public Vertex(int index) {
+        hasPlayer = false;
         boardIndex = index;
     }
     public ArrayList<Tile> getSurroundingTiles(){
@@ -18,8 +22,11 @@ public class Vertex {
     public void setMyTiles(Tile[] tiles) {
         myTiles = tiles;
     }
-    public boolean hasPlayer(){
-        return false;
-
+    public void setHasPlayer(boolean hasPlayer){
+        this.hasPlayer = hasPlayer;
     }
+    public boolean getHasPlayer() {
+        return hasPlayer;
+    }
+
 }
