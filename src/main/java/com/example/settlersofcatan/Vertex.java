@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Vertex {
     private Tile referenceHex;
-    private int vertexIndex;
+
     private boolean hasBridgeToPort;
     private int boardIndex;
     private Tile[] myTiles;
     private javafx.scene.shape.Rectangle myRect;
     private boolean hasPlayer;
+
 
     public Vertex(int index) {
         hasPlayer = false;
@@ -28,5 +29,6 @@ public class Vertex {
     public boolean getHasPlayer() {
         return hasPlayer;
     }
+    public int getBoardIndex() {return boardIndex;}
 
 }
