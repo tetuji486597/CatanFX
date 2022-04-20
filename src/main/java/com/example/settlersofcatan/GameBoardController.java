@@ -910,12 +910,22 @@ public class GameBoardController {
     }
 
     public void placeEdge() {
-        Edge[] edges = GameState.allEdges;
-        for(int i = 0; i < edges.length; i++) {
+        //Edge[] edges = GameState.allEdges;
+        Player currentPlayer = GameState.currentPlayer;
+        ArrayList<Vertex> ownedSettlements = currentPlayer.getOwnedSettlements();
+        //BUG: did not consider cities
+        for(int i = 0; i < ownedSettlements.size(); i++) {
+            ArrayList<Edge> adjacentEdges = ownedSettlements.get(i).getAdjacentEdges();
+            for(int j = 0; j < adjacentEdges.size(); j++) {
+                int edgeIndex = adjacentEdges.get(j).getBoardIndex();
+                EdgeMarkers[edgeIndex].setVisible(true);
+                EdgeMarkers[edgeIndex].setDisable(false);
+            }
+            /*
             if(!GameState.allEdges[i].getHasPlayer()) {
                 EdgeMarkers[i].setVisible(true);
                 EdgeMarkers[i].setDisable(false);
-            }
+            }*/
         }
     }
 

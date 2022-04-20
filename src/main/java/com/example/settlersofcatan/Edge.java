@@ -31,5 +31,5 @@ public class Edge {
     public boolean getHasPlayer() {
         return hasPlayer;
     }
-
+    public int getBoardIndex() {return boardIndex;}
 }
