@@ -271,7 +271,6 @@ public class GameState{
         allEdges[10].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[6],allEdges[11],allEdges[18])));
 
 
-
     }
 
     //also checks if taken by another player
