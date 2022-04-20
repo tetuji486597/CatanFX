@@ -262,8 +262,8 @@ public class GameState{
 
     //also checks if taken by another player
     public static boolean maintainsDistance(Vertex vertex) {
-        if(vertex.getHasPlayer()) return false;
-        return true;
+        if(vertex.getHasPlayer()) return true;
+        return false;
     }
     public int rollDice(){
         //sum of 2 independent dice

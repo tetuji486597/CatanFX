@@ -37,5 +37,5 @@ public class Vertex {
         return hasPlayer;
     }
     public int getBoardIndex() {return boardIndex;}
-
+    public ArrayList<Vertex> getAdjacentVertices() {return adjacentVertices;}
 }
