@@ -9,10 +9,7 @@ import java.util.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
@@ -695,6 +692,9 @@ public class GameBoardController {
     private Label MainLabel;
 
     @FXML
+    private DialogPane TradePanel;
+
+    @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
 
@@ -780,6 +780,7 @@ public class GameBoardController {
         StealButton.setDisable(true);
         EndTurnButton.setDisable(true);
         HelpButton.setDisable(true);
+        TradePanel.setVisible(false);
     }
     @FXML
     public void startGame() {
@@ -896,13 +897,13 @@ public class GameBoardController {
         }
         for(int i = 0; i < vertices.length; i++) {
             if(GameState.maintainsDistance(vertices[i])) {
-                Vertex[] surroundingVertices = vertices[i].getSurroundingVertex();
-                for(int j = 0; j < surroundingVertices.length; j++)
-                {
-                    int surroundingIndex = surroundingVertices[j].getBoardIndex();
-                    VertexMarkers[surroundingIndex].setVisible(false);
-                    VertexMarkers[surroundingIndex].setDisable(true);
-                }
+                //Vertex[] surroundingVertices = vertices[i].getSurroundingVertex();
+                //for(int j = 0; j < surroundingVertices.length; j++)
+                //{
+                    //int surroundingIndex = surroundingVertices[j].getBoardIndex();
+                    //VertexMarkers[surroundingIndex].setVisible(false);
+                    //VertexMarkers[surroundingIndex].setDisable(true);
+                //}
                 VertexMarkers[i].setVisible(false);
                 VertexMarkers[i].setDisable(true);
             }
@@ -926,14 +927,15 @@ public class GameBoardController {
 
     @FXML
     public void showTrade() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Trade.fxml"));
-        Scene tradeScene = new Scene(fxmlLoader.load());
-        stage.setTitle("Trade");
-        stage.setResizable(false);
-        stage.setScene(tradeScene);
-        ParentPanel.setTradePanel(stage);
-        stage.show();
+        //Stage stage = new Stage();
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Trade.fxml"));
+        //Scene tradeScene = new Scene(fxmlLoader.load());
+        //stage.setTitle("Trade");
+        //stage.setResizable(false);
+        //stage.setScene(tradeScene);
+        //ParentPanel.setTradePanel(stage);
+        //stage.show();
+        TradePanel.setVisible(true);
     }
 
     @FXML
