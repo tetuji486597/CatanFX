@@ -647,7 +647,7 @@
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
-                  <DialogPane layoutX="108.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="545.0">
+                  <DialogPane fx:id="TradePanel" layoutX="108.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="545.0">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
