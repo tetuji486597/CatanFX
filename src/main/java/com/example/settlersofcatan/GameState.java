@@ -258,6 +258,20 @@ public class GameState{
         allVertices[52].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[48],allVertices[49])));
         allVertices[53].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[49],allVertices[50])));
 
+        allEdges[0].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[1],allEdges[6])));
+        allEdges[1].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[0],allEdges[2],allEdges[7])));
+        allEdges[2].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[1],allEdges[3],allEdges[7])));
+        allEdges[3].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[2],allEdges[4],allEdges[8])));
+        allEdges[4].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[3],allEdges[5],allEdges[8])));
+        allEdges[5].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[4],allEdges[9])));
+        allEdges[6].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[0],allEdges[10],allEdges[11])));
+        allEdges[7].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[1],allEdges[2],allEdges[12],allEdges[13])));
+        allEdges[8].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[3],allEdges[4],allEdges[14],allEdges[15])));
+        allEdges[9].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[5],allEdges[16],allEdges[17])));
+        allEdges[10].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[6],allEdges[11],allEdges[18])));
+
+
+
     }
 
     //also checks if taken by another player
