@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
@@ -16,10 +17,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -258,8 +260,19 @@
                         </Button>
                      </children>
                   </VBox>
+                  <DialogPane layoutX="46.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
                </children></Pane>
-            <AnchorPane prefHeight="713.0" prefWidth="725.0" style="-fx-background-color: #4893D0;">
+            <AnchorPane prefHeight="713.0" prefWidth="576.0" style="-fx-background-color: #4893D0;">
                <children>
                   <ImageView fx:id="boardBase" fitHeight="620.0" fitWidth="725.0" layoutX="3.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -629,11 +642,79 @@
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" onMouseClicked="#Edge61Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Button fx:id="startButton" layoutX="279.0" layoutY="247.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
                   <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="61.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
+                  <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="86.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
                      <font>
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
+                  <DialogPane layoutX="108.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="545.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Text layoutX="13.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                           </children></AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="-16.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Bank (4:1)">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="50.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Others">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="109.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Ports (3:1 or 2:1)">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="171.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children></AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
                </children>
             </AnchorPane>
          </children>
@@ -755,12 +836,12 @@
             </Separator>
             <Pane prefHeight="230.0" prefWidth="275.0">
                <children>
-                  <Button fx:id="ConfirmButton" layoutX="47.0" layoutY="24.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Confirm" />
                   <Button fx:id="CancelButton" layoutX="149.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Cancel" />
                   <Button fx:id="StealButton" layoutX="179.0" layoutY="85.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
                   <Button fx:id="HelpButton" layoutX="149.0" layoutY="133.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="49.0" prefWidth="87.0" style="-fx-background-color: #E5EFC1;" text="Help" />
                   <Button fx:id="BuildButton" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
                   <Button fx:id="EndTurnButton" layoutX="52.0" layoutY="132.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />
+                  <Button fx:id="ConfirmButton" mnemonicParsing="false" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Confirm" />
                   <Button fx:id="TradeButton" layoutX="101.0" layoutY="85.0" mnemonicParsing="false" onAction="#showTrade" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: #E5EFC1;" text="Trade" />
                </children>
             </Pane>
