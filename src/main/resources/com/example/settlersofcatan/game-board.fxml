@@ -636,32 +636,23 @@
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
-                  <DialogPane fx:id="TradePanel" layoutX="108.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="545.0">
+                  <DialogPane fx:id="TradePanel" layoutX="4.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0" style="-fx-border-color: black; -fx-border-width: 2;">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
-                              <Text layoutX="13.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
+                              <Text layoutX="128.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
                                  <font>
                                     <Font name="Bell MT Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <DialogPane layoutX="260.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
-                                  <header>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                                  </header>
-                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                                  </content>
-                                  <expandableContent>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                                  </expandableContent>
-                              </DialogPane>
-                           </children></AnchorPane>
+                              <AnchorPane layoutX="-60.0" layoutY="-22.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                           </children>
+                        </AnchorPane>
                       </header>
                       <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
-                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="-16.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Bank (4:1)">
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="42.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Bank (4:1)">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -673,7 +664,7 @@
                                     <Font name="Bell MT Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="50.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Others">
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="118.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Others">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -685,7 +676,7 @@
                                     <Font name="Bell MT Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="109.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Ports (3:1 or 2:1)">
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Ports (3:1 or 2:1)">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -697,7 +688,7 @@
                                     <Font name="Bell MT Bold" size="16.0" />
                                  </font>
                               </Button>
-                              <Button contentDisplay="CENTER" layoutX="172.0" layoutY="171.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="277.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -709,7 +700,8 @@
                                     <Font name="Bell MT Bold" size="16.0" />
                                  </font>
                               </Button>
-                           </children></AnchorPane>
+                           </children>
+                        </AnchorPane>
                       </content>
                       <expandableContent>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
