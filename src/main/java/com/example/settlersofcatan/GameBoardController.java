@@ -895,17 +895,16 @@ public class GameBoardController {
             VertexMarkers[i].setVisible(true);
             VertexMarkers[i].setDisable(false);
         }
+
         for(int i = 0; i < vertices.length; i++) {
             if(GameState.maintainsDistance(vertices[i])) {
-                //Vertex[] surroundingVertices = vertices[i].getSurroundingVertex();
-                //for(int j = 0; j < surroundingVertices.length; j++)
-                //{
-                    //int surroundingIndex = surroundingVertices[j].getBoardIndex();
-                    //VertexMarkers[surroundingIndex].setVisible(false);
-                    //VertexMarkers[surroundingIndex].setDisable(true);
-                //}
-                VertexMarkers[i].setVisible(false);
-                VertexMarkers[i].setDisable(true);
+                ArrayList<Vertex> surroundingVertices = vertices[i].getAdjacentVertices();
+                for(int j = 0; j < surroundingVertices.size(); j++)
+                {
+                    int surroundingIndex = surroundingVertices.get(j).getBoardIndex();
+                    VertexMarkers[surroundingIndex].setVisible(false);
+                    VertexMarkers[surroundingIndex].setDisable(true);
+                }
             }
         }
     }
