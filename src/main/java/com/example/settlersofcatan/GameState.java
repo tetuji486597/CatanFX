@@ -257,7 +257,6 @@ public class GameState{
         allVertices[51].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[47],allVertices[48])));
         allVertices[52].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[48],allVertices[49])));
         allVertices[53].setAdjacentVertices(new ArrayList<>(Arrays.asList(allVertices[49],allVertices[50])));
-        //hello
 
     }
 
