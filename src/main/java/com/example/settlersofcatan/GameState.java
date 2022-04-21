@@ -333,6 +333,37 @@ public class GameState{
 
     }
 
+    public int getLongestRoad() {
+        HashMap<Integer, Integer> indexToRoadLength = new HashMap<>();
+        for (int i =0; i < 72; i++) {
+            boolean[] visited = new boolean[72];
+            if(allEdges[i].getPlayerIndex() >= 0) {
+                int roadLength = dfs(allEdges[i], visited, 0);
+                if(indexToRoadLength.get(allEdges[i].getPlayerIndex()) == null || roadLength > indexToRoadLength.get(allEdges[i].getPlayerIndex())) {
+                    indexToRoadLength.put(allEdges[i].getPlayerIndex(), roadLength);
+                }
+            }
+        }
+        int longestRoad = 0;
+        int longestRoadPlayerIndex = -1;
+        for(int player: indexToRoadLength.keySet()) {
+            if(longestRoad > indexToRoadLength.get(player)) {
+                longestRoad = indexToRoadLength.get(player);
+                longestRoadPlayerIndex = player;
+            }
+        }
+        return longestRoadPlayerIndex;
+    }
+
+    public int dfs(Edge edge, boolean[] visited, int count) {
+        if(visited[edge.getBoardIndex()] || edge.getAdjacentEdges().isEmpty()) return count;
+        for(Edge surround: edge.getAdjacentEdges()) {
+            return dfs(surround, visited, count+1);
+        }
+        return -1;
+    }
+
+
     //also checks if taken by another player
     public static boolean maintainsDistance(Vertex vertex) {
         if(vertex.getHasPlayer()) return true;

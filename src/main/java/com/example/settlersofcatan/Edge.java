@@ -7,9 +7,10 @@ public class Edge {
     private int boardIndex;
     private Tile[] myTiles;
     private ArrayList<Edge> adjacentEdges;
-    private boolean hasPlayer;
+    private int playerIndex;
 
     public Edge(int index) {
+        playerIndex = -1;
         boardIndex = index;
         adjacentEdges = new ArrayList<>();
     }
@@ -21,15 +22,18 @@ public class Edge {
     public void setAdjacentEdges(ArrayList<Edge> listEdges) {
         adjacentEdges = listEdges;
     }
+    public ArrayList<Edge> getAdjacentEdges() {
+        return adjacentEdges;
+    }
     public ArrayList<Tile> getSurroundingTiles(){
         return new ArrayList<>();
     }
 
-    public void setHasPlayer(boolean hasPlayer) {
-        this.hasPlayer = hasPlayer;
+    public void setPlayerIndex(int playerIndex) {
+        this.playerIndex = playerIndex;
     }
-    public boolean getHasPlayer() {
-        return hasPlayer;
+    public int getPlayerIndex() {
+        return playerIndex;
     }
     public int getBoardIndex() {return boardIndex;}
 }
