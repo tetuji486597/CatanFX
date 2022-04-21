@@ -645,7 +645,6 @@
                                     <Font name="Bell MT Bold" size="40.0" />
                                  </font>
                               </Text>
-                              <AnchorPane layoutX="-60.0" layoutY="-22.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
                            </children>
                         </AnchorPane>
                       </header>
@@ -700,6 +699,114 @@
                                     <Font name="Bell MT Bold" size="16.0" />
                                  </font>
                               </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane layoutX="6.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="146.0" prefWidth="717.0">
+                           <children>
+                              <Text layoutX="274.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trade 4:1">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="717.0">
+                           <children>
+                              <Text layoutX="97.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I have: ">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="64.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="498.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I want:">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <Button contentDisplay="CENTER" layoutX="442.0" layoutY="212.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="572.0" layoutY="109.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="73.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/resourceCards/ore%20icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="528.0" layoutY="199.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="73.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/resourceCards/wood%20icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="615.0" layoutY="199.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="73.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="161.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/ore%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="24.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="112.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wood%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="198.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="492.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="456.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                       </content>
