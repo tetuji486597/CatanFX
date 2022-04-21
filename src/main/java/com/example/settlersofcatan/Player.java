@@ -65,9 +65,8 @@ public class Player {
     public ArrayList<Vertex> getBuildableVertices(){
         return new ArrayList<>();
     }
-    public ArrayList<Edge> getBuildableEdges(){
-        return new ArrayList<>();
-    }
+    public ArrayList<Edge> getBuildableEdges(){return new ArrayList<>();}
+    public ArrayList<Vertex> getOwnedSettlements() {return settlements;}
     public void takeAllResources(Stack ResourceCard) {
 
     }
