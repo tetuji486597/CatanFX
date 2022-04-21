@@ -7,15 +7,15 @@ public class Vertex {
 
     private boolean hasBridgeToPort;
     private int boardIndex;
+    private int playerIndex;
     private Tile[] myTiles;
     private javafx.scene.shape.Rectangle myRect;
     private ArrayList<Vertex> adjacentVertices;
-    private boolean hasPlayer;
 
 
     public Vertex(int index) {
+        playerIndex = -1;
         adjacentVertices = new ArrayList<>();
-        hasPlayer = false;
         boardIndex = index;
     }
     public ArrayList<Tile> getSurroundingTiles(){
@@ -28,13 +28,13 @@ public class Vertex {
     public void setAdjacentVertices(ArrayList<Vertex> listVertices) {
         adjacentVertices = listVertices;
     }
-    public void setHasPlayer(boolean hasPlayer){
-        this.hasPlayer = hasPlayer;
+    public void setPlayerIndex(int playerIndex){
+        this.playerIndex = playerIndex;
     }
 
     //instead of hasPlayer, use player index and -1 if its index doesnt exist
-    public boolean getHasPlayer() {
-        return hasPlayer;
+    public int getPlayerIndex() {
+        return playerIndex;
     }
     public int getBoardIndex() {return boardIndex;}
     public ArrayList<Vertex> getAdjacentVertices() {return adjacentVertices;}
