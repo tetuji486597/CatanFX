@@ -740,7 +740,7 @@ public class GameBoardController {
         tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
 
         TradeMenu.setVisible(false);
-        Trade4for1.setVisible(false);
+        Trade4For1.setVisible(false);
         for(Label label: playerNumLabels) {
             label.setVisible(false);
         }
@@ -913,13 +913,18 @@ public class GameBoardController {
     }
 
     public void placeEdge() {
-        Edge[] edges = GameState.allEdges;
-        for(int i = 0; i < edges.length; i++) {
-            if(GameState.isValidEdge(edges[i])) {
-                EdgeMarkers[i].setVisible(true);
-                EdgeMarkers[i].setDisable(false);
+        Player player = GameState.currentPlayer;
+        ArrayList<Vertex> ownedSettlements = player.getOwnedSettlements();
+        for(int i = 0; i < ownedSettlements.size(); i++){
+            Vertex settlement = ownedSettlements.get(i);
+            ArrayList<Edge> adjacentEdges = settlement.getAdjacentEdges();
+            for(int j = 0; j < adjacentEdges.size(); j++){
+                int index = adjacentEdges.get(j).getBoardIndex();
+                EdgeMarkers[index].setVisible(true);
+                EdgeMarkers[index].setDisable(false);
             }
         }
+
     }
 
     @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
@@ -927,8 +932,8 @@ public class GameBoardController {
     @FXML public void showTrade() throws IOException { TradeMenu.setVisible(true); }
     @FXML public void closeTradeMenu() { TradeMenu.setVisible(false); }
 
-    @FXML public void showTrade4For1() throws IOException { trade4For1.setVisible(true); }
-    @FXML public void closeTrade4For1() throws IOException { trade4For1.setVisible(false); }
+    @FXML public void showTrade4For1() throws IOException { Trade4For1.setVisible(true); }
+    @FXML public void closeTrade4For1() throws IOException { Trade4For1.setVisible(false); }
 
     @FXML
     public void showResourceView() {
