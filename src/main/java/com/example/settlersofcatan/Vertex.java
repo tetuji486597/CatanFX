@@ -11,11 +11,13 @@ public class Vertex {
     private Tile[] myTiles;
     private javafx.scene.shape.Rectangle myRect;
     private ArrayList<Vertex> adjacentVertices;
+    private ArrayList<Edge> adjacentEdges;
 
 
     public Vertex(int index) {
         playerIndex = -1;
         adjacentVertices = new ArrayList<>();
+        adjacentEdges = new ArrayList<>();
         boardIndex = index;
     }
     public ArrayList<Tile> getSurroundingTiles(){
@@ -28,6 +30,8 @@ public class Vertex {
     public void setAdjacentVertices(ArrayList<Vertex> listVertices) {
         adjacentVertices = listVertices;
     }
+    public void setAdjacentEdges(ArrayList<Edge> listEdges) {adjacentEdges = listEdges;}
+    public ArrayList<Edge> getAdjacentEdges(){return adjacentEdges;}
     public void setPlayerIndex(int playerIndex){
         this.playerIndex = playerIndex;
     }

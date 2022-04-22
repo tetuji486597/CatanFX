@@ -331,6 +331,39 @@ public class GameState{
         allEdges[70].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[64],allEdges[69],allEdges[71])));
         allEdges[71].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[65],allEdges[70])));
 
+        allVertices[0].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[0],allEdges[1])));
+        allVertices[1].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[2],allEdges[3])));
+        allVertices[2].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[4],allEdges[5])));
+        allVertices[3].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[0],allEdges[6])));
+        allVertices[4].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[1],allEdges[2],allEdges[7])));
+        allVertices[5].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[3],allEdges[4],allEdges[8])));
+        allVertices[6].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[5],allEdges[9])));
+        allVertices[7].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[6],allEdges[10],allEdges[11])));
+        allVertices[8].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[7],allEdges[12],allEdges[13])));
+        allVertices[9].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[8],allEdges[14],allEdges[15])));
+        allVertices[10].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[9],allEdges[16],allEdges[17])));
+        allVertices[11].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[10],allEdges[18])));
+        allVertices[12].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[11],allEdges[12],allEdges[19])));
+        allVertices[13].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[13],allEdges[14],allEdges[20])));
+        allVertices[14].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[15],allEdges[16],allEdges[21])));
+        allVertices[15].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[17],allEdges[22])));
+        allVertices[16].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[18],allEdges[23],allEdges[24])));
+        allVertices[17].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[19],allEdges[25],allEdges[26])));
+        allVertices[18].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[20],allEdges[27],allEdges[28])));
+        allVertices[19].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[21],allEdges[29],allEdges[30])));
+        allVertices[20].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[22],allEdges[31],allEdges[32])));
+        allVertices[21].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[23],allEdges[33])));
+        allVertices[22].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[24],allEdges[25],allEdges[34])));
+        allVertices[23].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[26],allEdges[27],allEdges[35])));
+        allVertices[24].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[28],allEdges[29],allEdges[36])));
+        allVertices[25].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[30],allEdges[31],allEdges[37])));
+        allVertices[26].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[32],allEdges[38])));
+        allVertices[27].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[33],allEdges[39])));
+        allVertices[28].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[34],allEdges[40],allEdges[41])));
+        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[2],allEdges[7])));
+        allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[2],allEdges[7])));
+        allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[2],allEdges[7])));
+
     }
 
     public int getLongestRoad() {
