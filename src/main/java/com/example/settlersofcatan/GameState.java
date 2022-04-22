@@ -402,20 +402,23 @@ public class GameState{
         if(vertex.getPlayerIndex() >= 0) return true;
         return false;
     }
-    public int rollDice(){
-        //sum of 2 independent dice
-        Random rand = new Random();
-        int die1 = rand.nextInt(6);
-        int die2 = rand.nextInt(6);
-        int diceRoll = die1+die2;
-        return diceRoll;
+
+    public static boolean isValidEdge(Edge edge) {
+        ArrayList<Vertex> playersSettlements = currentPlayer.getOwnedSettlements();
+        ArrayList<Edge> playersRoads = currentPlayer.getOwnedEdges();
+        for(Edge thisEdge: playersRoads) {
+            if(thisEdge.getAdjacentEdges().equals(edge)) {
+                return true;
+            }
+        }
+        for(Vertex thisVertex: playersSettlements) {
+            if(thisVertex.getAdjacentEdges().equals(edge)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void sevenRolled(){
-        if (rollDice() == 7){
-            //do stuff
-        }
-    }
     public void giveResources(){
 
     }
