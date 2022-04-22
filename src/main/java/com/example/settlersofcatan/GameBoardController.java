@@ -695,6 +695,9 @@ public class GameBoardController {
     private DialogPane TradePanel;
 
     @FXML
+    private DialogPane TradeMenu;
+
+    @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
 
@@ -736,6 +739,8 @@ public class GameBoardController {
         VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
         tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
 
+        TradeMenu.setVisible(false);
+        TradePanel.setVisible(false);
         for(Label label: playerNumLabels) {
             label.setVisible(false);
         }
@@ -780,7 +785,6 @@ public class GameBoardController {
         StealButton.setDisable(true);
         EndTurnButton.setDisable(true);
         HelpButton.setDisable(true);
-        TradePanel.setVisible(false);
     }
     @FXML
     public void startGame() {
@@ -895,7 +899,6 @@ public class GameBoardController {
             VertexMarkers[i].setVisible(true);
             VertexMarkers[i].setDisable(false);
         }
-
         for(int i = 0; i < vertices.length; i++) {
             if(GameState.maintainsDistance(vertices[i])) {
                 ArrayList<Vertex> surroundingVertices = vertices[i].getAdjacentVertices();
@@ -905,27 +908,20 @@ public class GameBoardController {
                     VertexMarkers[surroundingIndex].setVisible(false);
                     VertexMarkers[surroundingIndex].setDisable(true);
                 }
+                VertexMarkers[i].setVisible(false);
+                VertexMarkers[i].setDisable(true);
             }
         }
     }
 
     public void placeEdge() {
-        //Edge[] edges = GameState.allEdges;
-        Player currentPlayer = GameState.currentPlayer;
-        ArrayList<Vertex> ownedSettlements = currentPlayer.getOwnedSettlements();
-        //BUG: did not consider cities
-        for(int i = 0; i < ownedSettlements.size(); i++) {
-            ArrayList<Edge> adjacentEdges = ownedSettlements.get(i).getAdjacentEdges();
-            for(int j = 0; j < adjacentEdges.size(); j++) {
-                int edgeIndex = adjacentEdges.get(j).getBoardIndex();
-                EdgeMarkers[edgeIndex].setVisible(true);
-                EdgeMarkers[edgeIndex].setDisable(false);
-            }
-            /*
-            if(!GameState.allEdges[i].getHasPlayer()) {
+        Edge[] edges = GameState.allEdges;
+        for(int i = 0; i < edges.length; i++) {
+            if(GameState.allEdges[i].getPlayerIndex() <= 0) {
+                System.out.println(GameState.allEdges[i].getPlayerIndex());
                 EdgeMarkers[i].setVisible(true);
                 EdgeMarkers[i].setDisable(false);
-            }*/
+            }
         }
     }
 
@@ -936,17 +932,13 @@ public class GameBoardController {
 
     @FXML
     public void showTrade() throws IOException {
-        //Stage stage = new Stage();
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Trade.fxml"));
-        //Scene tradeScene = new Scene(fxmlLoader.load());
-        //stage.setTitle("Trade");
-        //stage.setResizable(false);
-        //stage.setScene(tradeScene);
-        //ParentPanel.setTradePanel(stage);
-        //stage.show();
-        TradePanel.setVisible(true);
+        TradeMenu.setVisible(true);
     }
 
+    @FXML
+    public void closeTradeMenu() {
+        TradeMenu.setVisible(false);
+    }
     @FXML
     public void showResourceView() {
         
@@ -989,10 +981,10 @@ public class GameBoardController {
 
     public void MarkerPressed(int index) {
         VertexMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
-        GameState.allVertices[index].setHasPlayer(true);
+        GameState.allVertices[index].setPlayerIndex(GameState.currentPlayerIndex);
         for(int i = 0; i < VertexMarkers.length; i++) {
             VertexMarkers[i].setDisable(true);
-            if(!GameState.allVertices[i].getHasPlayer()) VertexMarkers[i].setVisible(false);
+            if(GameState.allVertices[i].getPlayerIndex() <= 0) VertexMarkers[i].setVisible(false);
         }
         VertexMarkers[index].setVisible(true);
         GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
@@ -1005,10 +997,10 @@ public class GameBoardController {
 
     public void EdgePressed(int index) {
         EdgeMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
-        GameState.allEdges[index].setHasPlayer(true);
+        GameState.allEdges[index].setPlayerIndex(GameState.currentPlayerIndex);
         for(int i = 0; i < EdgeMarkers.length; i++) {
             EdgeMarkers[i].setDisable(true);
-            if(!GameState.allEdges[i].getHasPlayer()) EdgeMarkers[i].setVisible(false);
+            if(GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         nextTurn();
         EdgeMarkers[index].setVisible(true);

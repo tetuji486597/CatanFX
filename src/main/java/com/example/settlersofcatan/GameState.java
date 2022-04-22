@@ -366,7 +366,7 @@ public class GameState{
 
     //also checks if taken by another player
     public static boolean maintainsDistance(Vertex vertex) {
-        if(vertex.getHasPlayer()) return true;
+        if(vertex.getPlayerIndex() >= 0) return true;
         return false;
     }
     public int rollDice(){
