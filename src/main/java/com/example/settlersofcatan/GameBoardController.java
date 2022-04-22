@@ -908,6 +908,8 @@ public class GameBoardController {
                     VertexMarkers[surroundingIndex].setVisible(false);
                     VertexMarkers[surroundingIndex].setDisable(true);
                 }
+                VertexMarkers[i].setDisable(true);
+
             }
         }
     }
