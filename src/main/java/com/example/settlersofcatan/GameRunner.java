@@ -20,6 +20,7 @@ public class GameRunner extends Application {
         ParentPanel.setMenuPanel(stage);
         stage.show();
 
+
         Stage help = new Stage();
         FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("help.fxml"));
         help.setTitle("How to Play");
