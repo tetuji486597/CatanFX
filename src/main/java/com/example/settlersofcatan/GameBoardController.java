@@ -692,7 +692,7 @@ public class GameBoardController {
     private Label MainLabel;
 
     @FXML
-    private DialogPane TradePanel;
+    private DialogPane Trade4For1;
 
     @FXML
     private DialogPane TradeMenu;
@@ -740,7 +740,7 @@ public class GameBoardController {
         tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
 
         TradeMenu.setVisible(false);
-        TradePanel.setVisible(false);
+        Trade4for1.setVisible(false);
         for(Label label: playerNumLabels) {
             label.setVisible(false);
         }
@@ -925,20 +925,14 @@ public class GameBoardController {
         }
     }
 
-    @FXML
-    public void showHelp() {
-        ParentPanel.helpPanel.show();
-    }
+    @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
 
-    @FXML
-    public void showTrade() throws IOException {
-        TradeMenu.setVisible(true);
-    }
+    @FXML public void showTrade() throws IOException { TradeMenu.setVisible(true); }
+    @FXML public void closeTradeMenu() { TradeMenu.setVisible(false); }
 
-    @FXML
-    public void closeTradeMenu() {
-        TradeMenu.setVisible(false);
-    }
+    @FXML public void showTrade4For1() throws IOException { trade4For1.setVisible(true); }
+    @FXML public void closeTrade4For1() throws IOException { trade4For1.setVisible(false); }
+
     @FXML
     public void showResourceView() {
         
