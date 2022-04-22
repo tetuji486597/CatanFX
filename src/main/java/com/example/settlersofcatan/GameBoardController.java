@@ -908,8 +908,6 @@ public class GameBoardController {
                     VertexMarkers[surroundingIndex].setVisible(false);
                     VertexMarkers[surroundingIndex].setDisable(true);
                 }
-                VertexMarkers[i].setVisible(false);
-                VertexMarkers[i].setDisable(true);
             }
         }
     }
@@ -917,8 +915,7 @@ public class GameBoardController {
     public void placeEdge() {
         Edge[] edges = GameState.allEdges;
         for(int i = 0; i < edges.length; i++) {
-            if(GameState.allEdges[i].getPlayerIndex() <= 0) {
-                System.out.println(GameState.allEdges[i].getPlayerIndex());
+            if(GameState.isValidEdge(edges[i])) {
                 EdgeMarkers[i].setVisible(true);
                 EdgeMarkers[i].setDisable(false);
             }
