@@ -360,7 +360,7 @@ public class GameState{
         allVertices[26].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[32],allEdges[38])));
         allVertices[27].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[33],allEdges[39])));
         allVertices[28].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[34],allEdges[40],allEdges[41])));
-        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[2],allEdges[7])));
+        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[22222],allEdges[7])));
         allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[2],allEdges[7])));
         allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[2],allEdges[7])));
 
