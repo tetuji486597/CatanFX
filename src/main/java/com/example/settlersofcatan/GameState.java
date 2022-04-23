@@ -360,9 +360,31 @@ public class GameState{
         allVertices[26].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[32],allEdges[38])));
         allVertices[27].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[33],allEdges[39])));
         allVertices[28].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[34],allEdges[40],allEdges[41])));
-        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[22222],allEdges[7])));
-        allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[2],allEdges[7])));
-        allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[2],allEdges[7])));
+        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[42],allEdges[43])));
+        allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[44],allEdges[45])));
+        allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[46],allEdges[47])));
+        allVertices[32].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[38],allEdges[48])));
+        allVertices[33].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[39],allEdges[40],allEdges[49])));
+        allVertices[34].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[41],allEdges[42],allEdges[50])));
+        allVertices[35].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[43],allEdges[44],allEdges[51])));
+        allVertices[36].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[45],allEdges[46],allEdges[52])));
+        allVertices[37].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[47],allEdges[48],allEdges[53])));
+        allVertices[38].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[49],allEdges[54])));
+        allVertices[39].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[50],allEdges[55],allEdges[56])));
+        allVertices[40].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[51],allEdges[57],allEdges[58])));
+        allVertices[41].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[52],allEdges[59],allEdges[60])));
+        allVertices[42].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[53],allEdges[61])));
+        allVertices[43].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[54],allEdges[55],allEdges[62])));
+        allVertices[44].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[56],allEdges[57],allEdges[63])));
+        allVertices[45].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[58],allEdges[59],allEdges[64])));
+        allVertices[46].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[60],allEdges[61],allEdges[65])));
+        allVertices[47].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[62],allEdges[66])));
+        allVertices[48].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[63],allEdges[67],allEdges[68])));
+        allVertices[49].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[64],allEdges[69],allEdges[70])));
+        allVertices[50].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[65],allEdges[71])));
+        allVertices[51].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[66],allEdges[67])));
+        allVertices[52].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[68],allEdges[69])));
+        allVertices[53].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[70],allEdges[71])));
 
     }
 
