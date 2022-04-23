@@ -22,7 +22,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -354,7 +354,7 @@
                         <Image url="@../../../images/tiles/Field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="r1c0" fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" onMouseClicked="#Edge11Pressed" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
+                  <ImageView fx:id="r1c0" fitHeight="130.0" fitWidth="200.0" layoutX="147.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-2.5">
                      <image>
                         <Image url="@../../../images/tiles/Hills.png" />
                      </image>
@@ -577,7 +577,7 @@
                   <Rectangle fx:id="EdgeMarker1" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="274.0" layoutY="115.0" onMouseClicked="#Edge1Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker5" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="488.0" layoutY="115.0" onMouseClicked="#Edge5Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker3" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="385.0" layoutY="117.0" onMouseClicked="#Edge3Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
-                  <Rectangle fx:id="EdgeMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="223.0" layoutY="214.0" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+                  <Rectangle fx:id="EdgeMarker11" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="223.0" layoutY="214.0" onMouseClicked="#Edge11Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="437.0" layoutY="214.0" onMouseClicked="#Edge15Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker13" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="334.0" layoutY="216.0" onMouseClicked="#Edge13Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Rectangle fx:id="EdgeMarker24" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="166.0" layoutY="302.0" onMouseClicked="#Edge24Pressed" rotate="300.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />

@@ -805,7 +805,7 @@ public class GameBoardController {
             int x = tokenPos[i][0];
             int y = tokenPos[i][1];
             if(x == desx && y == desy) {
-                tokenViews[i].setImage(null);
+                tokenViews[i].setImage((Image) Initialize.robber.getValue());
                 desertFound = true;
                 continue;
             }
@@ -915,18 +915,13 @@ public class GameBoardController {
     }
 
     public void placeEdge() {
-        Player player = GameState.currentPlayer;
-        ArrayList<Vertex> ownedSettlements = player.getOwnedSettlements();
-        for(int i = 0; i < ownedSettlements.size(); i++){
-            Vertex settlement = ownedSettlements.get(i);
-            ArrayList<Edge> adjacentEdges = settlement.getAdjacentEdges();
-            for(int j = 0; j < adjacentEdges.size(); j++){
-                int index = adjacentEdges.get(j).getBoardIndex();
-                EdgeMarkers[index].setVisible(true);
-                EdgeMarkers[index].setDisable(false);
+        Edge[] edges = GameState.allEdges;
+        for(int i = 0; i < edges.length; i++) {
+            if(GameState.isValidEdge(edges[i])) {
+                EdgeMarkers[i].setVisible(true);
+                EdgeMarkers[i].setDisable(false);
             }
         }
-
     }
 
     @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
@@ -987,7 +982,8 @@ public class GameBoardController {
         VertexMarkers[index].setVisible(true);
         GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
         if(!GameState.gameStarted) {
-            MainLabel.setText("Now select your first Road location");
+            String roadNum = GameState.firstSettlementsPlaced ? "second" : "first";
+            MainLabel.setText("Now select your "+roadNum+" Road location");
             placeEdge();
         }
     }
@@ -996,29 +992,50 @@ public class GameBoardController {
     public void EdgePressed(int index) {
         EdgeMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
         GameState.allEdges[index].setPlayerIndex(GameState.currentPlayerIndex);
+        GameState.currentPlayer.addRoad(GameState.allEdges[index]);
         for(int i = 0; i < EdgeMarkers.length; i++) {
             EdgeMarkers[i].setDisable(true);
             if(GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         nextTurn();
         EdgeMarkers[index].setVisible(true);
-        GameState.currentPlayer.addRoad(GameState.allEdges[index]);
         if(!GameState.gameStarted) {
-            MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your first settlement");
+            String settlementNum = GameState.firstSettlementsPlaced ? "second" : "first";
+            MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your " + settlementNum + " settlement");
             placeSettlement();
         }
     }
 
+
+    //1,2,3,4
     public void nextTurn() {
-        int nextTurn = (GameState.currentPlayerIndex % GameState.numPlayers) + 1;
-        if(nextTurn == GameState.firstPlayerIndex) {
+        int nextTurn = GameState.iterateForward? (GameState.currentPlayerIndex % GameState.numPlayers) + 1 : (GameState.currentPlayerIndex+(GameState.numPlayers-1)) % GameState.numPlayers;
+        if(nextTurn == 0) nextTurn = GameState.numPlayers;
+        if(GameState.lastEdgePlaced) {
             GameState.gameStarted = true;
-            GameState.currentPlayerIndex = nextTurn;
-            GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
-            MainLabel.setText("Game Started! Player " + GameState.currentPlayerIndex + " roll the die!");
-            RollDiceButton.setDisable(false);
+            int current = (nextTurn+(GameState.numPlayers-1)) % GameState.numPlayers;
+            if(current == 0) current = GameState.numPlayers;
+            GameState.currentPlayerIndex = current;
+            MainLabel.setText("Game Started! Player " + current + " roll the die!");
         }
-        GameState.currentPlayerIndex = nextTurn;
+        else {
+            if(!GameState.gameStarted){
+                if(nextTurn == GameState.firstPlayerIndex) {
+                    if(!GameState.firstSettlementsPlaced) {
+                        GameState.firstSettlementsPlaced = true;
+                        GameState.iterateForward = false;
+                        nextTurn = GameState.currentPlayerIndex;
+                    }
+                    else {
+                        placeEdge();
+                        GameState.lastEdgePlaced = true;
+                        GameState.iterateForward = true;
+                    }
+                }
+            }
+            GameState.currentPlayerIndex = nextTurn;
+        }
+        RollDiceButton.setDisable(false);
         GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
     }
 

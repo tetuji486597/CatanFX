@@ -36,10 +36,17 @@ public class GameState{
     public static GameBoardController controller;
     public static int firstPlayerIndex;
     public static int[] setUpDice;
-    public static boolean gameStarted = false;
+    public static boolean iterateForward;
+    public static boolean firstSettlementsPlaced;
+    public static boolean gameStarted;
+    public static boolean lastEdgePlaced;
 
     public GameState(int numPlayers) {
 
+        iterateForward = true;
+        firstSettlementsPlaced = false;
+        lastEdgePlaced = false;
+        gameStarted = false;
         this.numPlayers = numPlayers;
         firstPlayerIndex = -1;
 
@@ -428,14 +435,16 @@ public class GameState{
     public static boolean isValidEdge(Edge edge) {
         ArrayList<Vertex> playersSettlements = currentPlayer.getOwnedSettlements();
         ArrayList<Edge> playersRoads = currentPlayer.getOwnedEdges();
+        System.out.println("Player " + currentPlayerIndex + " has "+playersSettlements.size()+" settlements and " + playersRoads.size()+" roads.");
+        System.out.println();
         for(Edge thisEdge: playersRoads) {
-            if(thisEdge.getAdjacentEdges().equals(edge)) {
-                return true;
+            for(Edge adjacentEdge: thisEdge.getAdjacentEdges()) {
+                if(adjacentEdge.equals(edge)) return true;
             }
         }
         for(Vertex thisVertex: playersSettlements) {
-            if(thisVertex.getAdjacentEdges().equals(edge)) {
-                return true;
+            for(Edge adjacentEdge: thisVertex.getAdjacentEdges()) {
+                if(adjacentEdge.equals(edge)) return true;
             }
         }
         return false;
