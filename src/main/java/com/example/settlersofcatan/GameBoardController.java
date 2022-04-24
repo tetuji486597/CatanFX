@@ -32,9 +32,11 @@ public class GameBoardController {
     public static HashMap<ImageView, ImageView> label2icon;
     public static HashMap<ImageView, Rectangle> label2resdeck;
     public static HashMap<ImageView, Rectangle> label2devdeck;
+    public static ImageView[] resNdevLabels;
     public static ImageView[] tileViews;
     public static ImageView[] portViews;
     public static ImageView[] tokenViews;
+    public static ImageView[] playerCards;
 //
 
     @FXML
@@ -332,6 +334,75 @@ public class GameBoardController {
     private Label Player4Label;
 
     @FXML
+    private ImageView PlayerCard1;
+
+    @FXML
+    private ImageView PlayerCard10;
+
+    @FXML
+    private ImageView PlayerCard11;
+
+    @FXML
+    private ImageView PlayerCard12;
+
+    @FXML
+    private ImageView PlayerCard13;
+
+    @FXML
+    private ImageView PlayerCard14;
+
+    @FXML
+    private ImageView PlayerCard15;
+
+    @FXML
+    private ImageView PlayerCard16;
+
+    @FXML
+    private ImageView PlayerCard17;
+
+    @FXML
+    private ImageView PlayerCard18;
+
+    @FXML
+    private ImageView PlayerCard19;
+
+    @FXML
+    private ImageView PlayerCard2;
+
+    @FXML
+    private ImageView PlayerCard20;
+
+    @FXML
+    private ImageView PlayerCard21;
+
+    @FXML
+    private ImageView PlayerCard3;
+
+    @FXML
+    private ImageView PlayerCard4;
+
+    @FXML
+    private ImageView PlayerCard5;
+
+    @FXML
+    private ImageView PlayerCard6;
+
+    @FXML
+    private ImageView PlayerCard7;
+
+    @FXML
+    private ImageView PlayerCard8;
+
+    @FXML
+    private ImageView PlayerCard9;
+
+    @FXML
+    private Label ResourceViewText;
+
+    @FXML
+    private DialogPane ResourcePanel;
+
+    @FXML
     private Button StealButton;
 
     @FXML
@@ -539,6 +610,18 @@ public class GameBoardController {
     private ImageView boardBase;
 
     @FXML
+    private ImageView devLabel1;
+
+    @FXML
+    private ImageView devLabel2;
+
+    @FXML
+    private ImageView devLabel3;
+
+    @FXML
+    private ImageView devLabel4;
+
+    @FXML
     private ImageView p1;
 
     @FXML
@@ -621,6 +704,18 @@ public class GameBoardController {
 
     @FXML
     private ImageView r4c2;
+
+    @FXML
+    private ImageView resLabel1;
+
+    @FXML
+    private ImageView resLabel2;
+
+    @FXML
+    private ImageView resLabel3;
+
+    @FXML
+    private ImageView resLabel4;
 
     @FXML
     private Button startButton;
@@ -728,19 +823,22 @@ public class GameBoardController {
         label2devdeck.put(WhiteColorLabel, WhiteDevDeck);
         label2devdeck.put(RedColorLabel, RedDevDeck);
 
+
         playerNumLabels = new Label[] {Player1Label, Player2Label, Player3Label, Player4Label};
         resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
         devDecks = new Rectangle[]{BlueDevDeck, GreenDevDeck, WhiteDevDeck, RedDevDeck};
         playerLabels = new ImageView[] {GreenColorLabel, WhiteColorLabel, RedColorLabel, BlueColorLabel};
+        resNdevLabels = new ImageView[] {resLabel1, devLabel1, resLabel2, devLabel2, resLabel3, devLabel3, resLabel4, devLabel4};
         playerImages = new ImageView[] {GreenIcon, WhiteIcon, BlueIcon, RedIcon};
         tileViews = new ImageView[] {r0c0,r0c1,r0c2,r1c0,r1c1,r1c2,r1c3,r2c0,r2c1,r2c2,r2c3,r2c4,r3c0,r3c1,r3c2,r3c3,r4c0,r4c1,r4c2};
         portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
         EdgeMarkers = new Rectangle[] {EdgeMarker0,EdgeMarker1,EdgeMarker2,EdgeMarker3,EdgeMarker4,EdgeMarker5,EdgeMarker6,EdgeMarker7,EdgeMarker8,EdgeMarker9,EdgeMarker10,EdgeMarker11,EdgeMarker12,EdgeMarker13,EdgeMarker14,EdgeMarker15,EdgeMarker16,EdgeMarker17,EdgeMarker18,EdgeMarker19,EdgeMarker20,EdgeMarker21,EdgeMarker22,EdgeMarker23,EdgeMarker24,EdgeMarker25,EdgeMarker26,EdgeMarker27,EdgeMarker28,EdgeMarker29,EdgeMarker30,EdgeMarker31,EdgeMarker32,EdgeMarker33,EdgeMarker34,EdgeMarker35,EdgeMarker36,EdgeMarker37,EdgeMarker38,EdgeMarker39,EdgeMarker40,EdgeMarker41,EdgeMarker42,EdgeMarker43,EdgeMarker44,EdgeMarker45,EdgeMarker46,EdgeMarker47,EdgeMarker48,EdgeMarker49,EdgeMarker50,EdgeMarker51,EdgeMarker52,EdgeMarker53,EdgeMarker54,EdgeMarker55,EdgeMarker56,EdgeMarker57,EdgeMarker58,EdgeMarker59,EdgeMarker60,EdgeMarker61,EdgeMarker62,EdgeMarker63,EdgeMarker64,EdgeMarker65,EdgeMarker66,EdgeMarker67,EdgeMarker68,EdgeMarker69,EdgeMarker70,EdgeMarker71};
         VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
         tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
-
+        playerCards = new ImageView[] {PlayerCard1,PlayerCard2,PlayerCard3,PlayerCard4,PlayerCard5,PlayerCard6,PlayerCard7,PlayerCard8,PlayerCard9,PlayerCard10,PlayerCard11,PlayerCard12,PlayerCard13,PlayerCard14,PlayerCard15,PlayerCard16,PlayerCard17,PlayerCard18,PlayerCard19,PlayerCard20,PlayerCard21};
         TradeMenu.setVisible(false);
         Trade4For1.setVisible(false);
+        ResourcePanel.setVisible(false);
         for(Label label: playerNumLabels) {
             label.setVisible(false);
         }
@@ -748,6 +846,9 @@ public class GameBoardController {
             image.setVisible(false);
         }
         for(ImageView image: playerLabels) {
+            image.setVisible(false);
+        }
+        for (ImageView image: resNdevLabels) {
             image.setVisible(false);
         }
         for(ImageView image: playerImages) {
@@ -828,6 +929,10 @@ public class GameBoardController {
         }
         for(ImageView image: tokenViews) {
             image.setVisible(true);
+        }
+        for (int i = 0; i < GameState.numPlayers*2; i++) {
+            resNdevLabels[i].setVisible(true);
+            resNdevLabels[++i].setVisible(true);
         }
         int numPlayers = GameState.numPlayers;
         String[] colors = GameState.allColors;
@@ -933,15 +1038,6 @@ public class GameBoardController {
     @FXML public void closeTrade4For1() throws IOException { Trade4For1.setVisible(false); }
 
     @FXML
-    public void showResourceView() {
-        
-    }
-
-    public void showDevView() {
-
-    }
-
-    @FXML
     public void rollDice() throws InterruptedException {
         RollDiceButton.setDisable(true);
         Random rand = new Random();
@@ -1006,6 +1102,32 @@ public class GameBoardController {
         }
     }
 
+    public void cardAssignment() {
+        GameState.cardAssignment();
+        ActivityLog.appendText("\n-----Resources Distributed-----\n");
+        for(String[] newCard: GameState.newCards) {
+            String cardName = newCard[1];
+            ActivityLog.appendText("Player " + newCard[0] + " received a " + cardName+"!\n");
+            switch (cardName) {
+                case "Brick":
+                    BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                    break;
+                case "Grain":
+                    GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                    break;
+                case "Ore":
+                    OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                    break;
+                case "Wood":
+                    WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                    break;
+                case "Wool":
+                    WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                    break;
+            }
+        }
+        ActivityLog.appendText("-------------------------------\n");
+    }
 
     //1,2,3,4
     public void nextTurn() {
@@ -1016,7 +1138,9 @@ public class GameBoardController {
             int current = (nextTurn+(GameState.numPlayers-1)) % GameState.numPlayers;
             if(current == 0) current = GameState.numPlayers;
             GameState.currentPlayerIndex = current;
+            cardAssignment();
             MainLabel.setText("Game Started! Player " + current + " roll the die!");
+            ActivityLog.appendText("---Round "+GameState.round+"---\n");
         }
         else {
             if(!GameState.gameStarted){
@@ -1027,7 +1151,6 @@ public class GameBoardController {
                         nextTurn = GameState.currentPlayerIndex;
                     }
                     else {
-                        placeEdge();
                         GameState.lastEdgePlaced = true;
                         GameState.iterateForward = true;
                     }
@@ -1039,6 +1162,53 @@ public class GameBoardController {
         GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
     }
 
+    public void openResourcePanel(int playerIndex) {
+        ResourcePanel.setVisible(true);
+        ResourceViewText.setText("Player "+playerIndex+"'s Resource Deck");
+        for(int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
+            playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
+        }
+    }
+
+    @FXML
+    public void closeResourcePanel() {
+        for(int i = 0; i < playerCards.length; i++) {
+            playerCards[i].setImage(null);
+        }
+        ResourcePanel.setVisible(false);
+    }
+
+    @FXML
+    public void showDevView1() {}
+
+    @FXML
+    public void showDevView2() {}
+
+    @FXML
+    public void showDevView3() {}
+
+    @FXML
+    public void showDevView4() {}
+
+    @FXML
+    public void showResourceView1() {
+        openResourcePanel(1);
+    }
+
+    @FXML
+    public void showResourceView2() {
+        openResourcePanel(2);
+    }
+
+    @FXML
+    public void showResourceView3() {
+        openResourcePanel(3);
+    }
+
+    @FXML
+    public void showResourceView4() {
+        openResourcePanel(4);
+    }
 
     @FXML
     public void Marker0Pressed() {

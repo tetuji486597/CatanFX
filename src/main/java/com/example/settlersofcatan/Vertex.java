@@ -12,7 +12,7 @@ public class Vertex {
     private javafx.scene.shape.Rectangle myRect;
     private ArrayList<Vertex> adjacentVertices;
     private ArrayList<Edge> adjacentEdges;
-
+    private ArrayList<Tile> adjacentTiles;
 
     public Vertex(int index) {
         playerIndex = -1;
@@ -35,6 +35,8 @@ public class Vertex {
     public void setPlayerIndex(int playerIndex){
         this.playerIndex = playerIndex;
     }
+    public ArrayList<Tile> getAdjacentTiles() { return adjacentTiles;}
+    public void setAdjacentTiles(ArrayList<Tile> adjacentTiles) { this.adjacentTiles = adjacentTiles;}
 
     //instead of hasPlayer, use player index and -1 if its index doesnt exist
     public int getPlayerIndex() {

@@ -30,6 +30,7 @@ public class Tile {
     public Image getImage() {
         return tile;
     }
+    public String getName() {return name;}
     public void setVertices(Vertex[] vertices) {
         myVertices = vertices;
     }

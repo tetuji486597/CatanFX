@@ -1,17 +1,21 @@
 package com.example.settlersofcatan;
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 public class ResourceCard {
     private javafx.scene.image.Image resourceImage;
-    private ArrayList<String> getResCards;
-    private static String resCards[];
+    private String name;
+    private Player owner;
 
-    public ResourceCard(){
-        resCards = new String[] {"Lumber","Brick","Grain","Ore","Wool"};
+    public ResourceCard(String name, Player owner){
+
+        this.name = name;
+        this.owner = owner;
+        resourceImage = Initialize.resourceCards.get(name);
     }
 
-    public void getResource(Player player, String x){
-        getResCards.add(x);
-        player.resDeck.add(x);
+    public Image getResourceImage() {
+        return resourceImage;
     }
 }
