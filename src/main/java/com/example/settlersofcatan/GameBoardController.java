@@ -795,8 +795,6 @@ public class GameBoardController {
     @FXML
     public void initialize() throws FileNotFoundException{
         GameState.controller = this;
-
-        System.out.println(Font.getFontNames());
         color2label = new HashMap<>();
         label2icon = new HashMap<>();
         label2resdeck = new HashMap<>();
@@ -894,9 +892,6 @@ public class GameBoardController {
         for(int i = 0; i < tokenPos.length; i++) {
             tokenMap.put(tokenPos[i], tokenViews[i]);
         }
-        for(int[] i : tokenMap.keySet()) {
-            System.out.println(Arrays.toString(i) + " ");
-        }
         NumberToken[] tokens = GameState.tokens;
         int[] desertPos = GameState.tilesMap.get("Desert").getCoords();
         int desx = desertPos[0];
@@ -912,6 +907,10 @@ public class GameBoardController {
             }
             int posForImage = desertFound ? i-1 : i;
             tokenMap.get(tokenPos[i]).setImage(tokens[posForImage].getImage());
+            GameState.posMap.get(Arrays.toString(tokenPos[i])).setToken(GameState.numbers[posForImage]);
+        }
+        for(int i = 0; i < 19; i++) {
+            System.out.println(GameState.allTiles[i] + " " + Arrays.toString(GameState.pos[i]) + " " + GameState.tiles[i].getToken());
         }
         Tile[] tiles = GameState.tiles;
         for(int i = 0; i < tileViews.length; i++) {
@@ -956,10 +955,10 @@ public class GameBoardController {
         RollDiceButton.setTooltip(diceButtonTip);
         ConfirmButton.setDisable(false);
         CancelButton.setDisable(false);
-        BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
-        StealButton.setDisable(false);
-        EndTurnButton.setDisable(false);
+//        BuildButton.setDisable(false);
+//        TradeButton.setDisable(false);
+//        StealButton.setDisable(false);
+//        EndTurnButton.setDisable(false);
         HelpButton.setDisable(false);
         GameState.currentPlayer = GameState.playerMap.get(1);
         ActivityLog.setEditable(false);
@@ -1047,7 +1046,11 @@ public class GameBoardController {
             int diceRoll = die1+die2;
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
-            ActivityLog.appendText("Player " + index + " rolled " + diceRoll +"\n");
+            appendBoth("Player " + index + " rolled " + diceRoll +"\n");
+            cardAssignment(false, diceRoll);
+            BuildButton.setDisable(false);
+            TradeButton.setDisable(false);
+            EndTurnButton.setDisable(false);
         }
         else {
             ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + die1 + "\n\n");
@@ -1102,44 +1105,56 @@ public class GameBoardController {
         }
     }
 
-    public void cardAssignment() {
-        GameState.cardAssignment();
+    public void cardAssignment(boolean isFirst, int numRolled) {
+        GameState.cardAssignment(isFirst, numRolled);
         ActivityLog.appendText("\n-----Resources Distributed-----\n");
-        for(String[] newCard: GameState.newCards) {
-            String cardName = newCard[1];
-            ActivityLog.appendText("Player " + newCard[0] + " received a " + cardName+"!\n");
-            switch (cardName) {
-                case "Brick":
-                    BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
-                    break;
-                case "Grain":
-                    GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
-                    break;
-                case "Ore":
-                    OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
-                    break;
-                case "Wood":
-                    WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
-                    break;
-                case "Wool":
-                    WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
-                    break;
+        if(GameState.newCards.isEmpty()) appendBoth("NO RESOURCES DISTRIBUTED!");
+        else {
+            for(String[] newCard: GameState.newCards) {
+                String cardName = newCard[1];
+                ActivityLog.appendText("Player " + newCard[0] + " received a " + cardName+"!\n");
+                switch (cardName) {
+                    case "Brick":
+                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                        break;
+                    case "Grain":
+                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                        break;
+                    case "Ore":
+                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                        break;
+                    case "Wood":
+                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                        break;
+                    case "Wool":
+                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                        break;
+                }
             }
         }
-        ActivityLog.appendText("-------------------------------\n");
+        ActivityLog.appendText("--------------------------------------\n\n");
     }
 
     //1,2,3,4
     public void nextTurn() {
+        BuildButton.setDisable(true);
+        TradeButton.setDisable(true);
+        EndTurnButton.setDisable(true);
         int nextTurn = GameState.iterateForward? (GameState.currentPlayerIndex % GameState.numPlayers) + 1 : (GameState.currentPlayerIndex+(GameState.numPlayers-1)) % GameState.numPlayers;
         if(nextTurn == 0) nextTurn = GameState.numPlayers;
         if(GameState.lastEdgePlaced) {
             GameState.gameStarted = true;
+            GameState.lastEdgePlaced = false;
             int current = (nextTurn+(GameState.numPlayers-1)) % GameState.numPlayers;
             if(current == 0) current = GameState.numPlayers;
             GameState.currentPlayerIndex = current;
-            cardAssignment();
+            cardAssignment(true, 0);
             MainLabel.setText("Game Started! Player " + current + " roll the die!");
+            ActivityLog.appendText("---Round "+GameState.round+"---\n");
+        }
+        else if(GameState.gameStarted) {
+            GameState.currentPlayerIndex = nextTurn;
+            MainLabel.setText("Round " + GameState.round +"! Player " + nextTurn + " roll the die!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
         }
         else {
@@ -1163,11 +1178,21 @@ public class GameBoardController {
     }
 
     public void openResourcePanel(int playerIndex) {
+        for(int i = 0; i < playerCards.length; i++) {
+            playerCards[i].setImage(null);
+        }
+        ResourcePanel.setVisible(false);
         ResourcePanel.setVisible(true);
         ResourceViewText.setText("Player "+playerIndex+"'s Resource Deck");
         for(int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
             playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
         }
+    }
+
+    @FXML
+    public void endTurn() {
+        GameState.round = GameState.round + 1;
+        nextTurn();
     }
 
     @FXML

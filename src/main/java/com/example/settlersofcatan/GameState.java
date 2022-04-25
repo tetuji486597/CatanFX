@@ -19,6 +19,7 @@ public class GameState{
     public static Tile[] tiles;
     public static int[][] pos;
     public static int[][] tokenPos;
+    public static int[] numbers;
     public static HashMap<String, Tile> tilesMap;
     public static HashMap<String, Tile> posMap;
     public static HashMap<Integer, Player> playerMap;
@@ -75,7 +76,7 @@ public class GameState{
         tileToResource.put("Pasture", "Wool");
 
         tokenMap = new HashMap<>();
-        int[] numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
+        numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
         for(int i = 0; i < numbers.length; i++) {
             tokenMap.put(allTokens[i], numbers[i]);
         }
@@ -134,9 +135,7 @@ public class GameState{
             tilesMap.put(allTiles[i], tile);
             posMap.put(Arrays.toString(pos[i]), tiles[i]);
         }
-        for(int i = 0; i < 19; i++) {
-            System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + tiles[i].getToken());
-        }
+
         allColors = new String[] {"Blue", "Green", "White", "Red"};
         nameToColor = new HashMap<>();
         nameToColor.put("Blue", Color.LIGHTBLUE);
@@ -462,22 +461,42 @@ public class GameState{
 
     }
 
-    public static void cardAssignment() {
+    public static void cardAssignment(boolean isFirst, int numberRolled) {
         newCards.clear();
-        for(int i = 0; i< numPlayers; i++) {
-            Player thisPlayer = allPlayers.get(i);
-            ArrayList<Vertex> ownedSettlements = thisPlayer.getOwnedSettlements();
-            ArrayList<ResourceCard> cardsToAdd = new ArrayList<>();
-            for(int j = 0; j < ownedSettlements.size(); j++) {
-                for(int k = 0; k < ownedSettlements.get(j).getAdjacentTiles().size(); k++) {
-                    String name = ownedSettlements.get(j).getAdjacentTiles().get(k).getName();
-                    if(name.equals("Desert")) continue;
-                    cardsToAdd.add(new ResourceCard(tileToResource.get(name), thisPlayer));
-                    newCards.add(new String[] {Integer.toString(i+1), tileToResource.get(name)});
+        if(isFirst) {
+            for(int i = 0; i< numPlayers; i++) {
+                Player thisPlayer = allPlayers.get(i);
+                ArrayList<Vertex> ownedSettlements = thisPlayer.getOwnedSettlements();
+                ArrayList<ResourceCard> cardsToAdd = new ArrayList<>();
+                for(int j = 0; j < ownedSettlements.size(); j++) {
+                    for(int k = 0; k < ownedSettlements.get(j).getAdjacentTiles().size(); k++) {
+                        String name = ownedSettlements.get(j).getAdjacentTiles().get(k).getName();
+                        if(name.equals("Desert")) continue;
+                        cardsToAdd.add(new ResourceCard(tileToResource.get(name), thisPlayer));
+                        newCards.add(new String[] {Integer.toString(i+1), tileToResource.get(name)});
+                    }
+                }
+                thisPlayer.addResources(cardsToAdd);
+            }
+        }
+        else {
+            for(int i = 0; i< tiles.length; i++) {
+                Tile tile = tiles[i];
+                if(tile.getToken() == numberRolled) {
+                    for(int j = 0; j < tile.getVertices().length; j++) {
+                        Vertex vertex = tile.getVertices()[j];
+                        if(vertex.getPlayerIndex() >= 0) {
+                            playerMap.get(vertex.getPlayerIndex()).addResources(new ArrayList<>(Arrays.asList(new ResourceCard(tileToResource.get(tile.getName()), playerMap.get(vertex.getPlayerIndex())))));
+                            newCards.add(new String[]{Integer.toString(vertex.getPlayerIndex()), tileToResource.get(tile.getName())});
+                        }
+                    }
                 }
             }
-            thisPlayer.addResources(cardsToAdd);
+            for(int i = 0; i < newCards.size(); i++) {
+                System.out.println("Player " +newCards.get(i)[0]+" received " + newCards.get(i)[1]+"!\n");
+            }
         }
+
     }
     public int getLongestRoad() {
         HashMap<Integer, Integer> indexToRoadLength = new HashMap<>();
