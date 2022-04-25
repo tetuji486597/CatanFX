@@ -494,6 +494,7 @@ public class GameState{
             }
             for(int i = 0; i < newCards.size(); i++) {
                 System.out.println("Player " +newCards.get(i)[0]+" received " + newCards.get(i)[1]+"!\n");
+
             }
         }
 
