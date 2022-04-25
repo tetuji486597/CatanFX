@@ -98,7 +98,7 @@ public class Initialize {
                 Map.entry("buildicon", new Image(Initialize.class.getResourceAsStream("/images/other/buildicon.png"))),
                 Map.entry("cancelicon", new Image(Initialize.class.getResourceAsStream("/images/other/cancelicon.png"))),
                 Map.entry("confirmicon", new Image(Initialize.class.getResourceAsStream("/images/other/confirmicon.png"))),
-                Map.entry("diceicon", new Image(Initialize.class.getResourceAsStream("/images/other/diceicon.png"))),
+                Map.entry("diceicon", new Image(Initialize.class.getResourceAsStream("/images/other/diceicon2.png"))),
                 Map.entry("endicon", new Image(Initialize.class.getResourceAsStream("/images/other/endicon.png"))),
                 Map.entry("helpicon", new Image(Initialize.class.getResourceAsStream("/images/other/helpicon.png"))),
                 Map.entry("robicon", new Image(Initialize.class.getResourceAsStream("/images/other/robicon.png"))),
