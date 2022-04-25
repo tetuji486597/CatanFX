@@ -791,6 +791,13 @@ public class GameBoardController {
 
     @FXML
     private DialogPane TradeMenu;
+    @FXML
+    private Button bankButton;
+    @FXML
+    private Button portButton;
+
+    @FXML
+    private Button otherButton;
 
     @FXML
     public void initialize() throws FileNotFoundException{
@@ -963,7 +970,7 @@ public class GameBoardController {
         GameState.currentPlayer = GameState.playerMap.get(1);
         ActivityLog.setEditable(false);
         ActivityLog.appendText("Determine which player goes first: \n" );
-        appendBoth("Player " + 1 + ", roll the die");
+        appendBoth("Player " + 1 + ", roll the dice");
         RollDiceButton.setDisable(false);
     }
 
@@ -1030,11 +1037,20 @@ public class GameBoardController {
 
     @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
 
-    @FXML public void showTrade() throws IOException { TradeMenu.setVisible(true); }
-    @FXML public void closeTradeMenu() { TradeMenu.setVisible(false); }
+    @FXML
+    public void showTrade() throws IOException { TradeMenu.setVisible(true); }
+    @FXML
+    public void closeTradeMenu() { TradeMenu.setVisible(false); }
 
-    @FXML public void showTrade4For1() throws IOException { Trade4For1.setVisible(true); }
-    @FXML public void closeTrade4For1() throws IOException { Trade4For1.setVisible(false); }
+    @FXML
+    public void showTrade4For1() throws IOException {
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1).");
+        TradeMenu.setVisible(false);
+        Trade4For1.setVisible(true);
+    }
+    @FXML
+    public void closeTrade4For1() throws IOException { Trade4For1.setVisible(false); }
 
     @FXML
     public void rollDice() throws InterruptedException {
@@ -1058,7 +1074,7 @@ public class GameBoardController {
             if(GameState.currentPlayerIndex != GameState.numPlayers) {
                 GameState.currentPlayerIndex = GameState.currentPlayerIndex + 1;
                 GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
-                appendBoth("Player " + GameState.currentPlayerIndex + ", roll the die");
+                appendBoth("Player " + GameState.currentPlayerIndex + ", roll the dice");
                 RollDiceButton.setDisable(false);
             }
             else {
@@ -1149,12 +1165,12 @@ public class GameBoardController {
             if(current == 0) current = GameState.numPlayers;
             GameState.currentPlayerIndex = current;
             cardAssignment(true, 0);
-            MainLabel.setText("Game Started! Player " + current + " roll the die!");
+            MainLabel.setText("Game Started! Player " + current + " roll the dice!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
         }
         else if(GameState.gameStarted) {
             GameState.currentPlayerIndex = nextTurn;
-            MainLabel.setText("Round " + GameState.round +"! Player " + nextTurn + " roll the die!");
+            MainLabel.setText("Round " + GameState.round +"! Player " + nextTurn + " roll the dice!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
         }
         else {
