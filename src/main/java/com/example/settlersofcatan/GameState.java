@@ -7,6 +7,7 @@ import java.util.*;
 
 public class GameState{
 
+    public static int round;
     public static int numPlayers;
     public static ArrayList<Player> allPlayers;
     public static Player currentPlayer;
@@ -18,6 +19,7 @@ public class GameState{
     public static Tile[] tiles;
     public static int[][] pos;
     public static int[][] tokenPos;
+    public static int[] numbers;
     public static HashMap<String, Tile> tilesMap;
     public static HashMap<String, Tile> posMap;
     public static HashMap<Integer, Player> playerMap;
@@ -30,16 +32,26 @@ public class GameState{
     public static HashMap<String, javafx.scene.paint.Color> nameToColor;
     public static HashMap<String, Integer> tokenMap;
     public static HashMap<String, Integer> resourceBank;
+    public static HashMap<String, String> tileToResource;
+    public static ArrayList<String[]> newCards;
     public static Stack<DevCard> devBank;
     public static ArrayList<String> allDevCards;
     public static String[] allColors;
     public static GameBoardController controller;
     public static int firstPlayerIndex;
     public static int[] setUpDice;
-    public static boolean gameStarted = false;
+    public static boolean iterateForward;
+    public static boolean firstSettlementsPlaced;
+    public static boolean gameStarted;
+    public static boolean lastEdgePlaced;
 
     public GameState(int numPlayers) {
 
+        round = 1;
+        iterateForward = true;
+        firstSettlementsPlaced = false;
+        lastEdgePlaced = false;
+        gameStarted = false;
         this.numPlayers = numPlayers;
         firstPlayerIndex = -1;
 
@@ -55,9 +67,16 @@ public class GameState{
         }
         allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
         allTokens  = new String[] {"A5", "B2", "C6", "D3", "E8", "F10", "G9", "H12", "I11", "J4", "K8", "L10", "M9", "N4", "O5", "P6", "Q3", "R11"};
+        tileToResource = new HashMap<>();
+        newCards = new ArrayList<>();
+        tileToResource.put("Field", "Grain");
+        tileToResource.put("Forest", "Wood");
+        tileToResource.put("Hills", "Brick");
+        tileToResource.put("Mountain", "Ore");
+        tileToResource.put("Pasture", "Wool");
 
         tokenMap = new HashMap<>();
-        int[] numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
+        numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
         for(int i = 0; i < numbers.length; i++) {
             tokenMap.put(allTokens[i], numbers[i]);
         }
@@ -116,9 +135,7 @@ public class GameState{
             tilesMap.put(allTiles[i], tile);
             posMap.put(Arrays.toString(pos[i]), tiles[i]);
         }
-        for(int i = 0; i < 19; i++) {
-            System.out.println(allTiles[i] + " " + Arrays.toString(pos[i]) + " " + tiles[i].getToken());
-        }
+
         allColors = new String[] {"Blue", "Green", "White", "Red"};
         nameToColor = new HashMap<>();
         nameToColor.put("Blue", Color.LIGHTBLUE);
@@ -360,12 +377,127 @@ public class GameState{
         allVertices[26].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[32],allEdges[38])));
         allVertices[27].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[33],allEdges[39])));
         allVertices[28].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[34],allEdges[40],allEdges[41])));
-        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[22222],allEdges[7])));
-        allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[2],allEdges[7])));
-        allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[2],allEdges[7])));
+        allVertices[29].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[35],allEdges[42],allEdges[43])));
+        allVertices[30].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[36],allEdges[44],allEdges[45])));
+        allVertices[31].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[37],allEdges[46],allEdges[47])));
+        allVertices[32].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[38],allEdges[48])));
+        allVertices[33].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[39],allEdges[40],allEdges[49])));
+        allVertices[34].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[41],allEdges[42],allEdges[50])));
+        allVertices[35].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[43],allEdges[44],allEdges[51])));
+        allVertices[36].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[45],allEdges[46],allEdges[52])));
+        allVertices[37].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[47],allEdges[48],allEdges[53])));
+        allVertices[38].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[49],allEdges[54])));
+        allVertices[39].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[50],allEdges[55],allEdges[56])));
+        allVertices[40].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[51],allEdges[57],allEdges[58])));
+        allVertices[41].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[52],allEdges[59],allEdges[60])));
+        allVertices[42].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[53],allEdges[61])));
+        allVertices[43].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[54],allEdges[55],allEdges[62])));
+        allVertices[44].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[56],allEdges[57],allEdges[63])));
+        allVertices[45].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[58],allEdges[59],allEdges[64])));
+        allVertices[46].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[60],allEdges[61],allEdges[65])));
+        allVertices[47].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[62],allEdges[66])));
+        allVertices[48].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[63],allEdges[67],allEdges[68])));
+        allVertices[49].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[64],allEdges[69],allEdges[70])));
+        allVertices[50].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[65],allEdges[71])));
+        allVertices[51].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[66],allEdges[67])));
+        allVertices[52].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[68],allEdges[69])));
+        allVertices[53].setAdjacentEdges(new ArrayList<>(Arrays.asList(allEdges[70],allEdges[71])));
+
+        allVertices[0].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0])));
+        allVertices[1].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1])));
+        allVertices[2].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2])));
+        allVertices[3].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1])));
+        allVertices[4].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0],tiles[1])));
+        allVertices[5].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1],tiles[2])));
+        allVertices[6].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2])));
+        allVertices[7].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0],tiles[3])));
+        allVertices[8].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0],tiles[1],tiles[4])));
+        allVertices[9].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1],tiles[2],tiles[5])));
+        allVertices[10].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2],tiles[6])));
+        allVertices[11].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[3])));
+        allVertices[12].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0],tiles[3],tiles[4])));
+        allVertices[13].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1],tiles[4],tiles[5])));
+        allVertices[14].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2],tiles[5],tiles[6])));
+        allVertices[15].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[6])));
+        allVertices[16].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[3],tiles[7])));
+        allVertices[17].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[3],tiles[4],tiles[8])));
+        allVertices[18].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[4],tiles[5],tiles[9])));
+        allVertices[19].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[5],tiles[6],tiles[10])));
+        allVertices[20].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[6],tiles[11])));
+        allVertices[21].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[7])));
+        allVertices[22].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[3],tiles[7],tiles[8])));
+        allVertices[23].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[4],tiles[8],tiles[9])));
+        allVertices[24].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[5],tiles[9],tiles[10])));
+        allVertices[25].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[6],tiles[10],tiles[11])));
+        allVertices[26].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[11])));
+        allVertices[27].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[7])));
+        allVertices[28].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[7],tiles[8],tiles[12])));
+        allVertices[29].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[8],tiles[9],tiles[13])));
+        allVertices[30].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[9],tiles[10],tiles[14])));
+        allVertices[31].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[10],tiles[11],tiles[15])));
+        allVertices[32].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[11])));
+        allVertices[33].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[7],tiles[12])));
+        allVertices[34].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[8],tiles[12],tiles[13])));
+        allVertices[35].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[9],tiles[13],tiles[14])));
+        allVertices[36].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[10],tiles[14],tiles[15])));
+        allVertices[37].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[11],tiles[15])));
+        allVertices[38].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[12])));
+        allVertices[39].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[12],tiles[13],tiles[16])));
+        allVertices[40].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[13],tiles[14],tiles[17])));
+        allVertices[41].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[14],tiles[15],tiles[18])));
+        allVertices[42].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[15])));
+        allVertices[43].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[12],tiles[16])));
+        allVertices[44].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[13],tiles[16],tiles[17])));
+        allVertices[45].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[14],tiles[17],tiles[18])));
+        allVertices[46].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[15],tiles[18])));
+        allVertices[47].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[16])));
+        allVertices[48].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[16],tiles[17])));
+        allVertices[49].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[17],tiles[18])));
+        allVertices[50].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[18])));
+        allVertices[51].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[16])));
+        allVertices[52].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[17])));
+        allVertices[53].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[18])));
+
 
     }
 
+    public static void cardAssignment(boolean isFirst, int numberRolled) {
+        newCards.clear();
+        if(isFirst) {
+            for(int i = 0; i< numPlayers; i++) {
+                Player thisPlayer = allPlayers.get(i);
+                ArrayList<Vertex> ownedSettlements = thisPlayer.getOwnedSettlements();
+                ArrayList<ResourceCard> cardsToAdd = new ArrayList<>();
+                for(int j = 0; j < ownedSettlements.size(); j++) {
+                    for(int k = 0; k < ownedSettlements.get(j).getAdjacentTiles().size(); k++) {
+                        String name = ownedSettlements.get(j).getAdjacentTiles().get(k).getName();
+                        if(name.equals("Desert")) continue;
+                        cardsToAdd.add(new ResourceCard(tileToResource.get(name), thisPlayer));
+                        newCards.add(new String[] {Integer.toString(i+1), tileToResource.get(name)});
+                    }
+                }
+                thisPlayer.addResources(cardsToAdd);
+            }
+        }
+        else {
+            for(int i = 0; i< tiles.length; i++) {
+                Tile tile = tiles[i];
+                if(tile.getToken() == numberRolled) {
+                    for(int j = 0; j < tile.getVertices().length; j++) {
+                        Vertex vertex = tile.getVertices()[j];
+                        if(vertex.getPlayerIndex() >= 0) {
+                            playerMap.get(vertex.getPlayerIndex()).addResources(new ArrayList<>(Arrays.asList(new ResourceCard(tileToResource.get(tile.getName()), playerMap.get(vertex.getPlayerIndex())))));
+                            newCards.add(new String[]{Integer.toString(vertex.getPlayerIndex()), tileToResource.get(tile.getName())});
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < newCards.size(); i++) {
+                System.out.println("Player " +newCards.get(i)[0]+" received " + newCards.get(i)[1]+"!\n");
+            }
+        }
+
+    }
     public int getLongestRoad() {
         HashMap<Integer, Integer> indexToRoadLength = new HashMap<>();
         for (int i =0; i < 72; i++) {
@@ -407,13 +539,13 @@ public class GameState{
         ArrayList<Vertex> playersSettlements = currentPlayer.getOwnedSettlements();
         ArrayList<Edge> playersRoads = currentPlayer.getOwnedEdges();
         for(Edge thisEdge: playersRoads) {
-            if(thisEdge.getAdjacentEdges().equals(edge)) {
-                return true;
+            for(Edge adjacentEdge: thisEdge.getAdjacentEdges()) {
+                if(adjacentEdge.equals(edge)) return true;
             }
         }
         for(Vertex thisVertex: playersSettlements) {
-            if(thisVertex.getAdjacentEdges().equals(edge)) {
-                return true;
+            for(Edge adjacentEdge: thisVertex.getAdjacentEdges()) {
+                if(adjacentEdge.equals(edge)) return true;
             }
         }
         return false;

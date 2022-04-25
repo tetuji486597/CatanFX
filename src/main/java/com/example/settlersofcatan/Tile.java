@@ -30,9 +30,11 @@ public class Tile {
     public Image getImage() {
         return tile;
     }
+    public String getName() {return name;}
     public void setVertices(Vertex[] vertices) {
         myVertices = vertices;
     }
+    public Vertex[] getVertices() {return myVertices;}
     public void setEdges(Edge[] edges) {
         myEdges = edges;
     }
@@ -40,9 +42,6 @@ public class Tile {
         return new ArrayList<>();
     }
 
-    public ArrayList<Vertex> getAdjacentVertices() {
-        return new ArrayList<>();
-    }
 
     public ArrayList<Edge> getAdjacentEdges() {
         return new ArrayList<>();
@@ -52,6 +51,7 @@ public class Tile {
         return new ArrayList<>();
     }
 
+    public void setToken(int num) {numberToken = num;}
     public int getToken() {
         return numberToken;
     }

@@ -16,7 +16,6 @@ public class Player {
     private Image myCity;
     private int index;
     private ArrayList<ResourceCard> resourceDeck;
-    public ArrayList<String> resDeck;
     private ArrayList<DevCard> devDeck;
     private ArrayList<Edge> roads;
     private ArrayList<Vertex> settlements;
@@ -68,6 +67,12 @@ public class Player {
     public ArrayList<Edge> getBuildableEdges(){return new ArrayList<>();}
     public ArrayList<Vertex> getOwnedSettlements() {return settlements;}
     public ArrayList<Edge> getOwnedEdges() {return roads;}
+    public ArrayList<ResourceCard> getResourceDeck() {return resourceDeck;}
+    public void addResources(ArrayList<ResourceCard> resources) {
+        for(ResourceCard resource: resources) {
+            resourceDeck.add(resource);
+        }
+    }
     public void takeAllResources(Stack ResourceCard) {
 
     }
