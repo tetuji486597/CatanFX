@@ -468,14 +468,15 @@ public class GameState{
                 Player thisPlayer = allPlayers.get(i);
                 ArrayList<Vertex> ownedSettlements = thisPlayer.getOwnedSettlements();
                 ArrayList<ResourceCard> cardsToAdd = new ArrayList<>();
-                for(int j = 0; j < ownedSettlements.size(); j++) {
-                    for(int k = 0; k < ownedSettlements.get(j).getAdjacentTiles().size(); k++) {
-                        String name = ownedSettlements.get(j).getAdjacentTiles().get(k).getName();
-                        if(name.equals("Desert")) continue;
-                        cardsToAdd.add(new ResourceCard(tileToResource.get(name), thisPlayer));
-                        newCards.add(new String[] {Integer.toString(i+1), tileToResource.get(name)});
-                    }
+                Vertex secondSettlement = ownedSettlements.get(ownedSettlements.size()-1);
+
+                for(int k = 0; k < secondSettlement.getAdjacentTiles().size(); k++) {
+                    String name = secondSettlement.getAdjacentTiles().get(k).getName();
+                    if(name.equals("Desert")) continue;
+                    cardsToAdd.add(new ResourceCard(tileToResource.get(name), thisPlayer));
+                    newCards.add(new String[] {Integer.toString(i+1), tileToResource.get(name)});
                 }
+
                 thisPlayer.addResources(cardsToAdd);
             }
         }
