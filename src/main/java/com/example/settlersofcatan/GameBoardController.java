@@ -1056,9 +1056,9 @@ public class GameBoardController {
         RollDiceButton.setDisable(true);
         Random rand = new Random();
         int die1 = rand.nextInt(6) + 1;
+        int die2 = rand.nextInt(6) + 1;
+        int diceRoll = die1+die2;
         if(GameState.gameStarted) {
-            int die2 = rand.nextInt(6) + 1;
-            int diceRoll = die1+die2;
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
@@ -1068,8 +1068,8 @@ public class GameBoardController {
             EndTurnButton.setDisable(false);
         }
         else {
-            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + die1 + "\n\n");
-            GameState.setUpDice[GameState.currentPlayerIndex-1] = die1;
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + diceRoll + "\n\n");
+            GameState.setUpDice[GameState.currentPlayerIndex-1] = diceRoll;
             if(GameState.currentPlayerIndex != GameState.numPlayers) {
                 GameState.currentPlayerIndex = GameState.currentPlayerIndex + 1;
                 GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
