@@ -989,7 +989,6 @@ public class GameBoardController {
         GameState.firstPlayerIndex = index;
         appendBoth("Player " + index + " goes first!");
 
-
         PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1.5));
         int finalIndex = index;
         pauseTransition.setOnFinished(e -> MainLabel.setText("Player " + finalIndex + ", choose the location of your first settlement"));
@@ -1045,7 +1044,7 @@ public class GameBoardController {
     @FXML
     public void showTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1).");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1)\n");
         TradeMenu.setVisible(false);
         Trade4For1.setVisible(true);
     }
@@ -1078,6 +1077,7 @@ public class GameBoardController {
                 RollDiceButton.setDisable(false);
             }
             else {
+                RollDiceButton.setDisable(true);
                 setUp();
             }
         }
@@ -1167,11 +1167,13 @@ public class GameBoardController {
             cardAssignment(true, 0);
             MainLabel.setText("Game Started! Player " + current + " roll the dice!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
+            RollDiceButton.setDisable(false);
         }
         else if(GameState.gameStarted) {
             GameState.currentPlayerIndex = nextTurn;
             MainLabel.setText("Round " + GameState.round +"! Player " + nextTurn + " roll the dice!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
+            RollDiceButton.setDisable(false);
         }
         else {
             if(!GameState.gameStarted){
@@ -1189,7 +1191,7 @@ public class GameBoardController {
             }
             GameState.currentPlayerIndex = nextTurn;
         }
-        RollDiceButton.setDisable(false);
+
         GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
     }
 

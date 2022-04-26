@@ -539,11 +539,20 @@ public class GameState{
     public static boolean isValidEdge(Edge edge) {
         ArrayList<Vertex> playersSettlements = currentPlayer.getOwnedSettlements();
         ArrayList<Edge> playersRoads = currentPlayer.getOwnedEdges();
+        if(!iterateForward) {
+            boolean isSecond = false;
+            for(Edge thisEdge: playersSettlements.get(1).getAdjacentEdges()) {
+                if(thisEdge.getBoardIndex() == edge.getBoardIndex()) isSecond = true;
+            }
+            if(!isSecond) return false;
+        }
         for(Edge thisEdge: playersRoads) {
+            if(!gameStarted) break;
             for(Edge adjacentEdge: thisEdge.getAdjacentEdges()) {
                 if(adjacentEdge.equals(edge)) return true;
             }
         }
+
         for(Vertex thisVertex: playersSettlements) {
             for(Edge adjacentEdge: thisVertex.getAdjacentEdges()) {
                 if(adjacentEdge.equals(edge)) return true;
