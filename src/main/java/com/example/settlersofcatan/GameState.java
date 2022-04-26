@@ -406,7 +406,7 @@ public class GameState{
         allVertices[0].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0])));
         allVertices[1].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1])));
         allVertices[2].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2])));
-        allVertices[3].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1])));
+        allVertices[3].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0])));
         allVertices[4].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[0],tiles[1])));
         allVertices[5].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[1],tiles[2])));
         allVertices[6].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[2])));
