@@ -1063,9 +1063,23 @@ public class GameBoardController {
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
             cardAssignment(false, diceRoll);
-            BuildButton.setDisable(false);
-            TradeButton.setDisable(false);
-            EndTurnButton.setDisable(false);
+            if(diceRoll == 7) {
+                appendBoth("Move the Robber to Another Tile"+"\n");
+                ArrayList<Integer> previousRobberLocation = GameState.getRobberLocation();
+                //moveRobber();
+                ArrayList<Integer> currentRobberLocation = GameState.getRobberLocation();
+                if(!previousRobberLocation.equals(currentRobberLocation)){
+                    BuildButton.setDisable(false);
+                    TradeButton.setDisable(false);
+                    EndTurnButton.setDisable(false);
+                }
+            }
+            else{
+                BuildButton.setDisable(false);
+                TradeButton.setDisable(false);
+                EndTurnButton.setDisable(false);
+            }
+
         }
         else {
             ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + diceRoll + "\n\n");
@@ -1081,6 +1095,9 @@ public class GameBoardController {
                 setUp();
             }
         }
+    }
+    public void moveRobber(){
+
     }
     public void appendBoth(String str) {
         ActivityLog.appendText(str+"\n");
@@ -1164,6 +1181,8 @@ public class GameBoardController {
             int current = (nextTurn+(GameState.numPlayers-1)) % GameState.numPlayers;
             if(current == 0) current = GameState.numPlayers;
             GameState.currentPlayerIndex = current;
+            GameState.iterateForward = true;
+
             cardAssignment(true, 0);
             MainLabel.setText("Game Started! Player " + current + " roll the dice!");
             ActivityLog.appendText("---Round "+GameState.round+"---\n");
@@ -1185,7 +1204,6 @@ public class GameBoardController {
                     }
                     else {
                         GameState.lastEdgePlaced = true;
-                        GameState.iterateForward = true;
                     }
                 }
             }

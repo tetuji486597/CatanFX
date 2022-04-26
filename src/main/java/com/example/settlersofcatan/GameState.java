@@ -542,7 +542,11 @@ public class GameState{
         if(!iterateForward) {
             boolean isSecond = false;
             for(Edge thisEdge: playersSettlements.get(1).getAdjacentEdges()) {
-                if(thisEdge.getBoardIndex() == edge.getBoardIndex()) isSecond = true;
+                if(thisEdge.getBoardIndex() == edge.getBoardIndex()) {
+                    isSecond = true;
+                    //System.out.println("Player " + currentPlayerIndex + " has edge option at " + thisEdge.getBoardIndex());
+                }
+
             }
             if(!isSecond) return false;
         }
@@ -575,11 +579,11 @@ public class GameState{
         return currentPlayer;
     }
 
-    public ArrayList<Integer> getRobberLocation(){
+    public static ArrayList<Integer> getRobberLocation(){
         return setRobberLocation(robber.getXCoord(), robber.getYCoord());
     }
 
-    public ArrayList<Integer> setRobberLocation(int x, int y){
+    public static ArrayList<Integer> setRobberLocation(int x, int y){
         return robber.robberLocation(x,y);
     }
     public void moveRobber(int x, int y){
