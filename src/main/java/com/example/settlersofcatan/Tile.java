@@ -10,6 +10,7 @@ public class Tile {
     private ArrayList<Edge> adjacentEdges;
     private javafx.scene.image.Image tile;
     private ArrayList<Port> connectedPorts;
+    private boolean hasPort;
     private String name;
     private int[] coords;
     private int numberToken;
@@ -22,6 +23,7 @@ public class Tile {
         myVertices = new Vertex[6];
         name = str;
         tile = img;
+        hasPort = false;
         this.coords = coords;
         hasRobber = false;
         numberToken = token;

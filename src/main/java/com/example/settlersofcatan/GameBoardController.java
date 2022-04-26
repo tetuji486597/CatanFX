@@ -1145,7 +1145,7 @@ public class GameBoardController {
         else {
             for(String[] newCard: GameState.newCards) {
                 String cardName = newCard[1];
-                ActivityLog.appendText("Player " + newCard[0] + " received a " + cardName+"!\n");
+                ActivityLog.appendText("Player " + newCard[0] + " received " + cardName+"!\n");
                 switch (cardName) {
                     case "Brick":
                         BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));

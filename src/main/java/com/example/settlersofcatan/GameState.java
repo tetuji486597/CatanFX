@@ -94,6 +94,7 @@ public class GameState{
         allPorts = portShuffle.toArray(new String[portShuffle.size()]);
         for(int i = 0; i < 9; i++) {
             Port port = new Port(allPorts[i], Initialize.ports.get(allPorts[i]));
+            System.out.println(port.getType());
             ports[i] = port;
         }
         tokenPos = new int[][] {
@@ -458,7 +459,10 @@ public class GameState{
         allVertices[52].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[17])));
         allVertices[53].setAdjacentTiles(new ArrayList<>(Arrays.asList(tiles[18])));
 
-
+        allVertices[0].setHasPort(true);
+        allVertices[0].setPort(ports[0]);
+        allVertices[3].setHasPort(true);
+        allVertices[3].setPort(ports[0]);
     }
 
     public static void cardAssignment(boolean isFirst, int numberRolled) {

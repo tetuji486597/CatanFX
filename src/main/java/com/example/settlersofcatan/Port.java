@@ -15,6 +15,9 @@ public class Port {
     public Image getImage() {
         return port;
     }
+    public String getType() {
+        return name;
+    }
     public void setConnectedVertices() {
 
     }

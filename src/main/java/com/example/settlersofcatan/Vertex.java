@@ -13,9 +13,13 @@ public class Vertex {
     private ArrayList<Vertex> adjacentVertices;
     private ArrayList<Edge> adjacentEdges;
     private ArrayList<Tile> adjacentTiles;
+    private Port myPort;
+    private boolean hasPort;
 
     public Vertex(int index) {
         playerIndex = -1;
+        myPort = null;
+        hasPort = false;
         adjacentVertices = new ArrayList<>();
         adjacentEdges = new ArrayList<>();
         boardIndex = index;
@@ -38,6 +42,18 @@ public class Vertex {
     public ArrayList<Tile> getAdjacentTiles() { return adjacentTiles;}
     public void setAdjacentTiles(ArrayList<Tile> adjacentTiles) { this.adjacentTiles = adjacentTiles;}
 
+    public void setPort(Port port) {
+        myPort = port;
+    }
+    public Port getPort() {
+        return myPort;
+    }
+    public void setHasPort(boolean hasPort) {
+        this.hasPort = hasPort;
+    }
+    public boolean getHasPort() {
+        return hasPort;
+    }
     //instead of hasPlayer, use player index and -1 if its index doesnt exist
     public int getPlayerIndex() {
         return playerIndex;
