@@ -471,6 +471,7 @@ public class GameState{
         allVertices[33].setPort(ports[2]);
         allVertices[38].setHasPort(true);
         allVertices[38].setPort(ports[2]);
+
     }
 
     public static void cardAssignment(boolean isFirst, int numberRolled) {
