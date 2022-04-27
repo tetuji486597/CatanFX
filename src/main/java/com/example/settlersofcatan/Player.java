@@ -104,9 +104,12 @@ public class Player {
             //return false;
     }
 
-        public boolean hasPort() {
-            return true;
+    public boolean hasPort() {
+        for(Vertex vertex: settlements) {
+            if(vertex.getHasPort()) return true;
         }
+        return false;
+    }
 
         public boolean isMyTurn() {
             return true;
