@@ -1044,12 +1044,16 @@ public class GameBoardController {
     @FXML
     public void showTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1)\n");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1).\n");
         TradeMenu.setVisible(false);
         Trade4For1.setVisible(true);
     }
     @FXML
-    public void closeTrade4For1() throws IOException { Trade4For1.setVisible(false); }
+    public void closeTrade4For1() throws IOException {
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " canceled trading.\n");
+        Trade4For1.setVisible(false);
+    }
 
     @FXML
     public void rollDice() throws InterruptedException {
