@@ -1069,9 +1069,18 @@ public class GameBoardController {
             cardAssignment(false, diceRoll);
             if(diceRoll == 7) {
                 appendBoth("Move the Robber to Another Tile"+"\n");
-                ArrayList<Integer> previousRobberLocation = GameState.getRobberLocation();
-                //moveRobber();
-                ArrayList<Integer> currentRobberLocation = GameState.getRobberLocation();
+                int[] previousRobberLocation = GameState.robberLocation;
+                //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
+                for(ImageView i : tokenViews){
+                    if(i.getImage().equals(Initialize.robber.getValue())){
+                        i.setDisable(true);
+                    }
+                    else{
+                        i.setDisable(false);
+                    }
+
+                }
+                int[] currentRobberLocation = GameState.robberLocation;
                 if(!previousRobberLocation.equals(currentRobberLocation)){
                     BuildButton.setDisable(false);
                     TradeButton.setDisable(false);
@@ -1100,9 +1109,13 @@ public class GameBoardController {
             }
         }
     }
-    public void moveRobber(){
+    public void moveRobber(int tokenLocation){
+        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to " + tokenLocation + "\n\n");
+        tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
+        //for the previous robber, set them back to the original number in tokenpressed methods
 
     }
+
     public void appendBoth(String str) {
         ActivityLog.appendText(str+"\n");
         MainLabel.setText(str);

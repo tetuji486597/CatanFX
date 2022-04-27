@@ -618,16 +618,8 @@ public class GameState{
         return currentPlayer;
     }
 
-    public static ArrayList<Integer> getRobberLocation(){
-        return setRobberLocation(robber.getXCoord(), robber.getYCoord());
-    }
 
-    public static ArrayList<Integer> setRobberLocation(int x, int y){
-        return robber.robberLocation(x,y);
-    }
-    public void moveRobber(int x, int y){
-        setRobberLocation(x,y);
-    }
+
 
     public ArrayList<Player>getRobberAdjacentPlayers(){
         return new ArrayList<>();
