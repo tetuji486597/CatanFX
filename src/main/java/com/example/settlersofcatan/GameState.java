@@ -13,6 +13,7 @@ public class GameState{
     public static Player currentPlayer;
     public static int currentPlayerIndex;
     public static Robber robber;
+    public static int[] robberLocation;
     public int robberXCoord;
     public int robberYCoord;
     public static String[] allTiles;
@@ -54,6 +55,7 @@ public class GameState{
         gameStarted = false;
         this.numPlayers = numPlayers;
         firstPlayerIndex = -1;
+        robberLocation = new int[]{0,0};
 
         setUpDice = new int[numPlayers];
 

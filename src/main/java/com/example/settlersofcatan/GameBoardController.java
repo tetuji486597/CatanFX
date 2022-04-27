@@ -26,7 +26,6 @@ public class GameBoardController {
     public static Rectangle[] resDecks;
     public static Rectangle[] EdgeMarkers;
     public static Rectangle[] VertexMarkers;
-    public static ImageView[] numberTokens;
     public static HashMap<int[], ImageView> tokenMap;
     public static HashMap<String, ImageView> color2label;
     public static HashMap<ImageView, ImageView> label2icon;
@@ -909,6 +908,7 @@ public class GameBoardController {
             int y = tokenPos[i][1];
             if(x == desx && y == desy) {
                 tokenViews[i].setImage((Image) Initialize.robber.getValue());
+                GameState.robberLocation = new int[]{x,y};
                 desertFound = true;
                 continue;
             }
