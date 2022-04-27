@@ -1037,7 +1037,19 @@ public class GameBoardController {
     @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
 
     @FXML
-    public void showTrade() throws IOException { TradeMenu.setVisible(true); }
+    public void showTrade() throws IOException {
+        portButton.setOpacity(0.5);
+        if(GameState.currentPlayer.hasPort()) {
+            portButton.setOpacity(1.0);
+        }
+        HashMap<String, Integer> cardCounts = new HashMap<>();
+        for(ResourceCard resourceCard: GameState.currentPlayer.getResourceDeck()) {
+            if(cardCounts.get(resourceCard.getType()) == null) {
+                cardCounts.put(resourceCard.getType(), 1);
+            }
+        }
+        TradeMenu.setVisible(true);
+    }
     @FXML
     public void closeTradeMenu() { TradeMenu.setVisible(false); }
 
