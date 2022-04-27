@@ -1037,54 +1037,23 @@ public class GameBoardController {
     @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
 
     @FXML
-    public void showTrade() throws IOException {
-        TradeMenu.setVisible(true);
-        ConfirmButton.setDisable(true);
-        CancelButton.setDisable(true);
-        BuildButton.setDisable(true);
-        TradeButton.setDisable(true);
-        EndTurnButton.setDisable(true);
-    }
+    public void showTrade() throws IOException { TradeMenu.setVisible(true); }
     @FXML
-    public void closeTradeMenu() {
-        TradeMenu.setVisible(false);
-        ConfirmButton.setDisable(false);
-        CancelButton.setDisable(false);
-        BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
-        EndTurnButton.setDisable(false);
-    }
+    public void closeTradeMenu() { TradeMenu.setVisible(false); }
 
-    @FXML //activates when user clicks on button 4for1
+    @FXML
     public void showTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with bank (4:1).");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1).\n");
         TradeMenu.setVisible(false);
         Trade4For1.setVisible(true);
-        ConfirmButton.setDisable(true);
-        CancelButton.setDisable(true); //the cancel button on main panel
-        BuildButton.setDisable(true);
-        TradeButton.setDisable(true);
-        EndTurnButton.setDisable(true);
     }
     @FXML
     public void closeTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\nPlayer " + currentPlayer.getIndex() + " canceled trading.");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " canceled trading.\n");
         Trade4For1.setVisible(false);
-        ConfirmButton.setDisable(false);
-        CancelButton.setDisable(false);
-        BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
-        EndTurnButton.setDisable(false);
     }
-    @FXML //activates when user selects which resource to trade.
-    public void bankTrading() throws IOException {
-
-    }
-
-  //  @FXML
-   // public void
 
     @FXML
     public void rollDice() throws InterruptedException {
@@ -1175,7 +1144,7 @@ public class GameBoardController {
 
     public void cardAssignment(boolean isFirst, int numRolled) {
         GameState.cardAssignment(isFirst, numRolled);
-        ActivityLog.appendText("-----Resources Distributed-----\n");
+        ActivityLog.appendText("\n-----Resources Distributed-----\n");
         if(GameState.newCards.isEmpty()) appendBoth("NO RESOURCES DISTRIBUTED!");
         else {
             for(String[] newCard: GameState.newCards) {
@@ -1200,7 +1169,7 @@ public class GameBoardController {
                 }
             }
         }
-        ActivityLog.appendText("--------------------------------------\n");
+        ActivityLog.appendText("--------------------------------------\n\n");
     }
 
     //1,2,3,4
@@ -1263,8 +1232,6 @@ public class GameBoardController {
     @FXML
     public void endTurn() {
         GameState.round = GameState.round + 1;
-        Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " ended their turn. \n\n");
         nextTurn();
     }
 

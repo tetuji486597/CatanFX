@@ -15,6 +15,9 @@ public class ResourceCard {
         resourceImage = Initialize.resourceCards.get(name);
     }
 
+    public String getType() {
+        return name;
+    }
     public Image getResourceImage() {
         return resourceImage;
     }
