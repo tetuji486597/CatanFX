@@ -471,6 +471,30 @@ public class GameState{
         allVertices[33].setPort(ports[2]);
         allVertices[38].setHasPort(true);
         allVertices[38].setPort(ports[2]);
+        allVertices[47].setHasPort(true);
+        allVertices[47].setPort(ports[3]);
+        allVertices[51].setHasPort(true);
+        allVertices[51].setPort(ports[3]);
+        allVertices[52].setHasPort(true);
+        allVertices[52].setPort(ports[4]);
+        allVertices[49].setHasPort(true);
+        allVertices[49].setPort(ports[4]);
+        allVertices[46].setHasPort(true);
+        allVertices[46].setPort(ports[5]);
+        allVertices[42].setHasPort(true);
+        allVertices[42].setPort(ports[5]);
+        allVertices[32].setHasPort(true);
+        allVertices[32].setPort(ports[6]);
+        allVertices[26].setHasPort(true);
+        allVertices[26].setPort(ports[6]);
+        allVertices[15].setHasPort(true);
+        allVertices[15].setPort(ports[7]);
+        allVertices[10].setHasPort(true);
+        allVertices[10].setPort(ports[7]);
+        allVertices[5].setHasPort(true);
+        allVertices[5].setPort(ports[8]);
+        allVertices[1].setHasPort(true);
+        allVertices[1].setPort(ports[8]);
 
     }
 
