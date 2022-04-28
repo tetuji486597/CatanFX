@@ -22,7 +22,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -409,92 +409,92 @@
                         <Image url="@../../../images/tiles/Mountain.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenA" fitHeight="50.0" fitWidth="50.0" layoutX="230.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenA" fitHeight="50.0" fitWidth="50.0" layoutX="230.0" layoutY="160.0" onMouseClicked="#TokenAPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/A5.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenL" fitHeight="50.0" fitWidth="50.0" layoutX="337.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenL" fitHeight="50.0" fitWidth="50.0" layoutX="337.0" layoutY="162.0" onMouseClicked="#TokenLPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/L10.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenK" fitHeight="50.0" fitWidth="50.0" layoutX="440.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenK" fitHeight="50.0" fitWidth="50.0" layoutX="440.0" layoutY="157.0" onMouseClicked="#TokenKPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/K8.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenB" fitHeight="50.0" fitWidth="50.0" layoutX="173.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenB" fitHeight="50.0" fitWidth="50.0" layoutX="173.0" layoutY="259.0" onMouseClicked="#TokenBPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/B2.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenM" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenM" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="252.0" onMouseClicked="#TokenMPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/M9.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenR" fitHeight="50.0" fitWidth="50.0" layoutX="390.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenR" fitHeight="50.0" fitWidth="50.0" layoutX="390.0" layoutY="251.0" onMouseClicked="#TokenRPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/R11.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenJ" fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenJ" fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="250.0" onMouseClicked="#TokenJPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/J4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenC" fitHeight="50.0" fitWidth="50.0" layoutX="119.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenC" fitHeight="50.0" fitWidth="50.0" layoutX="119.0" layoutY="345.0" onMouseClicked="#TokenCPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/C6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenN" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenN" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="347.0" onMouseClicked="#TokenNPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/N4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenQ" fitHeight="50.0" fitWidth="50.0" layoutX="447.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenQ" fitHeight="50.0" fitWidth="50.0" layoutX="447.0" layoutY="344.0" onMouseClicked="#TokenQPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/Q3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenI" fitHeight="50.0" fitWidth="50.0" layoutX="557.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenI" fitHeight="50.0" fitWidth="50.0" layoutX="557.0" layoutY="340.0" onMouseClicked="#TokenIPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/I11.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenD" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenD" fitHeight="50.0" fitWidth="50.0" layoutX="172.0" layoutY="436.0" onMouseClicked="#TokenDPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/D3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenO" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenO" fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="438.0" onMouseClicked="#TokenOPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/O5.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenP" fitHeight="50.0" fitWidth="50.0" layoutX="393.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenP" fitHeight="50.0" fitWidth="50.0" layoutX="393.0" layoutY="438.0" onMouseClicked="#TokenPPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/P6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenH" fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenH" fitHeight="50.0" fitWidth="50.0" layoutX="500.0" layoutY="438.0" onMouseClicked="#TokenHPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/H12.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenE" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenE" fitHeight="50.0" fitWidth="50.0" layoutX="225.0" layoutY="527.0" onMouseClicked="#TokenEPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/E8.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenF" fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenF" fitHeight="52.0" fitWidth="51.0" layoutX="336.0" layoutY="523.0" onMouseClicked="#TokenFPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/F10.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tokenG" fitHeight="50.0" fitWidth="50.0" layoutX="442.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tokenG" fitHeight="50.0" fitWidth="50.0" layoutX="442.0" layoutY="531.0" onMouseClicked="#TokenGPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/numberTokens/G9.png" />
                      </image>

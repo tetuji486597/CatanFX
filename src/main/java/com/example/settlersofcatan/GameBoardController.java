@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -909,6 +910,7 @@ public class GameBoardController {
             int y = tokenPos[i][1];
             if(x == desx && y == desy) {
                 tokenViews[i].setImage((Image) Initialize.robber.getValue());
+                GameState.robberTokenIndex = i;
                 desertFound = true;
                 continue;
             }
@@ -1108,28 +1110,23 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
-            cardAssignment(false, diceRoll);
-            if(diceRoll == 7) {
+            if(true) {//diceRoll == 7
                 appendBoth("Move the Robber to Another Tile"+"\n");
-                int[] previousRobberLocation = GameState.robberLocation;
+//                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
-                for(ImageView i : tokenViews){
-                    if(i.getImage().equals(Initialize.robber.getValue())){
-                        i.setDisable(true);
-                    }
-                    else{
-                        i.setDisable(false);
-                    }
-
+                for(ImageView i : tokenViews) {
+                    i.setDisable(false);
                 }
-                int[] currentRobberLocation = GameState.robberLocation;
-                if(!previousRobberLocation.equals(currentRobberLocation)){
-                    BuildButton.setDisable(false);
-                    TradeButton.setDisable(false);
-                    EndTurnButton.setDisable(false);
-                }
+                tokenViews[GameState.robberTokenIndex].setDisable(true);
+//                int currentRobberLocation = GameState.robberTokenIndex;
+//                if(!previousRobberLocation.equals(currentRobberLocation)){
+//                    BuildButton.setDisable(false);
+//                    TradeButton.setDisable(false);
+//                    EndTurnButton.setDisable(false);
+//                }
             }
             else{
+                cardAssignment(false, diceRoll);
                 BuildButton.setDisable(false);
                 TradeButton.setDisable(false);
                 EndTurnButton.setDisable(false);
@@ -1152,9 +1149,15 @@ public class GameBoardController {
         }
     }
     public void moveRobber(int tokenLocation){
-        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to " + tokenLocation + "\n\n");
+        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
+        tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
+//        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
-        //for the previous robber, set them back to the original number in tokenpressed methods
+        GameState.robberTokenIndex = tokenLocation;
+        for(ImageView i : tokenViews) {
+            i.setDisable(true);
+        }
+        EndTurnButton.setDisable(false);
 
     }
 
@@ -1960,6 +1963,96 @@ public class GameBoardController {
     @FXML
     public void Edge71Pressed() {
         EdgePressed(71);
+    }
+
+    @FXML
+    public void TokenAPressed(MouseEvent event) {
+        moveRobber(0);
+    }
+
+    @FXML
+    void TokenBPressed(MouseEvent event) {
+        moveRobber(1);
+    }
+
+    @FXML
+    void TokenCPressed(MouseEvent event) {
+        moveRobber(2);
+    }
+
+    @FXML
+    void TokenDPressed(MouseEvent event) {
+        moveRobber(3);
+    }
+
+    @FXML
+    void TokenEPressed(MouseEvent event) {
+        moveRobber(4);
+    }
+
+    @FXML
+    void TokenFPressed(MouseEvent event) {
+        moveRobber(5);
+    }
+
+    @FXML
+    void TokenGPressed(MouseEvent event) {
+        moveRobber(6);
+    }
+
+    @FXML
+    void TokenHPressed(MouseEvent event) {
+        moveRobber(7);
+    }
+
+    @FXML
+    void TokenIPressed(MouseEvent event) {
+        moveRobber(8);
+    }
+
+    @FXML
+    void TokenJPressed(MouseEvent event) {
+        moveRobber(9);
+    }
+
+    @FXML
+    void TokenKPressed(MouseEvent event) {
+        moveRobber(10);
+    }
+
+    @FXML
+    void TokenLPressed(MouseEvent event) {
+        moveRobber(11);
+    }
+
+    @FXML
+    void TokenMPressed(MouseEvent event) {
+        moveRobber(12);
+    }
+
+    @FXML
+    void TokenNPressed(MouseEvent event) {
+        moveRobber(13);
+    }
+
+    @FXML
+    void TokenOPressed(MouseEvent event) {
+        moveRobber(14);
+    }
+
+    @FXML
+    void TokenPPressed(MouseEvent event) {
+        moveRobber(15);
+    }
+
+    @FXML
+    void TokenQPressed(MouseEvent event) {
+        moveRobber(16);
+    }
+
+    @FXML
+    void TokenRPressed(MouseEvent event) {
+        moveRobber(17);
     }
 
 }

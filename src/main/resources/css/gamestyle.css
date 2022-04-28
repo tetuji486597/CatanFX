@@ -2,3 +2,6 @@
     -fx-font-weight: bolder;
     -fx-cursor: hand;
 }
+.rectangle:hover {
+    -fx-background-color: red;
+}
