@@ -671,13 +671,191 @@
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" onMouseClicked="#Marker15Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" onMouseClicked="#Edge61Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Button fx:id="startButton" layoutX="279.0" layoutY="247.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
-                  <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" onMouseClicked="#TokenNullPressed" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="86.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
                      <font>
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
-                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0" style="-fx-background-color: #CEC7A4;">
+                  <DialogPane fx:id="Trade4For1" layoutX="4.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="704.0" prefWidth="717.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="717.0">
+                           <children>
+                              <Text layoutX="167.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trade with bank: 4 for 1">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="717.0">
+                           <children>
+                              <Button contentDisplay="CENTER" layoutX="272.0" layoutY="333.0" mnemonicParsing="false" onAction="#closeTradeMenu" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="327.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+                              <Text layoutX="118.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I have: ">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="85.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="507.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I want:">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="182.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/ore%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="45.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="133.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wood%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="219.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="474.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="438.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="610.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="574.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/ore%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="525.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/resourceCards/wood%20icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Polygon layoutX="384.0" layoutY="193.0" points="-14.0, 23.0, 18.0, 0.0, -14.0, -23.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Button contentDisplay="CENTER" layoutX="272.0" layoutY="405.0" mnemonicParsing="false" onAction="#closeTrade4For1" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                                 <graphic>
+                                    <ImageView fx:id="cancelTrade1" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </DialogPane>
+                  <DialogPane fx:id="TradeMenu" layoutX="4.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="704.0" prefWidth="717.0" style="-fx-border-color: black; -fx-border-width: 2;">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Text layoutX="128.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Button fx:id="bankButton" contentDisplay="CENTER" layoutX="278.0" layoutY="42.0" mnemonicParsing="false" onAction="#showTrade4For1" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Bank (4:1)">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="118.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Others">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Ports (3:1 or 2:1)">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="277.0" mnemonicParsing="false" onAction="#closeTradeMenu" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                                 <graphic>
+                                    <ImageView fx:id="cancelTrade" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="712.0" prefWidth="733.0" style="-fx-background-color: #CEC7A4;">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
@@ -833,184 +1011,6 @@
                       <expandableContent>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
                       </expandableContent>
-                  </DialogPane>
-                  <DialogPane fx:id="TradeMenu" layoutX="4.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0" style="-fx-border-color: black; -fx-border-width: 2;">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Text layoutX="128.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="40.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Button fx:id="bankButton" contentDisplay="CENTER" layoutX="278.0" layoutY="42.0" mnemonicParsing="false" onAction="#showTrade4For1" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Bank (4:1)">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="118.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Others">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Ports (3:1 or 2:1)">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="277.0" mnemonicParsing="false" onAction="#closeTradeMenu" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
-                                 <graphic>
-                                    <ImageView fx:id="cancelTrade" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                      </content>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                  </DialogPane>
-                  <DialogPane fx:id="Trade4For1" layoutX="4.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="717.0">
-                           <children>
-                              <Text layoutX="167.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trade with bank: 4 for 1">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="36.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="717.0">
-                           <children>
-                              <Button contentDisplay="CENTER" layoutX="272.0" layoutY="333.0" mnemonicParsing="false" onAction="#closeTradeMenu" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="19.0" layoutX="327.0" layoutY="183.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                              <Text layoutX="118.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I have: ">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="36.0" />
-                                 </font>
-                              </Text>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="85.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <Text layoutX="507.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I want:">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="36.0" />
-                                 </font>
-                              </Text>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="182.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/ore%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="45.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="133.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/wood%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="219.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="474.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/brick%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="438.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/grain%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="610.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="574.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/ore%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="525.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/resourceCards/wood%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <Polygon layoutX="384.0" layoutY="193.0" points="-14.0, 23.0, 18.0, 0.0, -14.0, -23.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Button contentDisplay="CENTER" layoutX="272.0" layoutY="405.0" mnemonicParsing="false" onAction="#closeTrade4For1" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
-                                 <graphic>
-                                    <ImageView fx:id="cancelTrade1" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </content>
                   </DialogPane>
                </children>
             </AnchorPane>

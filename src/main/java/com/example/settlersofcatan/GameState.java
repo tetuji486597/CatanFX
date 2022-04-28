@@ -68,7 +68,7 @@ public class GameState{
             allEdges[i] = new Edge(i);
         }
         allTiles = new String[] {"Pasture","Pasture","Pasture","Pasture", "Field","Field","Field","Field", "Mountain","Mountain","Mountain", "Hills","Hills","Hills", "Forest","Forest","Forest","Forest","Desert"};
-        allTokens  = new String[] {"A5", "B2", "C6", "D3", "E8", "F10", "G9", "H12", "I11", "J4", "K8", "L10", "M9", "N4", "O5", "P6", "Q3", "R11"};
+        allTokens  = new String[] {"A5", "B2", "C6", "D3", "E8", "F10", "G9", "H12", "I11", "J4", "K8", "L10", "M9", "N4", "O5", "P6", "Q3", "R11", ""};
         tileToResource = new HashMap<>();
         newCards = new ArrayList<>();
         tileToResource.put("Field", "Grain");
@@ -78,13 +78,14 @@ public class GameState{
         tileToResource.put("Pasture", "Wool");
 
         tokenMap = new HashMap<>();
-        numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11};
+        numbers = new int[] {5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11,0};
         for(int i = 0; i < numbers.length; i++) {
             tokenMap.put(allTokens[i], numbers[i]);
         }
 
         tokens = new NumberToken[allTokens.length];
         for(int i  = 0; i < allTokens.length; i++) {
+            if(allTokens[i].isEmpty()) tokens[i] = new NumberToken();
             tokens[i] = new NumberToken(tokenMap.get(allTokens[i]), Initialize.numberTokens.get(allTokens[i]));
         }
         devBank = new Stack<>();

@@ -6,6 +6,11 @@ public class NumberToken {
     private int token;
     private javafx.scene.image.Image tokenImage;
 
+    public NumberToken() {
+        token = 0;
+        tokenImage = null;
+    }
+
     public NumberToken (int token, Image myImage){
         this.token = token;
         tokenImage = myImage;
