@@ -22,7 +22,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" style="-fx-background-image: url('images/green Background.png');" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -677,7 +677,7 @@
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
-                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0" style="-fx-background-color: #CEC7A4;">
+                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0" style="-fx-background-color: #e6e0c3;">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
@@ -815,7 +815,7 @@
                                     </ImageView>
                                  </children>
                               </GridPane>
-                              <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                              <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -834,7 +834,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
                       </expandableContent>
                   </DialogPane>
-                  <DialogPane fx:id="TradeMenu" layoutX="4.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0" style="-fx-border-color: black; -fx-border-width: 2;">
+                  <DialogPane fx:id="TradeMenu" layoutX="4.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-background-color: #e6e0c3;">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
@@ -904,7 +904,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
                       </expandableContent>
                   </DialogPane>
-                  <DialogPane fx:id="Trade4For1" layoutX="4.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0">
+                  <DialogPane fx:id="Trade4For1" layoutX="4.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="717.0" style="-fx-background-color: #e6e0c3;">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="717.0">
                            <children>
@@ -967,7 +967,7 @@
                               </ImageView>
                               <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="219.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                    <Image url="@../../../images/resourceCards/wool%20-%20Copy.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="474.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
@@ -982,7 +982,7 @@
                               </ImageView>
                               <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="610.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/resourceCards/wool%20icon.png" />
+                                    <Image url="@../../../images/resourceCards/wool%20-%20Copy.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="574.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">

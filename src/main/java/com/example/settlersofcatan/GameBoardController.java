@@ -1093,6 +1093,8 @@ public class GameBoardController {
 
     @FXML //activates when user selects which resource to trade.
     public void bankTrading() throws IOException {
+        Trade4For1.setVisible(false);
+
 
     }
 
