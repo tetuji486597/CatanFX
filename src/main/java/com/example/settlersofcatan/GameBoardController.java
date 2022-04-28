@@ -27,6 +27,7 @@ public class GameBoardController {
     public static Rectangle[] resDecks;
     public static Rectangle[] EdgeMarkers;
     public static Rectangle[] VertexMarkers;
+    public static ImageView[] numberTokens;
     public static HashMap<int[], ImageView> tokenMap;
     public static HashMap<String, ImageView> color2label;
     public static HashMap<ImageView, ImageView> label2icon;
@@ -936,7 +937,6 @@ public class GameBoardController {
         }
         for(ImageView image: tokenViews) {
             image.setVisible(true);
-            image.setDisable(true);
         }
         for (int i = 0; i < GameState.numPlayers*2; i++) {
             resNdevLabels[i].setVisible(true);
@@ -1040,6 +1040,11 @@ public class GameBoardController {
 
     @FXML
     public void showTrade() throws IOException {
+        ConfirmButton.setDisable(true);
+        CancelButton.setDisable(true);
+        BuildButton.setDisable(true);
+        TradeButton.setDisable(true);
+        EndTurnButton.setDisable(true);
         portButton.setOpacity(0.5);
         if(GameState.currentPlayer.hasPort()) {
             portButton.setOpacity(1.0);
@@ -1053,21 +1058,48 @@ public class GameBoardController {
         TradeMenu.setVisible(true);
     }
     @FXML
-    public void closeTradeMenu() { TradeMenu.setVisible(false); }
+    public void closeTradeMenu() {
+        TradeMenu.setVisible(false);
+        ConfirmButton.setDisable(false);
+        CancelButton.setDisable(false);
+        BuildButton.setDisable(false);
+        TradeButton.setDisable(false);
+        EndTurnButton.setDisable(false);
+    }
 
     @FXML
     public void showTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " choose to trade with bank (4:1).\n");
+        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with bank (4:1).");
         TradeMenu.setVisible(false);
         Trade4For1.setVisible(true);
+        ConfirmButton.setDisable(true);
+        CancelButton.setDisable(true); //the cancel button on main panel
+        BuildButton.setDisable(true);
+        TradeButton.setDisable(true);
+        EndTurnButton.setDisable(true);
     }
     @FXML
     public void closeTrade4For1() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " canceled trading.\n");
+        ActivityLog.appendText("\nPlayer " + currentPlayer.getIndex() + " canceled trading.");
         Trade4For1.setVisible(false);
+        ConfirmButton.setDisable(false);
+        CancelButton.setDisable(false);
+        BuildButton.setDisable(false);
+        TradeButton.setDisable(false);
+        EndTurnButton.setDisable(false);
     }
+
+    @FXML //activates when user selects which resource to trade.
+    public void bankTrading() throws IOException {
+        Trade4For1.setVisible(false);
+
+
+    }
+
+    //  @FXML
+    // public void
 
     @FXML
     public void rollDice() throws InterruptedException {
@@ -1175,7 +1207,7 @@ public class GameBoardController {
 
     public void cardAssignment(boolean isFirst, int numRolled) {
         GameState.cardAssignment(isFirst, numRolled);
-        ActivityLog.appendText("\n-----Resources Distributed-----\n");
+        ActivityLog.appendText("-----Resources Distributed-----\n");
         if(GameState.newCards.isEmpty()) appendBoth("NO RESOURCES DISTRIBUTED!");
         else {
             for(String[] newCard: GameState.newCards) {
@@ -1200,7 +1232,7 @@ public class GameBoardController {
                 }
             }
         }
-        ActivityLog.appendText("--------------------------------------\n\n");
+        ActivityLog.appendText("--------------------------------------\n");
     }
 
     //1,2,3,4
@@ -1263,6 +1295,8 @@ public class GameBoardController {
     @FXML
     public void endTurn() {
         GameState.round = GameState.round + 1;
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " ended their turn. \n\n");
         nextTurn();
     }
 
