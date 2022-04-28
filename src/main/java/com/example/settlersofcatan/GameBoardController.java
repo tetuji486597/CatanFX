@@ -1080,7 +1080,7 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
-            if(true) {
+            if(true) {//diceRoll == 7
                 appendBoth("Move the Robber to Another Tile"+"\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -1124,7 +1124,10 @@ public class GameBoardController {
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
-        //for the previous robber, set them back to the original number in tokenpressed methods
+        for(ImageView i : tokenViews) {
+            i.setDisable(true);
+        }
+        EndTurnButton.setDisable(false);
 
     }
 
