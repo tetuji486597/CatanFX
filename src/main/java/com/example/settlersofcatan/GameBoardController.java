@@ -911,6 +911,7 @@ public class GameBoardController {
             if(x == desx && y == desy) {
                 tokenViews[i].setImage((Image) Initialize.robber.getValue());
                 GameState.robberTokenIndex = i;
+                GameState.desertTokenIndex = i;
                 desertFound = true;
                 continue;
             }
@@ -1120,6 +1121,7 @@ public class GameBoardController {
                     i.setDisable(false);
                 }
                 tokenViews[GameState.robberTokenIndex].setDisable(true);
+                tokenViews[GameState.desertTokenIndex].setDisable((true));
 //                int currentRobberLocation = GameState.robberTokenIndex;
 //                if(!previousRobberLocation.equals(currentRobberLocation)){
 //                    BuildButton.setDisable(false);
@@ -1152,7 +1154,20 @@ public class GameBoardController {
     }
     public void moveRobber(int tokenLocation){
         ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
-        tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
+        if(GameState.robberTokenIndex != GameState.desertTokenIndex){
+            if(GameState.robberTokenIndex >= GameState.desertTokenIndex){
+                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex-1].getImage());
+            }
+            else{
+                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
+            }
+
+        }
+        else{
+            tokenViews[GameState.robberTokenIndex].setImage(null);
+        }
+
+        System.out.println("token number " + GameState.robberTokenIndex);
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
