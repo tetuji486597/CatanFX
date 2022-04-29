@@ -850,6 +850,7 @@ public class GameBoardController {
         }
         for(ImageView image: tokenViews) {
             image.setVisible(false);
+            image.setDisable(true);
         }
         for(ImageView image: playerLabels) {
             image.setVisible(false);
@@ -1334,22 +1335,22 @@ public class GameBoardController {
 
     @FXML
     public void showResourceView1() {
-        openResourcePanel(1);
+        if(GameState.currentPlayerIndex==1) openResourcePanel(1);
     }
 
     @FXML
     public void showResourceView2() {
-        openResourcePanel(2);
+        if(GameState.currentPlayerIndex==2) openResourcePanel(2);
     }
 
     @FXML
     public void showResourceView3() {
-        openResourcePanel(3);
+        if(GameState.currentPlayerIndex==3) openResourcePanel(3);
     }
 
     @FXML
     public void showResourceView4() {
-        openResourcePanel(4);
+        if(GameState.currentPlayerIndex==4) openResourcePanel(4);
     }
 
     @FXML
