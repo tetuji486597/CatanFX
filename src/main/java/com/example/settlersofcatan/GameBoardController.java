@@ -910,7 +910,8 @@ public class GameBoardController {
             int y = tokenPos[i][1];
             if(x == desx && y == desy) {
                 tokenViews[i].setImage((Image) Initialize.robber.getValue());
-                GameState.robberTokenIndex = desertFound ? i-1:i;
+                GameState.robberTokenIndex = i;
+                GameState.desertTokenIndex = i;
                 desertFound = true;
                 continue;
             }
@@ -1112,7 +1113,7 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
-            if(true) {//diceRoll == 7
+            if(diceRoll == 7) {//
                 appendBoth("Move the Robber to Another Tile"+"\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -1120,6 +1121,7 @@ public class GameBoardController {
                     i.setDisable(false);
                 }
                 tokenViews[GameState.robberTokenIndex].setDisable(true);
+                tokenViews[GameState.desertTokenIndex].setDisable((true));
 //                int currentRobberLocation = GameState.robberTokenIndex;
 //                if(!previousRobberLocation.equals(currentRobberLocation)){
 //                    BuildButton.setDisable(false);
@@ -1152,11 +1154,21 @@ public class GameBoardController {
     }
     public void moveRobber(int tokenLocation){
         ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
-        tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
-        System.out.println("robber coords: [" + GameState.pos[GameState.robberTokenIndex][0] + ", " + GameState.pos[GameState.robberTokenIndex][1]+"]");
-        System.out.println("desert coords: [" + GameState.tilesMap.get("Desert").getCoords()[0] + ", " + GameState.tilesMap.get("Desert").getCoords()[1]+"]");
-        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tilesMap.get("Desert").getCoords()[0] &&
-                GameState.pos[GameState.robberTokenIndex][1]== GameState.tilesMap.get("Desert").getCoords()[1]) tokenViews[GameState.robberTokenIndex].setImage(null);
+        if(GameState.robberTokenIndex != GameState.desertTokenIndex){
+            if(GameState.robberTokenIndex >= GameState.desertTokenIndex){
+                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex-1].getImage());
+            }
+            else{
+                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
+            }
+
+        }
+        else{
+            tokenViews[GameState.robberTokenIndex].setImage(null);
+        }
+
+        System.out.println("token number " + GameState.robberTokenIndex);
+//        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
         for(ImageView i : tokenViews) {
@@ -2059,6 +2071,7 @@ public class GameBoardController {
     void TokenRPressed(MouseEvent event) {
         moveRobber(17);
     }
+
     @FXML
     void TokenNullPressed(MouseEvent event) {
         moveRobber(18);

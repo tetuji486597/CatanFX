@@ -39,15 +39,16 @@ public class GameState{
     public static ArrayList<String> allDevCards;
     public static String[] allColors;
     public static GameBoardController controller;
-    public static int firstPlayerIndex;
+    public static int firstPlayerIndex, desertTokenIndex;
     public static int[] setUpDice;
     public static boolean iterateForward;
     public static boolean firstSettlementsPlaced;
     public static boolean gameStarted;
     public static boolean lastEdgePlaced;
 
-    public GameState(int numPlayers) {
 
+    public GameState(int numPlayers) {
+        desertTokenIndex = 0;
         round = 1;
         iterateForward = true;
         firstSettlementsPlaced = false;
