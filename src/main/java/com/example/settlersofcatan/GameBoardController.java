@@ -1113,7 +1113,7 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll +"\n");
-            if(true) {//diceRoll == 7
+            if(diceRoll == 7) {//
                 appendBoth("Move the Robber to Another Tile"+"\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -2070,6 +2070,11 @@ public class GameBoardController {
     @FXML
     void TokenRPressed(MouseEvent event) {
         moveRobber(17);
+    }
+
+    @FXML
+    void TokenNullPressed(MouseEvent event) {
+        moveRobber(18);
     }
 
 }

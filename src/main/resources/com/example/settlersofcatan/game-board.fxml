@@ -22,7 +22,7 @@
 
 <!-- use 5x5 gridpane for square buttons over imageviews of tiles -->
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" style="-fx-background-image: url('images/green Background.png');" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="911.0" minWidth="1375.0" prefHeight="911.0" prefWidth="1380.0" style="-fx-background-image: url('images/green Background.png');" stylesheets="@../../../css/gamestyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.settlersofcatan.GameBoardController">
    <children>
       <VBox prefHeight="913.0" prefWidth="376.0">
          <children>
@@ -671,7 +671,7 @@
                   <Rectangle fx:id="VertexMarker15" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="23.0" layoutX="561.0" layoutY="235.0" onMouseClicked="#Marker15Pressed" stroke="BLACK" strokeType="INSIDE" width="23.0" />
                   <Rectangle fx:id="EdgeMarker61" arcHeight="5.0" arcWidth="5.0" fill="#fff421" height="45.0" layoutX="546.0" layoutY="488.0" onMouseClicked="#Edge61Pressed" rotate="60.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
                   <Button fx:id="startButton" layoutX="279.0" layoutY="247.0" mnemonicParsing="false" onAction="#startGame" prefHeight="68.0" prefWidth="135.0" text="Start Game" />
-                  <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="tokenNull" fitHeight="45.0" fitWidth="50.0" layoutX="335.0" layoutY="347.0" onMouseClicked="#TokenNullPressed" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="MainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="7.0" prefHeight="86.0" prefWidth="717.0" textFill="#ebff39" wrapText="true">
                      <font>
                         <Font name="Poor Richard" size="30.0" />
