@@ -73,6 +73,9 @@ public class Player {
             resourceDeck.add(resource);
         }
     }
+    public void removeResource(int index) {
+        resourceDeck.remove(index);
+    }
     public void takeAllResources(Stack ResourceCard) {
 
     }
@@ -110,6 +113,15 @@ public class Player {
         }
         return false;
     }
+
+    public ArrayList<Port> getPorts() {
+        ArrayList<Port> ports = new ArrayList<>();
+        for(Vertex vertex: settlements) {
+            if(vertex.getHasPort()) ports.add(vertex.getPort());
+        }
+        return ports;
+    }
+
 
         public boolean isMyTurn() {
             return true;

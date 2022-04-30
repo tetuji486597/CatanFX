@@ -38,6 +38,7 @@ public class GameBoardController {
     public static ImageView[] portViews;
     public static ImageView[] tokenViews;
     public static ImageView[] playerCards;
+    public static Label[] tradeLabels;
 //
 
     @FXML
@@ -788,17 +789,51 @@ public class GameBoardController {
     private Label MainLabel;
 
     @FXML
-    private DialogPane Trade4For1;
+    private DialogPane TradePanel;
 
     @FXML
     private DialogPane TradeMenu;
+    @FXML
+    private Label tradeBrickLabel;
+
+    @FXML
+    private Label tradeGrainLabel;
+
+    @FXML
+    private Label tradeOreLabel;
+
+    @FXML
+    private Label tradeWoodLabel;
+
+    @FXML
+    private Label tradeWoolLabel;
+
     @FXML
     private Button bankButton;
     @FXML
     private Button portButton;
 
     @FXML
+    private ImageView portButtonImage;
+
+    @FXML
+    private ImageView bankButtonImage;
+    @FXML
     private Button otherButton;
+    @FXML
+    private ComboBox<String> offerDropdown;
+    @FXML
+    private ComboBox<String> requestDropdown;
+    @FXML
+    private ComboBox<String> portDropdown;
+    @FXML
+    private Spinner<Integer> offerSpinner;
+    @FXML
+    private Spinner<Integer> requestSpinner;
+    @FXML
+    private Label tradeErrorMessage;
+    @FXML
+    private Label tradeLabel;
 
     @FXML
     public void initialize() throws FileNotFoundException{
@@ -842,8 +877,9 @@ public class GameBoardController {
         VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
         tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
         playerCards = new ImageView[] {PlayerCard1,PlayerCard2,PlayerCard3,PlayerCard4,PlayerCard5,PlayerCard6,PlayerCard7,PlayerCard8,PlayerCard9,PlayerCard10,PlayerCard11,PlayerCard12,PlayerCard13,PlayerCard14,PlayerCard15,PlayerCard16,PlayerCard17,PlayerCard18,PlayerCard19,PlayerCard20,PlayerCard21};
+        tradeLabels = new Label[] {tradeBrickLabel, tradeGrainLabel, tradeOreLabel, tradeWoodLabel, tradeWoolLabel};
         TradeMenu.setVisible(false);
-        Trade4For1.setVisible(false);
+        TradePanel.setVisible(false);
         ResourcePanel.setVisible(false);
         for(Label label: playerNumLabels) {
             label.setVisible(false);
@@ -893,6 +929,14 @@ public class GameBoardController {
         StealButton.setDisable(true);
         EndTurnButton.setDisable(true);
         HelpButton.setDisable(true);
+        offerDropdown.getItems().removeAll(offerDropdown.getItems());
+        offerDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
+        requestDropdown.getItems().removeAll(offerDropdown.getItems());
+        requestDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
+        portDropdown.setVisible(false);
+        tradeErrorMessage.setVisible(false);
+        offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,21));
+        requestSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,21));
     }
     @FXML
     public void startGame() {
@@ -1047,9 +1091,11 @@ public class GameBoardController {
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
-        portButton.setOpacity(0.5);
+        portButtonImage.setOpacity(0.5);
+        portButton.setDisable(true);
         if(GameState.currentPlayer.hasPort()) {
-            portButton.setOpacity(1.0);
+            portButtonImage.setOpacity(1.0);
+            portButton.setDisable(false);
         }
         HashMap<String, Integer> cardCounts = new HashMap<>();
         for(ResourceCard resourceCard: GameState.currentPlayer.getResourceDeck()) {
@@ -1057,8 +1103,17 @@ public class GameBoardController {
                 cardCounts.put(resourceCard.getType(), 1);
             }
         }
+        bankButtonImage.setOpacity(0.5);
+        bankButton.setDisable(true);
+        for(int i: cardCounts.values()) {
+            if (i >= 4) {
+                bankButtonImage.setOpacity(1);
+                bankButton.setDisable(false);
+            }
+        }
         TradeMenu.setVisible(true);
     }
+
     @FXML
     public void closeTradeMenu() {
         TradeMenu.setVisible(false);
@@ -1069,23 +1124,237 @@ public class GameBoardController {
         EndTurnButton.setDisable(false);
     }
 
-    @FXML
-    public void showTrade4For1() throws IOException {
+    public void showTradePanel(String message) throws IOException {
+        for(Label label: tradeLabels) {
+            label.setText("0");
+        }
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with bank (4:1).");
+        tradeLabel.setText("Trade with "+message);
+        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with " + message);
+
+        for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
+            String name = resourceCard.getType();
+            switch(name) {
+                case "Brick":
+                    tradeBrickLabel.setText(Integer.toString(Integer.parseInt(tradeBrickLabel.getText())+1));
+                    break;
+                case "Ore":
+                    tradeOreLabel.setText(Integer.toString(Integer.parseInt(tradeOreLabel.getText())+1));
+                    break;
+                case "Grain":
+                    tradeGrainLabel.setText(Integer.toString(Integer.parseInt(tradeGrainLabel.getText())+1));
+                    break;
+                case "Wood":
+                    tradeWoodLabel.setText(Integer.toString(Integer.parseInt(tradeWoodLabel.getText())+1));
+                    break;
+                case "Wool":
+                    tradeWoolLabel.setText(Integer.toString(Integer.parseInt(tradeWoolLabel.getText())+1));
+                    break;
+            }
+        }
+        if(message.equals("Ports")) {
+            offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(2,3));
+            requestSpinner.getValueFactory().setValue(1);
+            requestSpinner.setDisable(true);
+            portDropdown.getItems().removeAll(portDropdown.getItems());
+            portDropdown.setVisible(true);
+            if (currentPlayer.hasPort()) {
+                for (Port port: currentPlayer.getPorts()) {
+                    portDropdown.getItems().add(port.getType());
+                }
+            }
+        }
+        if(message.equals("Bank")) {
+            offerSpinner.getValueFactory().setValue(4);
+            offerSpinner.setEditable(false);
+            requestSpinner.getValueFactory().setValue(1);
+            requestSpinner.setDisable(true);
+        }
+        if(message.equals("Others")) {
+            processOthersTrading();
+        }
+
         TradeMenu.setVisible(false);
-        Trade4For1.setVisible(true);
+        TradePanel.setVisible(true);
         ConfirmButton.setDisable(true);
         CancelButton.setDisable(true); //the cancel button on main panel
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
     }
+    public void processOthersTrading() {
+
+    }
     @FXML
-    public void closeTrade4For1() throws IOException {
+    public void confirmTrade() throws IOException {
+        tradeErrorMessage.setVisible(false);
+        String tradeType = tradeLabel.getText();
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\nPlayer " + currentPlayer.getIndex() + " canceled trading.");
-        Trade4For1.setVisible(false);
+        String offeredResource = offerDropdown.getValue();
+        int count = 0;
+        for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
+            if(resourceCard.getType().equals(offeredResource)) count++;
+        }
+        String offerEmpty = offerDropdown.getValue();
+        String requestEmpty = requestDropdown.getValue();
+        if(offerEmpty == null || requestEmpty == null) {
+            tradeErrorMessage.setVisible(true);
+            tradeErrorMessage.setText("Please make an offer and a request!");
+            System.out.println("emptyyy");
+            offerDropdown.valueProperty().set(null);
+            requestDropdown.valueProperty().set(null);
+        } else {
+            String requestedResource = requestDropdown.getValue();
+            if(tradeType.equals("Trade with Bank")) {
+                if(count >= 4) {
+                    int numRemoved = 0;
+                    for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
+                        if(numRemoved == 4) break;
+                        if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                            currentPlayer.removeResource(i--);
+                            numRemoved++;
+                        }
+                    }
+
+                    switch (requestedResource) {
+                        case "Brick":
+                            BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                            break;
+                        case "Grain":
+                            GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                            break;
+                        case "Ore":
+                            OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                            break;
+                        case "Wood":
+                            WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                            break;
+                        case "Wool":
+                            WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                            break;
+                    }
+                    currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
+                    MainLabel.setText("Trade Successful!");
+                    closeTradePanel();
+                } else {
+                    tradeErrorMessage.setVisible(true);
+                    tradeErrorMessage.setText("Not enough resources of this type!");
+                }
+            }
+            if(tradeType.equals("Trade with Ports")) {
+                String selectedPort = portDropdown.getValue();
+                if(selectedPort == null) {
+                    tradeErrorMessage.setVisible(true);
+                    tradeErrorMessage.setText("Please select a Port!");
+                    portDropdown.valueProperty().set(null);
+                } else {
+                    boolean selectedResourceOfPort = false;
+                    if(selectedPort.equals("UnknownPort")) {
+                        if(offerSpinner.getValue() != 3) {
+                            tradeErrorMessage.setVisible(true);
+                            tradeErrorMessage.setText("Please offer 3 resources of the same type!");
+                        } else {
+                            if(count >= 3) {
+                                int numRemoved = 0;
+                                for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
+                                    if(numRemoved == 3) break;
+                                    if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                                        currentPlayer.removeResource(i--);
+                                        numRemoved++;
+                                    }
+                                }
+                                switch (requestedResource) {
+                                    case "Brick":
+                                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                                        break;
+                                    case "Grain":
+                                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                                        break;
+                                    case "Ore":
+                                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                                        break;
+                                    case "Wood":
+                                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                                        break;
+                                    case "Wool":
+                                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                                        break;
+                                }
+                                currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
+                                MainLabel.setText("Trade Successful!");
+                                closeTradePanel();
+                            } else {
+                                tradeErrorMessage.setVisible(true);
+                                tradeErrorMessage.setText("You don't have sufficient resources to make this trade!");
+                            }
+                        }
+                    } else {
+                        for(Port port: currentPlayer.getPorts()) {
+                            if(offeredResource.equals(port.getResource())) selectedResourceOfPort = true;
+                        }
+                        if(!selectedResourceOfPort) {
+                            tradeErrorMessage.setVisible(true);
+                            tradeErrorMessage.setText("You don't have any Ports of that Resource!");
+                        } else {
+                            if(count >= 2) {
+                                int numRemoved = 0;
+                                for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
+                                    if(numRemoved == 2) break;
+                                    if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                                        currentPlayer.removeResource(i--);
+                                        numRemoved++;
+                                    }
+                                }
+                                switch (requestedResource) {
+                                    case "Brick":
+                                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                                        break;
+                                    case "Grain":
+                                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                                        break;
+                                    case "Ore":
+                                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                                        break;
+                                    case "Wood":
+                                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                                        break;
+                                    case "Wool":
+                                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                                        break;
+                                }
+                                MainLabel.setText("Trade Successful!");
+                                closeTradePanel();
+                            } else {
+                                tradeErrorMessage.setVisible(true);
+                                tradeErrorMessage.setText("You don't have sufficient resources to make this trade!");
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        tradeErrorMessage.setVisible(false);
+
+    }
+
+    @FXML
+    public void show4For1() throws IOException {
+        showTradePanel("Bank");
+    }
+    @FXML
+    public void showOthers() throws IOException {
+        showTradePanel("Others");
+    }
+    @FXML
+    public void showPorts() throws IOException {
+        showTradePanel("Ports");
+    }
+    @FXML
+    public void closeTradePanel() throws IOException {
+        Player currentPlayer = GameState.currentPlayer;
+        TradePanel.setVisible(false);
         ConfirmButton.setDisable(false);
         CancelButton.setDisable(false);
         BuildButton.setDisable(false);
@@ -1095,7 +1364,7 @@ public class GameBoardController {
 
     @FXML //activates when user selects which resource to trade.
     public void bankTrading() throws IOException {
-        Trade4For1.setVisible(false);
+        TradePanel.setVisible(false);
 
 
     }

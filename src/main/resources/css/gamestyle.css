@@ -2,6 +2,14 @@
     -fx-font-weight: bolder;
     -fx-cursor: hand;
 }
-.rectangle:hover {
-    -fx-background-color: red;
+.dialog-pane {
+    -fx-background-color: #e6e0c3;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+.dialog-pane .label{
+    -fx-font-family: "Bell MT";
+    -fx-font-size: 36;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
 }

@@ -18,6 +18,24 @@ public class Port {
     public String getType() {
         return name;
     }
+    public String getResource() {
+        switch(name) {
+            case "BrickPort":
+                return "Brick";
+            case "OrePort":
+                return "Ore";
+            case "GrainPort":
+                return "Grain";
+            case "WoodPort":
+                return "Wood";
+            case "WoolPort":
+                return "Wool";
+            case "UnknownPort":
+                return "ANY";
+        }
+        return "amogus";
+    }
+
     public void setConnectedVertices() {
 
     }
