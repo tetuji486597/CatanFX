@@ -660,4 +660,10 @@ public class GameState{
     public boolean maintainsDistanceRule(){
         return false;
     }
+
+//    public int VictoryPointsCard(){
+//        currentPlayer.setVictoryPoints(currentPlayer.getVictoryPoints()+1);
+//    }
+
+
 }
