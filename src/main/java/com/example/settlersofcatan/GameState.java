@@ -45,7 +45,8 @@ public class GameState{
     public static boolean firstSettlementsPlaced;
     public static boolean gameStarted;
     public static boolean lastEdgePlaced;
-
+    public static String selectedItem;
+    public static HashMap<String, ArrayList<String>> shop;
 
     public GameState(int numPlayers) {
         desertTokenIndex = 0;
@@ -148,6 +149,15 @@ public class GameState{
         nameToColor.put("White", Color.WHITE);
         nameToColor.put("Red", Color.INDIANRED);
 
+        shop = new HashMap<>();
+        ArrayList<String> roadResources = new ArrayList<>(Arrays.asList("Brick", "Wood"));
+        shop.put("Road", roadResources);
+        ArrayList<String> settlementResources = new ArrayList<>(Arrays.asList("Brick", "Wood", "Grain", "Wool"));
+        shop.put("Settlement", settlementResources);
+        ArrayList<String> cityResources = new ArrayList<>(Arrays.asList("Grain", "Grain", "Ore", "Ore", "Ore"));
+        shop.put("City", cityResources);
+        ArrayList<String> devcardResources = new ArrayList<>(Arrays.asList("Wool", "Grain", "Ore"));
+        shop.put("DevCard", devcardResources);
 
         resourceBank.put("Grain", 19);
         resourceBank.put("Wood", 19);

@@ -74,7 +74,7 @@ public class Player {
         }
     }
     public void removeResource(int index) {
-        resourceDeck.remove(index);
+        System.out.println(resourceDeck.remove(index).getType());
     }
     public void takeAllResources(Stack ResourceCard) {
 

@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -39,6 +40,7 @@ public class GameBoardController {
     public static ImageView[] tokenViews;
     public static ImageView[] playerCards;
     public static Label[] tradeLabels;
+    public static Pane[] buildPanes;
 //
 
     @FXML
@@ -834,9 +836,21 @@ public class GameBoardController {
     private Label tradeErrorMessage;
     @FXML
     private Label tradeLabel;
+    @FXML
+    private Label buildErrorMessage;
+    @FXML
+    private DialogPane buildPanel;
+    @FXML
+    private Pane roadPane;
+    @FXML
+    private Pane settlementPane;
+    @FXML
+    private Pane cityPane;
+    @FXML
+    private Pane devcardPane;
 
     @FXML
-    public void initialize() throws FileNotFoundException{
+    public void initialize() throws FileNotFoundException {
         GameState.controller = this;
         color2label = new HashMap<>();
         label2icon = new HashMap<>();
@@ -865,60 +879,62 @@ public class GameBoardController {
         label2devdeck.put(RedColorLabel, RedDevDeck);
 
 
-        playerNumLabels = new Label[] {Player1Label, Player2Label, Player3Label, Player4Label};
+        playerNumLabels = new Label[]{Player1Label, Player2Label, Player3Label, Player4Label};
         resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
         devDecks = new Rectangle[]{BlueDevDeck, GreenDevDeck, WhiteDevDeck, RedDevDeck};
-        playerLabels = new ImageView[] {GreenColorLabel, WhiteColorLabel, RedColorLabel, BlueColorLabel};
-        resNdevLabels = new ImageView[] {resLabel1, devLabel1, resLabel2, devLabel2, resLabel3, devLabel3, resLabel4, devLabel4};
-        playerImages = new ImageView[] {GreenIcon, WhiteIcon, BlueIcon, RedIcon};
-        tileViews = new ImageView[] {r0c0,r0c1,r0c2,r1c0,r1c1,r1c2,r1c3,r2c0,r2c1,r2c2,r2c3,r2c4,r3c0,r3c1,r3c2,r3c3,r4c0,r4c1,r4c2};
-        portViews = new ImageView[]{p1,p2,p3,p4,p5,p6,p7,p8,p9};
-        EdgeMarkers = new Rectangle[] {EdgeMarker0,EdgeMarker1,EdgeMarker2,EdgeMarker3,EdgeMarker4,EdgeMarker5,EdgeMarker6,EdgeMarker7,EdgeMarker8,EdgeMarker9,EdgeMarker10,EdgeMarker11,EdgeMarker12,EdgeMarker13,EdgeMarker14,EdgeMarker15,EdgeMarker16,EdgeMarker17,EdgeMarker18,EdgeMarker19,EdgeMarker20,EdgeMarker21,EdgeMarker22,EdgeMarker23,EdgeMarker24,EdgeMarker25,EdgeMarker26,EdgeMarker27,EdgeMarker28,EdgeMarker29,EdgeMarker30,EdgeMarker31,EdgeMarker32,EdgeMarker33,EdgeMarker34,EdgeMarker35,EdgeMarker36,EdgeMarker37,EdgeMarker38,EdgeMarker39,EdgeMarker40,EdgeMarker41,EdgeMarker42,EdgeMarker43,EdgeMarker44,EdgeMarker45,EdgeMarker46,EdgeMarker47,EdgeMarker48,EdgeMarker49,EdgeMarker50,EdgeMarker51,EdgeMarker52,EdgeMarker53,EdgeMarker54,EdgeMarker55,EdgeMarker56,EdgeMarker57,EdgeMarker58,EdgeMarker59,EdgeMarker60,EdgeMarker61,EdgeMarker62,EdgeMarker63,EdgeMarker64,EdgeMarker65,EdgeMarker66,EdgeMarker67,EdgeMarker68,EdgeMarker69,EdgeMarker70,EdgeMarker71};
-        VertexMarkers = new Rectangle[] {VertexMarker0,VertexMarker1,VertexMarker2,VertexMarker3,VertexMarker4,VertexMarker5,VertexMarker6,VertexMarker7,VertexMarker8,VertexMarker9,VertexMarker10,VertexMarker11,VertexMarker12,VertexMarker13,VertexMarker14,VertexMarker15,VertexMarker16,VertexMarker17,VertexMarker18,VertexMarker19,VertexMarker20,VertexMarker21,VertexMarker22,VertexMarker23,VertexMarker24,VertexMarker25,VertexMarker26,VertexMarker27,VertexMarker28,VertexMarker29,VertexMarker30,VertexMarker31,VertexMarker32,VertexMarker33,VertexMarker34,VertexMarker35,VertexMarker36,VertexMarker37,VertexMarker38,VertexMarker39,VertexMarker40,VertexMarker41,VertexMarker42,VertexMarker43,VertexMarker44,VertexMarker45,VertexMarker46,VertexMarker47,VertexMarker48,VertexMarker49,VertexMarker50,VertexMarker51,VertexMarker52,VertexMarker53};
-        tokenViews = new ImageView[] {tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
-        playerCards = new ImageView[] {PlayerCard1,PlayerCard2,PlayerCard3,PlayerCard4,PlayerCard5,PlayerCard6,PlayerCard7,PlayerCard8,PlayerCard9,PlayerCard10,PlayerCard11,PlayerCard12,PlayerCard13,PlayerCard14,PlayerCard15,PlayerCard16,PlayerCard17,PlayerCard18,PlayerCard19,PlayerCard20,PlayerCard21};
-        tradeLabels = new Label[] {tradeBrickLabel, tradeGrainLabel, tradeOreLabel, tradeWoodLabel, tradeWoolLabel};
+        playerLabels = new ImageView[]{GreenColorLabel, WhiteColorLabel, RedColorLabel, BlueColorLabel};
+        resNdevLabels = new ImageView[]{resLabel1, devLabel1, resLabel2, devLabel2, resLabel3, devLabel3, resLabel4, devLabel4};
+        playerImages = new ImageView[]{GreenIcon, WhiteIcon, BlueIcon, RedIcon};
+        tileViews = new ImageView[]{r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r2c4, r3c0, r3c1, r3c2, r3c3, r4c0, r4c1, r4c2};
+        portViews = new ImageView[]{p1, p2, p3, p4, p5, p6, p7, p8, p9};
+        EdgeMarkers = new Rectangle[]{EdgeMarker0, EdgeMarker1, EdgeMarker2, EdgeMarker3, EdgeMarker4, EdgeMarker5, EdgeMarker6, EdgeMarker7, EdgeMarker8, EdgeMarker9, EdgeMarker10, EdgeMarker11, EdgeMarker12, EdgeMarker13, EdgeMarker14, EdgeMarker15, EdgeMarker16, EdgeMarker17, EdgeMarker18, EdgeMarker19, EdgeMarker20, EdgeMarker21, EdgeMarker22, EdgeMarker23, EdgeMarker24, EdgeMarker25, EdgeMarker26, EdgeMarker27, EdgeMarker28, EdgeMarker29, EdgeMarker30, EdgeMarker31, EdgeMarker32, EdgeMarker33, EdgeMarker34, EdgeMarker35, EdgeMarker36, EdgeMarker37, EdgeMarker38, EdgeMarker39, EdgeMarker40, EdgeMarker41, EdgeMarker42, EdgeMarker43, EdgeMarker44, EdgeMarker45, EdgeMarker46, EdgeMarker47, EdgeMarker48, EdgeMarker49, EdgeMarker50, EdgeMarker51, EdgeMarker52, EdgeMarker53, EdgeMarker54, EdgeMarker55, EdgeMarker56, EdgeMarker57, EdgeMarker58, EdgeMarker59, EdgeMarker60, EdgeMarker61, EdgeMarker62, EdgeMarker63, EdgeMarker64, EdgeMarker65, EdgeMarker66, EdgeMarker67, EdgeMarker68, EdgeMarker69, EdgeMarker70, EdgeMarker71};
+        VertexMarkers = new Rectangle[]{VertexMarker0, VertexMarker1, VertexMarker2, VertexMarker3, VertexMarker4, VertexMarker5, VertexMarker6, VertexMarker7, VertexMarker8, VertexMarker9, VertexMarker10, VertexMarker11, VertexMarker12, VertexMarker13, VertexMarker14, VertexMarker15, VertexMarker16, VertexMarker17, VertexMarker18, VertexMarker19, VertexMarker20, VertexMarker21, VertexMarker22, VertexMarker23, VertexMarker24, VertexMarker25, VertexMarker26, VertexMarker27, VertexMarker28, VertexMarker29, VertexMarker30, VertexMarker31, VertexMarker32, VertexMarker33, VertexMarker34, VertexMarker35, VertexMarker36, VertexMarker37, VertexMarker38, VertexMarker39, VertexMarker40, VertexMarker41, VertexMarker42, VertexMarker43, VertexMarker44, VertexMarker45, VertexMarker46, VertexMarker47, VertexMarker48, VertexMarker49, VertexMarker50, VertexMarker51, VertexMarker52, VertexMarker53};
+        tokenViews = new ImageView[]{tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
+        playerCards = new ImageView[]{PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7, PlayerCard8, PlayerCard9, PlayerCard10, PlayerCard11, PlayerCard12, PlayerCard13, PlayerCard14, PlayerCard15, PlayerCard16, PlayerCard17, PlayerCard18, PlayerCard19, PlayerCard20, PlayerCard21};
+        tradeLabels = new Label[]{tradeBrickLabel, tradeGrainLabel, tradeOreLabel, tradeWoodLabel, tradeWoolLabel};
+        buildPanes = new Pane[] {roadPane, settlementPane, cityPane, devcardPane};
         TradeMenu.setVisible(false);
         TradePanel.setVisible(false);
+        buildPanel.setVisible(false);
         ResourcePanel.setVisible(false);
-        for(Label label: playerNumLabels) {
+        for (Label label : playerNumLabels) {
             label.setVisible(false);
         }
-        for(ImageView image: tokenViews) {
+        for (ImageView image : tokenViews) {
             image.setVisible(false);
             image.setDisable(true);
         }
-        for(ImageView image: playerLabels) {
+        for (ImageView image : playerLabels) {
             image.setVisible(false);
         }
-        for (ImageView image: resNdevLabels) {
+        for (ImageView image : resNdevLabels) {
             image.setVisible(false);
         }
-        for(ImageView image: playerImages) {
+        for (ImageView image : playerImages) {
             image.setVisible(false);
         }
-        for(ImageView image: tileViews) {
+        for (ImageView image : tileViews) {
             image.setVisible(false);
         }
-        for(ImageView image: portViews) {
+        for (ImageView image : portViews) {
             image.setVisible(false);
         }
-        for(Rectangle rect: EdgeMarkers) {
+        for (Rectangle rect : EdgeMarkers) {
             rect.setVisible(false);
         }
-        for(Rectangle rect: VertexMarkers) {
+        for (Rectangle rect : VertexMarkers) {
             rect.setVisible(false);
         }
-        for(Rectangle rect: resDecks) {
+        for (Rectangle rect : resDecks) {
             rect.setVisible(false);
         }
-        for(Rectangle rect: devDecks) {
+        for (Rectangle rect : devDecks) {
             rect.setVisible(false);
         }
-        for(Rectangle rect: VertexMarkers) {
+        for (Rectangle rect : VertexMarkers) {
             rect.setDisable(true);
         }
-        for(Rectangle rect: EdgeMarkers) {
+        for (Rectangle rect : EdgeMarkers) {
             rect.setDisable(true);
         }
         RollDiceButton.setDisable(true);
@@ -935,14 +951,15 @@ public class GameBoardController {
         requestDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
         portDropdown.setVisible(false);
         tradeErrorMessage.setVisible(false);
-        offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,21));
-        requestSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,21));
+        offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21));
+        requestSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21));
     }
+
     @FXML
     public void startGame() {
         startButton.setVisible(false);
         int[][] tokenPos = GameState.tokenPos;
-        for(int i = 0; i < tokenPos.length; i++) {
+        for (int i = 0; i < tokenPos.length; i++) {
             tokenMap.put(tokenPos[i], tokenViews[i]);
         }
         NumberToken[] tokens = GameState.tokens;
@@ -950,47 +967,47 @@ public class GameBoardController {
         int desx = desertPos[0];
         int desy = desertPos[1];
         boolean desertFound = false;
-        for(int i = 0; i < tokenPos.length; i++) {
+        for (int i = 0; i < tokenPos.length; i++) {
             int x = tokenPos[i][0];
             int y = tokenPos[i][1];
-            if(x == desx && y == desy) {
+            if (x == desx && y == desy) {
                 tokenViews[i].setImage((Image) Initialize.robber.getValue());
                 GameState.robberTokenIndex = i;
                 GameState.desertTokenIndex = i;
                 desertFound = true;
                 continue;
             }
-            int posForImage = desertFound ? i-1 : i;
+            int posForImage = desertFound ? i - 1 : i;
             tokenMap.get(tokenPos[i]).setImage(tokens[posForImage].getImage());
             GameState.posMap.get(Arrays.toString(tokenPos[i])).setToken(GameState.numbers[posForImage]);
         }
-        for(int i = 0; i < 19; i++) {
+        for (int i = 0; i < 19; i++) {
             System.out.println(GameState.allTiles[i] + " " + Arrays.toString(GameState.pos[i]) + " " + GameState.tiles[i].getToken());
         }
         Tile[] tiles = GameState.tiles;
-        for(int i = 0; i < tileViews.length; i++) {
+        for (int i = 0; i < tileViews.length; i++) {
             tileViews[i].setImage(tiles[i].getImage());
         }
-        for(ImageView image: tileViews) {
+        for (ImageView image : tileViews) {
             image.setVisible(true);
         }
         Port[] ports = GameState.ports;
-        for(int i = 0; i < portViews.length; i++) {
+        for (int i = 0; i < portViews.length; i++) {
             portViews[i].setImage(ports[i].getImage());
         }
-        for(ImageView image: portViews) {
+        for (ImageView image : portViews) {
             image.setVisible(true);
         }
-        for(ImageView image: tokenViews) {
+        for (ImageView image : tokenViews) {
             image.setVisible(true);
         }
-        for (int i = 0; i < GameState.numPlayers*2; i++) {
+        for (int i = 0; i < GameState.numPlayers * 2; i++) {
             resNdevLabels[i].setVisible(true);
             resNdevLabels[++i].setVisible(true);
         }
         int numPlayers = GameState.numPlayers;
         String[] colors = GameState.allColors;
-        for(int i = 0; i < numPlayers; i++) {
+        for (int i = 0; i < numPlayers; i++) {
             ImageView label = color2label.get(colors[i]);
             playerNumLabels[i].setVisible(true);
             label.setVisible(true);
@@ -1017,7 +1034,7 @@ public class GameBoardController {
         HelpButton.setDisable(false);
         GameState.currentPlayer = GameState.playerMap.get(1);
         ActivityLog.setEditable(false);
-        ActivityLog.appendText("Determine which player goes first: \n" );
+        ActivityLog.appendText("Determine which player goes first: \n");
         appendBoth("Player " + 1 + ", roll the dice");
         RollDiceButton.setDisable(false);
     }
@@ -1026,13 +1043,13 @@ public class GameBoardController {
         int[] results = GameState.setUpDice;
         int max = results[0];
         int index = 0;
-        for(int i = 1; i < results.length; i++) {
-            if(results[i] > max) {
+        for (int i = 1; i < results.length; i++) {
+            if (results[i] > max) {
                 max = results[i];
                 index = i;
             }
         }
-        index+=1;
+        index += 1;
 
         GameState.firstPlayerIndex = index;
         appendBoth("Player " + index + " goes first!");
@@ -1053,15 +1070,14 @@ public class GameBoardController {
     the surrounding vertex set visible false
      */
         Vertex[] vertices = GameState.allVertices;
-        for(int i = 0; i < vertices.length; i++) {
+        for (int i = 0; i < vertices.length; i++) {
             VertexMarkers[i].setVisible(true);
             VertexMarkers[i].setDisable(false);
         }
-        for(int i = 0; i < vertices.length; i++) {
-            if(GameState.maintainsDistance(vertices[i])) {
+        for (int i = 0; i < vertices.length; i++) {
+            if (GameState.maintainsDistance(vertices[i])) {
                 ArrayList<Vertex> surroundingVertices = vertices[i].getAdjacentVertices();
-                for(int j = 0; j < surroundingVertices.size(); j++)
-                {
+                for (int j = 0; j < surroundingVertices.size(); j++) {
                     int surroundingIndex = surroundingVertices.get(j).getBoardIndex();
                     VertexMarkers[surroundingIndex].setVisible(false);
                     VertexMarkers[surroundingIndex].setDisable(true);
@@ -1074,16 +1090,115 @@ public class GameBoardController {
 
     public void placeEdge() {
         Edge[] edges = GameState.allEdges;
-        for(int i = 0; i < edges.length; i++) {
-            if(GameState.isValidEdge(edges[i])) {
+        for (int i = 0; i < edges.length; i++) {
+            if (GameState.isValidEdge(edges[i])) {
                 EdgeMarkers[i].setVisible(true);
                 EdgeMarkers[i].setDisable(false);
             }
         }
     }
 
-    @FXML public void showHelp() { ParentPanel.helpPanel.show(); }
+    public void placeCity() {
 
+    }
+    @FXML
+    public void showHelp() {
+        ParentPanel.helpPanel.show();
+    }
+
+    @FXML
+    public void showBuild() {
+        buildPanel.setVisible(true);
+        ConfirmButton.setDisable(true);
+        CancelButton.setDisable(true);
+        BuildButton.setDisable(true);
+        TradeButton.setDisable(true);
+        EndTurnButton.setDisable(true);
+        buildErrorMessage.setVisible(false);
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+    }
+    @FXML
+    public void confirmBuild() {
+        buildErrorMessage.setVisible(false);
+        String selectedItem = GameState.selectedItem;
+        if(selectedItem == null) {
+            buildErrorMessage.setVisible(true);
+            buildErrorMessage.setText("Please select an item");
+        } else {
+            ArrayList<String> resourcesNeeded = GameState.shop.get(GameState.selectedItem);
+            Player currentPlayer = GameState.currentPlayer;
+            ArrayList<String> resourcesOwned = new ArrayList<>();
+            for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
+                resourcesOwned.add(resourceCard.getType());
+            }
+            if(resourcesOwned.containsAll(resourcesNeeded)) {
+                switch(selectedItem) {
+                    case "Road":
+                        placeEdge();
+                        break;
+                    case "Settlement":
+                        placeSettlement();
+                        break;
+
+                }
+                closeBuildPanel();
+            } else {
+                buildErrorMessage.setVisible(true);
+                buildErrorMessage.setText("Not enough resources for this item!");
+            }
+
+
+        }
+
+    }
+    @FXML
+    public void closeBuildPanel() {
+        GameState.selectedItem = null;
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+        buildPanel.setVisible(false);
+        ConfirmButton.setDisable(false);
+        CancelButton.setDisable(false);
+        BuildButton.setDisable(false);
+        TradeButton.setDisable(false);
+        EndTurnButton.setDisable(false);
+    }
+
+    @FXML
+    public void roadSelected() {
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+        GameState.selectedItem = "Road";
+        roadPane.setStyle("-fx-border-color: seagreen");
+    }
+    @FXML
+    public void settlementSelected() {
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+        GameState.selectedItem = "Settlement";
+        settlementPane.setStyle("-fx-border-color: seagreen");
+    }
+    @FXML
+    public void citySelected() {
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+        GameState.selectedItem = "City";
+        cityPane.setStyle("-fx-border-color: seagreen");
+    }
+    @FXML
+    public void devcardSelected() {
+        for(Pane pane: buildPanes) {
+            pane.setStyle(null);
+        }
+        GameState.selectedItem = "DevCard";
+        devcardPane.setStyle("-fx-border-color: seagreen");
+    }
     @FXML
     public void showTrade() throws IOException {
         ConfirmButton.setDisable(true);
@@ -1093,19 +1208,19 @@ public class GameBoardController {
         EndTurnButton.setDisable(true);
         portButtonImage.setOpacity(0.5);
         portButton.setDisable(true);
-        if(GameState.currentPlayer.hasPort()) {
+        if (GameState.currentPlayer.hasPort()) {
             portButtonImage.setOpacity(1.0);
             portButton.setDisable(false);
         }
         HashMap<String, Integer> cardCounts = new HashMap<>();
-        for(ResourceCard resourceCard: GameState.currentPlayer.getResourceDeck()) {
-            if(cardCounts.get(resourceCard.getType()) == null) {
+        for (ResourceCard resourceCard : GameState.currentPlayer.getResourceDeck()) {
+            if (cardCounts.get(resourceCard.getType()) == null) {
                 cardCounts.put(resourceCard.getType(), 1);
             }
         }
         bankButtonImage.setOpacity(0.5);
         bankButton.setDisable(true);
-        for(int i: cardCounts.values()) {
+        for (int i : cardCounts.values()) {
             if (i >= 4) {
                 bankButtonImage.setOpacity(1);
                 bankButton.setDisable(false);
@@ -1125,52 +1240,52 @@ public class GameBoardController {
     }
 
     public void showTradePanel(String message) throws IOException {
-        for(Label label: tradeLabels) {
+        for (Label label : tradeLabels) {
             label.setText("0");
         }
         Player currentPlayer = GameState.currentPlayer;
-        tradeLabel.setText("Trade with "+message);
+        tradeLabel.setText("Trade with " + message);
         ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with " + message);
 
-        for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
+        for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
             String name = resourceCard.getType();
-            switch(name) {
+            switch (name) {
                 case "Brick":
-                    tradeBrickLabel.setText(Integer.toString(Integer.parseInt(tradeBrickLabel.getText())+1));
+                    tradeBrickLabel.setText(Integer.toString(Integer.parseInt(tradeBrickLabel.getText()) + 1));
                     break;
                 case "Ore":
-                    tradeOreLabel.setText(Integer.toString(Integer.parseInt(tradeOreLabel.getText())+1));
+                    tradeOreLabel.setText(Integer.toString(Integer.parseInt(tradeOreLabel.getText()) + 1));
                     break;
                 case "Grain":
-                    tradeGrainLabel.setText(Integer.toString(Integer.parseInt(tradeGrainLabel.getText())+1));
+                    tradeGrainLabel.setText(Integer.toString(Integer.parseInt(tradeGrainLabel.getText()) + 1));
                     break;
                 case "Wood":
-                    tradeWoodLabel.setText(Integer.toString(Integer.parseInt(tradeWoodLabel.getText())+1));
+                    tradeWoodLabel.setText(Integer.toString(Integer.parseInt(tradeWoodLabel.getText()) + 1));
                     break;
                 case "Wool":
-                    tradeWoolLabel.setText(Integer.toString(Integer.parseInt(tradeWoolLabel.getText())+1));
+                    tradeWoolLabel.setText(Integer.toString(Integer.parseInt(tradeWoolLabel.getText()) + 1));
                     break;
             }
         }
-        if(message.equals("Ports")) {
-            offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(2,3));
+        if (message.equals("Ports")) {
+            offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 3));
             requestSpinner.getValueFactory().setValue(1);
             requestSpinner.setDisable(true);
             portDropdown.getItems().removeAll(portDropdown.getItems());
             portDropdown.setVisible(true);
             if (currentPlayer.hasPort()) {
-                for (Port port: currentPlayer.getPorts()) {
+                for (Port port : currentPlayer.getPorts()) {
                     portDropdown.getItems().add(port.getType());
                 }
             }
         }
-        if(message.equals("Bank")) {
+        if (message.equals("Bank")) {
             offerSpinner.getValueFactory().setValue(4);
             offerSpinner.setEditable(false);
             requestSpinner.getValueFactory().setValue(1);
             requestSpinner.setDisable(true);
         }
-        if(message.equals("Others")) {
+        if (message.equals("Others")) {
             processOthersTrading();
         }
 
@@ -1182,9 +1297,51 @@ public class GameBoardController {
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
     }
+
     public void processOthersTrading() {
 
     }
+
+    public void getFromBank(String resource) {
+        switch (resource) {
+            case "Brick":
+                BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText()) - 1));
+                break;
+            case "Grain":
+                GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText()) - 1));
+                break;
+            case "Ore":
+                OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText()) - 1));
+                break;
+            case "Wood":
+                WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText()) - 1));
+                break;
+            case "Wool":
+                WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText()) - 1));
+                break;
+        }
+    }
+
+    public void addToBank(String resource) {
+        switch (resource) {
+            case "Brick":
+                BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText()) + 1));
+                break;
+            case "Grain":
+                GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText()) + 1));
+                break;
+            case "Ore":
+                OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText()) + 1));
+                break;
+            case "Wood":
+                WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText()) + 1));
+                break;
+            case "Wool":
+                WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText()) + 1));
+                break;
+        }
+    }
+
     @FXML
     public void confirmTrade() throws IOException {
         tradeErrorMessage.setVisible(false);
@@ -1192,46 +1349,38 @@ public class GameBoardController {
         Player currentPlayer = GameState.currentPlayer;
         String offeredResource = offerDropdown.getValue();
         int count = 0;
-        for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
-            if(resourceCard.getType().equals(offeredResource)) count++;
+        for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
+            if (resourceCard.getType().equals(offeredResource)) count++;
         }
         String offerEmpty = offerDropdown.getValue();
         String requestEmpty = requestDropdown.getValue();
-        if(offerEmpty == null || requestEmpty == null) {
+        if (offerEmpty == null || requestEmpty == null) {
             tradeErrorMessage.setVisible(true);
             tradeErrorMessage.setText("Please make an offer and a request!");
             System.out.println("emptyyy");
             offerDropdown.valueProperty().set(null);
             requestDropdown.valueProperty().set(null);
+        } else if (offerEmpty.equals(requestEmpty)) {
+            tradeErrorMessage.setVisible(true);
+            tradeErrorMessage.setText("Cannot trade & request the same resource!");
+            offerDropdown.valueProperty().set(null);
+            requestDropdown.valueProperty().set(null);
         } else {
             String requestedResource = requestDropdown.getValue();
-            if(tradeType.equals("Trade with Bank")) {
-                if(count >= 4) {
+            if (tradeType.equals("Trade with Bank")) {
+                if (count >= 4) {
                     int numRemoved = 0;
-                    for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
-                        if(numRemoved == 4) break;
-                        if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                    for (int i = 0; i < currentPlayer.getResourceDeck().size(); i++) {
+                        if (numRemoved == 4) break;
+                        if (currentPlayer.getResourceDeck().get(i).getType().equals(offeredResource)) {
                             currentPlayer.removeResource(i--);
                             numRemoved++;
                         }
                     }
 
-                    switch (requestedResource) {
-                        case "Brick":
-                            BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
-                            break;
-                        case "Grain":
-                            GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
-                            break;
-                        case "Ore":
-                            OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
-                            break;
-                        case "Wood":
-                            WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
-                            break;
-                        case "Wool":
-                            WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
-                            break;
+                    getFromBank(requestedResource);
+                    for(int i = 0; i < 4; i++) {
+                        addToBank(offeredResource);
                     }
                     currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
                     MainLabel.setText("Trade Successful!");
@@ -1241,44 +1390,31 @@ public class GameBoardController {
                     tradeErrorMessage.setText("Not enough resources of this type!");
                 }
             }
-            if(tradeType.equals("Trade with Ports")) {
+            if (tradeType.equals("Trade with Ports")) {
                 String selectedPort = portDropdown.getValue();
-                if(selectedPort == null) {
+                if (selectedPort == null) {
                     tradeErrorMessage.setVisible(true);
                     tradeErrorMessage.setText("Please select a Port!");
                     portDropdown.valueProperty().set(null);
                 } else {
                     boolean selectedResourceOfPort = false;
-                    if(selectedPort.equals("UnknownPort")) {
-                        if(offerSpinner.getValue() != 3) {
+                    if (selectedPort.equals("UnknownPort")) {
+                        if (offerSpinner.getValue() != 3) {
                             tradeErrorMessage.setVisible(true);
                             tradeErrorMessage.setText("Please offer 3 resources of the same type!");
                         } else {
-                            if(count >= 3) {
+                            if (count >= 3) {
                                 int numRemoved = 0;
-                                for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
-                                    if(numRemoved == 3) break;
-                                    if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                                for (int i = 0; i < currentPlayer.getResourceDeck().size(); i++) {
+                                    if (numRemoved == 3) break;
+                                    if (currentPlayer.getResourceDeck().get(i).getType().equals(offeredResource)) {
                                         currentPlayer.removeResource(i--);
                                         numRemoved++;
                                     }
                                 }
-                                switch (requestedResource) {
-                                    case "Brick":
-                                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
-                                        break;
-                                    case "Grain":
-                                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
-                                        break;
-                                    case "Ore":
-                                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
-                                        break;
-                                    case "Wood":
-                                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
-                                        break;
-                                    case "Wool":
-                                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
-                                        break;
+                                getFromBank(requestedResource);
+                                for(int i = 0; i < 3; i++) {
+                                    addToBank(offeredResource);
                                 }
                                 currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
                                 MainLabel.setText("Trade Successful!");
@@ -1289,38 +1425,29 @@ public class GameBoardController {
                             }
                         }
                     } else {
-                        for(Port port: currentPlayer.getPorts()) {
-                            if(offeredResource.equals(port.getResource())) selectedResourceOfPort = true;
+                        for (Port port : currentPlayer.getPorts()) {
+                            if (offeredResource.equals(port.getResource())) selectedResourceOfPort = true;
                         }
-                        if(!selectedResourceOfPort) {
+                        if (!selectedResourceOfPort) {
                             tradeErrorMessage.setVisible(true);
                             tradeErrorMessage.setText("You don't have any Ports of that Resource!");
+                        } else if (offerSpinner.getValue() != 2) {
+                            tradeErrorMessage.setVisible(true);
+                            tradeErrorMessage.setText("Please offer two resources!");
                         } else {
-                            if(count >= 2) {
+                            if (count >= 2) {
                                 int numRemoved = 0;
-                                for(int i =0; i < currentPlayer.getResourceDeck().size(); i++) {
-                                    if(numRemoved == 2) break;
-                                    if(currentPlayer.getResourceDeck().get(i).equals(offeredResource)) {
+                                for (int i = 0; i < currentPlayer.getResourceDeck().size(); i++) {
+                                    if (numRemoved == 2) break;
+                                    if (currentPlayer.getResourceDeck().get(i).getType().equals(offeredResource)) {
+                                        System.out.println("hiii");
                                         currentPlayer.removeResource(i--);
                                         numRemoved++;
                                     }
                                 }
-                                switch (requestedResource) {
-                                    case "Brick":
-                                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
-                                        break;
-                                    case "Grain":
-                                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
-                                        break;
-                                    case "Ore":
-                                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
-                                        break;
-                                    case "Wood":
-                                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
-                                        break;
-                                    case "Wool":
-                                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
-                                        break;
+                                getFromBank(requestedResource);
+                                for(int i = 0; i < 2; i++) {
+                                    addToBank(offeredResource);
                                 }
                                 MainLabel.setText("Trade Successful!");
                                 closeTradePanel();
@@ -1334,23 +1461,23 @@ public class GameBoardController {
 
             }
         }
-
-        tradeErrorMessage.setVisible(false);
-
     }
 
     @FXML
     public void show4For1() throws IOException {
         showTradePanel("Bank");
     }
+
     @FXML
     public void showOthers() throws IOException {
         showTradePanel("Others");
     }
+
     @FXML
     public void showPorts() throws IOException {
         showTradePanel("Ports");
     }
+
     @FXML
     public void closeTradePanel() throws IOException {
         Player currentPlayer = GameState.currentPlayer;
@@ -1378,16 +1505,16 @@ public class GameBoardController {
         Random rand = new Random();
         int die1 = rand.nextInt(6) + 1;
         int die2 = rand.nextInt(6) + 1;
-        int diceRoll = die1+die2;
-        if(GameState.gameStarted) {
+        int diceRoll = die1 + die2;
+        if (GameState.gameStarted) {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
-            appendBoth("Player " + index + " rolled " + diceRoll +"\n");
-            if(diceRoll == 7) {//
-                appendBoth("Move the Robber to Another Tile"+"\n");
+            appendBoth("Player " + index + " rolled " + diceRoll + "\n");
+            if (diceRoll == 7) {//
+                appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
-                for(ImageView i : tokenViews) {
+                for (ImageView i : tokenViews) {
                     i.setDisable(false);
                 }
                 tokenViews[GameState.robberTokenIndex].setDisable(true);
@@ -1398,42 +1525,38 @@ public class GameBoardController {
 //                    TradeButton.setDisable(false);
 //                    EndTurnButton.setDisable(false);
 //                }
-            }
-            else{
+            } else {
                 cardAssignment(false, diceRoll);
                 BuildButton.setDisable(false);
                 TradeButton.setDisable(false);
                 EndTurnButton.setDisable(false);
             }
 
-        }
-        else {
+        } else {
             ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " rolled " + diceRoll + "\n\n");
-            GameState.setUpDice[GameState.currentPlayerIndex-1] = diceRoll;
-            if(GameState.currentPlayerIndex != GameState.numPlayers) {
+            GameState.setUpDice[GameState.currentPlayerIndex - 1] = diceRoll;
+            if (GameState.currentPlayerIndex != GameState.numPlayers) {
                 GameState.currentPlayerIndex = GameState.currentPlayerIndex + 1;
                 GameState.currentPlayer = GameState.playerMap.get(GameState.currentPlayerIndex);
                 appendBoth("Player " + GameState.currentPlayerIndex + ", roll the dice");
                 RollDiceButton.setDisable(false);
-            }
-            else {
+            } else {
                 RollDiceButton.setDisable(true);
                 setUp();
             }
         }
     }
-    public void moveRobber(int tokenLocation){
+
+    public void moveRobber(int tokenLocation) {
         ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
-        if(GameState.robberTokenIndex != GameState.desertTokenIndex){
-            if(GameState.robberTokenIndex >= GameState.desertTokenIndex){
-                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex-1].getImage());
-            }
-            else{
+        if (GameState.robberTokenIndex != GameState.desertTokenIndex) {
+            if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
+                tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex - 1].getImage());
+            } else {
                 tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex].getImage());
             }
 
-        }
-        else{
+        } else {
             tokenViews[GameState.robberTokenIndex].setImage(null);
         }
 
@@ -1441,7 +1564,7 @@ public class GameBoardController {
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
-        for(ImageView i : tokenViews) {
+        for (ImageView i : tokenViews) {
             i.setDisable(true);
         }
         EndTurnButton.setDisable(false);
@@ -1449,22 +1572,22 @@ public class GameBoardController {
     }
 
     public void appendBoth(String str) {
-        ActivityLog.appendText(str+"\n");
+        ActivityLog.appendText(str + "\n");
         MainLabel.setText(str);
     }
 
     public void MarkerPressed(int index) {
         VertexMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
         GameState.allVertices[index].setPlayerIndex(GameState.currentPlayerIndex);
-        for(int i = 0; i < VertexMarkers.length; i++) {
+        for (int i = 0; i < VertexMarkers.length; i++) {
             VertexMarkers[i].setDisable(true);
-            if(GameState.allVertices[i].getPlayerIndex() <= 0) VertexMarkers[i].setVisible(false);
+            if (GameState.allVertices[i].getPlayerIndex() <= 0) VertexMarkers[i].setVisible(false);
         }
         VertexMarkers[index].setVisible(true);
         GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
-        if(!GameState.gameStarted) {
+        if (!GameState.gameStarted) {
             String roadNum = GameState.firstSettlementsPlaced ? "second" : "first";
-            MainLabel.setText("Now select your "+roadNum+" Road location");
+            MainLabel.setText("Now select your " + roadNum + " Road location");
             placeEdge();
         }
     }
@@ -1474,13 +1597,13 @@ public class GameBoardController {
         EdgeMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
         GameState.allEdges[index].setPlayerIndex(GameState.currentPlayerIndex);
         GameState.currentPlayer.addRoad(GameState.allEdges[index]);
-        for(int i = 0; i < EdgeMarkers.length; i++) {
+        for (int i = 0; i < EdgeMarkers.length; i++) {
             EdgeMarkers[i].setDisable(true);
-            if(GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
+            if (GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         nextTurn();
         EdgeMarkers[index].setVisible(true);
-        if(!GameState.gameStarted) {
+        if (!GameState.gameStarted) {
             String settlementNum = GameState.firstSettlementsPlaced ? "second" : "first";
             MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your " + settlementNum + " settlement");
             placeSettlement();
@@ -1490,26 +1613,26 @@ public class GameBoardController {
     public void cardAssignment(boolean isFirst, int numRolled) {
         GameState.cardAssignment(isFirst, numRolled);
         ActivityLog.appendText("-----Resources Distributed-----\n");
-        if(GameState.newCards.isEmpty()) appendBoth("NO RESOURCES DISTRIBUTED!");
+        if (GameState.newCards.isEmpty()) appendBoth("NO RESOURCES DISTRIBUTED!");
         else {
-            for(String[] newCard: GameState.newCards) {
+            for (String[] newCard : GameState.newCards) {
                 String cardName = newCard[1];
-                ActivityLog.appendText("Player " + newCard[0] + " received " + cardName+"!\n");
+                ActivityLog.appendText("Player " + newCard[0] + " received " + cardName + "!\n");
                 switch (cardName) {
                     case "Brick":
-                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText())-1));
+                        BrickLabel.setText(Integer.toString(Integer.parseInt(BrickLabel.getText()) - 1));
                         break;
                     case "Grain":
-                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText())-1));
+                        GrainLabel.setText(Integer.toString(Integer.parseInt(GrainLabel.getText()) - 1));
                         break;
                     case "Ore":
-                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText())-1));
+                        OreLabel.setText(Integer.toString(Integer.parseInt(OreLabel.getText()) - 1));
                         break;
                     case "Wood":
-                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText())-1));
+                        WoodLabel.setText(Integer.toString(Integer.parseInt(WoodLabel.getText()) - 1));
                         break;
                     case "Wool":
-                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText())-1));
+                        WoolLabel.setText(Integer.toString(Integer.parseInt(WoolLabel.getText()) - 1));
                         break;
                 }
             }
@@ -1522,36 +1645,33 @@ public class GameBoardController {
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
-        int nextTurn = GameState.iterateForward? (GameState.currentPlayerIndex % GameState.numPlayers) + 1 : (GameState.currentPlayerIndex+(GameState.numPlayers-1)) % GameState.numPlayers;
-        if(nextTurn == 0) nextTurn = GameState.numPlayers;
-        if(GameState.lastEdgePlaced) {
+        int nextTurn = GameState.iterateForward ? (GameState.currentPlayerIndex % GameState.numPlayers) + 1 : (GameState.currentPlayerIndex + (GameState.numPlayers - 1)) % GameState.numPlayers;
+        if (nextTurn == 0) nextTurn = GameState.numPlayers;
+        if (GameState.lastEdgePlaced) {
             GameState.gameStarted = true;
             GameState.lastEdgePlaced = false;
-            int current = (nextTurn+(GameState.numPlayers-1)) % GameState.numPlayers;
-            if(current == 0) current = GameState.numPlayers;
+            int current = (nextTurn + (GameState.numPlayers - 1)) % GameState.numPlayers;
+            if (current == 0) current = GameState.numPlayers;
             GameState.currentPlayerIndex = current;
             GameState.iterateForward = true;
 
             cardAssignment(true, 0);
             MainLabel.setText("Game Started! Player " + current + " roll the dice!");
-            ActivityLog.appendText("---Round "+GameState.round+"---\n");
+            ActivityLog.appendText("---Round " + GameState.round + "---\n");
             RollDiceButton.setDisable(false);
-        }
-        else if(GameState.gameStarted) {
+        } else if (GameState.gameStarted) {
             GameState.currentPlayerIndex = nextTurn;
-            MainLabel.setText("Round " + GameState.round +"! Player " + nextTurn + " roll the dice!");
-            ActivityLog.appendText("---Round "+GameState.round+"---\n");
+            MainLabel.setText("Round " + GameState.round + "! Player " + nextTurn + " roll the dice!");
+            ActivityLog.appendText("---Round " + GameState.round + "---\n");
             RollDiceButton.setDisable(false);
-        }
-        else {
-            if(!GameState.gameStarted){
-                if(nextTurn == GameState.firstPlayerIndex) {
-                    if(!GameState.firstSettlementsPlaced) {
+        } else {
+            if (!GameState.gameStarted) {
+                if (nextTurn == GameState.firstPlayerIndex) {
+                    if (!GameState.firstSettlementsPlaced) {
                         GameState.firstSettlementsPlaced = true;
                         GameState.iterateForward = false;
                         nextTurn = GameState.currentPlayerIndex;
-                    }
-                    else {
+                    } else {
                         GameState.lastEdgePlaced = true;
                     }
                 }
@@ -1563,14 +1683,17 @@ public class GameBoardController {
     }
 
     public void openResourcePanel(int playerIndex) {
-        for(int i = 0; i < playerCards.length; i++) {
+        for (int i = 0; i < playerCards.length; i++) {
             playerCards[i].setImage(null);
         }
         ResourcePanel.setVisible(false);
         ResourcePanel.setVisible(true);
-        ResourceViewText.setText("Player "+playerIndex+"'s Resource Deck");
-        for(int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
+        ResourceViewText.setText("Player " + playerIndex + "'s Resource Deck");
+        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
             playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
+        }
+        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
+            System.out.println(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getType());
         }
     }
 
@@ -1584,42 +1707,50 @@ public class GameBoardController {
 
     @FXML
     public void closeResourcePanel() {
-        for(int i = 0; i < playerCards.length; i++) {
+        for (int i = 0; i < playerCards.length; i++) {
             playerCards[i].setImage(null);
         }
         ResourcePanel.setVisible(false);
     }
 
     @FXML
-    public void showDevView1() {}
+    public void showDevView1() {
+    }
 
     @FXML
-    public void showDevView2() {}
+    public void showDevView2() {
+    }
 
     @FXML
-    public void showDevView3() {}
+    public void showDevView3() {
+    }
 
     @FXML
-    public void showDevView4() {}
+    public void showDevView4() {
+    }
 
     @FXML
     public void showResourceView1() {
-        if(GameState.currentPlayerIndex==1) openResourcePanel(1);
+        if (GameState.currentPlayerIndex == 1) openResourcePanel(1);
+        else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView2() {
-        if(GameState.currentPlayerIndex==2) openResourcePanel(2);
+        if (GameState.currentPlayerIndex == 2) openResourcePanel(2);
+        else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView3() {
-        if(GameState.currentPlayerIndex==3) openResourcePanel(3);
+        if (GameState.currentPlayerIndex == 3) openResourcePanel(3);
+        else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView4() {
-        if(GameState.currentPlayerIndex==4) openResourcePanel(4);
+        if (GameState.currentPlayerIndex == 4) openResourcePanel(4);
+        else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
