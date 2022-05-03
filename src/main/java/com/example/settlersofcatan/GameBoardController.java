@@ -1,23 +1,18 @@
 package com.example.settlersofcatan;
 
-import javafx.animation.*;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.*;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
 public class GameBoardController {
 
@@ -1162,6 +1157,8 @@ public class GameBoardController {
         for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " opened the purchase (build) menu. \n\n");
     }
 
     @FXML
@@ -1193,10 +1190,7 @@ public class GameBoardController {
                 buildErrorMessage.setVisible(true);
                 buildErrorMessage.setText("Not enough resources for this item!");
             }
-
-
         }
-
     }
 
     @FXML
@@ -1211,6 +1205,8 @@ public class GameBoardController {
         BuildButton.setDisable(false);
         TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " closed the purchase (build) menu. \n\n");
     }
 
     @FXML
@@ -1279,6 +1275,8 @@ public class GameBoardController {
             }
         }
         TradeMenu.setVisible(true);
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " opened the trade menu.\n\n");
     }
 
     @FXML
@@ -1289,6 +1287,8 @@ public class GameBoardController {
         BuildButton.setDisable(false);
         TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " closed the trade menu.\n\n");
     }
 
     public void showTradePanel(String message) throws IOException {
@@ -1297,7 +1297,7 @@ public class GameBoardController {
         }
         Player currentPlayer = GameState.currentPlayer;
         tradeLabel.setText("Trade with " + message);
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " chose to trade with " + message +"\n");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " chose to trade with " + message +"\n\n");
 
         for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
             String name = resourceCard.getType();
@@ -1603,11 +1603,13 @@ public class GameBoardController {
     @FXML
     public void show4For1() throws IOException {
         showTradePanel("Bank");
+        portDropdown.setVisible(false);
     }
 
     @FXML
     public void showOthers() throws IOException {
         showTradePanel("Others");
+        portDropdown.setVisible(false);
     }
 
     @FXML
@@ -1624,7 +1626,7 @@ public class GameBoardController {
         BuildButton.setDisable(false);
         TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
-    }
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " canceled their trading proposal. \n\n");    }
 
     @FXML //activates when user selects which resource to trade.
     public void bankTrading() throws IOException {
@@ -1647,8 +1649,10 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll + "\n");
-            if (diceRoll == 7) {//
+            if (diceRoll == 7) {
                 appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
+                BuildButton.setDisable(false);
+                TradeButton.setDisable(false);
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
                 for (ImageView i : tokenViews) {
@@ -1685,7 +1689,7 @@ public class GameBoardController {
     }
 
     public void moveRobber(int tokenLocation) {
-        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
+
         if (GameState.robberTokenIndex != GameState.desertTokenIndex) {
             if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
                 tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex - 1].getImage());
@@ -1701,6 +1705,11 @@ public class GameBoardController {
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
+        if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex - 1] + "\n\n");
+        } else {
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex ] + "\n\n");
+        }
         for (ImageView i : tokenViews) {
             i.setDisable(true);
         }
@@ -1774,7 +1783,7 @@ public class GameBoardController {
                 }
             }
         }
-        ActivityLog.appendText("--------------------------------------\n");
+        ActivityLog.appendText("--------------------------------------\n\n");
     }
 
     //1,2,3,4
@@ -1838,7 +1847,7 @@ public class GameBoardController {
     public void endTurn() {
         GameState.round = GameState.round + 1;
         Player currentPlayer = GameState.currentPlayer;
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " ended their turn. \n\n");
+        ActivityLog.appendText("Player " + currentPlayer.getIndex() + " ended their turn. \n\n");
         nextTurn();
     }
 
@@ -1848,6 +1857,8 @@ public class GameBoardController {
             playerCards[i].setImage(null);
         }
         ResourcePanel.setVisible(false);
+        Player currentPlayer = GameState.currentPlayer;
+        ActivityLog.appendText("Player "+ currentPlayer.getIndex() + " opened their resource deck.\n\n");
     }
 
     @FXML
@@ -1867,26 +1878,38 @@ public class GameBoardController {
     }
 
     @FXML
-    public void showResourceView1() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) openResourcePanel(1);
+    public void showResourceView1() {//
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) {
+            openResourcePanel(1);
+            ActivityLog.appendText("Player 1 opened their resource deck.\n\n");
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView2() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 2) openResourcePanel(2);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 2) {
+            openResourcePanel(2);
+            ActivityLog.appendText("Player 2 opened their resource deck.\n\n");
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView3() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 3) openResourcePanel(3);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 3) {
+            openResourcePanel(3);
+            ActivityLog.appendText("Player 3 opened their resource deck.\n\n");
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView4() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 4) openResourcePanel(4);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 4) {
+            openResourcePanel(4);
+            ActivityLog.appendText("Player 4 opened their resource deck.\n\n");
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
