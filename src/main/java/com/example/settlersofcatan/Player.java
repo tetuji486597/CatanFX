@@ -73,6 +73,16 @@ public class Player {
             resourceDeck.add(resource);
         }
     }
+    public int getRoadsRemaining() {
+        return 15-roads.size();
+    }
+
+    public int getSettlementsRemaining() {
+        return 5-settlements.size();
+    }
+    public int getCitiesRemaining() {
+        return 4-cities.size();
+    }
     public void removeResource(int index) {
         System.out.println(resourceDeck.remove(index).getType());
     }

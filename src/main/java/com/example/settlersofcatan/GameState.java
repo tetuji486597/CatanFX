@@ -45,6 +45,7 @@ public class GameState{
     public static boolean firstSettlementsPlaced;
     public static boolean gameStarted;
     public static boolean lastEdgePlaced;
+    public static boolean isOthersTrading;
     public static String selectedItem;
     public static HashMap<String, ArrayList<String>> shop;
 

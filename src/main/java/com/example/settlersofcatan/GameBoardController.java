@@ -850,6 +850,19 @@ public class GameBoardController {
     private Pane devcardPane;
 
     @FXML
+    private Label othersTradeTitle;
+    @FXML
+    private Label othersTradeOffer;
+    @FXML
+    private Label othersTradeRequest;
+    @FXML
+    private Button confirmTradeButton;
+    @FXML
+    private DialogPane othersTradePanel;
+    @FXML
+    private Label othersTradeErrorMessage;
+
+    @FXML
     public void initialize() throws FileNotFoundException {
         GameState.controller = this;
         color2label = new HashMap<>();
@@ -892,11 +905,12 @@ public class GameBoardController {
         tokenViews = new ImageView[]{tokenA, tokenB, tokenC, tokenD, tokenE, tokenF, tokenG, tokenH, tokenI, tokenJ, tokenK, tokenL, tokenM, tokenN, tokenO, tokenP, tokenQ, tokenR, tokenNull};
         playerCards = new ImageView[]{PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7, PlayerCard8, PlayerCard9, PlayerCard10, PlayerCard11, PlayerCard12, PlayerCard13, PlayerCard14, PlayerCard15, PlayerCard16, PlayerCard17, PlayerCard18, PlayerCard19, PlayerCard20, PlayerCard21};
         tradeLabels = new Label[]{tradeBrickLabel, tradeGrainLabel, tradeOreLabel, tradeWoodLabel, tradeWoolLabel};
-        buildPanes = new Pane[] {roadPane, settlementPane, cityPane, devcardPane};
+        buildPanes = new Pane[]{roadPane, settlementPane, cityPane, devcardPane};
         TradeMenu.setVisible(false);
         TradePanel.setVisible(false);
         buildPanel.setVisible(false);
         ResourcePanel.setVisible(false);
+        othersTradePanel.setVisible(false);
         for (Label label : playerNumLabels) {
             label.setVisible(false);
         }
@@ -951,6 +965,7 @@ public class GameBoardController {
         requestDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
         portDropdown.setVisible(false);
         tradeErrorMessage.setVisible(false);
+        othersTradeErrorMessage.setVisible(false);
         offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21));
         requestSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21));
     }
@@ -1101,6 +1116,7 @@ public class GameBoardController {
     public void placeCity() {
 
     }
+
     @FXML
     public void showHelp() {
         ParentPanel.helpPanel.show();
@@ -1115,26 +1131,27 @@ public class GameBoardController {
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
         buildErrorMessage.setVisible(false);
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
     }
+
     @FXML
     public void confirmBuild() {
         buildErrorMessage.setVisible(false);
         String selectedItem = GameState.selectedItem;
-        if(selectedItem == null) {
+        if (selectedItem == null) {
             buildErrorMessage.setVisible(true);
             buildErrorMessage.setText("Please select an item");
         } else {
             ArrayList<String> resourcesNeeded = GameState.shop.get(GameState.selectedItem);
             Player currentPlayer = GameState.currentPlayer;
             ArrayList<String> resourcesOwned = new ArrayList<>();
-            for(ResourceCard resourceCard: currentPlayer.getResourceDeck()) {
+            for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
                 resourcesOwned.add(resourceCard.getType());
             }
-            if(resourcesOwned.containsAll(resourcesNeeded)) {
-                switch(selectedItem) {
+            if (resourcesOwned.containsAll(resourcesNeeded)) {
+                switch (selectedItem) {
                     case "Road":
                         placeEdge();
                         break;
@@ -1153,10 +1170,11 @@ public class GameBoardController {
         }
 
     }
+
     @FXML
     public void closeBuildPanel() {
         GameState.selectedItem = null;
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
         buildPanel.setVisible(false);
@@ -1169,36 +1187,40 @@ public class GameBoardController {
 
     @FXML
     public void roadSelected() {
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
         GameState.selectedItem = "Road";
         roadPane.setStyle("-fx-border-color: seagreen");
     }
+
     @FXML
     public void settlementSelected() {
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
         GameState.selectedItem = "Settlement";
         settlementPane.setStyle("-fx-border-color: seagreen");
     }
+
     @FXML
     public void citySelected() {
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
         GameState.selectedItem = "City";
         cityPane.setStyle("-fx-border-color: seagreen");
     }
+
     @FXML
     public void devcardSelected() {
-        for(Pane pane: buildPanes) {
+        for (Pane pane : buildPanes) {
             pane.setStyle(null);
         }
         GameState.selectedItem = "DevCard";
         devcardPane.setStyle("-fx-border-color: seagreen");
     }
+
     @FXML
     public void showTrade() throws IOException {
         ConfirmButton.setDisable(true);
@@ -1245,7 +1267,7 @@ public class GameBoardController {
         }
         Player currentPlayer = GameState.currentPlayer;
         tradeLabel.setText("Trade with " + message);
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " choose to trade with " + message);
+        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " chose to trade with " + message +"\n");
 
         for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
             String name = resourceCard.getType();
@@ -1286,7 +1308,7 @@ public class GameBoardController {
             requestSpinner.setDisable(true);
         }
         if (message.equals("Others")) {
-            processOthersTrading();
+            confirmTradeButton.setText("Propose");
         }
 
         TradeMenu.setVisible(false);
@@ -1298,9 +1320,6 @@ public class GameBoardController {
         EndTurnButton.setDisable(true);
     }
 
-    public void processOthersTrading() {
-
-    }
 
     public void getFromBank(String resource) {
         switch (resource) {
@@ -1352,6 +1371,7 @@ public class GameBoardController {
         for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
             if (resourceCard.getType().equals(offeredResource)) count++;
         }
+        int numOffered = offerSpinner.getValue();
         String offerEmpty = offerDropdown.getValue();
         String requestEmpty = requestDropdown.getValue();
         if (offerEmpty == null || requestEmpty == null) {
@@ -1365,6 +1385,9 @@ public class GameBoardController {
             tradeErrorMessage.setText("Cannot trade & request the same resource!");
             offerDropdown.valueProperty().set(null);
             requestDropdown.valueProperty().set(null);
+        } else if (numOffered > count) {
+            tradeErrorMessage.setVisible(true);
+            tradeErrorMessage.setText("Not enough resources of this type!");
         } else {
             String requestedResource = requestDropdown.getValue();
             if (tradeType.equals("Trade with Bank")) {
@@ -1379,7 +1402,7 @@ public class GameBoardController {
                     }
 
                     getFromBank(requestedResource);
-                    for(int i = 0; i < 4; i++) {
+                    for (int i = 0; i < 4; i++) {
                         addToBank(offeredResource);
                     }
                     currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
@@ -1413,7 +1436,7 @@ public class GameBoardController {
                                     }
                                 }
                                 getFromBank(requestedResource);
-                                for(int i = 0; i < 3; i++) {
+                                for (int i = 0; i < 3; i++) {
                                     addToBank(offeredResource);
                                 }
                                 currentPlayer.addResources(new ArrayList<>(Arrays.asList(new ResourceCard(requestedResource, currentPlayer))));
@@ -1446,7 +1469,7 @@ public class GameBoardController {
                                     }
                                 }
                                 getFromBank(requestedResource);
-                                for(int i = 0; i < 2; i++) {
+                                for (int i = 0; i < 2; i++) {
                                     addToBank(offeredResource);
                                 }
                                 MainLabel.setText("Trade Successful!");
@@ -1460,9 +1483,93 @@ public class GameBoardController {
                 }
 
             }
+            if (tradeType.equals("Trade with Others")) {
+                GameState.isOthersTrading = true;
+                int numRequested = requestSpinner.getValue();
+                if (count >= numOffered) {
+                    othersTradePanel.setVisible(true);
+                    int nextPlayer = (currentPlayer.getIndex() % GameState.numPlayers) + 1;
+                    othersTradeTitle.setText("Player " + nextPlayer + ", do you accept?");
+                    othersTradeOffer.setText("Offer: " + numOffered + " " + offeredResource);
+                    othersTradeRequest.setText("Request: " + numRequested + " " + requestedResource);
+                } else {
+                    tradeErrorMessage.setVisible(true);
+                    tradeErrorMessage.setText("You don't have sufficient resources to make this trade!");
+                }
+            }
+
         }
     }
 
+    @FXML
+    public void confirmOthersTrade() throws IOException {
+        othersTradeErrorMessage.setVisible(false);
+        Player offerer = GameState.currentPlayer;
+        int playerNumber = Integer.parseInt(othersTradeTitle.getText().substring(7, 8));
+        Player confirmer = GameState.playerMap.get(playerNumber);
+        StringTokenizer offerTokenizer = new StringTokenizer(othersTradeOffer.getText());
+        StringTokenizer requestTokenizer = new StringTokenizer(othersTradeRequest.getText());
+        offerTokenizer.nextToken();
+        int numOffered = Integer.parseInt(offerTokenizer.nextToken());
+        String typeOffered = offerTokenizer.nextToken();
+        requestTokenizer.nextToken();
+        int numRequested = Integer.parseInt(requestTokenizer.nextToken());
+        String typeRequested = requestTokenizer.nextToken();
+        ArrayList<ResourceCard> playerDeck = GameState.playerMap.get(playerNumber).getResourceDeck();
+        int countOfRequestedResource = 0;
+        for (ResourceCard resourceCard : playerDeck) {
+            if (resourceCard.getType().equals(typeRequested)) countOfRequestedResource++;
+        }
+        if (countOfRequestedResource >= numRequested) {
+            int numRemoved = 0;
+            //PROCESSING OFFERER DECK
+            for (int i = 0; i < offerer.getResourceDeck().size(); i++) {
+                if(numRemoved >= numOffered) break;
+                if (offerer.getResourceDeck().get(i).getType().equals(typeOffered)) {
+                    offerer.removeResource(i--);
+                    ++numRemoved;
+                }
+            }
+            ArrayList<ResourceCard> toAdd = new ArrayList<>();
+            for(int i = 0; i < numRequested; i++) {
+                toAdd.add(new ResourceCard(typeRequested, offerer));
+            }
+            offerer.addResources(toAdd);
+            //PROCESSING REQUESTOR DECK
+            numRemoved = 0;
+            for (int i = 0; i < confirmer.getResourceDeck().size(); i++) {
+                if(numRemoved >= numRequested) break;
+                if (confirmer.getResourceDeck().get(i).getType().equals(typeRequested)) {
+                    confirmer.removeResource(i--);
+                    ++numRemoved;
+                }
+            }
+            toAdd = new ArrayList<>();
+            for(int i = 0; i < numOffered; i++) {
+                toAdd.add(new ResourceCard(typeOffered, confirmer));
+            }
+            confirmer.addResources(toAdd);
+            othersTradePanel.setVisible(false);
+            GameState.isOthersTrading = false;
+            appendBoth("Trade successful between Players "+GameState.currentPlayerIndex+" and " + playerNumber+"!");
+            closeTradePanel();
+        } else {
+            othersTradeErrorMessage.setVisible(true);
+            othersTradeErrorMessage.setText("You don't have enough resources to accept!");
+        }
+    }
+
+    @FXML
+    public void denyOthersTrade() throws IOException {
+        int nextTurn = (Integer.parseInt(othersTradeTitle.getText().substring(7, 8)) % GameState.numPlayers) + 1;
+        if(nextTurn == GameState.currentPlayerIndex) {
+            othersTradePanel.setVisible(false);
+            closeTradePanel();
+            appendBoth("No one accepted Player "+GameState.currentPlayerIndex+"'s trade!");
+        } else{
+            othersTradeTitle.setText("Okay, Player "+nextTurn+", do you accept the trade?");
+        }
+    }
     @FXML
     public void show4For1() throws IOException {
         showTradePanel("Bank");
@@ -1731,25 +1838,25 @@ public class GameBoardController {
 
     @FXML
     public void showResourceView1() {
-        if (GameState.currentPlayerIndex == 1) openResourcePanel(1);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) openResourcePanel(1);
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView2() {
-        if (GameState.currentPlayerIndex == 2) openResourcePanel(2);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 2) openResourcePanel(2);
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView3() {
-        if (GameState.currentPlayerIndex == 3) openResourcePanel(3);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 3) openResourcePanel(3);
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
     @FXML
     public void showResourceView4() {
-        if (GameState.currentPlayerIndex == 4) openResourcePanel(4);
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 4) openResourcePanel(4);
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 

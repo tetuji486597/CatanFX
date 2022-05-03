@@ -679,163 +679,6 @@
                         <Font name="Poor Richard" size="30.0" />
                      </font>
                   </Label>
-                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label fx:id="ResourceViewText" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="92.0" prefHeight="44.0" prefWidth="733.0" text="ResourcePanel">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <GridPane layoutX="51.0" layoutY="7.0" prefHeight="353.0" prefWidth="631.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <ImageView fx:id="PlayerCard1" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard2" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard3" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard4" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard5" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard6" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard7" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard12" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard8" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard9" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard10" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard11" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard13" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard14" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard15" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard16" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard17" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard18" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard19" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard20" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                    <ImageView fx:id="PlayerCard21" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                       <GridPane.margin>
-                                          <Insets left="6.0" />
-                                       </GridPane.margin>
-                                    </ImageView>
-                                 </children>
-                              </GridPane>
-                              <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                      </content>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                  </DialogPane>
                   <DialogPane fx:id="TradeMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="733.0">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
@@ -921,7 +764,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="717.0">
                            <children>
-                              <Button contentDisplay="CENTER" layoutX="272.0" layoutY="333.0" mnemonicParsing="false" onAction="#confirmTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                              <Button fx:id="confirmTradeButton" contentDisplay="CENTER" layoutX="272.0" layoutY="333.0" mnemonicParsing="false" onAction="#confirmTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -1094,6 +937,208 @@
                               <Button contentDisplay="CENTER" layoutX="278.0" layoutY="371.0" mnemonicParsing="false" onAction="#closeBuildPanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
                                  <graphic>
                                     <ImageView fx:id="cancelTrade11" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="othersTradePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeTitle" layoutY="100.0" prefHeight="44.0" prefWidth="724.0" text="Title" />
+                              <Label fx:id="othersTradeErrorMessage" layoutX="1.0" layoutY="5.0" prefHeight="86.0" prefWidth="724.0" text="Error Message" textFill="#f52929" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeOffer" layoutX="26.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Offer:" />
+                              <Label fx:id="othersTradeRequest" layoutX="413.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Request:" wrapText="true" />
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="342.0" mnemonicParsing="false" onAction="#denyOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Deny">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="ResourceViewText" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="92.0" prefHeight="44.0" prefWidth="733.0" text="ResourcePanel">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <GridPane layoutX="51.0" layoutY="7.0" prefHeight="353.0" prefWidth="631.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <ImageView fx:id="PlayerCard1" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard2" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard3" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard4" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard5" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard6" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard7" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard12" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard8" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard9" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard10" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard11" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard13" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard14" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard15" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard16" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard17" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard18" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard19" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard20" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                    <ImageView fx:id="PlayerCard21" fitHeight="116.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" />
+                                       </GridPane.margin>
+                                    </ImageView>
+                                 </children>
+                              </GridPane>
+                              <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../images/golden%20button.png" />
                                        </image>
