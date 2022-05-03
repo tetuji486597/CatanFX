@@ -1,23 +1,18 @@
 package com.example.settlersofcatan;
 
-import javafx.animation.*;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.*;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
 public class GameBoardController {
 
@@ -1837,8 +1832,10 @@ public class GameBoardController {
     }
 
     @FXML
-    public void showResourceView1() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) openResourcePanel(1);
+    public void showResourceView1() {//
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) {
+            openResourcePanel(1);
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
