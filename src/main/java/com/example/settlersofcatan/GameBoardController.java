@@ -863,6 +863,13 @@ public class GameBoardController {
     private Label othersTradeErrorMessage;
 
     @FXML
+    private Label roadsRemaining;
+    @FXML
+    private Label settlementsRemaining;
+    @FXML
+    private Label citiesRemaining;
+
+    @FXML
     public void initialize() throws FileNotFoundException {
         GameState.controller = this;
         color2label = new HashMap<>();
@@ -1130,6 +1137,27 @@ public class GameBoardController {
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
+        int numRoadsRemaining = GameState.currentPlayer.getRoadsRemaining();
+        if (numRoadsRemaining <= 0) {
+            roadPane.setDisable(true);
+            roadsRemaining.setText("0x");
+        } else {
+            roadsRemaining.setText(numRoadsRemaining+"x");
+        }
+        int numSettlementsRemaining = GameState.currentPlayer.getSettlementsRemaining();
+        if (numSettlementsRemaining <= 0) {
+            settlementPane.setDisable(true);
+            settlementsRemaining.setText("0x");
+        } else {
+            settlementsRemaining.setText(numSettlementsRemaining+"x");
+        }
+        int numCitiesRemaining = GameState.currentPlayer.getCitiesRemaining();
+        if (numCitiesRemaining <= 0) {
+            cityPane.setDisable(true);
+            citiesRemaining.setText("0x");
+        } else {
+            citiesRemaining.setText(numCitiesRemaining+"x");
+        }
         buildErrorMessage.setVisible(false);
         for (Pane pane : buildPanes) {
             pane.setStyle(null);
@@ -1238,6 +1266,8 @@ public class GameBoardController {
         for (ResourceCard resourceCard : GameState.currentPlayer.getResourceDeck()) {
             if (cardCounts.get(resourceCard.getType()) == null) {
                 cardCounts.put(resourceCard.getType(), 1);
+            } else {
+                cardCounts.put(resourceCard.getType(), cardCounts.get(resourceCard.getType())+1);
             }
         }
         bankButtonImage.setOpacity(0.5);
