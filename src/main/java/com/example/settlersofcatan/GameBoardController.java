@@ -1,23 +1,18 @@
 package com.example.settlersofcatan;
 
-import javafx.animation.*;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.*;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
 public class GameBoardController {
 
@@ -1617,7 +1612,7 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll + "\n");
-            if (diceRoll == 7) {//
+            if (diceRoll == 7) {
                 appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -1655,7 +1650,7 @@ public class GameBoardController {
     }
 
     public void moveRobber(int tokenLocation) {
-        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
+
         if (GameState.robberTokenIndex != GameState.desertTokenIndex) {
             if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
                 tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex - 1].getImage());
@@ -1671,6 +1666,11 @@ public class GameBoardController {
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
+        if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex - 1] + "\n\n");
+        } else {
+            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex ] + "\n\n");
+        }
         for (ImageView i : tokenViews) {
             i.setDisable(true);
         }
@@ -1837,8 +1837,10 @@ public class GameBoardController {
     }
 
     @FXML
-    public void showResourceView1() {
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) openResourcePanel(1);
+    public void showResourceView1() {//
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) {
+            openResourcePanel(1);
+        }
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
