@@ -42,6 +42,7 @@ public class GameBoardController {
     public static Label[] tradeLabels;
     public static Pane[] buildPanes;
 //
+    public static Pane[] resourcePane;
 
     @FXML
     private ImageView BlueColorLabel;
@@ -816,6 +817,49 @@ public class GameBoardController {
     private Button portButton;
 
     @FXML
+    private Pane resourcePane1;
+    @FXML
+    private Pane resourcePane2;
+    @FXML
+    private Pane resourcePane3;
+    @FXML
+    private Pane resourcePane4;
+    @FXML
+    private Pane resourcePane5;
+    @FXML
+    private Pane resourcePane6;
+    @FXML
+    private Pane resourcePane7;
+    @FXML
+    private Pane resourcePane8;
+    @FXML
+    private Pane resourcePane9;
+    @FXML
+    private Pane resourcePane10;
+    @FXML
+    private Pane resourcePane11;
+    @FXML
+    private Pane resourcePane12;
+    @FXML
+    private Pane resourcePane13;
+    @FXML
+    private Pane resourcePane14;
+    @FXML
+    private Pane resourcePane15;
+    @FXML
+    private Pane resourcePane16;
+    @FXML
+    private Pane resourcePane17;
+    @FXML
+    private Pane resourcePane18;
+    @FXML
+    private Pane resourcePane19;
+    @FXML
+    private Pane resourcePane20;
+    @FXML
+    private Pane resourcePane21;
+
+    @FXML
     private ImageView portButtonImage;
 
     @FXML
@@ -899,6 +943,8 @@ public class GameBoardController {
         label2devdeck.put(RedColorLabel, RedDevDeck);
 
 
+        resourcePane = new Pane[] {resourcePane1,resourcePane2,resourcePane3,resourcePane4,resourcePane5,resourcePane6,resourcePane7,resourcePane8,resourcePane9,
+                    };
         playerNumLabels = new Label[]{Player1Label, Player2Label, Player3Label, Player4Label};
         resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
         devDecks = new Rectangle[]{BlueDevDeck, GreenDevDeck, WhiteDevDeck, RedDevDeck};
@@ -1872,6 +1918,10 @@ public class GameBoardController {
         }
     }
 
+    public void highlightPane(int index){
+
+    }
+
     @FXML
     public void endTurn() {
         GameState.round = GameState.round + 1;
@@ -1928,6 +1978,10 @@ public class GameBoardController {
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 
+    @FXML
+    public void resourcePanePressed1() {
+        highlightPane(1);
+    }
     @FXML
     public void Marker0Pressed() {
         MarkerPressed(0);
