@@ -1,18 +1,23 @@
 package com.example.settlersofcatan;
 
-import javafx.animation.PauseTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.*;
 
 public class GameBoardController {
 
@@ -858,6 +863,13 @@ public class GameBoardController {
     private Label othersTradeErrorMessage;
 
     @FXML
+    private Label roadsRemaining;
+    @FXML
+    private Label settlementsRemaining;
+    @FXML
+    private Label citiesRemaining;
+
+    @FXML
     public void initialize() throws FileNotFoundException {
         GameState.controller = this;
         color2label = new HashMap<>();
@@ -1125,6 +1137,27 @@ public class GameBoardController {
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
+        int numRoadsRemaining = GameState.currentPlayer.getRoadsRemaining();
+        if (numRoadsRemaining <= 0) {
+            roadPane.setDisable(true);
+            roadsRemaining.setText("0x");
+        } else {
+            roadsRemaining.setText(numRoadsRemaining+"x");
+        }
+        int numSettlementsRemaining = GameState.currentPlayer.getSettlementsRemaining();
+        if (numSettlementsRemaining <= 0) {
+            settlementPane.setDisable(true);
+            settlementsRemaining.setText("0x");
+        } else {
+            settlementsRemaining.setText(numSettlementsRemaining+"x");
+        }
+        int numCitiesRemaining = GameState.currentPlayer.getCitiesRemaining();
+        if (numCitiesRemaining <= 0) {
+            cityPane.setDisable(true);
+            citiesRemaining.setText("0x");
+        } else {
+            citiesRemaining.setText(numCitiesRemaining+"x");
+        }
         buildErrorMessage.setVisible(false);
         for (Pane pane : buildPanes) {
             pane.setStyle(null);
@@ -1148,7 +1181,7 @@ public class GameBoardController {
             if (resourcesOwned.containsAll(resourcesNeeded)) {
                 switch (selectedItem) {
                     case "Road":
-
+                        
                         placeEdge();
                         break;
                     case "Settlement":
@@ -1234,6 +1267,8 @@ public class GameBoardController {
         for (ResourceCard resourceCard : GameState.currentPlayer.getResourceDeck()) {
             if (cardCounts.get(resourceCard.getType()) == null) {
                 cardCounts.put(resourceCard.getType(), 1);
+            } else {
+                cardCounts.put(resourceCard.getType(), cardCounts.get(resourceCard.getType())+1);
             }
         }
         bankButtonImage.setOpacity(0.5);
@@ -1562,6 +1597,7 @@ public class GameBoardController {
             othersTradePanel.setVisible(false);
             closeTradePanel();
             appendBoth("No one accepted Player "+GameState.currentPlayerIndex+"'s trade!");
+            GameState.isOthersTrading = false;
         } else{
             othersTradeTitle.setText("Okay, Player "+nextTurn+", do you accept the trade?");
         }
@@ -1613,7 +1649,7 @@ public class GameBoardController {
             Player player = GameState.currentPlayer;
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll + "\n");
-            if (diceRoll == 7) {
+            if (diceRoll == 7) {//
                 appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -1651,7 +1687,7 @@ public class GameBoardController {
     }
 
     public void moveRobber(int tokenLocation) {
-
+        ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Tile " + tokenLocation + "\n\n");
         if (GameState.robberTokenIndex != GameState.desertTokenIndex) {
             if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
                 tokenViews[GameState.robberTokenIndex].setImage(GameState.tokens[GameState.robberTokenIndex - 1].getImage());
@@ -1667,11 +1703,6 @@ public class GameBoardController {
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         GameState.robberTokenIndex = tokenLocation;
-        if (GameState.robberTokenIndex >= GameState.desertTokenIndex) {
-            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex - 1] + "\n\n");
-        } else {
-            ActivityLog.appendText("Player " + GameState.currentPlayerIndex + " moved Raoul to Token " + GameState.allTokens[GameState.robberTokenIndex ] + "\n\n");
-        }
         for (ImageView i : tokenViews) {
             i.setDisable(true);
         }
@@ -1710,8 +1741,9 @@ public class GameBoardController {
             if (GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         EdgeMarkers[index].setVisible(true);
+        nextTurn();
         if (!GameState.gameStarted) {
-            nextTurn();
+
             String settlementNum = GameState.firstSettlementsPlaced ? "second" : "first";
             MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your " + settlementNum + " settlement");
             placeSettlement();
@@ -1838,10 +1870,8 @@ public class GameBoardController {
     }
 
     @FXML
-    public void showResourceView1() {//
-        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) {
-            openResourcePanel(1);
-        }
+    public void showResourceView1() {
+        if (GameState.isOthersTrading || GameState.currentPlayerIndex == 1) openResourcePanel(1);
         else MainLabel.setText("You can only view your Resource Deck!");
     }
 

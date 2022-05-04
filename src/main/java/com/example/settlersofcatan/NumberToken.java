@@ -19,6 +19,4 @@ public class NumberToken {
     public Image getImage() {
         return tokenImage;
     }
-
-    public int getToken() {return token;}
 }

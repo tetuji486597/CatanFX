@@ -865,6 +865,143 @@
                         </AnchorPane>
                      </content>
                   </DialogPane>
+                  <DialogPane fx:id="buildPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label layoutX="322.0" layoutY="78.0" text="Build" />
+                              <Label layoutX="160.0" layoutY="122.0" style="-fx-font-size: 20;" text="Refer to the Building Costs on the Right Panel" />
+                              <Label fx:id="buildErrorMessage" alignment="CENTER" layoutX="3.0" prefHeight="92.0" prefWidth="724.0" text="Error Message" textFill="#f84f4f" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane fx:id="BuildMenu" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <VBox layoutX="34.0" prefHeight="324.0" prefWidth="662.0">
+                                 <children>
+                                    <Pane fx:id="roadPane" onMouseClicked="#roadSelected" prefHeight="81.0" prefWidth="620.0">
+                                       <children>
+                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../../images/other/woodbg.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="367.0" layoutY="19.0" text="Road" textFill="#f5f5f5" />
+                                          <Label fx:id="roadsRemaining" layoutX="261.0" layoutY="19.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="settlementPane" onMouseClicked="#settlementSelected" prefHeight="81.0" prefWidth="649.0">
+                                       <children>
+                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../../images/other/settlementbg.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="181.0" layoutY="19.0" text="Settlement" textFill="WHITESMOKE" />
+                                          <Label fx:id="settlementsRemaining" layoutX="388.0" layoutY="19.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="cityPane" onMouseClicked="#citySelected" prefHeight="81.0" prefWidth="649.0">
+                                       <children>
+                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../../images/other/citybg.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="379.0" layoutY="19.0" text="City" textFill="WHITESMOKE" />
+                                          <Label fx:id="citiesRemaining" layoutX="270.0" layoutY="21.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="devcardPane" onMouseClicked="#devcardSelected" prefHeight="81.0" prefWidth="649.0">
+                                       <children>
+                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../../images/other/developmentbg.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="183.0" layoutY="19.0" text="Development Card" textFill="WHITESMOKE" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="314.0" mnemonicParsing="false" onAction="#confirmBuild" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="371.0" mnemonicParsing="false" onAction="#closeBuildPanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
+                                 <graphic>
+                                    <ImageView fx:id="cancelTrade11" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="othersTradePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeTitle" layoutY="100.0" prefHeight="44.0" prefWidth="724.0" text="Title" />
+                              <Label fx:id="othersTradeErrorMessage" layoutX="1.0" layoutY="5.0" prefHeight="86.0" prefWidth="724.0" text="Error Message" textFill="#f52929" wrapText="true" />
+                              <Label layoutX="115.0" layoutY="144.0" prefHeight="44.0" prefWidth="497.0" style="-fx-font-size: 20;" text="You can now temporarily view others' resource decks" />
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeOffer" layoutX="26.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Offer:" />
+                              <Label fx:id="othersTradeRequest" layoutX="413.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Request:" wrapText="true" />
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="342.0" mnemonicParsing="false" onAction="#denyOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Deny">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
                   <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
@@ -1004,143 +1141,6 @@
                                  </children>
                               </GridPane>
                               <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                      </content>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                  </DialogPane>
-                  <DialogPane fx:id="buildPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label layoutX="322.0" layoutY="78.0" text="Build" />
-                              <Label layoutX="160.0" layoutY="122.0" style="-fx-font-size: 20;" text="Refer to the Building Costs on the Right Panel" />
-                              <Label fx:id="buildErrorMessage" alignment="CENTER" layoutX="3.0" prefHeight="92.0" prefWidth="724.0" text="Error Message" textFill="#f84f4f" wrapText="true" />
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <content>
-                        <AnchorPane fx:id="BuildMenu" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <VBox layoutX="34.0" prefHeight="324.0" prefWidth="662.0">
-                                 <children>
-                                    <Pane fx:id="roadPane" onMouseClicked="#roadSelected" prefHeight="81.0" prefWidth="620.0">
-                                       <children>
-                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../../../images/other/woodbg.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="367.0" layoutY="19.0" text="Road" textFill="#f5f5f5" />
-                                          <Label fx:id="roadsRemaining" layoutX="261.0" layoutY="19.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="settlementPane" onMouseClicked="#settlementSelected" prefHeight="81.0" prefWidth="649.0">
-                                       <children>
-                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../../../images/other/settlementbg.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="181.0" layoutY="19.0" text="Settlement" textFill="WHITESMOKE" />
-                                          <Label fx:id="settlementsRemaining" layoutX="388.0" layoutY="19.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="cityPane" onMouseClicked="#citySelected" prefHeight="81.0" prefWidth="649.0">
-                                       <children>
-                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../../../images/other/citybg.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="379.0" layoutY="19.0" text="City" textFill="WHITESMOKE" />
-                                          <Label fx:id="citiesRemaining" layoutX="270.0" layoutY="21.0" prefHeight="44.0" prefWidth="70.0" text="Label" textFill="#bf3232" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="devcardPane" onMouseClicked="#devcardSelected" prefHeight="81.0" prefWidth="649.0">
-                                       <children>
-                                          <ImageView fitHeight="75.0" fitWidth="656.0" layoutX="3.0" layoutY="3.0" opacity="0.5" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../../../images/other/developmentbg.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="183.0" layoutY="19.0" text="Development Card" textFill="WHITESMOKE" />
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </VBox>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="314.0" mnemonicParsing="false" onAction="#confirmBuild" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="371.0" mnemonicParsing="false" onAction="#closeBuildPanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
-                                 <graphic>
-                                    <ImageView fx:id="cancelTrade11" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                      </content>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                  </DialogPane>
-                  <DialogPane fx:id="othersTradePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label fx:id="othersTradeTitle" layoutY="100.0" prefHeight="44.0" prefWidth="724.0" text="Title" />
-                              <Label fx:id="othersTradeErrorMessage" layoutX="1.0" layoutY="5.0" prefHeight="86.0" prefWidth="724.0" text="Error Message" textFill="#f52929" wrapText="true" />
-                              <Label layoutX="115.0" layoutY="144.0" prefHeight="44.0" prefWidth="497.0" style="-fx-font-size: 20;" text="You can now temporarily view others' resource decks" />
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label fx:id="othersTradeOffer" layoutX="26.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Offer:" />
-                              <Label fx:id="othersTradeRequest" layoutX="413.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Request:" wrapText="true" />
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="342.0" mnemonicParsing="false" onAction="#denyOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Deny">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
