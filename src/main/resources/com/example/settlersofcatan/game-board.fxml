@@ -865,51 +865,6 @@
                         </AnchorPane>
                      </content>
                   </DialogPane>
-                  <DialogPane fx:id="othersTradePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
-                      <header>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label fx:id="othersTradeTitle" layoutY="100.0" prefHeight="44.0" prefWidth="724.0" text="Title" />
-                              <Label fx:id="othersTradeErrorMessage" layoutX="1.0" layoutY="5.0" prefHeight="86.0" prefWidth="724.0" text="Error Message" textFill="#f52929" wrapText="true" />
-                           </children>
-                        </AnchorPane>
-                      </header>
-                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                           <children>
-                              <Label fx:id="othersTradeOffer" layoutX="26.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Offer:" />
-                              <Label fx:id="othersTradeRequest" layoutX="413.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Request:" wrapText="true" />
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="342.0" mnemonicParsing="false" onAction="#denyOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Deny">
-                                 <graphic>
-                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../images/golden%20button.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Bell MT Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                      </content>
-                      <expandableContent>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                      </expandableContent>
-                  </DialogPane>
                   <DialogPane fx:id="ResourcePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
@@ -1142,6 +1097,52 @@
                               <Button contentDisplay="CENTER" layoutX="278.0" layoutY="371.0" mnemonicParsing="false" onAction="#closeBuildPanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
                                  <graphic>
                                     <ImageView fx:id="cancelTrade11" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="othersTradePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeTitle" layoutY="100.0" prefHeight="44.0" prefWidth="724.0" text="Title" />
+                              <Label fx:id="othersTradeErrorMessage" layoutX="1.0" layoutY="5.0" prefHeight="86.0" prefWidth="724.0" text="Error Message" textFill="#f52929" wrapText="true" />
+                              <Label layoutX="115.0" layoutY="144.0" prefHeight="44.0" prefWidth="497.0" style="-fx-font-size: 20;" text="You can now temporarily view others' resource decks" />
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="othersTradeOffer" layoutX="26.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Offer:" />
+                              <Label fx:id="othersTradeRequest" layoutX="413.0" layoutY="7.0" prefHeight="151.0" prefWidth="292.0" text="Request:" wrapText="true" />
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="256.0" mnemonicParsing="false" onAction="#confirmOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Confirm">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button contentDisplay="CENTER" layoutX="278.0" layoutY="342.0" mnemonicParsing="false" onAction="#denyOthersTrade" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Deny">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../images/golden%20button.png" />
                                        </image>

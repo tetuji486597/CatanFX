@@ -1181,6 +1181,7 @@ public class GameBoardController {
             if (resourcesOwned.containsAll(resourcesNeeded)) {
                 switch (selectedItem) {
                     case "Road":
+
                         placeEdge();
                         break;
                     case "Settlement":
@@ -1738,9 +1739,9 @@ public class GameBoardController {
             EdgeMarkers[i].setDisable(true);
             if (GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
-        nextTurn();
         EdgeMarkers[index].setVisible(true);
         if (!GameState.gameStarted) {
+            nextTurn();
             String settlementNum = GameState.firstSettlementsPlaced ? "second" : "first";
             MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your " + settlementNum + " settlement");
             placeSettlement();
