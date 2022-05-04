@@ -661,4 +661,18 @@ public class GameState{
     public boolean maintainsDistanceRule(){
         return false;
     }
+
+
+//        victoryPoints:
+//        currentPlayer.setVictoryPoints(currentPlayer.getVictoryPoints()+1);
+//
+//        largestArmy:
+//        setUp: int stealRecord = 3
+//        if(currentPlayer.getStealCount() == stealRecord){
+//            currentPlayer.setVictoryPoints(currentPlayer.getVictoryPoints()+3);
+//            stealRecord = currentPlayer.getStealCount();
+//            gives currentPlayer largestArmyCard
+//            if(currentPlayer.getStealCount > stealRecord && currentPlayer.stealRecord >=3)
+//                moves largestArmyCard to currentPlayer's deck
+
 }
