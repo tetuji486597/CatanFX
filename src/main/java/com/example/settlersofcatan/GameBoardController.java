@@ -1650,6 +1650,12 @@ public class GameBoardController {
             int index = player.getIndex();
             appendBoth("Player " + index + " rolled " + diceRoll + "\n");
             if (diceRoll == 7) {//
+                for (int i = 0; i < GameState.allPlayers.size(); i++){
+                    Player thePlayer = GameState.allPlayers.get(i);
+                    if (thePlayer.getResourceDeck().size() > 7){
+                        discardCards(thePlayer);
+                    }
+                }
                 appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
 //                int previousRobberLocation = GameState.robberTokenIndex;
                 //moveRobber();ImageView[] tileViews setImage((Image) Initialize.robber.getValue())
@@ -1684,6 +1690,35 @@ public class GameBoardController {
                 setUp();
             }
         }
+    }
+
+    public void discardCards(Player thePlayer){
+        GameState.discardNumber = thePlayer.getResourceDeck().size()/2;
+        appendBoth("Discard Extra Cards Before Moving Raoul" + "\n");
+        appendBoth("Player " + thePlayer.getIndex() + "need to go to Resource Deck and discard " + GameState.discardNumber + " cards" + "\n");
+        appendBoth("Click on Cards that Need to be Discarded" + "\n");
+        //!!! create a cardPanes
+        for (Pane pane : cardPanes) {
+            pane.setStyle(null);
+        }
+        //!!! for each pane method, write: if(style=null) pane.setStyle("-fx-border-color: seagreen");
+        ///                                else pane.setStyle(null);
+    }
+
+    @FXML
+    public void discardButton(){
+        int selectedNumber = 0;
+        for (Pane pane : cardPanes){
+            if (pane.getStyle() != null){
+                selectedNumber++;
+            }
+        }
+        if (selectedNumber < GameState.discardNumber){
+            appendBoth("Select at least " + GameState.discardNumber + " cards" + "\n");
+        } else {
+            //!!! remove the selected cards
+        }
+
     }
 
     public void moveRobber(int tokenLocation) {

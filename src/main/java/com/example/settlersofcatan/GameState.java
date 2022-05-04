@@ -14,6 +14,7 @@ public class GameState{
     public static int currentPlayerIndex;
     public static Robber robber;
     public static int robberTokenIndex;
+    public static int discardNumber;
     public int robberXCoord;
     public int robberYCoord;
     public static String[] allTiles;
