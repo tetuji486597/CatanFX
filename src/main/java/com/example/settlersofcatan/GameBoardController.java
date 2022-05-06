@@ -1887,11 +1887,21 @@ public class GameBoardController {
         ResourcePanel.setVisible(false);
         ResourcePanel.setVisible(true);
         ResourceViewText.setText("Player " + playerIndex + "'s Resource Deck");
+        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
+            playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
+        }
+        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
+            System.out.println(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getType());
+        }
         if(GameState.isRemovingCards) {
             ArrayList<ResourceCard> deck = GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck();
             if(deck.size() < 7) {
-                ResourceViewText.setText("Please press Exit; You don't need to remove cards");
+                ResourceViewText.setText("Player " + GameState.removePlayerIndex+", please press Exit; You don't need to remove cards");
                 removeCardsButton.setDisable(true);
+                if((GameState.removePlayerIndex % GameState.numPlayers)+1 == GameState.currentPlayerIndex) {
+                    GameState.isRemovingCards = false;
+                    appendBoth("Discard process finished\n");
+                }
             } else {
                 exitResourcePanelButton.setDisable(true);
                 removeCardsButton.setDisable(false);
@@ -1902,12 +1912,7 @@ public class GameBoardController {
             }
 
         }
-        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
-            playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
-        }
-        for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
-            System.out.println(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getType());
-        }
+
     }
 
     public void highlightPane(int index) {
@@ -1930,6 +1935,9 @@ public class GameBoardController {
         if(numCardsRemoved < GameState.numCardsRemove) {
             ResourceViewText.setText("You must remove at least "+GameState.numCardsRemove+" cards!");
         } else {
+            for(ResourceCard card: GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck()) {
+                System.out.print(card.getType()+" ");
+            }
             for (int i = 0; i < 21; i++) {
                 if (selectedCards[i] == -1) continue;
                 GameState.playerMap.get(GameState.removePlayerIndex).removeResource(i);
@@ -1941,7 +1949,6 @@ public class GameBoardController {
             openResourcePanel(GameState.removePlayerIndex);
             if((GameState.removePlayerIndex % GameState.numPlayers)+1 == GameState.currentPlayerIndex) {
                 GameState.isRemovingCards = false;
-
                 closeResourcePanel();
                 appendBoth("Discard process finished\n");
             }
@@ -1958,15 +1965,15 @@ public class GameBoardController {
 
     @FXML
     public void closeResourcePanel() {
-        if(GameState.isOthersTrading) {
+        ResourcePanel.setVisible(false);
+        for (int i = 0; i < playerCards.length; i++) {
+            playerCards[i].setImage(null);
+        }
+        if(GameState.isRemovingCards) {
             openResourcePanel((GameState.removePlayerIndex % GameState.numPlayers)+1);
         }
         removeCardsButton.setVisible(false);
         exitResourcePanelButton.setDisable(false);
-        for (int i = 0; i < playerCards.length; i++) {
-            playerCards[i].setImage(null);
-        }
-        ResourcePanel.setVisible(false);
     }
 
     @FXML
