@@ -13,3 +13,7 @@
     -fx-font-weight: bold;
     -fx-alignment: center;
 }
+.label {
+    -fx-wrap-text: "true";
+    -fx-text-alignment: center;
+}

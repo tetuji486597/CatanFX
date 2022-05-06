@@ -1006,7 +1006,7 @@
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
-                              <Label fx:id="ResourceViewText" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="92.0" prefHeight="44.0" prefWidth="733.0" text="ResourcePanel">
+                              <Label fx:id="ResourceViewText" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="92.0" prefHeight="109.0" prefWidth="733.0" text="ResourcePanel" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font name="Bell MT Bold" size="36.0" />
                                  </font>
@@ -1138,9 +1138,42 @@
                                           <Insets left="6.0" />
                                        </GridPane.margin>
                                     </ImageView>
+                                    <Pane fx:id="resourcePane1" onMouseClicked="#resourcePanePressed1" prefHeight="200.0" prefWidth="200.0" />
+                                    <Pane fx:id="resourcePane2" onMouseClicked="#resourcePanePressed2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                    <Pane fx:id="resourcePane3" onMouseClicked="#resourcePanePressed3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                                    <Pane fx:id="resourcePane4" onMouseClicked="#resourcePanePressed4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+                                    <Pane fx:id="resourcePane5" onMouseClicked="#resourcePanePressed5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
+                                    <Pane fx:id="resourcePane6" onMouseClicked="#resourcePanePressed6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
+                                    <Pane fx:id="resourcePane7" onMouseClicked="#resourcePanePressed7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
+                                    <Pane fx:id="resourcePane8" onMouseClicked="#resourcePanePressed8" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane9" onMouseClicked="#resourcePanePressed9" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane10" onMouseClicked="#resourcePanePressed10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane11" onMouseClicked="#resourcePanePressed11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane12" onMouseClicked="#resourcePanePressed12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane13" onMouseClicked="#resourcePanePressed13" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane14" onMouseClicked="#resourcePanePressed14" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                    <Pane fx:id="resourcePane15" onMouseClicked="#resourcePanePressed15" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane20" onMouseClicked="#resourcePanePressed20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane17" onMouseClicked="#resourcePanePressed17" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane18" onMouseClicked="#resourcePanePressed18" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane19" onMouseClicked="#resourcePanePressed19" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane21" onMouseClicked="#resourcePanePressed21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                    <Pane fx:id="resourcePane16" onMouseClicked="#resourcePanePressed16" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
-                              <Button contentDisplay="CENTER" layoutX="280.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
+                              <Button fx:id="exitResourcePanelButton" contentDisplay="CENTER" layoutX="280.0" layoutY="400.0" mnemonicParsing="false" onAction="#closeResourcePanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
+                                 <graphic>
+                                    <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="removeCardsButton" contentDisplay="CENTER" layoutX="280.0" layoutY="351.0" mnemonicParsing="false" onAction="#removeCards" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Remove">
                                  <graphic>
                                     <ImageView fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

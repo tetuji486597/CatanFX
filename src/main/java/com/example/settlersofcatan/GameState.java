@@ -46,6 +46,10 @@ public class GameState {
     public static boolean gameStarted;
     public static boolean lastEdgePlaced;
     public static boolean isOthersTrading;
+    public static boolean isRemovingCards;
+    public static int removePlayerIndex;
+    public static int numCardsRemove;
+    public static int[] selectedCards;
     public static String selectedItem;
     public static HashMap<String, ArrayList<String>> shop;
 
@@ -56,9 +60,14 @@ public class GameState {
         firstSettlementsPlaced = false;
         lastEdgePlaced = false;
         gameStarted = false;
+        isRemovingCards = false;
         this.numPlayers = numPlayers;
+        removePlayerIndex = 0;
         firstPlayerIndex = -1;
         robberTokenIndex = 0;
+        numCardsRemove = 0;
+        selectedCards = new int[21];
+        Arrays.fill(selectedCards, -1);
 
         setUpDice = new int[numPlayers];
 

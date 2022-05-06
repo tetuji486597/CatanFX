@@ -41,7 +41,7 @@ public class GameBoardController {
     public static ImageView[] playerCards;
     public static Label[] tradeLabels;
     public static Pane[] buildPanes;
-//
+    //
     public static Pane[] resourcePane;
 
     @FXML
@@ -912,6 +912,10 @@ public class GameBoardController {
     private Label settlementsRemaining;
     @FXML
     private Label citiesRemaining;
+    @FXML
+    private Button removeCardsButton;
+    @FXML
+    private Button exitResourcePanelButton;
 
     @FXML
     public void initialize() throws FileNotFoundException {
@@ -943,8 +947,7 @@ public class GameBoardController {
         label2devdeck.put(RedColorLabel, RedDevDeck);
 
 
-        resourcePane = new Pane[] {resourcePane1,resourcePane2,resourcePane3,resourcePane4,resourcePane5,resourcePane6,resourcePane7,resourcePane8,resourcePane9,
-                    };
+        resourcePane = new Pane[]{resourcePane1, resourcePane2, resourcePane3, resourcePane4, resourcePane5, resourcePane6, resourcePane7, resourcePane8, resourcePane9, resourcePane10, resourcePane11, resourcePane12, resourcePane13, resourcePane14, resourcePane15, resourcePane16, resourcePane17, resourcePane18, resourcePane19, resourcePane20, resourcePane21};
         playerNumLabels = new Label[]{Player1Label, Player2Label, Player3Label, Player4Label};
         resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
         devDecks = new Rectangle[]{BlueDevDeck, GreenDevDeck, WhiteDevDeck, RedDevDeck};
@@ -1012,6 +1015,7 @@ public class GameBoardController {
         StealButton.setDisable(true);
         EndTurnButton.setDisable(true);
         HelpButton.setDisable(true);
+        removeCardsButton.setVisible(false);
         offerDropdown.getItems().removeAll(offerDropdown.getItems());
         offerDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
         requestDropdown.getItems().removeAll(offerDropdown.getItems());
@@ -1188,21 +1192,21 @@ public class GameBoardController {
             roadPane.setDisable(true);
             roadsRemaining.setText("0x");
         } else {
-            roadsRemaining.setText(numRoadsRemaining+"x");
+            roadsRemaining.setText(numRoadsRemaining + "x");
         }
         int numSettlementsRemaining = GameState.currentPlayer.getSettlementsRemaining();
         if (numSettlementsRemaining <= 0) {
             settlementPane.setDisable(true);
             settlementsRemaining.setText("0x");
         } else {
-            settlementsRemaining.setText(numSettlementsRemaining+"x");
+            settlementsRemaining.setText(numSettlementsRemaining + "x");
         }
         int numCitiesRemaining = GameState.currentPlayer.getCitiesRemaining();
         if (numCitiesRemaining <= 0) {
             cityPane.setDisable(true);
             citiesRemaining.setText("0x");
         } else {
-            citiesRemaining.setText(numCitiesRemaining+"x");
+            citiesRemaining.setText(numCitiesRemaining + "x");
         }
         buildErrorMessage.setVisible(false);
         for (Pane pane : buildPanes) {
@@ -1227,7 +1231,7 @@ public class GameBoardController {
             if (resourcesOwned.containsAll(resourcesNeeded)) {
                 switch (selectedItem) {
                     case "Road":
-                        
+
                         placeEdge();
                         break;
                     case "Settlement":
@@ -1314,7 +1318,7 @@ public class GameBoardController {
             if (cardCounts.get(resourceCard.getType()) == null) {
                 cardCounts.put(resourceCard.getType(), 1);
             } else {
-                cardCounts.put(resourceCard.getType(), cardCounts.get(resourceCard.getType())+1);
+                cardCounts.put(resourceCard.getType(), cardCounts.get(resourceCard.getType()) + 1);
             }
         }
         bankButtonImage.setOpacity(0.5);
@@ -1344,7 +1348,7 @@ public class GameBoardController {
         }
         Player currentPlayer = GameState.currentPlayer;
         tradeLabel.setText("Trade with " + message);
-        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " chose to trade with " + message +"\n");
+        ActivityLog.appendText("\n\nPlayer " + currentPlayer.getIndex() + " chose to trade with " + message + "\n");
 
         for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
             String name = resourceCard.getType();
@@ -1601,34 +1605,34 @@ public class GameBoardController {
             int numRemoved = 0;
             //PROCESSING OFFERER DECK
             for (int i = 0; i < offerer.getResourceDeck().size(); i++) {
-                if(numRemoved >= numOffered) break;
+                if (numRemoved >= numOffered) break;
                 if (offerer.getResourceDeck().get(i).getType().equals(typeOffered)) {
                     offerer.removeResource(i--);
                     ++numRemoved;
                 }
             }
             ArrayList<ResourceCard> toAdd = new ArrayList<>();
-            for(int i = 0; i < numRequested; i++) {
+            for (int i = 0; i < numRequested; i++) {
                 toAdd.add(new ResourceCard(typeRequested, offerer));
             }
             offerer.addResources(toAdd);
             //PROCESSING REQUESTOR DECK
             numRemoved = 0;
             for (int i = 0; i < confirmer.getResourceDeck().size(); i++) {
-                if(numRemoved >= numRequested) break;
+                if (numRemoved >= numRequested) break;
                 if (confirmer.getResourceDeck().get(i).getType().equals(typeRequested)) {
                     confirmer.removeResource(i--);
                     ++numRemoved;
                 }
             }
             toAdd = new ArrayList<>();
-            for(int i = 0; i < numOffered; i++) {
+            for (int i = 0; i < numOffered; i++) {
                 toAdd.add(new ResourceCard(typeOffered, confirmer));
             }
             confirmer.addResources(toAdd);
             othersTradePanel.setVisible(false);
             GameState.isOthersTrading = false;
-            appendBoth("Trade successful between Players "+GameState.currentPlayerIndex+" and " + playerNumber+"!");
+            appendBoth("Trade successful between Players " + GameState.currentPlayerIndex + " and " + playerNumber + "!");
             closeTradePanel();
         } else {
             othersTradeErrorMessage.setVisible(true);
@@ -1639,15 +1643,16 @@ public class GameBoardController {
     @FXML
     public void denyOthersTrade() throws IOException {
         int nextTurn = (Integer.parseInt(othersTradeTitle.getText().substring(7, 8)) % GameState.numPlayers) + 1;
-        if(nextTurn == GameState.currentPlayerIndex) {
+        if (nextTurn == GameState.currentPlayerIndex) {
             othersTradePanel.setVisible(false);
             closeTradePanel();
-            appendBoth("No one accepted Player "+GameState.currentPlayerIndex+"'s trade!");
+            appendBoth("No one accepted Player " + GameState.currentPlayerIndex + "'s trade!");
             GameState.isOthersTrading = false;
-        } else{
-            othersTradeTitle.setText("Okay, Player "+nextTurn+", do you accept the trade?");
+        } else {
+            othersTradeTitle.setText("Okay, Player " + nextTurn + ", do you accept the trade?");
         }
     }
+
     @FXML
     public void show4For1() throws IOException {
         showTradePanel("Bank");
@@ -1702,8 +1707,12 @@ public class GameBoardController {
                 for (ImageView i : tokenViews) {
                     i.setDisable(false);
                 }
+                GameState.isRemovingCards = true;
+                removeCardsButton.setVisible(true);
+                GameState.removePlayerIndex = GameState.currentPlayerIndex;
                 tokenViews[GameState.robberTokenIndex].setDisable(true);
-                tokenViews[GameState.desertTokenIndex].setDisable((true));
+                tokenViews[GameState.desertTokenIndex].setDisable(true);
+                openResourcePanel(GameState.currentPlayerIndex);
 //                int currentRobberLocation = GameState.robberTokenIndex;
 //                if(!previousRobberLocation.equals(currentRobberLocation)){
 //                    BuildButton.setDisable(false);
@@ -1872,9 +1881,27 @@ public class GameBoardController {
         for (int i = 0; i < playerCards.length; i++) {
             playerCards[i].setImage(null);
         }
+        for (Pane pane : resourcePane) {
+            pane.setStyle(null);
+        }
         ResourcePanel.setVisible(false);
         ResourcePanel.setVisible(true);
         ResourceViewText.setText("Player " + playerIndex + "'s Resource Deck");
+        if(GameState.isRemovingCards) {
+            ArrayList<ResourceCard> deck = GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck();
+            if(deck.size() < 7) {
+                ResourceViewText.setText("Please press Exit; You don't need to remove cards");
+                removeCardsButton.setDisable(true);
+            } else {
+                exitResourcePanelButton.setDisable(true);
+                removeCardsButton.setDisable(false);
+                int numCardsRemove = deck.size() - (deck.size()+1)/2;
+                GameState.numCardsRemove = numCardsRemove;
+                removeCardsButton.setVisible(true);
+                ResourceViewText.setText("Player "+GameState.removePlayerIndex+", remove "+numCardsRemove+" cards");
+            }
+
+        }
         for (int i = 0; i < GameState.playerMap.get(playerIndex).getResourceDeck().size(); i++) {
             playerCards[i].setImage(GameState.playerMap.get(playerIndex).getResourceDeck().get(i).getResourceImage());
         }
@@ -1883,8 +1910,42 @@ public class GameBoardController {
         }
     }
 
-    public void highlightPane(int index){
+    public void highlightPane(int index) {
+        if (GameState.selectedCards[index] == -1) {
+            resourcePane[index].setStyle("-fx-border-color: seagreen");
+        } else {
+            resourcePane[index].setStyle(null);
+        }
+        GameState.selectedCards[index] = (GameState.selectedCards[index] == -1) ? index : -1;
 
+    }
+
+    @FXML
+    public void removeCards() {
+        int[] selectedCards = GameState.selectedCards;
+        int numCardsRemoved = 0;
+        for (int i = 0; i < 21; i++) {
+            if (selectedCards[i] != -1) ++numCardsRemoved;
+        }
+        if(numCardsRemoved < GameState.numCardsRemove) {
+            ResourceViewText.setText("You must remove at least "+GameState.numCardsRemove+" cards!");
+        } else {
+            for (int i = 0; i < 21; i++) {
+                if (selectedCards[i] == -1) continue;
+                GameState.playerMap.get(GameState.removePlayerIndex).removeResource(i);
+            }
+            ResourceViewText.setText("Please press Exit; you are done removing cards");
+            exitResourcePanelButton.setDisable(false);
+            removeCardsButton.setVisible(false);
+            closeResourcePanel();
+            openResourcePanel(GameState.removePlayerIndex);
+            if((GameState.removePlayerIndex % GameState.numPlayers)+1 == GameState.currentPlayerIndex) {
+                GameState.isRemovingCards = false;
+
+                closeResourcePanel();
+                appendBoth("Discard process finished\n");
+            }
+        }
     }
 
     @FXML
@@ -1897,6 +1958,11 @@ public class GameBoardController {
 
     @FXML
     public void closeResourcePanel() {
+        if(GameState.isOthersTrading) {
+            openResourcePanel((GameState.removePlayerIndex % GameState.numPlayers)+1);
+        }
+        removeCardsButton.setVisible(false);
+        exitResourcePanelButton.setDisable(false);
         for (int i = 0; i < playerCards.length; i++) {
             playerCards[i].setImage(null);
         }
@@ -1944,9 +2010,110 @@ public class GameBoardController {
     }
 
     @FXML
-    public void resourcePanePressed1() {
-        highlightPane(1);
+    void resourcePanePressed1(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 0) highlightPane(0);
     }
+
+    @FXML
+    void resourcePanePressed10(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 9) highlightPane(9);
+    }
+
+    @FXML
+    void resourcePanePressed11(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 10) highlightPane(10);
+    }
+
+    @FXML
+    void resourcePanePressed12(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 11) highlightPane(11);
+    }
+
+    @FXML
+    void resourcePanePressed13(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 12) highlightPane(12);
+    }
+
+    @FXML
+    void resourcePanePressed14(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 13) highlightPane(13);
+    }
+
+    @FXML
+    void resourcePanePressed15(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 14) highlightPane(14);
+    }
+
+    @FXML
+    void resourcePanePressed16(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 15) highlightPane(15);
+    }
+
+    @FXML
+    void resourcePanePressed17(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 16) highlightPane(16);
+    }
+
+    @FXML
+    void resourcePanePressed18(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 17) highlightPane(17);
+    }
+
+    @FXML
+    void resourcePanePressed19(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 18) highlightPane(18);
+    }
+
+    @FXML
+    void resourcePanePressed2(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 1) highlightPane(1);
+    }
+
+    @FXML
+    void resourcePanePressed20(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 19) highlightPane(19);
+    }
+
+    @FXML
+    void resourcePanePressed21(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 20) highlightPane(20);
+    }
+
+    @FXML
+    void resourcePanePressed3(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 2) highlightPane(2);
+    }
+
+    @FXML
+    void resourcePanePressed4(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 3) highlightPane(3);
+    }
+
+    @FXML
+    void resourcePanePressed5(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 4) highlightPane(4);
+    }
+
+    @FXML
+    void resourcePanePressed6(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 5) highlightPane(5);
+    }
+
+    @FXML
+    void resourcePanePressed7(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 6) highlightPane(6);
+    }
+
+    @FXML
+    void resourcePanePressed8(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 7) highlightPane(7);
+    }
+
+    @FXML
+    void resourcePanePressed9(MouseEvent event) {
+        if (GameState.isRemovingCards && GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck().size() > 8) highlightPane(8);
+    }
+
     @FXML
     public void Marker0Pressed() {
         MarkerPressed(0);
