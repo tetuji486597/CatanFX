@@ -41,7 +41,6 @@ public class Vertex {
     }
     public ArrayList<Tile> getAdjacentTiles() { return adjacentTiles;}
     public void setAdjacentTiles(ArrayList<Tile> adjacentTiles) { this.adjacentTiles = adjacentTiles;}
-
     public void setPort(Port port) {
         myPort = port;
     }

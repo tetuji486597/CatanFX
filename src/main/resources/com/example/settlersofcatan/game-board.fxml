@@ -683,7 +683,7 @@
                       <header>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
                            <children>
-                              <Text layoutX="128.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option:">
+                              <Text layoutX="48.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a trade option or press cancel to move to building:" wrappingWidth="634.0">
                                  <font>
                                     <Font name="Bell MT Bold" size="40.0" />
                                  </font>
@@ -940,6 +940,51 @@
                               <Button contentDisplay="CENTER" layoutX="278.0" layoutY="371.0" mnemonicParsing="false" onAction="#closeBuildPanel" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Cancel">
                                  <graphic>
                                     <ImageView fx:id="cancelTrade11" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                      </content>
+                      <expandableContent>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                      </expandableContent>
+                  </DialogPane>
+                  <DialogPane fx:id="stealPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="733.0">
+                      <header>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <Label fx:id="whoToStealLabel" layoutX="1.0" layoutY="52.0" prefHeight="92.0" prefWidth="724.0" text="Label" />
+                              <Label fx:id="stealErrorMessage" layoutX="1.0" layoutY="30.0" prefHeight="44.0" prefWidth="724.0" text="Label" textFill="#ee3232" />
+                           </children>
+                        </AnchorPane>
+                      </header>
+                      <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
+                           <children>
+                              <ComboBox fx:id="stealDropdown" layoutX="290.0" layoutY="2.0" prefWidth="150.0" />
+                              <Button fx:id="stealCardButton" contentDisplay="CENTER" layoutX="278.0" layoutY="27.0" mnemonicParsing="false" onAction="#steal" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Steal">
+                                 <graphic>
+                                    <ImageView fx:id="cancelTrade2" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/golden%20button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Bell MT Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="resourceStolen" layoutX="1.0" layoutY="139.0" prefHeight="99.0" prefWidth="724.0" text="Label" />
+                              <Button fx:id="exitStealButton" contentDisplay="CENTER" layoutX="276.0" layoutY="301.0" mnemonicParsing="false" onAction="#exitSteal" prefHeight="84.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="Exit">
+                                 <graphic>
+                                    <ImageView fx:id="cancelTrade21" fitHeight="76.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../images/golden%20button.png" />
                                        </image>
@@ -1314,7 +1359,7 @@
             <Pane prefHeight="230.0" prefWidth="275.0">
                <children>
                   <Button fx:id="CancelButton" layoutX="149.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #E5EFC1;" text="Cancel" />
-                  <Button fx:id="StealButton" layoutX="179.0" layoutY="85.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
+                  <Button fx:id="StealButton" layoutX="179.0" layoutY="85.0" mnemonicParsing="false" onAction="#showSteal" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Steal" />
                   <Button fx:id="HelpButton" layoutX="149.0" layoutY="133.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="49.0" prefWidth="87.0" style="-fx-background-color: #E5EFC1;" text="Help" />
                   <Button fx:id="BuildButton" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" onAction="#showBuild" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #E5EFC1;" text="Build" />
                   <Button fx:id="EndTurnButton" layoutX="52.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#endTurn" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #E5EFC1;" text="End Turn" />

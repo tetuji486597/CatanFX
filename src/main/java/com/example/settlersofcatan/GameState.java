@@ -50,6 +50,7 @@ public class GameState {
     public static int removePlayerIndex;
     public static int numCardsRemove;
     public static int[] selectedCards;
+    public static ArrayList<Integer> stealablePlayers;
     public static String selectedItem;
     public static HashMap<String, ArrayList<String>> shop;
 
@@ -68,6 +69,7 @@ public class GameState {
         numCardsRemove = 0;
         selectedCards = new int[21];
         Arrays.fill(selectedCards, -1);
+        stealablePlayers = new ArrayList<>();
 
         setUpDice = new int[numPlayers];
 
@@ -543,7 +545,8 @@ public class GameState {
         } else {
             for (int i = 0; i < tiles.length; i++) {
                 Tile tile = tiles[i];
-                if (tile.getToken() == numberRolled) {
+                System.out.println(Arrays.toString(tile.getCoords())+" "+tile.getHasRobber());
+                if (tile.getToken() == numberRolled && !tile.getHasRobber()) {
                     for (int j = 0; j < tile.getVertices().length; j++) {
                         Vertex vertex = tile.getVertices()[j];
                         if (vertex.getPlayerIndex() >= 0) {

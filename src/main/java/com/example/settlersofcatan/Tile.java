@@ -58,8 +58,11 @@ public class Tile {
         return numberToken;
     }
 
-    public boolean hasRobber() {
-        return false;
+    public boolean getHasRobber() {
+        return hasRobber;
+    }
+    public void setHasRobber(boolean hasRobber) {
+        this.hasRobber = hasRobber;
     }
 
     public int[] getCoords() {
