@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -39,8 +40,10 @@ public class GameBoardController {
     public static ImageView[] portViews;
     public static ImageView[] tokenViews;
     public static ImageView[] playerCards;
+    public static ImageView[] devCards;
     public static Label[] tradeLabels;
     public static Pane[] buildPanes;
+    public static Pane[] devCardPanes;
     //
     public static Pane[] resourcePane;
 
@@ -893,6 +896,42 @@ public class GameBoardController {
     @FXML
     private Pane devcardPane;
 
+
+    @FXML
+    private Pane devCardPane1;
+
+    @FXML
+    private Pane devCardPane2;
+
+    @FXML
+    private Pane devCardPane3;
+
+    @FXML
+    private Pane devCardPane4;
+
+    @FXML
+    private Pane devCardPane5;
+
+    @FXML
+    private Pane devCardPane6;
+
+    @FXML
+    private ImageView devCard1;
+
+    @FXML
+    private ImageView devCard2;
+
+    @FXML
+    private ImageView devCard3;
+
+    @FXML
+    private ImageView devCard4;
+
+    @FXML
+    private ImageView devCard5;
+
+    @FXML
+    private ImageView devCard6;
     @FXML
     private Label othersTradeTitle;
     @FXML
@@ -930,7 +969,16 @@ public class GameBoardController {
     private Button exitStealButton;
     @FXML
     private DialogPane stealPanel;
-
+    @FXML
+    private DialogPane devCardPanel;
+    @FXML
+    private Label devCardLabel;
+    @FXML
+    private Button useDevCardButton;
+    @FXML
+    private Label devCardErrorMessage;
+    @FXML
+    private Text bankDisabledText;
     @FXML
     public void initialize() throws FileNotFoundException {
         GameState.controller = this;
@@ -960,7 +1008,8 @@ public class GameBoardController {
         label2devdeck.put(WhiteColorLabel, WhiteDevDeck);
         label2devdeck.put(RedColorLabel, RedDevDeck);
 
-
+        devCards = new ImageView[] {devCard1, devCard2, devCard3, devCard4, devCard5, devCard6};
+        devCardPanes = new Pane[] {devCardPane1, devCardPane2, devCardPane3, devCardPane4, devCardPane5, devCardPane6};
         resourcePane = new Pane[]{resourcePane1, resourcePane2, resourcePane3, resourcePane4, resourcePane5, resourcePane6, resourcePane7, resourcePane8, resourcePane9, resourcePane10, resourcePane11, resourcePane12, resourcePane13, resourcePane14, resourcePane15, resourcePane16, resourcePane17, resourcePane18, resourcePane19, resourcePane20, resourcePane21};
         playerNumLabels = new Label[]{Player1Label, Player2Label, Player3Label, Player4Label};
         resDecks = new Rectangle[]{BlueResourceDeck, GreenResourceDeck, WhiteResourceDeck, RedResourceDeck};
@@ -981,6 +1030,7 @@ public class GameBoardController {
         buildPanel.setVisible(false);
         ResourcePanel.setVisible(false);
         stealPanel.setVisible(false);
+        devCardPanel.setVisible(false);
         othersTradePanel.setVisible(false);
         for (Label label : playerNumLabels) {
             label.setVisible(false);
@@ -1031,12 +1081,14 @@ public class GameBoardController {
         EndTurnButton.setDisable(true);
         HelpButton.setDisable(true);
         removeCardsButton.setVisible(false);
+        useDevCardButton.setDisable(true);
         offerDropdown.getItems().removeAll(offerDropdown.getItems());
         offerDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
         requestDropdown.getItems().removeAll(offerDropdown.getItems());
         requestDropdown.getItems().addAll("Brick", "Ore", "Grain", "Wood", "Wool");
         portDropdown.setVisible(false);
         tradeErrorMessage.setVisible(false);
+        devCardErrorMessage.setVisible(false);
         othersTradeErrorMessage.setVisible(false);
         resourceStolen.setVisible(false);
         stealErrorMessage.setVisible(false);
@@ -1188,7 +1240,11 @@ public class GameBoardController {
     }
 
     public void placeCity() {
-
+        for(int i = 0; i < VertexMarkers.length; i++) {
+            if(GameState.allVertices[i].getPlayerIndex() >= 0) VertexMarkers[i].setDisable(false);
+        }
+        MainLabel.setText("Click on one of your settlements to upgrade to a city!");
+        GameState.isBuildingCity = true;
     }
 
     @FXML
@@ -1239,32 +1295,115 @@ public class GameBoardController {
             buildErrorMessage.setVisible(true);
             buildErrorMessage.setText("Please select an item");
         } else {
-            ArrayList<String> resourcesNeeded = GameState.shop.get(GameState.selectedItem);
             Player currentPlayer = GameState.currentPlayer;
-            ArrayList<String> resourcesOwned = new ArrayList<>();
-            for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
-                resourcesOwned.add(resourceCard.getType());
+            boolean hasEnoughRemaining = true;
+            switch(selectedItem) {
+                case "Road":
+                    if(currentPlayer.getRoadsRemaining() <= 0) hasEnoughRemaining = false;
+                    break;
+                case "Settlement":
+                    if(currentPlayer.getSettlementsRemaining() <= 0) hasEnoughRemaining = false;
+                    break;
+                case "City":
+                    if(currentPlayer.getCitiesRemaining() <= 0) hasEnoughRemaining = false;
+                    break;
+                case "DevCard":
+                    if(Integer.parseInt(DevLabel.getText()) <= 0) hasEnoughRemaining = false;
             }
-            if (resourcesOwned.containsAll(resourcesNeeded)) {
-                switch (selectedItem) {
-                    case "Road":
-
-                        placeEdge();
-                        break;
-                    case "Settlement":
-                        placeSettlement();
-                        break;
-
-                }
-                closeBuildPanel();
-            } else {
+            if(!hasEnoughRemaining) {
                 buildErrorMessage.setVisible(true);
-                buildErrorMessage.setText("Not enough resources for this item!");
+                buildErrorMessage.setText("Not enough of this item!");
+            } else {
+                GameState.isBuilding = true;
+                BuildButton.setDisable(true);
+                TradeButton.setDisable(true);
+                EndTurnButton.setDisable(true);
+                ArrayList<String> resourcesNeeded = GameState.shop.get(GameState.selectedItem);
+                ArrayList<String> toRemove = new ArrayList<>(resourcesNeeded);
+
+                ArrayList<String> resourcesOwned = new ArrayList<>();
+                for (ResourceCard resourceCard : currentPlayer.getResourceDeck()) {
+                    resourcesOwned.add(resourceCard.getType());
+                }
+                boolean containsAll = false;
+                for(int i = 0; i < resourcesNeeded.size(); i++) {
+                    for(int j = 0; j < resourcesOwned.size(); j++) {
+                        if (resourcesOwned.get(j).equals(resourcesNeeded.get(i))) {
+                            resourcesOwned.remove(j);
+                            resourcesNeeded.remove(i--);
+                            break;
+                        }
+                    }
+                }
+                //continsall doesnt work
+                //remove resources from player deck\
+                //add to bank
+                if (resourcesNeeded.isEmpty()) {
+                    MainLabel.setText("Player "+GameState.currentPlayerIndex+" bought a "+selectedItem);
+                    switch (selectedItem) {
+                        case "Road":
+                            placeEdge();
+                            break;
+                        case "Settlement":
+                            placeSettlement();
+                            break;
+                        case "City":
+                            GameState.isBuildingCity = true;
+                            placeCity();
+                            break;
+                        case "DevCard":
+                            giveDevCard();
+                            break;
+                    }
+
+                    removeDeck(currentPlayer, toRemove);
+                    GameState.selectedItem = null;
+                    for (Pane pane : buildPanes) {
+                        pane.setStyle(null);
+                    }
+                    buildPanel.setVisible(false);
+                } else {
+                    buildErrorMessage.setVisible(true);
+                    buildErrorMessage.setText("Not enough resources for this item!");
+                }
             }
+
 
 
         }
 
+    }
+
+    public void giveDevCard() {
+        DevLabel.setText(Integer.toString(Integer.parseInt(DevLabel.getText())-1));
+        Player currentPlayer = GameState.currentPlayer;
+        if(GameState.devBank.peek().getIsVictory()) currentPlayer.newVictoryPoint();
+        currentPlayer.addDevCard(GameState.devBank.pop());
+        appendBoth("Player "+GameState.currentPlayerIndex+" bought a Dev Card");
+        BuildButton.setDisable(false);
+        TradeButton.setDisable(false);
+        EndTurnButton.setDisable(false);
+    }
+
+    public void removeDeck(Player player, ArrayList<String> toRemove) {
+        ArrayList<ResourceCard> deck = player.getResourceDeck();
+        ArrayList<String> playerDeck = new ArrayList<>();
+        for(ResourceCard card: deck) {
+            playerDeck.add(card.getType());
+        }
+        System.out.println("player deck: "+playerDeck.toString());
+        System.out.println("to remove deck: "+toRemove.toString());
+        for(int i = 0; i < toRemove.size(); i++) {
+            for(int j = 0; j < playerDeck.size(); j++) {
+                if(playerDeck.get(j).equals(toRemove.get(i))) {
+                    System.out.println(toRemove.get(i)+" removed");
+                    addToBank(toRemove.get(i));
+                    player.removeResource(j);
+                    playerDeck.remove(j);
+                    break;
+                }
+            }
+        }
     }
 
     @FXML
@@ -1324,10 +1463,8 @@ public class GameBoardController {
         BuildButton.setDisable(true);
         TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
-        portButtonImage.setOpacity(0.5);
         portButton.setDisable(true);
         if (GameState.currentPlayer.hasPort()) {
-            portButtonImage.setOpacity(1.0);
             portButton.setDisable(false);
         }
         HashMap<String, Integer> cardCounts = new HashMap<>();
@@ -1338,11 +1475,11 @@ public class GameBoardController {
                 cardCounts.put(resourceCard.getType(), cardCounts.get(resourceCard.getType()) + 1);
             }
         }
-        bankButtonImage.setOpacity(0.5);
+        bankDisabledText.setVisible(true);
         bankButton.setDisable(true);
         for (int i : cardCounts.values()) {
             if (i >= 4) {
-                bankButtonImage.setOpacity(1);
+                bankDisabledText.setVisible(false);
                 bankButton.setDisable(false);
             }
         }
@@ -1360,6 +1497,8 @@ public class GameBoardController {
     }
 
     public void showTradePanel(String message) throws IOException {
+        portDropdown.setVisible(false);
+        tradeErrorMessage.setVisible(false);
         for (Label label : tradeLabels) {
             label.setText("0");
         }
@@ -1406,6 +1545,9 @@ public class GameBoardController {
             requestSpinner.setDisable(true);
         }
         if (message.equals("Others")) {
+            offerSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21));
+            requestSpinner.setDisable(false);
+            requestSpinner.setEditable(true);
             confirmTradeButton.setText("Propose");
         }
 
@@ -1585,6 +1727,7 @@ public class GameBoardController {
                 GameState.isOthersTrading = true;
                 int numRequested = requestSpinner.getValue();
                 if (count >= numOffered) {
+                    tradeErrorMessage.setVisible(false);
                     othersTradePanel.setVisible(true);
                     int nextPlayer = (currentPlayer.getIndex() % GameState.numPlayers) + 1;
                     othersTradeTitle.setText("Player " + nextPlayer + ", do you accept?");
@@ -1666,7 +1809,7 @@ public class GameBoardController {
             appendBoth("No one accepted Player " + GameState.currentPlayerIndex + "'s trade!");
             GameState.isOthersTrading = false;
         } else {
-            othersTradeTitle.setText("Okay, Player " + nextTurn + ", do you accept the trade?");
+            othersTradeTitle.setText("Player " + nextTurn + ", do you accept the trade?");
         }
     }
 
@@ -1805,19 +1948,52 @@ public class GameBoardController {
     }
 
     public void MarkerPressed(int index) {
-        VertexMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
-        GameState.allVertices[index].setPlayerIndex(GameState.currentPlayerIndex);
-        for (int i = 0; i < VertexMarkers.length; i++) {
-            VertexMarkers[i].setDisable(true);
-            if (GameState.allVertices[i].getPlayerIndex() <= 0) VertexMarkers[i].setVisible(false);
+        if(GameState.isBuildingCity) {
+
+            if (GameState.allVertices[index].getPlayerIndex() != GameState.currentPlayerIndex) {
+                MainLabel.setText("Please press on one of YOUR settlements");
+            } else if(GameState.allVertices[index].getIsCity()) {
+                MainLabel.setText("This location already has a city!");
+            } else {
+                VertexMarkers[index].setY(VertexMarkers[index].getY()-VertexMarkers[index].getHeight());
+                VertexMarkers[index].setHeight(VertexMarkers[index].getHeight()*2);
+
+                GameState.allVertices[index].setIsCity(true);
+                GameState.isBuildingCity = false;
+                TradeButton.setDisable(false);
+                BuildButton.setDisable(false);
+                EndTurnButton.setDisable(false);
+                for(Rectangle rect: VertexMarkers) {
+                    rect.setDisable(true);
+                }
+                GameState.currentPlayer.addCity(GameState.allVertices[index]);
+                GameState.currentPlayer.removeSettlement(GameState.allVertices[index]);
+                appendBoth("Player "+ GameState.currentPlayerIndex+" built a city!");
+                GameState.isBuilding = false;
+            }
+        } else {
+            VertexMarkers[index].setFill(GameState.nameToColor.get(GameState.currentPlayer.getColor()));
+            GameState.allVertices[index].setPlayerIndex(GameState.currentPlayerIndex);
+            for (int i = 0; i < VertexMarkers.length; i++) {
+                VertexMarkers[i].setDisable(true);
+                if (GameState.allVertices[i].getPlayerIndex() <= 0) VertexMarkers[i].setVisible(false);
+            }
+            VertexMarkers[index].setVisible(true);
+            GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
+            if(GameState.isBuilding) {
+                appendBoth("Player "+ GameState.currentPlayerIndex+" built a settlement!");
+                TradeButton.setDisable(false);
+                BuildButton.setDisable(false);
+                EndTurnButton.setDisable(false);
+                GameState.isBuilding = false;
+            }
+            if (!GameState.gameStarted) {
+                String roadNum = GameState.firstSettlementsPlaced ? "second" : "first";
+                MainLabel.setText("Now select your " + roadNum + " Road location");
+                placeEdge();
+            }
         }
-        VertexMarkers[index].setVisible(true);
-        GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
-        if (!GameState.gameStarted) {
-            String roadNum = GameState.firstSettlementsPlaced ? "second" : "first";
-            MainLabel.setText("Now select your " + roadNum + " Road location");
-            placeEdge();
-        }
+
     }
 
 
@@ -1830,9 +2006,14 @@ public class GameBoardController {
             if (GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         EdgeMarkers[index].setVisible(true);
-        nextTurn();
+        if(GameState.isBuilding) {
+            TradeButton.setDisable(false);
+            BuildButton.setDisable(false);
+            EndTurnButton.setDisable(false);
+            GameState.isBuilding = false;
+        }
+        if(GameState.nextTurnOnEdge) nextTurn();
         if (!GameState.gameStarted) {
-
             String settlementNum = GameState.firstSettlementsPlaced ? "second" : "first";
             MainLabel.setText("Next, Player " + GameState.currentPlayerIndex + ", choose the location of your " + settlementNum + " settlement");
             placeSettlement();
@@ -1878,17 +2059,22 @@ public class GameBoardController {
         if (nextTurn == 0) nextTurn = GameState.numPlayers;
         if (GameState.lastEdgePlaced) {
             GameState.gameStarted = true;
+            GameState.nextTurnOnEdge = false;
             GameState.lastEdgePlaced = false;
-            int current = (nextTurn + (GameState.numPlayers - 1)) % GameState.numPlayers;
-            if (current == 0) current = GameState.numPlayers;
-            GameState.currentPlayerIndex = current;
+//            System.out.println("Next turn: "+nextTurn+", Current index: "+GameState.currentPlayerIndex);
+//            int current = (nextTurn + (GameState.numPlayers - 1)) % GameState.numPlayers;
+//            if (current == 0) current = GameState.numPlayers;
+//            GameState.currentPlayerIndex = current;
             GameState.iterateForward = true;
 
             cardAssignment(true, 0);
-            MainLabel.setText("Game Started! Player " + current + " roll the dice!");
+            MainLabel.setText("Game Started! Player " + GameState.currentPlayerIndex + " roll the dice!");
             ActivityLog.appendText("---Round " + GameState.round + "---\n");
             RollDiceButton.setDisable(false);
         } else if (GameState.gameStarted) {
+            for(DevCard dc: GameState.currentPlayer.getDevDeck()) {
+                dc.setJustBought(false);
+            }
             GameState.currentPlayerIndex = nextTurn;
             MainLabel.setText("Round " + GameState.round + "! Player " + nextTurn + " roll the dice!");
             ActivityLog.appendText("---Round " + GameState.round + "---\n");
@@ -1912,6 +2098,7 @@ public class GameBoardController {
     }
 
     public void openResourcePanel(int playerIndex) {
+        removeCardsButton.setDisable(true);
         for (int i = 0; i < playerCards.length; i++) {
             playerCards[i].setImage(null);
         }
@@ -1933,7 +2120,6 @@ public class GameBoardController {
             ArrayList<ResourceCard> deck = GameState.playerMap.get(GameState.removePlayerIndex).getResourceDeck();
             if(deck.size() < 7) {
                 ResourceViewText.setText("Player " + playerIndex+", please press Exit; You don't need to remove cards");
-                removeCardsButton.setDisable(true);
             } else {
                 exitResourcePanelButton.setDisable(true);
                 removeCardsButton.setDisable(false);
@@ -2040,9 +2226,10 @@ public class GameBoardController {
     public void steal() {
         stealCardButton.setDisable(true);
         String playerToSteal = stealDropdown.getValue();
-        if(stealDropdown == null) {
+        if(playerToSteal == null) {
             stealErrorMessage.setVisible(true);
             stealErrorMessage.setText("Please choose a Player to steal from!");
+            stealCardButton.setDisable(false);
         } else {
             int playerNum = Integer.parseInt(playerToSteal.substring(7,8));
             if(GameState.playerMap.get(playerNum).getResourceDeck().isEmpty()) {
@@ -2097,20 +2284,120 @@ public class GameBoardController {
         removeCardsButton.setVisible(true);
     }
 
+    public void openDevPanel(int playerIndex) {
+        devCardErrorMessage.setVisible(false);
+        devCardLabel.setText("Player "+playerIndex+"'s Dev Card Deck");
+        for(Pane pane: devCardPanes) {
+            pane.setStyle(null);
+        }
+        for(int i = 0; i < GameState.playerMap.get(playerIndex).getDevDeck().size(); i++) {
+            devCards[i].setImage(GameState.playerMap.get(playerIndex).getDevDeck().get(i).getImage());
+        }
+        devCardPanel.setVisible(true);
+    }
+
+    public void closeDevPanel() {
+        for(int i = 0; i< devCards.length; i++) {
+            devCards[i].setImage(null);
+        }
+        devCardPanel.setVisible(false);
+    }
+
+    public void highlightDevPane(int index) {
+        for(Pane pane: devCardPanes) {
+            pane.setStyle(null);
+        }
+        GameState.selectedDevCardIndex = index;
+        devCardPanes[index].setStyle("-fx-border-color: seagreen");
+    }
+
+    @FXML
+    public void useDevCard() {
+        Player player = GameState.currentPlayer;
+        DevCard card = player.getDevDeck().get(GameState.selectedDevCardIndex);
+        String type = card.getType();
+        if(card.getIsVictory()) {
+            devCardErrorMessage.setVisible(true);
+            devCardErrorMessage.setText("You can't use a Victory Point card!");
+        } else if(card.isJustBought()){
+            devCardErrorMessage.setVisible(true);
+            devCardErrorMessage.setText("Cannot play a development card just bought!");
+        }
+        else {
+            devCardErrorMessage.setVisible(true);
+            devCardErrorMessage.setText("Work in Progress.");
+        }
+    }
+
+    @FXML
+    void devCardPanePressed1(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 0) {
+            highlightDevPane(0);
+            useDevCardButton.setDisable(false);
+        }
+    }
+
+    @FXML
+    void devCardPanePressed2(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 1) {
+            highlightDevPane(1);
+            useDevCardButton.setDisable(false);
+        }
+    }
+
+    @FXML
+    void devCardPanePressed3(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 2) {
+            highlightDevPane(2);
+            useDevCardButton.setDisable(false);
+        }
+    }
+
+    @FXML
+    void devCardPanePressed4(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 3) {
+            highlightDevPane(3);
+            useDevCardButton.setDisable(false);
+        }
+    }
+
+    @FXML
+    void devCardPanePressed5(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 4) {
+            highlightDevPane(4);
+            useDevCardButton.setDisable(false);
+        }
+    }
+
+    @FXML
+    void devCardPanePressed6(MouseEvent event) {
+        if(GameState.playerMap.get(GameState.currentPlayerIndex).getDevDeck().size() > 5) {
+            highlightDevPane(5);
+            useDevCardButton.setDisable(false);
+        }
+    }
     @FXML
     public void showDevView1() {
+        if ((GameState.isOthersTrading || GameState.currentPlayerIndex == 1) && !GameState.isRemovingCards) openDevPanel(1);
+        else MainLabel.setText("You can only view your Dev Card Deck!");
     }
 
     @FXML
     public void showDevView2() {
+        if ((GameState.isOthersTrading || GameState.currentPlayerIndex == 2) && !GameState.isRemovingCards) openDevPanel(2);
+        else MainLabel.setText("You can only view your Dev Card Deck!");
     }
 
     @FXML
     public void showDevView3() {
+        if ((GameState.isOthersTrading || GameState.currentPlayerIndex == 3) && !GameState.isRemovingCards) openDevPanel(3);
+        else MainLabel.setText("You can only view your Dev Card Deck!");
     }
 
     @FXML
     public void showDevView4() {
+        if ((GameState.isOthersTrading || GameState.currentPlayerIndex == 4) && !GameState.isRemovingCards) openDevPanel(4);
+        else MainLabel.setText("You can only view your Dev Card Deck!");
     }
 
     @FXML
@@ -2966,5 +3253,12 @@ public class GameBoardController {
     void TokenNullPressed(MouseEvent event) {
         moveRobber(18);
     }
-
+    @FXML
+    void confirmButtonClicked() {
+        MainLabel.setText("You pressed a button. Nothing happened.");
+    }
+    @FXML
+    void cancelButtonClicked() {
+        MainLabel.setText("You pressed a button. Nothing happened.");
+    }
 }

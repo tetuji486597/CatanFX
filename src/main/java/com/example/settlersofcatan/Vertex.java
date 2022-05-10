@@ -13,6 +13,7 @@ public class Vertex {
     private ArrayList<Vertex> adjacentVertices;
     private ArrayList<Edge> adjacentEdges;
     private ArrayList<Tile> adjacentTiles;
+    private boolean isCity;
     private Port myPort;
     private boolean hasPort;
 
@@ -20,6 +21,7 @@ public class Vertex {
         playerIndex = -1;
         myPort = null;
         hasPort = false;
+        isCity = false;
         adjacentVertices = new ArrayList<>();
         adjacentEdges = new ArrayList<>();
         boardIndex = index;
@@ -47,6 +49,8 @@ public class Vertex {
     public Port getPort() {
         return myPort;
     }
+    public void setIsCity(boolean isCity) {this.isCity = isCity;}
+    public boolean getIsCity() {return isCity;}
     public void setHasPort(boolean hasPort) {
         this.hasPort = hasPort;
     }

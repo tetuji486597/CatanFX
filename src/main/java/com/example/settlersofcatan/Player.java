@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class Player {
-    private int victoryPoints;
     private int cardCount;
+    private int victoryPointsFromDevCard;
     //Anjie: I changed color to public bc I need to access it
     //in Settlement & City classes (according to UML)
     private String color;
@@ -42,6 +42,7 @@ public class Player {
                 break;
         }
         this.index = index;
+        victoryPointsFromDevCard = 0;
         roads = new ArrayList<>();
         resourceDeck = new ArrayList<>();
         devDeck = new ArrayList<>();
@@ -49,11 +50,35 @@ public class Player {
         cities = new ArrayList<>();
     }
 
+    public ArrayList<DevCard> getDevDeck() {
+        return devDeck;
+    }
+
+    public void addDevCard(DevCard devCard) {
+        devDeck.add(devCard);
+    }
+    public void removeDevCard(DevCard devCard) {
+        for(int i = 0; i < devDeck.size(); i++) {
+            if(devDeck.get(i).getType().equals(devCard.getType())) devDeck.remove(i);
+        }
+    }
+    public void newVictoryPoint() {
+        victoryPointsFromDevCard++;
+    }
     public void addRoad(Edge edge) {
         roads.add(edge);
     }
     public void addSettlement(Vertex vertex) {
         settlements.add(vertex);
+    }
+    public void addCity(Vertex vertex) {cities.add(vertex);}
+    public void removeSettlement(Vertex vertex) {
+        for(int i = 0; i< settlements.size(); i++) {
+            if(settlements.get(i).getBoardIndex() == (vertex.getBoardIndex())) {
+                settlements.remove(i);
+                break;
+            }
+        }
     }
     public String getColor() {
         return color;
@@ -138,12 +163,9 @@ public class Player {
         }
 
     public int getVictoryPoints(){
-        return victoryPoints;
+        return settlements.size() + 2*cities.size()+victoryPointsFromDevCard;
     }
-    public int setVictoryPoints(int points){
-        victoryPoints = points;
-        return points;
-    }
+
 
     public int getIndex() {
         return index;

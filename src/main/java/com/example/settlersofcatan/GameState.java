@@ -50,6 +50,10 @@ public class GameState {
     public static int removePlayerIndex;
     public static int numCardsRemove;
     public static int[] selectedCards;
+    public static int selectedDevCardIndex;
+    public static boolean nextTurnOnEdge;
+    public static boolean isBuildingCity;
+    public static boolean isBuilding;
     public static ArrayList<Integer> stealablePlayers;
     public static String selectedItem;
     public static HashMap<String, ArrayList<String>> shop;
@@ -58,10 +62,14 @@ public class GameState {
         desertTokenIndex = 0;
         round = 1;
         iterateForward = true;
+        selectedDevCardIndex = -1;
+        nextTurnOnEdge = true;
         firstSettlementsPlaced = false;
+        isBuilding = false;
         lastEdgePlaced = false;
         gameStarted = false;
         isRemovingCards = false;
+        isBuildingCity = false;
         this.numPlayers = numPlayers;
         removePlayerIndex = 0;
         firstPlayerIndex = -1;
@@ -207,6 +215,7 @@ public class GameState {
                 isVictory = true;
             devBank.push(new DevCard(thisCard, isVictory));
         }
+        Collections.shuffle(devBank);
         tiles[0].setVertices(new Vertex[]{allVertices[0], allVertices[3], allVertices[4], allVertices[7], allVertices[8], allVertices[12]});
         tiles[1].setVertices(new Vertex[]{allVertices[1], allVertices[4], allVertices[5], allVertices[8], allVertices[9], allVertices[13]});
         tiles[2].setVertices(new Vertex[]{allVertices[2], allVertices[5], allVertices[6], allVertices[9], allVertices[10], allVertices[14]});
@@ -631,10 +640,6 @@ public class GameState {
 
     public void giveResources() {
 
-    }
-
-    public void incrementVictory(Player player) {
-        player.setVictoryPoints(player.getVictoryPoints() + 1);
     }
 
     public void setUp() {
