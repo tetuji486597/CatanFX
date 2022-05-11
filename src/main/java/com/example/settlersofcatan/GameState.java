@@ -54,12 +54,19 @@ public class GameState {
     public static boolean nextTurnOnEdge;
     public static boolean isBuildingCity;
     public static boolean isBuilding;
+    public static int longestRoad;
+    public static int playerWithLongestRoad;
+    public static boolean knightPlayed;
+    public static boolean roadBuildingPlayed;
     public static ArrayList<Integer> stealablePlayers;
     public static String selectedItem;
     public static HashMap<String, ArrayList<String>> shop;
 
     public GameState(int numPlayers) {
         desertTokenIndex = 0;
+        knightPlayed = false;
+        roadBuildingPlayed = false;
+        longestRoad = -1;
         round = 1;
         iterateForward = true;
         selectedDevCardIndex = -1;
@@ -201,9 +208,9 @@ public class GameState {
         allDevCards.add("Chapel");
         allDevCards.add("Market");
         allDevCards.add("GreatHall");
-        for (int i = 0; i < 2; i++) allDevCards.add("YearOfPlenty");
+//        for (int i = 0; i < 2; i++) allDevCards.add("YearOfPlenty");
         for (int i = 0; i < 2; i++) allDevCards.add("RoadBuilding");
-        for (int i = 0; i < 2; i++) allDevCards.add("Monopoly");
+//        for (int i = 0; i < 2; i++) allDevCards.add("Monopoly");
         for (int i = 0; i < allDevCards.size(); i++) {
             boolean isVictory = false;
             String thisCard = allDevCards.get(i);
@@ -572,35 +579,35 @@ public class GameState {
 
     }
 
-    public int getLongestRoad() {
-        HashMap<Integer, Integer> indexToRoadLength = new HashMap<>();
-        for (int i = 0; i < 72; i++) {
-            boolean[] visited = new boolean[72];
-            if (allEdges[i].getPlayerIndex() >= 0) {
-                int roadLength = dfs(allEdges[i], visited, 0);
-                if (indexToRoadLength.get(allEdges[i].getPlayerIndex()) == null || roadLength > indexToRoadLength.get(allEdges[i].getPlayerIndex())) {
-                    indexToRoadLength.put(allEdges[i].getPlayerIndex(), roadLength);
-                }
-            }
-        }
-        int longestRoad = 0;
-        int longestRoadPlayerIndex = -1;
-        for (int player : indexToRoadLength.keySet()) {
-            if (longestRoad > indexToRoadLength.get(player)) {
-                longestRoad = indexToRoadLength.get(player);
-                longestRoadPlayerIndex = player;
-            }
-        }
-        return longestRoadPlayerIndex;
-    }
-
-    public int dfs(Edge edge, boolean[] visited, int count) {
-        if (visited[edge.getBoardIndex()] || edge.getAdjacentEdges().isEmpty()) return count;
-        for (Edge surround : edge.getAdjacentEdges()) {
-            return dfs(surround, visited, count + 1);
-        }
-        return -1;
-    }
+//    public int getLongestRoad() {
+//        HashMap<Integer, Integer> indexToRoadLength = new HashMap<>();
+//        for (int i = 0; i < 72; i++) {
+//            boolean[] visited = new boolean[72];
+//            if (allEdges[i].getPlayerIndex() >= 0) {
+//                int roadLength = dfs(allEdges[i], visited, 0);
+//                if (indexToRoadLength.get(allEdges[i].getPlayerIndex()) == null || roadLength > indexToRoadLength.get(allEdges[i].getPlayerIndex())) {
+//                    indexToRoadLength.put(allEdges[i].getPlayerIndex(), roadLength);
+//                }
+//            }
+//        }
+//        int longestRoad = 0;
+//        int longestRoadPlayerIndex = -1;
+//        for (int player : indexToRoadLength.keySet()) {
+//            if (longestRoad > indexToRoadLength.get(player)) {
+//                longestRoad = indexToRoadLength.get(player);
+//                longestRoadPlayerIndex = player;
+//            }
+//        }
+//        return longestRoadPlayerIndex;
+//    }
+//
+//    public int dfs(Edge edge, boolean[] visited, int count) {
+//        if (visited[edge.getBoardIndex()] || edge.getAdjacentEdges().isEmpty()) return count;
+//        for (Edge surround : edge.getAdjacentEdges()) {
+//            return dfs(surround, visited, count + 1);
+//        }
+//        return -1;
+//    }
 
 
     //also checks if taken by another player

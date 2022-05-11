@@ -20,6 +20,7 @@ public class Player {
     private ArrayList<Edge> roads;
     private ArrayList<Vertex> settlements;
     private ArrayList<Vertex> cities;
+    private boolean hasLongestRoad;
 
     public Player(String color, int index) {
         this.color = color;
@@ -57,10 +58,14 @@ public class Player {
     public void addDevCard(DevCard devCard) {
         devDeck.add(devCard);
     }
-    public void removeDevCard(DevCard devCard) {
-        for(int i = 0; i < devDeck.size(); i++) {
-            if(devDeck.get(i).getType().equals(devCard.getType())) devDeck.remove(i);
-        }
+    public void removeDevCard(int index) {
+        devDeck.remove(index);
+    }
+    public void setHasLongestRoad(boolean hasLongestRoad) {
+        this.hasLongestRoad = hasLongestRoad;
+    }
+    public boolean getHasLongestRoad() {
+        return hasLongestRoad;
     }
     public void newVictoryPoint() {
         victoryPointsFromDevCard++;
@@ -163,7 +168,7 @@ public class Player {
         }
 
     public int getVictoryPoints(){
-        return settlements.size() + 2*cities.size()+victoryPointsFromDevCard;
+        return hasLongestRoad ? settlements.size() + 2*cities.size()+victoryPointsFromDevCard+2 : settlements.size() + 2*cities.size()+victoryPointsFromDevCard;
     }
 
 

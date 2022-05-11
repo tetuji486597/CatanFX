@@ -980,6 +980,11 @@ public class GameBoardController {
     @FXML
     private Text bankDisabledText;
     @FXML
+    private Label longestRoadLabel;
+    @FXML
+    private Label victoryPointsLabel;
+
+    @FXML
     public void initialize() throws FileNotFoundException {
         GameState.controller = this;
         color2label = new HashMap<>();
@@ -1258,7 +1263,6 @@ public class GameBoardController {
         ConfirmButton.setDisable(true);
         CancelButton.setDisable(true);
         BuildButton.setDisable(true);
-        TradeButton.setDisable(true);
         EndTurnButton.setDisable(true);
         int numRoadsRemaining = GameState.currentPlayer.getRoadsRemaining();
         if (numRoadsRemaining <= 0) {
@@ -1316,7 +1320,6 @@ public class GameBoardController {
             } else {
                 GameState.isBuilding = true;
                 BuildButton.setDisable(true);
-                TradeButton.setDisable(true);
                 EndTurnButton.setDisable(true);
                 ArrayList<String> resourcesNeeded = GameState.shop.get(GameState.selectedItem);
                 ArrayList<String> toRemove = new ArrayList<>(resourcesNeeded);
@@ -1381,7 +1384,6 @@ public class GameBoardController {
         currentPlayer.addDevCard(GameState.devBank.pop());
         appendBoth("Player "+GameState.currentPlayerIndex+" bought a Dev Card");
         BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
     }
 
@@ -1416,7 +1418,6 @@ public class GameBoardController {
         ConfirmButton.setDisable(false);
         CancelButton.setDisable(false);
         BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
     }
 
@@ -1492,7 +1493,6 @@ public class GameBoardController {
         ConfirmButton.setDisable(false);
         CancelButton.setDisable(false);
         BuildButton.setDisable(false);
-        TradeButton.setDisable(false);
         EndTurnButton.setDisable(false);
     }
 
@@ -1727,7 +1727,7 @@ public class GameBoardController {
                 GameState.isOthersTrading = true;
                 int numRequested = requestSpinner.getValue();
                 if (count >= numOffered) {
-                    tradeErrorMessage.setVisible(false);
+                    othersTradeErrorMessage.setVisible(false);
                     othersTradePanel.setVisible(true);
                     int nextPlayer = (currentPlayer.getIndex() % GameState.numPlayers) + 1;
                     othersTradeTitle.setText("Player " + nextPlayer + ", do you accept?");
@@ -1914,7 +1914,12 @@ public class GameBoardController {
         }
 
         System.out.println("token number " + GameState.robberTokenIndex);
-        MainLabel.setText("Now steal from an opponent or end your turn");
+        if(!GameState.knightPlayed) {
+            MainLabel.setText("Now steal from an opponent or end your turn");
+        } else {
+            MainLabel.setText("Now steal from an opponent");
+            GameState.knightPlayed = false;
+        }
 //        if(GameState.pos[GameState.robberTokenIndex][0]== GameState.tokenMap.get("Desert")[0] && ) tokenViews[GameState.robberTokenIndex].setImage(null);
         tokenViews[tokenLocation].setImage((Image) Initialize.robber.getValue());
         String oldPos = Arrays.toString(GameState.tokenPos[GameState.robberTokenIndex]);
@@ -1960,7 +1965,6 @@ public class GameBoardController {
 
                 GameState.allVertices[index].setIsCity(true);
                 GameState.isBuildingCity = false;
-                TradeButton.setDisable(false);
                 BuildButton.setDisable(false);
                 EndTurnButton.setDisable(false);
                 for(Rectangle rect: VertexMarkers) {
@@ -1982,7 +1986,6 @@ public class GameBoardController {
             GameState.currentPlayer.addSettlement(GameState.allVertices[index]);
             if(GameState.isBuilding) {
                 appendBoth("Player "+ GameState.currentPlayerIndex+" built a settlement!");
-                TradeButton.setDisable(false);
                 BuildButton.setDisable(false);
                 EndTurnButton.setDisable(false);
                 GameState.isBuilding = false;
@@ -2006,8 +2009,21 @@ public class GameBoardController {
             if (GameState.allEdges[i].getPlayerIndex() <= 0) EdgeMarkers[i].setVisible(false);
         }
         EdgeMarkers[index].setVisible(true);
+        int roadLength = dfs(GameState.allEdges[index], new boolean[72], 1);
+        if(roadLength > GameState.longestRoad) {
+            GameState.longestRoad = roadLength;
+            GameState.playerWithLongestRoad = GameState.currentPlayerIndex;
+            longestRoadLabel.setText("Player "+ GameState.currentPlayerIndex+" has the longest road of length "+roadLength);
+            if(roadLength >= 5) {
+                GameState.currentPlayer.setHasLongestRoad(true);
+                longestRoadLabel.setText("Player "+ GameState.currentPlayerIndex+" awarded 2 VPs for road of length "+roadLength);
+            }
+        }
+        if(GameState.roadBuildingPlayed) {
+            placeEdge();
+            GameState.roadBuildingPlayed = false;
+        }
         if(GameState.isBuilding) {
-            TradeButton.setDisable(false);
             BuildButton.setDisable(false);
             EndTurnButton.setDisable(false);
             GameState.isBuilding = false;
@@ -2019,6 +2035,18 @@ public class GameBoardController {
             placeSettlement();
         }
     }
+
+
+    public int dfs(Edge edge, boolean[] visited, int count) {
+        visited[edge.getBoardIndex()] = true;
+        for(Edge surround: edge.getAdjacentEdges()) {
+            if(!visited[surround.getBoardIndex()] && surround.getPlayerIndex() == GameState.currentPlayerIndex) {
+                return dfs(surround, visited, count + 1);
+            }
+        }
+        return count;
+    }
+
 
     public void cardAssignment(boolean isFirst, int numRolled) {
         GameState.cardAssignment(isFirst, numRolled);
@@ -2236,7 +2264,7 @@ public class GameBoardController {
                 stealErrorMessage.setVisible(true);
                 stealErrorMessage.setText("You tried but stole nothing!");
             } else {
-                int limit = GameState.playerMap.get(playerNum).getResourceDeck().size() - 1;
+                int limit = GameState.playerMap.get(playerNum).getResourceDeck().size();
                 Random rand = new Random();
                 int toRemove = rand.nextInt(limit);
                 String resource = GameState.playerMap.get(playerNum).getResourceDeck().get(toRemove).getType();
@@ -2287,6 +2315,7 @@ public class GameBoardController {
     public void openDevPanel(int playerIndex) {
         devCardErrorMessage.setVisible(false);
         devCardLabel.setText("Player "+playerIndex+"'s Dev Card Deck");
+        victoryPointsLabel.setText("You have "+GameState.currentPlayer.getVictoryPoints()+" victory points");
         for(Pane pane: devCardPanes) {
             pane.setStyle(null);
         }
@@ -2324,8 +2353,23 @@ public class GameBoardController {
             devCardErrorMessage.setText("Cannot play a development card just bought!");
         }
         else {
-            devCardErrorMessage.setVisible(true);
-            devCardErrorMessage.setText("Work in Progress.");
+            devCardPanel.setVisible(false);
+            GameState.currentPlayer.removeDevCard(GameState.selectedDevCardIndex);
+            EndTurnButton.setDisable(true);
+            BuildButton.setDisable(true);
+            switch(type) {
+                case "Knight":
+                    GameState.knightPlayed = true;
+                    appendBoth("Click on a Number Token to Move the Robber to Another Tile" + "\n");
+                    for (ImageView i : tokenViews) {
+                        i.setDisable(false);
+                    }
+                    break;
+                case "RoadBuilding":
+                    MainLabel.setText("Place two roads");
+                    placeEdge();
+                    break;
+            }
         }
     }
 
